@@ -1,0 +1,30 @@
+.container {
+    padding: 30px;
+}
+
+.card {
+    max-width: 36rem;
+    padding: 30px;
+    margin: 3rem auto 6rem;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+            Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
+            sans-serif;
+    border: 1px solid #e0e0e0;
+    border-radius: 25px;
+    transition: 100ms;
+}
+
+.card:hover {
+    border: 1px solid #006eff;
+    color: #006eff;
+}
+
+.card img {
+    border-radius: 25px;
+}
+  
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
