@@ -64,7 +64,7 @@ export default function Layout({ children, home }) {
           </Link>
           <br />
           <Link href="/">
-              <a className="footer">Cramer's Rule</a>
+              <a className="footer">Cramer&apos;s Rule</a>
           </Link>
           <br />
           <Link href="/">
@@ -126,7 +126,7 @@ export default function Layout({ children, home }) {
     </h5>
     <h5 style={{ flexDirection: "row", marginLeft: "auto" }} className="grey">
       <a href="https://www.youtube.com/watch?v=X7qXk1PFqcw" className="footer">
-        And that's the end! ^-^
+        And that&apos;s the end! ^-^
       </a>
     </h5>
   </div>
