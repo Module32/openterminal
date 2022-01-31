@@ -3,6 +3,7 @@ import styles from './layout.module.css'
 import Link from 'next/link'
 import Image from 'next/image'
 import React, { useEffect, useState } from "react"
+import Favicon from 'react-favicon';
 
 const name = 'Module64'
 export const siteTitle = 'Open Terminal'
@@ -11,12 +12,12 @@ export default function Layout({ children, home }) {
   return (
     <div className={styles.container}>
       <Head>
-        <link rel="icon" href="/pics/ot-logo.png" />
         <meta property="og:description" content="Open Terminal is focused on delivering software and hardware solutions for all people. Find tools that help you create, teach, and do things better." />
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
         <title>Open Terminal - Creating for all</title>
       </Head>
+      <Favicon url="../public/pics/ot-logo.png"/>
       <header className={styles.header}>
           <>
           <ul>

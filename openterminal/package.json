@@ -12,6 +12,7 @@
     "next": "12.0.9",
     "react": "17.0.2",
     "react-dom": "17.0.2",
+    "react-favicon": "0.0.26",
     "react-text-loop": "^2.3.0"
   },
   "devDependencies": {
