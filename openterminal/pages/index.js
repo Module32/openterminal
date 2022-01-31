@@ -10,7 +10,7 @@ export default function FirstPost() {
           <Layout>
             <div className="hometop">
               <div className="hometopcontent">
-              <h1 style={{fontWeight: 750, fontSize: '160px', margin: 10, paddingTop: 30}}><TextLoop mask={true}>
+              <h1 style={{fontWeight: 700, fontSize: '160px', margin: 10, paddingTop: 30}}><TextLoop mask={true}>
                     <span style={{color: '#43AA8B'}}>Create</span>
                     <span style={{color: '#EF3054'}}>Develop</span>
                     <span style={{color: '#FF6F59'}}>Teach</span>
