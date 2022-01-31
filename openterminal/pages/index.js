@@ -2,7 +2,9 @@ import Link from 'next/link'
 import Image from 'next/image'
 import Head from 'next/head'
 import Layout from '../components/layout'
-import TextLoop from "react-text-loop";
+import TextLoop from "react-text-loop"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowRight } from '@fortawesome/fontawesome-free-solid'
 
 export default function FirstPost() {
     return (
@@ -18,7 +20,7 @@ export default function FirstPost() {
                   </TextLoop>{" "} faster<br />than ever.</h1>
                   <p style={{paddingBottom: 30}}>Open Terminal is where innovations begin. Started for developers, OT now builds products with all creatives in mind.</p>
                   <Link href="">
-                    <a className="padding" style={{marginTop: '-30px'}}>Explore solutions</a>
+                    <a className="padding" style={{marginTop: '-30px'}}>Explore solutions <FontAwesomeIcon icon="arrow-right" /></a>
                   </Link>
                 </div>
             </div>
