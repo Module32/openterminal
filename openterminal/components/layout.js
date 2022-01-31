@@ -51,21 +51,25 @@ export default function Layout({ children, home }) {
       <h4>Products</h4>
       <div className="grey" style={{ marginTop: "-10px", fontSize: 15 }}>
         <p>
-          <a href="/" className="footer">
-            Marble
-          </a>
+          <Link href="/">
+              <a className="footer">Marble</a>
+          </Link>
           <br />
-          <a href="/" className="footer">
-            UnlockAPI
-          </a>
+          <Link href="/">
+              <a className="footer">UnlockAPI</a>
+          </Link>
           <br />
-          <a href="/" className="footer">
-            Lexicon
-          </a>
+          <Link href="/">
+              <a className="footer">Lexicon</a>
+          </Link>
           <br />
-          <a href="/" className="footer">
-            Cramer's Rule
-          </a>
+          <Link href="/">
+              <a className="footer">Cramer's Rule</a>
+          </Link>
+          <br />
+          <Link href="/">
+              <a className="footer">Dihybrids</a>
+          </Link>
         </p>
       </div>
     </div>
@@ -73,13 +77,13 @@ export default function Layout({ children, home }) {
       <h4>Sectors</h4>
       <div className="grey" style={{ marginTop: "-10px", fontSize: 15 }}>
         <p>
-          <a href="/" className="footer">
-            Development
-          </a>
+          <Link href="/">
+              <a className="footer">Development</a>
+          </Link>
           <br />
-          <a href="/" className="footer">
-            Education
-          </a>
+          <Link href="/">
+              <a className="footer">Education</a>
+          </Link>
         </p>
       </div>
     </div>
@@ -87,9 +91,9 @@ export default function Layout({ children, home }) {
       <h4>Initiatives</h4>
       <div className="grey" style={{ marginTop: "-10px", fontSize: 15 }}>
         <p>
-          <a href="/" className="footer">
-            Bot Building Site
-          </a>
+          <Link href="/">
+              <a className="footer">Bot Building Site</a>
+          </Link>
         </p>
       </div>
     </div>
@@ -97,17 +101,17 @@ export default function Layout({ children, home }) {
       <h4>Legal</h4>
       <div className="grey" style={{ marginTop: "-10px", fontSize: 15 }}>
         <p>
-          <a href="/tos" className="footer">
-            Terms of Service
-          </a>
+          <Link href="/">
+              <a className="footer">Terms of Service</a>
+          </Link>
           <br />
-          <a href="/" className="footer">
-            Privacy Policy
-          </a>
+          <Link href="/">
+              <a className="footer">Privacy Policy</a>
+          </Link>
           <br />
-          <a href="/assets" className="footer">
-            Website assets
-          </a>
+          <Link href="/">
+              <a className="footer">Assets</a>
+          </Link>
         </p>
       </div>
     </div>
@@ -115,8 +119,9 @@ export default function Layout({ children, home }) {
   <hr style={{ backgroundColor: "rgb(110, 110, 110)" }} />
   <div style={{ display: "flex", marginTop: "-5px" }}>
     <h5 className="grey">
-      ©2021- | Open Terminal Company, managed by Ekya Dogra and Brinmeet Soin.{" "}
-      <a href="mailto: OpenTerminalCo@gmail.com">Email us</a> for questions or
+      ©2021- | Open Terminal Company, managed by Ekya Dogra and Brinmeet Soin.{" "} <Link href="mailto: OpenTerminalCo@gmail.com">
+          <a className="footer">Email us</a>
+        </Link> for questions or
       support.
     </h5>
     <h5 style={{ flexDirection: "row", marginLeft: "auto" }} className="grey">
