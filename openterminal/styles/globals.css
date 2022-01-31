@@ -40,6 +40,7 @@ li {
 a.navbar {
   all: revert;
   color: white;
+  text-decoration: none;
 }
 
 a.navbar:hover {
