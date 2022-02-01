@@ -4,7 +4,11 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "@fortawesome/fontawesome-free-solid": "^5.0.13",
+    "@fortawesome/react-fontawesome": "^0.1.17",
     "next": "^12.0.9",
+    "react": "^17.0.2",
+    "react-favicon": "0.0.26",
     "react-text-loop": "^2.3.0"
   },
   "devDependencies": {},
