@@ -34,7 +34,7 @@ export default function FirstPost() {
                     width='700px'
                     height='480px'
                   />
-                  <h1>Reliable code. Everyday, any day.<br /><p style={{fontSize:'17px'}}>At Open Terminal, we're all about optimizing our software and finding new ways to make our code more efficient. Each product is developed and maintained with precision.<br /><br />
+                  <h1>Reliable code. Everyday, any day.<br /><p style={{fontSize:'17px'}}>At Open Terminal, we&quot;re all about optimizing our software and finding new ways to make our code more efficient. Each product is developed and maintained with precision.<br /><br />
                     <Link href="">
                       <a>Find tools now <FontAwesomeIcon icon="arrow-circle-right" /></a>
                     </Link>
@@ -74,7 +74,7 @@ export default function FirstPost() {
 
             <div className="waves">
               <Fade up>
-                <h1 style={{paddingBottom: '10px'}}>Let's create a new future today</h1>
+                <h1 style={{paddingBottom: '10px'}}>Let&quot;s create a new future today</h1>
                 <Link href="">
                       <a className="padding">Sign up</a>
                     </Link>
