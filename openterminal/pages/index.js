@@ -80,7 +80,6 @@ export default function FirstPost() {
                     </Link>
               </Fade>
             </div>
-            
         </Layout>
         </>
     )
