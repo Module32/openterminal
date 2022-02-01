@@ -12,7 +12,7 @@ export default function FirstPost() {
         <>
           <Layout>
             <div className="hometop">
-              <h1 style={{fontWeight: 700, fontSize: '160px', margin: 10, paddingTop: 70, paddingBottom: 30}}><TextLoop mask={true} interval={850}>
+              <h1 style={{fontWeight: 700, fontSize: '160px', margin: 10, paddingTop: 70, paddingBottom: 30}}><TextLoop mask={true} interval={1000}>
                     <span style={{color: '#43AA8B'}}>Create</span>
                     <span style={{color: '#EF3054'}}>Develop</span>
                     <span style={{color: '#FF6F59'}}>Teach</span>
