@@ -3,6 +3,8 @@ import styles from './layout.module.css'
 import Link from 'next/link'
 import Image from 'next/image'
 import React, { useEffect, useState } from "react"
+import { faCaretDown } from '@fortawesome/fontawesome-free-solid'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Favicon from 'react-favicon';
 
 const name = 'Module64'
@@ -30,7 +32,7 @@ export default function Layout({ children, home }) {
             </Link></li>
 
             <li><Link href="/">
-              <a className="navbar">Solutions</a>
+              <a className="navbar">Solutions <FontAwesomeIcon icon="caret-down" /></a>
             </Link></li>
             
             <div className="totheright">
