@@ -25,7 +25,7 @@ export default function FirstPost() {
                   </div>
                   <Fade up>
                     <h1 style={{fontSize: '35px'}}><span style={{backgroundColor: 'white', padding: '5px', margin: '5px', color: 'black', borderRadius: '15px'}}>Open Terminal is where <span style={{color: '#43AA8B'}}>inn</span><span style={{color: '#EF3054'}}>ova</span><span style={{color: '#574AE2'}}>ti</span><span style={{color: '#FF6F59'}}>ons</span> begin.</span></h1>
-                    <h4>Started for developers, OT now builds products with all creatives in mind.<br />Our developers have a huge focus on bringing viable technologies to help people in all professions, especially developers.</h4>
+                    <h3>Started for developers, OT now builds products with all creatives in mind.<br />We have a huge focus on bringing viable technologies for people in all professions, especially developers.</h3>
                   </Fade>
                   <div className="infocard" style={{margin: 'auto'}}>
                   <Fade up>
@@ -34,7 +34,7 @@ export default function FirstPost() {
                     width='700px'
                     height='480px'
                   />
-                  <h1>Reliable code. Everyday, any day.<br /><p style={{fontSize:'17px'}}>At Open Terminal, we&apos;re all about optimizing our software and finding new ways to make our code more efficient. Each product is developed and maintained with precision.<br /><br />
+                  <h1>Reliable code. Everyday, any day.<br /><p style={{fontSize:'17px'}}>At Open Terminal, we&apos;re all about optimizing our software and making it more efficient. Each product is developed and maintained with precision.<br /><br />
                     <Link href="">
                       <a>Find tools now <FontAwesomeIcon icon="arrow-circle-right" /></a>
                     </Link>
@@ -44,7 +44,7 @@ export default function FirstPost() {
 
                   <div className="infocard" style={{margin: 'auto'}}>
                   <Fade up>
-                  <h1>Stick to what you <FontAwesomeIcon icon="heart" />. No changes.<br /><p style={{fontSize:'17px'}}>No need to change your entire workflow and environment. Our products make it easy to get set up with your existing tools and get going quickly.<br /><br />
+                  <h1>Stick to what you <FontAwesomeIcon icon="heart" />. No changes.<br /><p style={{fontSize:'17px'}}>No need to adjust your entire workflow and environment. Our products make it easy to set up your existing tools and get going quickly.<br /><br />
                     <Link href="">
                       <a>Discover more <FontAwesomeIcon icon="arrow-circle-right" /></a>
                     </Link>
