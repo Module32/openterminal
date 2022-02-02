@@ -95,7 +95,7 @@ a.navbar:hover {
 }
 
 a.padding {
-  all: revert;
+  text-decoration: none;
   padding: 15px 30px;
   border-radius: 10px;
   background-color: white;
