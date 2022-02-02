@@ -64,9 +64,18 @@ hr {
   background-color: rgb(224, 224, 224);
 }
 
-.hometop {
-  text-align: center;
-  padding: 50px;
+@media screen and (max-width: 767px) {
+  .hometop {
+    text-align: center;
+    padding: 25px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .hometop {
+    text-align: center;
+    padding: 50px;
+  }
 }
 
 .homepage-top-img {
