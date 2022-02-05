@@ -5,11 +5,13 @@ import Image from 'next/image'
 import React, { useEffect, useState } from "react"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Favicon from 'react-favicon';
+import { useSession, signIn, signOut } from "next-auth/react"
 
 const name = 'Module64'
 export const siteTitle = 'Open Terminal'
 
 export default function Layout({ children, home }) {
+  const { data: session } = useSession()
   return (
     <div className={styles.container}>
       <Head>
@@ -35,12 +37,7 @@ export default function Layout({ children, home }) {
             </Link></li>
             
             <div className="totheright">
-              <li><Link href="/">
-                <a className="navbar">Sign up</a>
-              </Link></li>
-              <li><Link href="/">
-                <a className="padding" style={{padding:'12px 20px'}}>Log in</a>
-              </Link></li>
+              {session? <li>{session.user.username}</li>: <li><button onClick={() => signIn()} style={{marginTop: '-15px'}}>Log in</button></li> }
             </div>
           </ul>
           </>
