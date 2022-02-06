@@ -114,6 +114,17 @@ a.padding:hover, button:hover {
   cursor: pointer;
 }
 
+button.red {
+  background-color: #f51d1d;
+  color: white;
+  border: 1px solid #f51d1d;
+}
+
+button.red:hover {
+  background-color: rgb(0, 0, 0, 0);
+  color: #f51d1d;
+}
+
 .totheright {
   float: right;
 }
