@@ -21,7 +21,8 @@
     "react-favicon": "0.0.26",
     "react-reveal": "^1.2.2",
     "react-text-loop": "^2.3.0",
-    "redis-om": "^0.1.7"
+    "redis-om": "^0.1.7",
+    "vercel": "^23.1.2"
   },
   "devDependencies": {
     "eslint": "8.8.0",
