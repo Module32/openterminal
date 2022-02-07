@@ -107,6 +107,7 @@ a.padding, button {
   transition: 150ms;
   font-weight: 600;
   font-size: 100%;
+  margin: 5px;
 }
 
 a.padding:hover, button:hover {
