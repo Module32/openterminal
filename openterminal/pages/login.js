@@ -3,6 +3,7 @@ import Layout from '../components/layout'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub, faDiscord } from '@fortawesome/free-brands-svg-icons'
 import Image from 'next/image'
+import Link from 'next/link'
 
 export default function SignIn() {
   return (
@@ -19,6 +20,7 @@ export default function SignIn() {
               {<FontAwesomeIcon icon={faDiscord} />} Sign in with Discord
             </button>
             <hr />
+          <p>Don&apos;t have an account yet? <Link href="/signup"><a>Sign up now</a></Link></p>
         </div>
         </div>
       </Layout>
