@@ -75,7 +75,7 @@ export default function FirstPost() {
             <div className="waves">
               <Fade up>
                 <h1 style={{paddingBottom: '10px'}}>Let&apos;s create a new future today</h1>
-                <Link href="">
+                <Link href="/signup">
                       <a className="padding">Sign up</a>
                     </Link>
               </Fade>

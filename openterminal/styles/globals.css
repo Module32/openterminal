@@ -165,9 +165,12 @@ p {
 }
 
 .waves {
-  background-image: url("../public/pics/waves.png");
+  background-image: url("../public/pics/waves.svg");
   background-repeat: no-repeat;
-  background-size: 100%;
+  height: 90%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   padding: 50px;
   padding-top: 250px;
   padding-bottom: 250px;
@@ -175,9 +178,13 @@ p {
 }
 
 .blobs {
-  background-image: url("../public/pics/blobs.png");
+  background-image: url("../public/pics/blobs.svg");
+
+  height: 100%; 
+
+  background-position: center;
   background-repeat: no-repeat;
-  background-size: 100%;
+  background-size: cover;
   padding: 50px;
   text-align: center;
 }
