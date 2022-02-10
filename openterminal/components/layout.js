@@ -37,7 +37,7 @@ export default function Layout({ children, home }) {
             </Link></li>
             
             <div className="totheright">
-              {session? <li><button onClick={() => signOut()} style={{marginTop: '-15px'}} className="red">Log out, {session.user.name}</button></li>: <li><Link href="/login"><button style={{marginTop: '-16px'}}>Log in</button></Link></li> }
+              {session? <li><Link href="/dashboard"><Image src={session.user.image} style={{borderRadius: '50px', width: '30px', border: '1px solid white'}} /></Link></li>: <li><Link href="/login"><button style={{marginTop: '-16px'}}>Log in</button></Link></li> }
             </div>
           </ul>
           </>
