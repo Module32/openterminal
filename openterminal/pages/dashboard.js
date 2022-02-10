@@ -10,8 +10,8 @@ export default function SignIn() {
     <>
       <Layout>
       <div className="hometop">
-        <h2 style={{fontSize: '40px'}}>{session.user.name}</h2>
-        <p>{session.email}</p>
+        <h3 style={{fontSize: '40px'}}>{session.user.name}</h3>
+        <p>{session.user.email?}</p>
         </div>
       </Layout>
     </>
