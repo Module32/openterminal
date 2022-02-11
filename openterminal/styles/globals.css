@@ -319,3 +319,23 @@ button.discord:hover {
   margin: 5px;
   text-align: 'left';
 }
+
+.heart {
+  animation: heart-pulse 0.9s infinite ease-out;
+  color: #EF3054;
+}
+
+@keyframes heart-pulse {
+  0% {
+    transform: scale(.7); /* scaling to 0 */
+  }
+  50% {
+    transform: scale(1); /* increasing the size */
+  }
+  70% {
+    transform: scale(0.8); /* decreasing the size */
+  }
+  100% {
+    transform: scale(0.7); /* seeting back to initial size */
+  }
+}
