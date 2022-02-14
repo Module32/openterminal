@@ -1,5 +1,6 @@
 import { getProviders, signIn } from "next-auth/react"
 import Layout from '../components/layout'
+import Footer from '../components/footer'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub, faDiscord } from '@fortawesome/free-brands-svg-icons'
 import Image from 'next/image'
@@ -24,6 +25,8 @@ export default function SignIn() {
         </div>
         </div>
       </Layout>
+  <Footer>
+  </Footer>
     </>
   )
 }
