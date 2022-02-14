@@ -20,14 +20,22 @@ body {
 ul {
   margin-left: 0;
   margin-top: 0px;
-  background-color: black;
+  /* Parent background + Gaussian blur */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  /* Exclusion blend */
+  background-blend-mode: exclusion;
+
+  /* Color/tint overlay + Opacity */
+  background: rgba(255, 255, 255, .05);
   color: white;
   padding: 30px 100px;
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 1030;
-  border-bottom: 1px solid rgb(68, 68, 68);
+  border-bottom: 1px solid rgb(255, 255, 255, 0.2);
   padding-bottom: 15px;
 }
 
@@ -93,7 +101,7 @@ a.navbar {
 }
 
 a.navbar:hover {
-  color: rgb(170, 170, 170);
+  color: rgb(255, 255, 255, 0.6);
 }
 
 a.padding, button {
@@ -153,10 +161,6 @@ p {
   transition: 150ms;
 }
 
-.infocard img:hover {
-  transform: scale(1.03);
-}
-
 .card {
   padding: 10px;
   border-radius: 10px;
@@ -187,6 +191,17 @@ p {
   background-size: cover;
   padding: 50px;
   text-align: center;
+}
+
+.waves2 {
+  background-image: url("../public/pics/unlockapi/waves1.svg");
+  background-repeat: no-repeat;
+  height: 90%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 50px;
+  text-align: left;
 }
 
 .dropdown {

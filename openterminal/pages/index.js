@@ -2,6 +2,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import Head from 'next/head'
 import Layout from '../components/layout'
+import Footer from '../components/footer'
 import TextLoop from "react-text-loop"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRight, faArrowCircleRight, faHeart } from '@fortawesome/fontawesome-free-solid'
@@ -81,6 +82,8 @@ export default function FirstPost() {
               </Fade>
             </div>
         </Layout>
+                      <Footer>
+                      </Footer>
         </>
     )
   }

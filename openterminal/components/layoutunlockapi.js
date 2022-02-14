@@ -8,17 +8,17 @@ import Favicon from 'react-favicon';
 import { useSession, signIn, signOut } from "next-auth/react"
 
 const name = 'Module64'
-export const siteTitle = 'Open Terminal'
+export const siteTitle = 'UnlockAPI'
 
-export default function Layout({ children, home }) {
+export default function Unlockapi({ children, home }) {
   const { data: session } = useSession()
   return (
     <div className={styles.container}>
       <Head>
-        <meta property="og:description" content="Open Terminal is focused on delivering software and hardware solutions for all people. Find tools that help you create, teach, and do things better." />
+        <meta property="og:description" content="UnlockAPI is the fastest way to reliably collaborate on, monitor, and test your API. Built with ❤️ by OT." />
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
-        <title>Open Terminal - Creating for all</title>
+        <title>UnlockAPI - built by OT</title>
       </Head>
       <Favicon url="../public/pics/ot-logo.png"/>
       <header className={styles.header}>
@@ -43,7 +43,7 @@ export default function Layout({ children, home }) {
           </>
       </header>
       <hr></hr>
-      <div className={styles.card}><main>{children}</main></div>
+      <div className={styles.card} style={{marginTop: '-15px'}}><main>{children}</main></div>
     </div>
 
   )
