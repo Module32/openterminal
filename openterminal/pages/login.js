@@ -11,7 +11,7 @@ export default function SignIn() {
     <>
       <Layout>
       <div className="hometop">
-        <h1 style={{fontSize: '40px'}}>Log in</h1>
+        <h1 style={{fontSize: '40px', paddingTop: '40px'}}>Log in</h1>
         <p>Welcome back! Let&apos;s get you signed in.</p>
           <div className="card" style={{margin: 'auto', width: '40%', padding: '20px', borderWidth: '0'}}>
             <button onClick={() => signIn('github')} style={{width: '100%'}}>

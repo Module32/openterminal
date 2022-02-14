@@ -11,7 +11,8 @@ export default function SignIn() {
     <>
       <Layout>
         <div className="blobs" style={{textAlign: 'left'}}>
-          <h1 style={{paddingTop: '50px'}}>Sign up for an Open Terminal account</h1>
+        <div className="hometop">
+          <h1>Sign up for an Open Terminal account</h1>
           <p>Welcome to Open Terminal! Glad to have you on board.</p>
   <div style={{display: 'flex'}}>
           <div className="acrylic" style={{width: '48%'}}>
@@ -41,6 +42,7 @@ export default function SignIn() {
         </div>
   </div>
     </div>
+  </div>
       </Layout>
   <Footer>
   </Footer>

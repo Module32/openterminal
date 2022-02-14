@@ -43,7 +43,7 @@ export default function Layout({ children, home }) {
           </>
       </header>
       <hr></hr>
-      <div className={styles.card}><main>{children}</main></div>
+      <div className={styles.card} style={{marginTop: '-20px'}}><main>{children}</main></div>
     </div>
 
   )
