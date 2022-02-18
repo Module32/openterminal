@@ -74,6 +74,9 @@ export default function Footer() {
             </p>
           </div>
         </div>
+        <div style={{ flexDirection: "row", marginLeft: 'auto' }}>
+        <h2 style={{fontWeight: '300'}}>OT</h2>
+  </div>
       </div>
       <hr style={{ backgroundColor: "rgb(110, 110, 110)" }} />
       <div style={{ display: "flex", marginTop: "-5px" }}>

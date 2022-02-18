@@ -18,7 +18,7 @@ export default function FirstPost() {
               <h1 style={{fontSize: '60px'}}>Ensure your APIs are reliable.</h1>
   <div style={{flexDirection: 'row'}}>
   <Link href="">
-  <a className="padding" style={{width: '100%'}}>Authorize now</a>
+  <a className="padding" style={{width: '100%'}}>Set up now</a>
   </Link>
 
   <Link href="">
@@ -29,7 +29,7 @@ export default function FirstPost() {
   </div>
             <Image
                     src="/pics/unlockapi/mascot1.png"
-                    width='750px'
+                    width='800px'
                     height='550px'
                   />
             </div>
