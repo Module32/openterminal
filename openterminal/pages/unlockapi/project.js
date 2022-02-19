@@ -1,14 +1,14 @@
 import { Octokit } from '@octokit/rest';
+import useSWR from 'swr';
+
+async function fetcher(...arg) {
+  const res = await fetch(...arg);
+
+  return res.json();
+}
 
 export default function Project() {
-  export default async (req, res) => {
-    const octokit = new Octokit({
-      auth: process.env.GITHUB_AUTH_TOKEN
-    })
-    const repos = await octokit.request('GET /repos/{owner}', {
-      owner: 'Module64',
-    })
-    console.log(repos);
-  }
-  return 'success'
+  const { data, error } = useSWR('/api/unlockapi/loadrepos', fetcher)
+
+  return data.repos;
 }
