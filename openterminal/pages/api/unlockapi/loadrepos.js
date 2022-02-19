@@ -1,6 +1,6 @@
 import { Octokit } from '@octokit/rest';
 
-export async function loadrepos(req, res) {
+export default async function loadrepos(req, res) {
   const octokit = new Octokit({
     auth: process.env.GITHUB_AUTH_TOKEN
   })

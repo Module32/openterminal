@@ -12,5 +12,5 @@ export default function Project() {
 
   if (error) return "failed to retrieve data"
 
-  return data.repos;
+  return data.user;
 }
