@@ -3,7 +3,7 @@ import Layout from '../components/layout'
 import Image from 'next/image'
 import Link from 'next/link'
 
-export default function SignIn() {
+export default function Dashboard() {
   const { data: session, status } = useSession()
   if (status !== "authenticated") { return 403 }
   return (

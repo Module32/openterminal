@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRight, faArrowCircleRight, faHeart } from '@fortawesome/fontawesome-free-solid'
 import Fade from 'react-reveal/Fade';
 
-export default function FirstPost() {
+export default function Index() {
     return (
         <>
         <Unlockapi>

@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import '@fortawesome/fontawesome-free-solid'
 import { faGithub, faDiscord } from '@fortawesome/free-brands-svg-icons'
 
-export default function SignIn() {
+export default function Signup() {
   return (
     <>
       <Layout>

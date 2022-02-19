@@ -6,7 +6,7 @@ import { faGithub, faDiscord } from '@fortawesome/free-brands-svg-icons'
 import Image from 'next/image'
 import Link from 'next/link'
 
-export default function SignIn() {
+export default function Login() {
   return (
     <>
       <Layout>
