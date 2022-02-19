@@ -9,7 +9,7 @@ async function fetcher(...arg) {
 }
 
 export default function Project() {
-  const { data, error } = useSWR('/api/unlockapi/loadrepos', fetcher)
+  const { data, error } = useSWR('/api/unlockapi/loadrepos', fetch)
 
   if (error) return "failed to retrieve data"
 
