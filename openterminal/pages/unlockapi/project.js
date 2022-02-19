@@ -1,5 +1,5 @@
 import { Octokit } from '@octokit/rest';
-import useSWR from 'swr';
+import useSWR from 'swr'
 
 async function fetcher(...arg) {
   const res = await fetch(...arg);
@@ -8,7 +8,7 @@ async function fetcher(...arg) {
 }
 
 export default function Project() {
-  const { data, error } = useSWR('/api/unlockapi/loadrepos', fetcher)
+  const { data, error } = useSWR('/api/loadrepos', fetcher)
 
   if (error) return "failed to retrieve data"
 
