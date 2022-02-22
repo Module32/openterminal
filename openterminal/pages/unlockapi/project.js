@@ -1,10 +1,7 @@
 import useSWR from 'swr'
+import fetch from 'unfetch'
 
-async function fetcher(...arg) {
-  const res = await fetch(...arg);
-
-  return res.json();
-}
+const fetcher = url => fetch(url).then(r => r.json())
 
 export default function Project() {
   const { data, error } = useSWR('/api/unlockapi/loadrepos', fetcher)
