@@ -1,9 +1,8 @@
 const { Octokit } = require("octokit");
 import { useSession } from "next-auth/react"
 
-const { data: session, status } = useSession()
-
 export default async function Loadrepos(req, res) {
+  const { data: session, status } = await useSession();
   if (status !== "authenticated") { return 403 }
   const octokit = new Octokit({ auth: process.env.GITHUB_AUTH_TOKEN });
 
