@@ -12,5 +12,5 @@ export default async function Loadrepos(req, res) {
     repos_arr.push(repos.data[i].name)
   }
 
-  return res.status(200).json({ user: session.user.name, repos: repos_arr })
+  return res.status(200).json({ user: 'Module32', repos: repos_arr })
 }
