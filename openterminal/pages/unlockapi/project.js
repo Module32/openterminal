@@ -1,4 +1,3 @@
-import { Octokit } from '@octokit/rest';
 import useSWR from 'swr'
 
 async function fetcher(...arg) {
