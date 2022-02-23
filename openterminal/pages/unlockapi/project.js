@@ -3,6 +3,7 @@ import fetch from 'unfetch'
 import { useSession } from "next-auth/react"
 
 export default function Project() {
+  const { data: session, status } = useSession()
   const fetcher = url => fetch(url).then(r => r.json())
   
   const { data, error } = useSWR(`/api/unlockapi/loadrepos/${session.user.name}`, fetcher)
