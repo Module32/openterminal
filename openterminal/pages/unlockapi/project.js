@@ -7,10 +7,10 @@ export default function Project() {
   const { data: session, status } = useSession()
   if (status !== "authenticated") { return 403 }
   
-  const { data, error } = useSWR(`/api/unlockapi/loadrepos/${session.user.name}`, fetcher)
+  const { ledata, error } = useSWR(`/api/unlockapi/loadrepos/${session.user.name}`, fetcher)
 
   if (error) return <div>failed to load</div>
-  if (!data) return <div>loading...</div>
+  if (!ledata) return <div>loading...</div>
 
   return data.repos;
 }
