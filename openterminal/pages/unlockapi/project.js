@@ -5,7 +5,7 @@ import { useSession } from "next-auth/react"
 export default function Project() {
   const fetcher = url => fetch(url).then(r => r.json())
   const { data: session, status } = useSession()
-  const { ledata, error } = useSWR(status === "authenticated" ? `/api/unlockapi/loadrepos/${session.user.username}` : null, fetcher)
+  const { ledata, error } = useSWR(status === "authenticated" ? `/api/unlockapi/loadrepos/${session.user.name}` : null, fetcher)
   if (status !== "authenticated") { return 403 }
 
   if (error) return <div>failed to load</div>
