@@ -2,8 +2,8 @@ const { Octokit } = require("octokit");
 import { useRouter } from 'next/router';
 
 export default async function Loadrepos(req, res) {
-  const octokit = new Octokit({ auth: process.env.GITHUB_AUTH_TOKEN });
   const router = useRouter()
+  const octokit = new Octokit({ auth: process.env.GITHUB_AUTH_TOKEN });
   const { user } = router.query;
 
   let repos = await octokit.request('GET /users/{username}/repos', {
@@ -15,5 +15,5 @@ export default async function Loadrepos(req, res) {
     repos_arr.push(repos.data[i].name)
   }
 
-  return res.status(200).json({ user: 'Module32', repos: repos_arr })
+  return res.status(200).json({ user: user, repos: repos_arr })
 }
