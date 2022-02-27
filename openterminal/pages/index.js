@@ -71,7 +71,7 @@ export default function Index() {
                       </div>
                       <div className={['card', 'dynamiclayout'].join(' ')}>
                         <h1>Bot Building Site</h1>
-                        <p className="grey">The Discord bot development platform for everyone.<br /><a href="https://botbuilding.site/">Check it out <FontAwesomeIcon icon="arrow-circle-right" /></a></p>
+                        <p className="grey">The best Discord bot development platform. 😉<br /><a href="https://botbuilding.site/">Check it out <FontAwesomeIcon icon="arrow-circle-right" /></a></p>
                       </div>
                     </div>
                 </Fade>
