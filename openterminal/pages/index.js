@@ -60,14 +60,18 @@ export default function Index() {
                   <Fade up>
                     <h3 className="grey">Products our customers love</h3>
                     <div style={{display: 'flex', alignItems: 'center', justifyContent:'center'}}>
-                      <div className="card" style={{width:'33%'}}>
+                      <div className="card" style={{width:'25%'}}>
                         <h1>UnlockAPI</h1>
                         <p className="grey">The API monitoring platform made for the future.<br /><a href="https://unlockapi.coefficient.repl.co">Check it out <FontAwesomeIcon icon="arrow-circle-right" /></a></p>
                       </div>
 
-                      <div className="card" style={{width:'33%', flexDirection: 'row'}}>
+                      <div className="card" style={{width:'25%', flexDirection: 'row'}}>
                         <h1>Lexicon</h1>
                         <p className="grey">An intuitive dictionary created for everybody.<br /><a href="https://lexicon.coefficient.repl.co">Check it out <FontAwesomeIcon icon="arrow-circle-right" /></a></p>
+                      </div>
+                      <div className="card" style={{width:'25%', flexDirection: 'row'}}>
+                        <h1>Bot Building Site</h1>
+                        <p className="grey">The Discord bot development platform for everyone.<br /><a href="https://botbuilding.site/">Check it out <FontAwesomeIcon icon="arrow-circle-right" /></a></p>
                       </div>
                     </div>
                 </Fade>

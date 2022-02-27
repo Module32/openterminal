@@ -118,20 +118,18 @@ a.padding, button {
 }
 
 a.padding:hover, button:hover {
-  background-color: rgb(0, 0, 0, 0);
-  color: white;
+  background-color: rgb(216, 216, 216);
   cursor: pointer;
 }
 
 button.red {
   background-color: #f51d1d;
   color: white;
-  border: 1px solid #f51d1d;
+  border: 1px solid #f51c1c;
 }
 
 button.red:hover {
-  background-color: rgb(0, 0, 0, 0);
-  color: #f51d1d;
+  background-color: rgb(185, 28, 28);
 }
 
 .totheright {
@@ -300,12 +298,11 @@ input:focus, textarea:focus {
 button.discord {
   background-color: #5865F2;
   color: white;
-  border: 1px solid #5865F2;
+  border: 1px solid rgb(88, 101, 242);
 }
 
 button.discord:hover {
-  background-color: rgb(0, 0, 0, 0);
-  color: #5865F2;
+  background-color: rgb(74, 85, 202);
 }
 
   /* Now all the acrylic layer is just only one class! */
