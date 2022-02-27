@@ -347,3 +347,20 @@ button.discord:hover {
     transform: scale(0.7); /* seeting back to initial size */
   }
 }
+
+.dynamiclayout {
+  width: 30%;
+}
+
+@media screen and (max-width: 900px) {
+  .dynamiclayout {
+     width: 100%;
+     flex-direction: column;
+  }
+}
+@media screen and (min-width: 900px) {
+  .dynamiclayout {
+     width: 30%;
+     flex-direction: row;
+  }
+}
