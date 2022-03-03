@@ -2,7 +2,6 @@ const { Octokit } = require("octokit");
 
 export default async function Loadrepos(req, res) {
   try {
-    const router = useRouter()
     const octokit = new Octokit({ auth: process.env.GITHUB_AUTH_TOKEN });
     const user = "Module32";
 
