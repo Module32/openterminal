@@ -16,8 +16,9 @@ export default async function Loadrepos(req, res) {
       repos_arr.push(repos.data[i].name)
     }
 
-    return res.status(200).json({ user: user, repos: repos_arr })
+    res.status(200).json({ user: user, repos: repos_arr })
   } catch (err) {
+    console.log(err);
     res.status(500).json({ error: 'failed to load data' })
   }
 }
