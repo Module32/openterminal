@@ -1,9 +1,9 @@
 const { Octokit } = require("octokit");
 import { useRouter } from 'next/router';
 
-export default async function handler(req, res) {
+export default async function Loadrepos(req, res) {
   try {
-    const router = await useRouter()
+    const router = useRouter()
     const octokit = new Octokit({ auth: process.env.GITHUB_AUTH_TOKEN });
     const { user } = router.query;
 
