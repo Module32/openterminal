@@ -1,7 +1,7 @@
 import useSWR from 'swr'
 import fetch from 'unfetch'
 import { useSession } from "next-auth/react"
-import Layout from '../components/layout'
+import Layout from '../../components/layout'
 
 export default function Project() {
   const fetcher = url => fetch(url).then(r => r.json())
