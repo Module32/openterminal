@@ -3,7 +3,7 @@ import { getSession } from "next-auth/react"
 
 export default async function Loadrepos(req, res) {
   const session = await getSession({ req });
-  console.log(session);
+  if (session === null) { return 403; }
   const user = session.user.name;
   try {
     const octokit = new Octokit({ auth: process.env.GITHUB_AUTH_TOKEN });
