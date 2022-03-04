@@ -13,7 +13,7 @@ export default function Project() {
   return (
     <>
       <Layout>
-        {data}
+        {data.repos}
       </Layout>
     </>
   )
