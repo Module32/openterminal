@@ -1,6 +1,7 @@
 import useSWR from 'swr'
 import fetch from 'unfetch'
 import { useSession } from "next-auth/react"
+import Layout from '../components/layout'
 
 export default function Project() {
   const fetcher = url => fetch(url).then(r => r.json())
@@ -11,5 +12,11 @@ export default function Project() {
   if (error) return <div>failed to load</div>
   if (!ledata) return <div>loading...</div>
 
-  return data.repos;
+  return (
+    <>
+      <Layout>
+        {ledata}
+      </Layout>
+    </>
+  )
 }
