@@ -1,9 +1,11 @@
 const { Octokit } = require("octokit");
 
 export default async function Loadrepos(req, res) {
+  const { data: session, status } = useSession()
+  if (status !== "authenticated") { return 403 }
+  const user = session.user.name;
   try {
     const octokit = new Octokit({ auth: process.env.GITHUB_AUTH_TOKEN });
-    const user = "Module32";
 
     let repos = await octokit.request('GET /users/{username}/repos', {
       username: user,
