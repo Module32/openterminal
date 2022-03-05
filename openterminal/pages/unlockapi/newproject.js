@@ -25,10 +25,16 @@ export default function Project() {
   return (
     <>
       <Layout>
-        <div className="hometop" style={{paddingTop: '100px'}}>
-          <h1>New UnlockAPI Project</h1>
-          <div style={{width: '30%', margin: 'auto'}}>
-            {listItems}
+        <div className="waves2">
+          <div class="acrylic">
+            <h1>New Project</h1>
+            <p>Welcome! Let&apos;s get you started with a new UnlockAPI Project.</p>
+          </div>
+          <div class="acrylic">
+            <h3>Choose a repository to import...</h3>
+            <div style={{width: '30%', margin: 'auto'}}>
+              {listItems}
+            </div>
           </div>
         </div>
       </Layout>
