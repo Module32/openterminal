@@ -41,7 +41,7 @@ export default function Project() {
   }).map((repo) =>
     <div key={repo} style={{padding: '5px', borderRadius: '10px', border: 'none', margin: '5px', backgroundColor: 'rgb(235, 235, 235, 0.7)', display: 'flex', flexDirection: 'row'}}>
       <h3 style={{marginLeft: '7px', color: 'black'}}>{repo}</h3>
-      <h3 style={{marginLeft: 'auto', marginRight: '7px'}}><span><Link href=""><a onClick={() => setContent(<h2><span className="grey">Connect </span>{data.user}/{repo}<br /><span style={{fontSize: '13px'}}>{Getrepo(content).description}</span></h2>)}>Connect <FontAwesomeIcon icon="arrow-right" /></a></Link></span></h3>
+      <h3 style={{marginLeft: 'auto', marginRight: '7px'}}><span><Link href=""><a onClick={() => setContent(<h2><span className="grey">Connect </span>{data.user}/{repo}<br /><span style={{fontSize: '13px'}}>{Getrepo(repo).description}</span></h2>)}>Connect <FontAwesomeIcon icon="arrow-right" /></a></Link></span></h3>
     </div>
   );
 
