@@ -6,6 +6,16 @@ import Link from 'next/link'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRight } from '@fortawesome/fontawesome-free-solid'
 import { useState } from "react";
+const { Octokit } = require("octokit");
+import { getSession } from "next-auth/react"
+
+async function Getrepo(repo) {
+  lerepo = await octokit.request('GET /repos/{owner}/{repo}', {
+    owner: session.user.name,
+    repo: repo
+  })
+  return lerepo;
+}
 
 export default function Project() {
   const fetcher = url => fetch(url).then(r => r.json())
@@ -18,6 +28,11 @@ export default function Project() {
 
   if (!data.repos) return <div>Looks like there are no repos under your account!</div>
 
+  if (content !== "Please select a repository!") {
+    let repo = await Getrepo(content);
+    console.log(repo);
+  }
+
   const listItems = data.repos.filter(repo => {
     if (query === '') {
       return repo;
@@ -27,11 +42,11 @@ export default function Project() {
   }).map((repo) =>
     <div key={repo} style={{padding: '5px', borderRadius: '10px', border: 'none', margin: '5px', backgroundColor: 'rgb(235, 235, 235, 0.7)', display: 'flex', flexDirection: 'row'}}>
       <h3 style={{marginLeft: '7px', color: 'black'}}>{repo}</h3>
-      <h3 style={{marginLeft: 'auto', marginRight: '7px'}}><span><Link href=""><a onClick={() => setContent(<h1><span className="grey">Connect</span>{data.user}/{repo}</h1>)}>Connect <FontAwesomeIcon icon="arrow-right" /></a></Link></span></h3>
+      <h3 style={{marginLeft: 'auto', marginRight: '7px'}}><span><Link href=""><a onClick={() => setContent(<h2><span className="grey">Connect </span>{data.user}/{repo}</h2>)}>Connect <FontAwesomeIcon icon="arrow-right" /></a></Link></span></h3>
     </div>
   );
 
-  return (
+  return ( 
     <>
       <Layout>
         <div className="waves2">
