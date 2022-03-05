@@ -15,7 +15,7 @@ export default function Project() {
 
   const listItems = data.repos.map((repo) =>
     <div key={repo}>
-      <h2>{repo} <Link href="/"><a className="discord" style={{marginLeft: '10px'}}>Connect</a></Link></h2>
+      <h3>{repo} <span><Link href="/"><a className="discord" style={{marginLeft: '10px'}}>Connect</a></Link></span></h3>
       <hr />
     </div>
   );
@@ -23,9 +23,11 @@ export default function Project() {
   return (
     <>
       <Layout>
-        <h1>New UnlockAPI Project</h1>
         <div className="hometop">
-          {listItems}
+          <h1>New UnlockAPI Project</h1>
+          <div style={{width: '40%'}}>
+            {listItems}
+          </div>
         </div>
       </Layout>
     </>
