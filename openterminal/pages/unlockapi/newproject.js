@@ -26,7 +26,7 @@ export default function Project() {
     <>
       <Layout>
         <div className="waves2">
-          <h1 style={{marginTop: '20px'}}>New Project</h1>
+          <h1 style={{marginTop: '50px'}}>New Project</h1>
           <p>Welcome! Let&apos;s get you started with a new UnlockAPI Project.</p>
           <div className="acrylic">
             <h2>Choose a repository to import...</h2>
