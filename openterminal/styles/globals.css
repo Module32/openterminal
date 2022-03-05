@@ -109,7 +109,6 @@ a.padding, button {
   padding: 15px 30px;
   border-radius: 10px;
   background-color: white;
-  border: 1px solid white;
   color: black;
   transition: 150ms;
   font-weight: 600;
@@ -125,7 +124,6 @@ a.padding:hover, button:hover {
 button.red {
   background-color: #f51d1d;
   color: white;
-  border: 1px solid #f51c1c;
 }
 
 button.red:hover {
@@ -295,13 +293,12 @@ input:focus, textarea:focus {
   border: 1px solid #1789FC;
 }
 
-button.discord {
+a.discord, button.discord {
   background-color: #5865F2;
   color: white;
-  border: 1px solid rgb(88, 101, 242);
 }
 
-button.discord:hover {
+a.discord:hover, button.discord:hover {
   background-color: rgb(74, 85, 202);
 }
 
