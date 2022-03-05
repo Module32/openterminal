@@ -3,7 +3,7 @@ import fetch from 'unfetch'
 import Layout from '../../components/layout'
 import Link from 'next/link'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faAnglesRight } from '@fortawesome/fontawesome-free-solid'
+import { faArrowRight } from '@fortawesome/fontawesome-free-solid'
 
 export default function Project() {
   const fetcher = url => fetch(url).then(r => r.json())
@@ -17,7 +17,7 @@ export default function Project() {
 
   const listItems = data.repos.map((repo) =>
     <div key={repo}>
-      <h3>{repo} <span><Link href="/"><a style={{marginLeft: '10px'}}>Connect <FontAwesomeIcon icon="angles-right" /></a></Link></span></h3>
+      <h3>{repo} <span><Link href="/"><a style={{marginLeft: '10px'}}>Connect <FontAwesomeIcon icon="arrow-right" /></a></Link></span></h3>
       <hr />
     </div>
   );
@@ -25,7 +25,7 @@ export default function Project() {
   return (
     <>
       <Layout>
-        <div className="hometop" style={{paddingTop: '50px'}}>
+        <div className="hometop" style={{paddingTop: '510px'}}>
           <h1>New UnlockAPI Project</h1>
           <div style={{width: '30%', margin: 'auto'}}>
             {listItems}
