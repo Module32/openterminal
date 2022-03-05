@@ -26,12 +26,12 @@ export default function Project() {
     <>
       <Layout>
         <div className="waves2">
-          <div className="acrylic" style={{textAlign: 'center', paddingTop: '20px'}}>
+          <div className="acrylic" style={{textAlign: 'center', paddingTop: '40px'}}>
             <h1>New Project</h1>
             <p>Welcome! Let&apos;s get you started with a new UnlockAPI Project.</p>
           </div>
           <div className="acrylic">
-            <h3>Choose a repository to import...</h3>
+            <h2>Choose a repository to import...</h2>
             <div style={{width: '30%'}}>
               {listItems}
             </div>
