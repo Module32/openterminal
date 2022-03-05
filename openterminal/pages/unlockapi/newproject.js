@@ -18,7 +18,7 @@ export default function Project() {
   if (!data.repos) return <div>Looks like there are no repos under your account!</div>
 
   const listItems = data.repos.map((repo) =>
-    <div key={repo} style={{padding: '5px', borderRadius: '10px', border: 'none', margin: '5px', backgroundColor: 'rgb(235, 235, 235, 0.4)', display: 'flex', flexDirection: 'row'}}>
+    <div key={repo} style={{padding: '5px', borderRadius: '10px', border: 'none', margin: '5px', backgroundColor: 'rgb(235, 235, 235, 0.6)', display: 'flex', flexDirection: 'row'}}>
       <h3 style={{marginLeft: '7px', color: 'black'}}>{repo}</h3>
       <h3 style={{marginLeft: 'auto', marginRight: '7px'}}><span><Link href=""><a onClick={() => setContent(`${data.user}/${repo}`)}>Connect <FontAwesomeIcon icon="arrow-right" /></a></Link></span></h3>
     </div>
@@ -33,7 +33,7 @@ export default function Project() {
           <div className="acrylic" style={{display: 'flex'}}>
             <div style={{flex: '1', paddingRight: '15px'}}>
               <h2>Choose a repository to import...</h2>
-              <div style={{height: '250px', overflow: 'scroll', padding: '5px', borderRadius: '10px', backgroundColor: 'rgb(46, 46, 46, 0.25)'}}>
+              <div style={{height: '250px', overflow: 'scroll', padding: '10px', borderRadius: '10px', backgroundColor: 'rgb(46, 46, 46, 0.25)'}}>
                 {listItems}
               </div>
             </div>
