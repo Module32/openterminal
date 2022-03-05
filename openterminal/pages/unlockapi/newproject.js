@@ -16,8 +16,8 @@ export default function Project() {
   if (!data.repos) return <div>Looks like there are no repos under your account!</div>
 
   const listItems = data.repos.map((repo) =>
-    <div key={repo} style={{padding: '5px', paddingLeft: '10px', borderRadius: '10px', border: 'none', margin: '5px', backgroundColor: 'rgb(46, 46, 46, 0.4)'}}>
-      <h3>{repo} <span><Link href="/"><a style={{marginLeft: '10px'}}>Connect <FontAwesomeIcon icon="arrow-right" /></a></Link></span></h3>
+    <div key={repo} style={{padding: '5px', borderRadius: '10px', border: 'none', margin: '5px', backgroundColor: 'rgb(46, 46, 46, 0.4)'}}>
+      <h3 style={{marginLeft: '10px'}}>{repo} <span><Link href="/"><a style={{marginLeft: '10px'}}>Connect <FontAwesomeIcon icon="arrow-right" /></a></Link></span></h3>
     </div>
   );
 
@@ -25,7 +25,7 @@ export default function Project() {
     <>
       <Layout>
         <div className="waves2">
-          <h1 style={{marginTop: '50px'}}>New Project</h1>
+          <h1 style={{marginTop: '60px'}}>New Project</h1>
           <p>Welcome! Let&apos;s get you started with a new UnlockAPI Project.</p>
           <div className="acrylic">
             <h2>Choose a repository to import...</h2>
