@@ -114,6 +114,7 @@ a.padding, button {
   font-weight: 600;
   font-size: 100%;
   margin: 5px;
+  border: none;
 }
 
 a.padding:hover, button:hover {
@@ -121,9 +122,17 @@ a.padding:hover, button:hover {
   cursor: pointer;
 }
 
+a.padding .blue {
+  color: #1789FC;
+}
+a.padding .blue:hover {
+  color: #126cc5;
+}
+
 button.red {
   background-color: #f51d1d;
   color: white;
+  border: none;
 }
 
 button.red:hover {
@@ -296,6 +305,7 @@ input:focus, textarea:focus {
 a.discord, button.discord {
   background-color: #5865F2;
   color: white;
+  border: none;
 }
 
 a.discord:hover, button.discord:hover {
