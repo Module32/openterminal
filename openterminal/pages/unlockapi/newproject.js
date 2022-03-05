@@ -10,6 +10,7 @@ const { Octokit } = require("octokit");
 import { useSession } from "next-auth/react"
 
 async function Getrepo(repo) {
+  const { data: session, status } = useSession()
   const octokit = new Octokit({ auth: process.env.GITHUB_AUTH_TOKEN });
   lerepo = await octokit.request('GET /repos/{owner}/{repo}', {
     owner: session.user.name,
@@ -19,7 +20,6 @@ async function Getrepo(repo) {
 }
 
 export default function Project() {
-  const { data: session, status } = useSession()
   const fetcher = url => fetch(url).then(r => r.json())
   const { data, error } = useSWR("/api/unlockapi/src/loadrepos", fetcher)
   const [content, setContent] = useState(<h4>Please select a repository!</h4>);
