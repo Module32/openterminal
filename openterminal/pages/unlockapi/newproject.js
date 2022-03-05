@@ -29,7 +29,7 @@ export default function Project() {
   if (!data.repos) return <div>Looks like there are no repos under your account!</div>
 
   if (content !== "Please select a repository!") {
-    let repo = await Getrepo(content);
+    let repo = Getrepo(content);
     console.log(repo);
   }
 
