@@ -25,7 +25,6 @@ export default function Project() {
   const [content, setContent] = useState(<h4>Please select a repository!</h4>);
   const [query, setQuery] = useState("");
 
-  if (status !== "authenticated") { return 403 }
   if (error) return <div>failed to load</div>
   if (!data) return <div>loading...</div>
 
