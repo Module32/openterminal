@@ -16,9 +16,8 @@ export default function Project() {
   if (!data.repos) return <div>Looks like there are no repos under your account!</div>
 
   const listItems = data.repos.map((repo) =>
-    <div key={repo}>
+    <div key={repo} style={{padding: '10px', borderRadius: '5px', border: 'none', margin: '5px', backgroundColor: 'rgb(46, 46, 46, 0.3)'}}>
       <h3>{repo} <span><Link href="/"><a style={{marginLeft: '10px'}}>Connect <FontAwesomeIcon icon="arrow-right" /></a></Link></span></h3>
-      <hr />
     </div>
   );
 
