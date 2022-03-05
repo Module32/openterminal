@@ -371,3 +371,9 @@ a.discord:hover, button.discord:hover {
      flex-direction: row;
   }
 }
+
+.vl {
+  border: none;
+  border-radius: 3px;
+  background-color: rgb(255, 255, 255, 0.2);
+}
