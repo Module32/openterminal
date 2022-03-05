@@ -11,6 +11,7 @@ export default async function Loadrepos(req, res) {
     let repos = await octokit.paginate('GET /users/{username}/repos', {
       username: user,
     })
+    console.log(repos);
     let len = Object.keys(repos.data).length
     let repos_arr = []
     for (var i = 0; i < len; i++) {
