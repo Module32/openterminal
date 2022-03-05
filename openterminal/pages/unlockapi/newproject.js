@@ -1,6 +1,7 @@
 import useSWR from 'swr'
 import fetch from 'unfetch'
 import Layout from '../../components/layout'
+import Footer from '../../components/footer'
 import Link from 'next/link'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRight } from '@fortawesome/fontawesome-free-solid'
@@ -31,13 +32,15 @@ export default function Project() {
           <div className="acrylic">
             <div style={{width: '40%'}}>
               <h2>Choose a repository to import...</h2>
-              <div style={{height: '100px', overflow: 'scroll'}}>
+              <div style={{height: '250px', overflow: 'scroll'}}>
                 {listItems}
               </div>
             </div>
           </div>
         </div>
       </Layout>
+      <Footer>
+      </Footer>
     </>
   )
 }
