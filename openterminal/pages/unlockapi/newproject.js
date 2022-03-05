@@ -2,6 +2,7 @@ import useSWR from 'swr'
 import fetch from 'unfetch'
 import Layout from '../../components/layout'
 import Link from 'next/link'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAnglesRight } from '@fortawesome/fontawesome-free-solid'
 
 export default function Project() {
