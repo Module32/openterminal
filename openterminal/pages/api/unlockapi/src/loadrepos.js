@@ -11,14 +11,12 @@ export default async function Loadrepos(req, res) {
     let repos = await octokit.paginate('GET /users/{username}/repos', {
       username: user,
     })
-    console.log(repos);
-    let len = Object.keys(repos.data).length
-    let repos_arr = []
-    for (var i = 0; i < len; i++) {
-      repos_arr.push(repos.data[i].name)
-    }
+    repo_arr = []
+    repos.map(repo => {
+      repo_arr.push(repo.name);
+    })
 
-    res.status(200).json({ user: user, repos: repos_arr })
+    res.status(200).json({ user: user, repos: repo_arr })
   } catch (err) {
     console.log(err);
     res.status(500).json({ error: 'failed to load data' })
