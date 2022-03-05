@@ -17,7 +17,7 @@ export default function Project() {
 
   const listItems = data.repos.map((repo) =>
     <div key={repo} style={{padding: '5px', borderRadius: '10px', border: 'none', margin: '5px', backgroundColor: 'rgb(46, 46, 46, 0.4)'}}>
-      <h3 style={{marginLeft: '10px'}}>{repo} <span><Link href="/"><a style={{marginLeft: '10px'}}>Connect <FontAwesomeIcon icon="arrow-right" /></a></Link></span></h3>
+      <h3 style={{marginLeft: '7px'}}>{repo} <span><Link href="/"><a style={{marginLeft: '10px'}}>Connect <FontAwesomeIcon icon="arrow-right" /></a></Link></span></h3>
     </div>
   );
 
