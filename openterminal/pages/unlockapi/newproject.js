@@ -18,7 +18,7 @@ export default function Project() {
   if (!data.repos) return <div>Looks like there are no repos under your account!</div>
 
   const listItems = data.repos.map((repo) =>
-    <div key={repo} style={{padding: '5px', borderRadius: '10px', border: 'none', margin: '5px', backgroundColor: 'rgb(235, 235, 235, 0.6)', display: 'flex', flexDirection: 'row'}}>
+    <div key={repo} style={{padding: '5px', borderRadius: '10px', border: 'none', margin: '5px', backgroundColor: 'rgb(235, 235, 235, 0.7)', display: 'flex', flexDirection: 'row'}}>
       <h3 style={{marginLeft: '7px', color: 'black'}}>{repo}</h3>
       <h3 style={{marginLeft: 'auto', marginRight: '7px'}}><span><Link href=""><a onClick={() => setContent(`${data.user}/${repo}`)}>Connect <FontAwesomeIcon icon="arrow-right" /></a></Link></span></h3>
     </div>
@@ -37,7 +37,7 @@ export default function Project() {
                 {listItems}
               </div>
             </div>
-            <div style={{flex: '1', borderLeft: '2px solid rgb(255, 255, 255, 0.2)', paddingLeft: '15px'}}>
+            <div style={{flex: '1', borderLeft: '2px solid rgb(255, 255, 255, 0.35)', paddingLeft: '15px'}}>
               <h2>{content}</h2>
             </div>
           </div>
