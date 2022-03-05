@@ -11,13 +11,20 @@ export default function Project() {
   const fetcher = url => fetch(url).then(r => r.json())
   const { data, error } = useSWR("/api/unlockapi/src/loadrepos", fetcher)
   const [content, setContent] = useState("Connect");
+  const [query, setQuery] = useState("");
 
   if (error) return <div>failed to load</div>
   if (!data) return <div>loading...</div>
 
   if (!data.repos) return <div>Looks like there are no repos under your account!</div>
 
-  const listItems = data.repos.map((repo) =>
+  const listItems = data.filter(repo => {
+    if (query === '') {
+      return repo;
+    } else if (repo.toLowerCase().includes(query.toLowerCase())) {
+      return repo;
+    }
+  }).map((repo) =>
     <div key={repo} style={{padding: '5px', borderRadius: '10px', border: 'none', margin: '5px', backgroundColor: 'rgb(235, 235, 235, 0.7)', display: 'flex', flexDirection: 'row'}}>
       <h3 style={{marginLeft: '7px', color: 'black'}}>{repo}</h3>
       <h3 style={{marginLeft: 'auto', marginRight: '7px'}}><span><Link href=""><a onClick={() => setContent(`${data.user}/${repo}`)}>Connect <FontAwesomeIcon icon="arrow-right" /></a></Link></span></h3>
@@ -33,6 +40,7 @@ export default function Project() {
           <div className="acrylic" style={{display: 'flex'}}>
             <div style={{flex: '1', paddingRight: '15px'}}>
               <h2>Choose a repository to import...</h2>
+              <input placeholder="Enter Post Title" onChange={event => setQuery(event.target.value)} />
               <div style={{height: '250px', overflow: 'scroll', padding: '10px', borderRadius: '10px', backgroundColor: 'rgb(46, 46, 46, 0.45)'}}>
                 {listItems}
               </div>
