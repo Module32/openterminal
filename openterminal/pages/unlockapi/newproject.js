@@ -10,12 +10,12 @@ import { useState } from "react";
 export default function Project() {
   const fetcher = url => fetch(url).then(r => r.json())
   const { data, error } = useSWR("/api/unlockapi/src/loadrepos", fetcher)
+  const [content, setContent] = useState("Connect");
 
   if (error) return <div>failed to load</div>
   if (!data) return <div>loading...</div>
 
   if (!data.repos) return <div>Looks like there are no repos under your account!</div>
-  const [content, setContent] = useState("Connect");
 
   const listItems = data.repos.map((repo) =>
     <div key={repo} style={{padding: '5px', borderRadius: '10px', border: 'none', margin: '5px', backgroundColor: 'rgb(46, 46, 46, 0.4)', display: 'flex', flexDirection: 'row'}}>
