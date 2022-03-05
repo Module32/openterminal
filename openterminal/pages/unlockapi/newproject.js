@@ -10,6 +10,7 @@ const { Octokit } = require("octokit");
 import { getSession } from "next-auth/react"
 
 async function Getrepo(repo) {
+  const octokit = new Octokit({ auth: process.env.GITHUB_AUTH_TOKEN });
   lerepo = await octokit.request('GET /repos/{owner}/{repo}', {
     owner: session.user.name,
     repo: repo
