@@ -18,7 +18,7 @@ export default function Project() {
 
   if (!data.repos) return <div>Looks like there are no repos under your account!</div>
 
-  const listItems = data.filter(repo => {
+  const listItems = data.repos.filter(repo => {
     if (query === '') {
       return repo;
     } else if (repo.toLowerCase().includes(query.toLowerCase())) {
