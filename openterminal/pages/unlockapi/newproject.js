@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRight } from '@fortawesome/fontawesome-free-solid'
 import { useState } from "react";
 const { Octokit } = require("octokit");
-import { getSession } from "next-auth/react"
+import { useSession } from "next-auth/react"
 
 async function Getrepo(repo) {
   const octokit = new Octokit({ auth: process.env.GITHUB_AUTH_TOKEN });
