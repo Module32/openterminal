@@ -11,7 +11,7 @@ export default async function Loadrepos(req, res) {
     let repos = await octokit.paginate('GET /users/{username}/repos', {
       username: user,
     })
-    repo_arr = []
+    let repo_arr = []
     repos.map(repo => {
       repo_arr.push(repo.name);
     })
