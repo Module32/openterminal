@@ -33,7 +33,7 @@ export default function Project() {
           <div className="acrylic" style={{display: 'flex'}}>
             <div style={{flex: '1'}}>
               <h2>Choose a repository to import...</h2>
-              <div style={{height: '250px', overflow: 'scroll'}}>
+              <div style={{height: '250px', overflow: 'scroll', paddingRight: '15px'}}>
                 {listItems}
               </div>
             </div>
