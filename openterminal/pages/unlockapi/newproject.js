@@ -26,10 +26,8 @@ export default function Project() {
     <>
       <Layout>
         <div className="waves2">
-          <div className="acrylic" style={{textAlign: 'center', marginTop: '30px'}}>
-            <h1>New Project</h1>
-            <p>Welcome! Let&apos;s get you started with a new UnlockAPI Project.</p>
-          </div>
+          <h1 style={{marginTop: '20px'}}>New Project</h1>
+          <p>Welcome! Let&apos;s get you started with a new UnlockAPI Project.</p>
           <div className="acrylic">
             <h2>Choose a repository to import...</h2>
             <div style={{width: '30%'}}>
