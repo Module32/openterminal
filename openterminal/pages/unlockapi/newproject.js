@@ -25,15 +25,13 @@ export default function Project() {
   const [content, setContent] = useState(<h4>Please select a repository!</h4>);
   const [query, setQuery] = useState("");
 
+  let fetched_content_repo = Getrepo(content);
+  console.log(fetched_content_repo);
+
   if (error) return <div>failed to load</div>
   if (!data) return <div>loading...</div>
 
   if (!data.repos) return <div>Looks like there are no repos under your account!</div>
-
-  if (content !== "Please select a repository!") {
-    let repo = Getrepo(content);
-    console.log(repo);
-  }
 
   const listItems = data.repos.filter(repo => {
     if (query === '') {
