@@ -40,7 +40,7 @@ export default function Project() {
           <div className="acrylic" style={{display: 'flex'}}>
             <div style={{flex: '1', paddingRight: '15px'}}>
               <h2>Choose a repository to import...</h2>
-              <input placeholder="Enter Post Title" onChange={event => setQuery(event.target.value)} />
+              <input placeholder="Search up repo" onChange={event => setQuery(event.target.value)} style={{width: '100%'}} />
               <div style={{height: '250px', overflow: 'scroll', padding: '10px', borderRadius: '10px', backgroundColor: 'rgb(46, 46, 46, 0.45)'}}>
                 {listItems}
               </div>
