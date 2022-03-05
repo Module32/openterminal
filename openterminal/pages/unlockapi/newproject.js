@@ -28,8 +28,8 @@ export default function Project() {
           <h1 style={{marginTop: '60px'}}>New Project</h1>
           <p>Welcome! Let&apos;s get you started with a new UnlockAPI Project.</p>
           <div className="acrylic">
-            <h2>Choose a repository to import...</h2>
-            <div style={{width: '30%'}}>
+            <div style={{width: '40%'}}>
+              <h2>Choose a repository to import...</h2>
               {listItems}
             </div>
           </div>
