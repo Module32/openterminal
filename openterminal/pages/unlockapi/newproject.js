@@ -31,14 +31,14 @@ export default function Project() {
           <h1 style={{marginTop: '60px'}}>New Project</h1>
           <p>Welcome! Let&apos;s get you started with a new UnlockAPI Project.</p>
           <div className="acrylic" style={{display: 'flex'}}>
-            <div style={{flex: '0.8'}}>
+            <div style={{flex: '0.9'}}>
               <h2>Choose a repository to import...</h2>
               <div style={{height: '250px', overflow: 'scroll'}}>
                 {listItems}
               </div>
             </div>
-            <div className="vl" style={{flex: '0.2'}}></div>
-            <div style={{flex: '0.85'}}>
+            <div className="vl" style={{flex: '0.05'}}></div>
+            <div style={{flex: '0.9'}}>
               <h2>{content}</h2>
             </div>
           </div>
