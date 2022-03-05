@@ -37,7 +37,7 @@ export default function Project() {
                 {listItems}
               </div>
             </div>
-            <div className="vl" style={{flex: '0.05', paddingLeft: '3vw'}}></div>
+            <div className="vl" style={{flex: '0.05', marginRight: '3vw'}}></div>
             <div style={{flex: '0.9'}}>
               <h2>{content}</h2>
             </div>
