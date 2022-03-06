@@ -4,7 +4,7 @@ import Layout from '../../components/layout'
 import Footer from '../../components/footer'
 import Link from 'next/link'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowRight, faStar, faCodeBranch } from '@fortawesome/fontawesome-free-solid'
+import { faArrowRight, faStar, faCodeBranch, faLanguage } from '@fortawesome/fontawesome-free-solid'
 import { useState } from "react";
 
 export default function Project() {
@@ -29,9 +29,12 @@ export default function Project() {
       <h3 style={{marginLeft: '7px', color: 'black'}}>{repo.name}</h3>
       <h3 style={{marginLeft: 'auto', marginRight: '7px'}}><span><Link href=""><a onClick={() => setContent(
         <>
-          <h2><span className="grey">Connect </span>{data.user}/{repo.name}<br /></h2>
+          <h2><span style={{fontWeight: '600'}}>Connect </span>{data.user}/{repo.name}<br /></h2>
           <p>Start a new project under .../unlockapi/{data.user}/{repo.name}.</p>
-          <h4><span className="grey">{repo.description}</span><br /><FontAwesomeIcon icon="star" /> Stars: {repo.stargazers_count} ∙ <FontAwesomeIcon icon="code-branch" /> Forks: {repo.forks_count} ∙ <FontAwesomeIcon icon="code-branch" /> Language(s): {repo.language}</h4>
+          <div className="acrylic">
+            <h3>About this repo</h3>
+            <h4>{repo.description}<br /><br /><FontAwesomeIcon icon="star" /> Stars: {repo.stargazers_count} ∙ <FontAwesomeIcon icon="code-branch" /> Forks: {repo.forks_count} ∙ <FontAwesomeIcon icon="language" /> Language(s): {repo.language}</h4>
+          </div>
           <Link href="">
             <a className="padding">Create project <FontAwesomeIcon icon="arrow-right" /></a>
           </Link>
