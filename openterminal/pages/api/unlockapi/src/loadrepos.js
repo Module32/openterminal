@@ -13,7 +13,7 @@ export default async function Loadrepos(req, res) {
     })
     let repo_arr = []
     repos.map(repo => {
-      repo_arr.push(repo);
+      repo_arr.push(repo.name);
     })
 
     res.status(200).json({ user: user, repos: repo_arr })
