@@ -6,18 +6,6 @@ import Link from 'next/link'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRight } from '@fortawesome/fontawesome-free-solid'
 import { useState } from "react";
-const { Octokit } = require("octokit");
-import { useSession } from "next-auth/react"
-
-async function Getrepo(repo) {
-  const { data: session, status } = useSession()
-  const octokit = new Octokit({ auth: process.env.GITHUB_AUTH_TOKEN });
-  lerepo = await octokit.request('GET /repos/{owner}/{repo}', {
-    owner: session.user.name,
-    repo: repo
-  })
-  return lerepo;
-}
 
 export default function Project() {
   const fetcher = url => fetch(url).then(r => r.json())
@@ -25,14 +13,16 @@ export default function Project() {
   const [content, setContent] = useState(<h4>Please select a repository!</h4>);
   const [query, setQuery] = useState("");
 
-  let repo_content = []
-
   if (error) return <div>failed to load</div>
   if (!data) return <div>loading...</div>
 
   if (!data.repos) return <div>Looks like there are no repos under your account!</div>
+  names = []
+  for (let repo in data.repos) {
+    names.push(repo.name)
+  }
 
-  const listItems = data.repos.filter(repo => {
+  const listItems = names.filter(repo => {
     if (query === '') {
       return repo;
     } else if (repo.toLowerCase().includes(query.toLowerCase())) {
@@ -41,7 +31,7 @@ export default function Project() {
   }).map((repo) =>
     <div key={repo} style={{padding: '5px', borderRadius: '10px', border: 'none', margin: '5px', backgroundColor: 'rgb(235, 235, 235, 0.7)', display: 'flex', flexDirection: 'row'}}>
       <h3 style={{marginLeft: '7px', color: 'black'}}>{repo}</h3>
-      <h3 style={{marginLeft: 'auto', marginRight: '7px'}}><span><Link href=""><a onClick={() => setContent(<h2><span className="grey">Connect </span>{data.user}/{repo}<br /><span style={{fontSize: '13px'}}>{Getrepo(repo).description}</span></h2>)}>Connect <FontAwesomeIcon icon="arrow-right" /></a></Link></span></h3>
+      <h3 style={{marginLeft: 'auto', marginRight: '7px'}}><span><Link href=""><a onClick={() => setContent(<h2><span className="grey">Connect </span>{data.user}/{repo}<br /><span style={{fontSize: '13px'}}>{data.repos[repo].description}</span></h2>)}>Connect <FontAwesomeIcon icon="arrow-right" /></a></Link></span></h3>
     </div>
   );
 
