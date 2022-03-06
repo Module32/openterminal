@@ -17,7 +17,7 @@ export default function Project() {
   if (!data) return <div>loading...</div>
 
   if (!data.repos) return <div>Looks like there are no repos under your account!</div>
-  names = []
+  let names = []
   for (let repo in data.repos) {
     names.push(repo.name)
   }
