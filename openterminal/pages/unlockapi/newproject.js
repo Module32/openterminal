@@ -31,13 +31,14 @@ export default function Project() {
         <>
           <h2><span style={{fontWeight: '600'}}>Connect </span>{data.user}/{repo.name}<br /></h2>
           <p>Start a new project under .../unlockapi/{data.user}/{repo.name}.</p>
-          <div className="acrylic" style={{padding: '7px', margin: '5px'}}>
+          <div className="acrylic" style={{padding: '7px 12px', margin: '5px'}}>
             <h3>About this repo</h3>
-            <h4>{repo.description}<br /><br /><FontAwesomeIcon icon="star" /> Stars: {repo.stargazers_count} ∙ <FontAwesomeIcon icon="code-branch" /> Forks: {repo.forks_count} ∙ <FontAwesomeIcon icon="language" /> Language(s): {repo.language}</h4>
+            <h4>{repo.description}<br /><br /><FontAwesomeIcon icon="star" /> Stars: {repo.stargazers_count} ∙ <FontAwesomeIcon icon="code-branch" /> Forks: {repo.forks_count} ∙ <FontAwesomeIcon icon="language" /> Language: {repo.language}</h4>
           </div>
-          <Link href="">
+          <h3><Link href="">
             <a className="padding">Create project <FontAwesomeIcon icon="arrow-right" /></a>
           </Link>
+          </h3>
         </>)}>
         Connect <FontAwesomeIcon icon="arrow-right" /></a></Link></span>
       </h3>
