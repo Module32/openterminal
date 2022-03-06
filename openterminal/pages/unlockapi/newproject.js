@@ -31,7 +31,7 @@ export default function Project() {
         <>
           <h2><span style={{fontWeight: '600'}}>Connect </span>{data.user}/{repo.name}<br /></h2>
           <p>Start a new project under .../unlockapi/{data.user}/{repo.name}.</p>
-          <div className="acrylic">
+          <div className="acrylic" style={{padding: '7px', margin: '5px'}}>
             <h3>About this repo</h3>
             <h4>{repo.description}<br /><br /><FontAwesomeIcon icon="star" /> Stars: {repo.stargazers_count} ∙ <FontAwesomeIcon icon="code-branch" /> Forks: {repo.forks_count} ∙ <FontAwesomeIcon icon="language" /> Language(s): {repo.language}</h4>
           </div>
