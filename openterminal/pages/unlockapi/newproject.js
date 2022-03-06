@@ -4,7 +4,7 @@ import Layout from '../../components/layout'
 import Footer from '../../components/footer'
 import Link from 'next/link'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowRight } from '@fortawesome/fontawesome-free-solid'
+import { faArrowRight, faStar, faCodeBranch } from '@fortawesome/fontawesome-free-solid'
 import { useState } from "react";
 
 export default function Project() {
@@ -30,7 +30,11 @@ export default function Project() {
       <h3 style={{marginLeft: 'auto', marginRight: '7px'}}><span><Link href=""><a onClick={() => setContent(
         <>
           <h2><span className="grey">Connect </span>{data.user}/{repo.name}<br /></h2>
-          <p>Start a new project under <span className="grey">.../unlockapi/</span>{data.user}/{repo.name}.</p>
+          <p>Start a new project under .../unlockapi/{data.user}/{repo.name}.</p>
+          <h4><span className="grey">{repo.description}</span><br /><FontAwesomeIcon icon="star" /> Stars: {repo.stargazers_count} ∙ <FontAwesomeIcon icon="code-branch" /> Forks: {repo.forks_count} ∙ <FontAwesomeIcon icon="code-branch" /> Language(s): {repo.language}</h4>
+          <Link href="">
+            <a className="padding">Create project <FontAwesomeIcon icon="arrow-right" /></a>
+          </Link>
         </>)}>
         Connect <FontAwesomeIcon icon="arrow-right" /></a></Link></span>
       </h3>
