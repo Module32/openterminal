@@ -27,7 +27,7 @@ export default function Project() {
   }).map((repo) =>
     <div key={repo} style={{padding: '5px', borderRadius: '10px', border: 'none', margin: '5px', backgroundColor: 'rgb(235, 235, 235, 0.7)', display: 'flex', flexDirection: 'row'}}>
       <h3 style={{marginLeft: '7px', color: 'black'}}>{repo}</h3>
-      <h3 style={{marginLeft: 'auto', marginRight: '7px'}}><span><Link href=""><a onClick={() => setContent(<><h2><span className="grey">Connect </span>{data.user}/{repo}<br /></h2><p>Start a new project under https://openterminal.vercel.app/unlockapi/{data.user}/{repo}.</p>)</>)}>Connect <FontAwesomeIcon icon="arrow-right" /></a></Link></span></h3>
+      <h3 style={{marginLeft: 'auto', marginRight: '7px'}}><span><Link href=""><a onClick={() => setContent(<><h2><span className="grey">Connect </span>{data.user}/{repo}<br /></h2><p>Start a new project under <span className="grey">.../unlockapi/</span>{data.user}/{repo}.</p></>)}>Connect <FontAwesomeIcon icon="arrow-right" /></a></Link></span></h3>
     </div>
   );
 
