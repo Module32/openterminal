@@ -15,10 +15,11 @@ export default function Index() {
             <div className="waves2" style={{padding: '50px', paddingTop: '50px'}}>
           <div className="infocard" style={{padding: '100px'}}>  
           <div style={{flexDirection: 'column', paddingBottom: '50px'}}>
-              <h1 style={{fontSize: '60px'}}>Ensure your APIs are reliable.</h1>
+              <h1 style={{fontSize: '70px'}}>Ensure your APIs are reliable.</h1>
+  <p>UnlockAPI is the most advanced tool to monitor your services.</p>
   <div style={{flexDirection: 'row'}}>
-  <Link href="">
-  <a className="padding" style={{width: '100%'}}>Set up now</a>
+  <Link href="/newproject">
+  <a className="padding" style={{width: '100%'}}>Get started</a>
   </Link>
 
   <Link href="">
@@ -29,7 +30,7 @@ export default function Index() {
   </div>
             <Image
                     src="/pics/unlockapi/mascot1.png"
-                    width='800px'
+                    width='750px'
                     height='550px'
                   />
             </div>
