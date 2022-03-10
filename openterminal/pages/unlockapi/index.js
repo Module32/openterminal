@@ -13,7 +13,7 @@ export default function Index() {
         <>
         <Unlockapi>
             <div className="waves2" style={{padding: '50px', paddingTop: '60px'}}>
-          <div className="infocard" style={{padding: '100px'}}>  
+          <div className="infocard" style={{padding: '100px', width: '100%'}}>  
           <div style={{flexDirection: 'column', paddingBottom: '50px'}}>
               <h1 style={{fontSize: '70px', margin: '0'}}>Ensure your APIs are reliable.</h1>
   <p style={{paddingBottom: '12px'}}>UnlockAPI is the most advanced tool to monitor your services.</p>
