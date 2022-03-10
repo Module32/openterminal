@@ -31,7 +31,7 @@ export default function Index() {
             <Image
                     src="/pics/unlockapi/mascot1.png"
                     width='760px'
-                    height='750px'
+                    height='650px'
                   />
             </div>
   </div>
