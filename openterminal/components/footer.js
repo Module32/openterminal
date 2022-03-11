@@ -81,7 +81,7 @@ export default function Footer() {
       <hr style={{ backgroundColor: "rgb(110, 110, 110)" }} />
       <div style={{ display: "flex", marginTop: "-5px" }}>
         <h5 className="grey">
-          ©2021- | Open Terminal Company, managed by Ekya Dogra and Brinmeet Soin.{" "} <Link href="mailto: OpenTerminalCo@gmail.com">
+          ©2021-{new Date().getFullYear()} | Open Terminal Company, managed by Ekya Dogra and Brinmeet Soin.{" "} <Link href="mailto: OpenTerminalCo@gmail.com">
               <a className="footer">Email us</a>
             </Link> for questions or
           support.
