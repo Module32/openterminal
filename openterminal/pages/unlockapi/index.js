@@ -18,7 +18,7 @@ export default function Index() {
               <h1 style={{fontSize: '70px', margin: '0'}}>Ensure your APIs are reliable.</h1>
               <p style={{paddingBottom: '12px'}}>UnlockAPI is the most advanced tool to monitor your services.</p>
               <div style={{flexDirection: 'row'}}>
-              <Link href="/newproject">
+              <Link href="/unlockapi/newproject">
                 <a className="padding" style={{width: '50%'}}>Get started</a>
               </Link>
 
