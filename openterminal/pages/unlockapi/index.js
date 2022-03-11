@@ -14,16 +14,16 @@ export default function Index() {
         <Unlockapi>
             <div className="waves2" style={{padding: '50px', paddingTop: '60px'}}>
           <div className="infocard" style={{padding: '100px'}}>  
-          <div style={{flexDirection: 'column', paddingBottom: '50px'}}>
+          <div style={{flexDirection: 'column'}}>
               <h1 style={{fontSize: '70px', margin: '0'}}>Ensure your APIs are reliable.</h1>
               <p style={{paddingBottom: '12px'}}>UnlockAPI is the most advanced tool to monitor your services.</p>
-              <div style={{flexDirection: 'column'}}>
+              <div style={{flexDirection: 'row'}}>
               <Link href="/newproject">
-              <a className="padding" style={{width: '100%'}}>Get started</a>
+                <a className="padding" style={{width: '50%'}}>Get started</a>
               </Link>
 
               <Link href="">
-              <a className="padding" style={{width: '100%'}}>Learn more</a>
+                <a className="padding" style={{width: '50%'}}>Learn more</a>
               </Link>
               
               </div>
