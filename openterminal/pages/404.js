@@ -9,7 +9,7 @@ export default function Custom404() {
   return (
     <>
       <Layout>
-        <div className="infocard" style={{padding: '100px', paddingBottom: '50px', width: '90%'}}>
+        <div className="infocard" style={{padding: '100px', paddingBottom: '50px', width: '95%'}}>
             <div style={{flexDirection: 'column'}}>
                 <h1 style={{fontSize: '50px', margin: '5'}}>Looks like you&apos;re lost in the OTverse</h1>
                 <p>Whoops! The page you were looking for couldn&apos;t be found. Perhaps going <Link href="/"><a>back home</a></Link> can help out.</p>
