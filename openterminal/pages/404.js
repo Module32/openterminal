@@ -16,7 +16,7 @@ export default function Custom404() {
             </div>
             <Image
                 src="/pics/404lostinspace.png"
-                width='660px'
+                width='860px'
                 height='650px'
             />
         </div>
