@@ -24,7 +24,6 @@ export default function Index() {
                             <Typical
                                 steps={['is made for everyone', 'helps out devs', 'supports students', 'helps your mum', 'is always growing', 'is reliable', 'just works']}
                                 loop={Infinity}
-                                wrapper="p"
                             /></span>.</span></h1>
                     </div>
                 </div>
