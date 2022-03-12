@@ -27,7 +27,7 @@ export default function Project() {
         </Footer>
       </>
     )
-  }f
+  }
   if (!data) {
     return ( 
       <>
