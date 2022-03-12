@@ -376,3 +376,14 @@ a.discord:hover, button.discord:hover {
 .vl {
   border-left: 6px solid rgb(255, 255, 255, 0.2);
 }
+
+.whyottopbanner {
+  background-image: url("../public/pics/whyot/topbanner.png");
+  background-repeat: no-repeat;
+  height: 90%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 50px;
+  text-align: center;
+}

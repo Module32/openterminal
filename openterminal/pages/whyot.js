@@ -15,9 +15,7 @@ export default function Index() {
         <>
           <Layout>
             <div className="hometop">
-                <div style={{ 
-                    backgroundImage: `url(${topbanner})` 
-                    }}>
+                <div className="whyottopbanner">
                     <p>Why OT?</p>
                     <h1>Because OT is made for everyone.</h1>
                 </div>
