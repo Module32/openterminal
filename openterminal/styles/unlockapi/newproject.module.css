@@ -1,5 +1,8 @@
 body {
     background-image: url("../../public/pics/unlockapi/waves1.svg");
+}
+
+.pendingapi {
     background-repeat: no-repeat;
     height: 90%;
     background-position: center;
@@ -12,4 +15,6 @@ body {
     -webkit-backdrop-filter: blur(10px);
     background-blend-mode: exclusion;
     background: rgba(255, 255, 255, 0.4);
+    height: 100%;
+    font-family: -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
 }
