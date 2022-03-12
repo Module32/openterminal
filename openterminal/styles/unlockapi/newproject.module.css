@@ -1,8 +1,5 @@
-body {
-    background-image: url("../../public/pics/unlockapi/waves1.svg");
-}
-
 .pendingapi {
+    background-image: url("../../public/pics/unlockapi/waves1.svg");
     background-repeat: no-repeat;
     height: 90%;
     background-position: center;
