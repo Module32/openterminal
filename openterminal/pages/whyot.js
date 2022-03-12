@@ -15,12 +15,12 @@ export default function Index() {
     return (
         <>
           <Layout>
-            <Fade up>
-                <div style={{paddingTop: '80px'}}>
+            <Fade>
+                <div style={{paddingTop: '90px'}}>
                     <div className="whyottopbanner" style={{paddingTop: '100px', paddingBottom: '100px'}}>
                         <p>Why OT?</p>
                         <h1>
-                        <span style={{padding: '5px', borderRadius: '5px', backgroundColor: 'rgb(0, 0, 0, 0.2)', textShadow: '0px 5px 25px rgb(0, 0, 0, 0.4)', flexDirection: 'row'}}>
+                        <span style={{textShadow: '0px 5px 25px rgb(0, 0, 0, 0.5)'}}>
                             <Typical
                                 steps={['Because OT is made for everyone', 1000, 'Because OT helps out devs', 1000, 'Because OT supports students', 1000, 'Because OT helps your mum', 500, 'Because OT is always growing', 1000, 'Because OT is reliable', 1000, 'Because OT just works', 1000]}
                                 loop={Infinity}
