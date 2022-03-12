@@ -28,7 +28,7 @@ export default function Layout({ children, home }) {
               <a className="navbar">Home</a>
             </Link></li>
 
-            <li><Link href="/">
+            <li><Link href="/whyot">
               <a className="navbar">Why OT</a>
             </Link></li>
             
