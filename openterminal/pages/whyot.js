@@ -14,8 +14,8 @@ export default function Index() {
     return (
         <>
           <Layout>
-            <div style={{paddingTop: '150px'}}>
-                <div className="whyottopbanner" style={{paddingTop: '50px', paddingBottom: '50px'}}>
+            <div style={{paddingTop: '100px'}}>
+                <div className="whyottopbanner" style={{paddingTop: '100px', paddingBottom: '100px'}}>
                     <p>Why OT?</p>
                     <h1><span style={{padding: '5px', borderRadius: '5px', backgroundColor: 'rgb(0, 0, 0, 0.2)', textShadow: '0px 5px 25px rgb(0, 0, 0, 0.4)'}}>Because OT is made for everyone.</span></h1>
                 </div>
