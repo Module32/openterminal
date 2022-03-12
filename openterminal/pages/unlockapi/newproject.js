@@ -15,8 +15,32 @@ export default function Project() {
   const [content, setContent] = useState(<h4>Please select a repository!</h4>);
   const [query, setQuery] = useState("");
 
-  if (error) return <div className={styles.pendingapi}><h1><span style={{color: '#f51d1d'}}><FontAwesomeIcon icon="exclamation" /> We couldn&apos;t load your repositories.</span></h1></div>
-  if (!data) return <div className={styles.pendingapi}><h1>Loading repositories...</h1></div>
+  if (error) {
+    return ( 
+      <>
+        <Layout>
+            <div className="waves2">
+            <h1><span style={{color: '#f51d1d'}}><FontAwesomeIcon icon="exclamation" /> We couldn&apos;t load your repositories.</span></h1>
+            </div>
+        </Layout>
+        <Footer>
+        </Footer>
+      </>
+    )
+  }f
+  if (!data) {
+    return ( 
+      <>
+        <Layout>
+            <div className="waves2">
+            <h1><span>Loading your repositories...</span></h1>
+            </div>
+        </Layout>
+        <Footer>
+        </Footer>
+      </>
+    )
+  }
 
   if (!data.repos) return <div>Looks like there are no repos under your account!</div>
 
