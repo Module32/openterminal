@@ -14,10 +14,10 @@ export default function Index() {
     return (
         <>
           <Layout>
-            <div className="hometop">
+            <div style={{paddingTop: '100px'}}>
                 <div className="whyottopbanner">
                     <p>Why OT?</p>
-                    <h1>Because OT is made for everyone.</h1>
+                    <h1><span style={{padding: '5px', borderRadius: '5px', backgroundColor: 'rgb(0, 0, 0, 0.2)', textShadow: '0px 5px 25px rgb(0, 0, 0, 0.4)'}}>Because OT is made for everyone.</span></h1>
                 </div>
             </div>
         </Layout>
