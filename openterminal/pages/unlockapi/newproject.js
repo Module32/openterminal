@@ -14,37 +14,15 @@ export default function Project() {
   const { data, error } = useSWR("/api/unlockapi/src/loadrepos", fetcher)
   const [content, setContent] = useState(<h4>Please select a repository!</h4>);
   const [query, setQuery] = useState("");
+  let fetch_status = "";
 
-  if (error) {
-    return ( 
-      <>
-        <Layout>
-            <div className="waves2">
-            <h1><span style={{color: '#f51d1d'}}><FontAwesomeIcon icon="exclamation" /> We couldn&apos;t load your repositories.</span></h1>
-            </div>
-        </Layout>
-        <Footer>
-        </Footer>
-      </>
-    )
-  }
-  if (!data) {
-    return ( 
-      <>
-        <Layout>
-            <div className="waves2">
-            <h1><span>Loading your repositories...</span></h1>
-            </div>
-        </Layout>
-        <Footer>
-        </Footer>
-      </>
-    )
-  }
+  if (error) fetch_status = "error"
+  if (!data) fetch_status = "loading"
 
   if (!data.repos) return <div>Looks like there are no repos under your account!</div>
 
   const listItems = data.repos.filter(repo => {
+    if (fetch_status !== "") return fetch_status;
     if (query === '') {
       return repo;
     } else if (repo.name.toLowerCase().includes(query.toLowerCase())) {
