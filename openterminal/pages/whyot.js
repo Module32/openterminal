@@ -16,7 +16,7 @@ export default function Index() {
         <>
           <Layout>
             <Fade>
-                <div style={{paddingTop: '90px'}}>
+                <div style={{paddingTop: '85px'}}>
                     <div className="whyottopbanner" style={{paddingTop: '100px', paddingBottom: '100px'}}>
                         <p>Why OT?</p>
                         <h1>
