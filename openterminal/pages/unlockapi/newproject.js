@@ -4,9 +4,10 @@ import Layout from '../../components/layout'
 import Footer from '../../components/footer'
 import Link from 'next/link'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowRight, faStar, faCodeBranch, faLanguage } from '@fortawesome/fontawesome-free-solid'
+import { faExclamation } from '@fortawesome/fontawesome-free-solid'
 import { useState } from "react";
 import Fade from 'react-reveal/Fade';
+import styles from '../../styles/unlockapi/newproject.module.css';
 
 export default function Project() {
   const fetcher = url => fetch(url).then(r => r.json())
@@ -14,8 +15,8 @@ export default function Project() {
   const [content, setContent] = useState(<h4>Please select a repository!</h4>);
   const [query, setQuery] = useState("");
 
-  if (error) return <div>failed to load</div>
-  if (!data) return <div>loading...</div>
+  if (error) return <div className='pendingapi'><span style={{color: '#f51d1d'}}><FontAwesomeIcon icon="exclamation" /> We couldn&apos;t load your repositories.</span></div>
+  if (!data) return <div className='pendingapi'>Loading repositories...</div>
 
   if (!data.repos) return <div>Looks like there are no repos under your account!</div>
 

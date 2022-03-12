@@ -1,0 +1,19 @@
+.pendingapi {
+    background-image: url("../public/pics/unlockapi/waves1.svg");
+    background-repeat: no-repeat;
+    height: 90%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 50px;
+    text-align: center;
+    color: black;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    /* Exclusion blend */
+    background-blend-mode: exclusion;
+
+    /* Color/tint overlay + Opacity */
+    background: rgba(255, 255, 255, 0.4);
+}
