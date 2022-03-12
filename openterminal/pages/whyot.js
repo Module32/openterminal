@@ -8,13 +8,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRight, faArrowCircleRight, faHeart } from '@fortawesome/fontawesome-free-solid'
 import Fade from 'react-reveal/Fade';
 
+import topbanner from '../public/pics/whyot/topbanner.png';
+
 export default function Index() {
     return (
         <>
           <Layout>
             <div className="hometop">
                 <div style={{ 
-                    backgroundImage: `../public/pics/whyot/topbanner.png` 
+                    backgroundImage: `url(${topbanner})` 
                     }}>
                     <p>Why OT?</p>
                     <h1>Because OT is made for everyone.</h1>
