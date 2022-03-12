@@ -19,10 +19,10 @@ export default function Index() {
                 <div style={{paddingTop: '80px'}}>
                     <div className="whyottopbanner" style={{paddingTop: '100px', paddingBottom: '100px'}}>
                         <p>Why OT?</p>
-                        <h1><span style={{padding: '5px', borderRadius: '5px', backgroundColor: 'rgb(0, 0, 0, 0.2)', textShadow: '0px 5px 25px rgb(0, 0, 0, 0.4)'}}>Because OT
-                        <span style={{color: '#43AA8B'}}>
+                        <h1 style={{display: 'flex'}}><span style={{padding: '5px', borderRadius: '5px', backgroundColor: 'rgb(0, 0, 0, 0.2)', textShadow: '0px 5px 25px rgb(0, 0, 0, 0.4)', flexDirection: 'row'}}>Because OT
+                        <span style={{color: '#43AA8B', flexDirection: 'row'}}>
                             <Typical
-                                steps={['is made for everyone', 'helps out devs', 'supports students', 'helps your mum', 'is always growing', 'is reliable', 'just works']}
+                                steps={['is made for everyone', 1000, 'helps out devs', 1000, 'supports students', 1000, 'helps your mum', 500, 'is always growing', 1000, 'is reliable', 1000, 'just works']}
                                 loop={Infinity}
                             /></span>.</span></h1>
                     </div>
