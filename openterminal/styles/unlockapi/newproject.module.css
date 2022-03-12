@@ -1,4 +1,4 @@
-.pendingapi {
+body {
     background-image: url("../../public/pics/unlockapi/waves1.svg");
     background-repeat: no-repeat;
     height: 90%;
@@ -10,10 +10,6 @@
     color: black;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-
-    /* Exclusion blend */
     background-blend-mode: exclusion;
-
-    /* Color/tint overlay + Opacity */
     background: rgba(255, 255, 255, 0.4);
 }
