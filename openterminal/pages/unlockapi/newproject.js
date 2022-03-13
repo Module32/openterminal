@@ -12,7 +12,7 @@ import styles from '../../styles/unlockapi/newproject.module.css';
 export default function Project() {
   const fetcher = url => fetch(url).then(r => r.json())
   const { data, error } = useSWR("/api/unlockapi/src/loadrepos", fetcher)
-  const [content, setContent] = useState(<h4>Please select a repository!</h4>);
+  const [content, setContent] = useState(<h4 className="grey">Please select a repository.</h4>);
   const [query, setQuery] = useState("");
 
   if (error) return <div>Failed to load</div>
@@ -31,7 +31,6 @@ export default function Project() {
       <h3 style={{marginLeft: '7px', color: 'black'}}>{repo.name}</h3>
       <h3 style={{marginLeft: 'auto', marginRight: '7px'}}><span><Link href=""><a onClick={() => setContent(
         <>
-          <Fade>
             <h2><span style={{fontWeight: '600'}}>Connect </span>{data.user}/{repo.name}<br /></h2>
             <p>Start a new project under .../unlockapi/{data.user}/{repo.name}.</p>
             <div className="acrylic" style={{padding: '7px 12px', margin: '5px'}}>
@@ -42,7 +41,6 @@ export default function Project() {
               <a className="padding">Create project <FontAwesomeIcon icon="arrow-right" /></a>
             </Link>
             </h3>
-          </Fade>
         </>)}>
         Connect <FontAwesomeIcon icon="arrow-right" /></a></Link></span>
       </h3>
