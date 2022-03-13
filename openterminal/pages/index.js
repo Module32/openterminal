@@ -62,12 +62,12 @@ export default function Index() {
                     <div style={{display: 'flex', alignItems: 'center', justifyContent:'center'}}>
                       <div className={['card', 'dynamiclayout'].join(' ')}>
                         <h1>UnlockAPI</h1>
-                        <p className="grey">The API monitoring platform made for the future.<br /><a href="https://unlockapi.coefficient.repl.co">Check it out <FontAwesomeIcon icon="arrow-circle-right" /></a></p>
+                        <p className="grey">The API monitoring platform made for the future.<br /><Link href="/unlockapi"><a>Check it out <FontAwesomeIcon icon="arrow-circle-right" /></a></Link></p>
                       </div>
 
                       <div className={['card', 'dynamiclayout'].join(' ')}>
                         <h1>Lexicon</h1>
-                        <p className="grey">An intuitive dictionary created for everybody.<br /><a href="https://lexicon.coefficient.repl.co">Check it out <FontAwesomeIcon icon="arrow-circle-right" /></a></p>
+                        <p className="grey">An intuitive dictionary created for everybody.<br /><Link href=""><a>Check it out <FontAwesomeIcon icon="arrow-circle-right" /></a></Link></p>
                       </div>
                       <div className={['card', 'dynamiclayout'].join(' ')}>
                         <h1>Bot Building Site</h1>
