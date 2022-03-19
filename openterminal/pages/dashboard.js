@@ -12,7 +12,7 @@ export default function Dashboard() {
       <div className="hometop">
         <h3 style={{fontSize: '40px'}}>{session.user.name}</h3>
         <p>{session.user.email}</p>
-        <Link href="/dashboard"><a><Image src={session.user.image()} /></a></Link>
+        <Link href="/dashboard"><a><Image src={session.user.image} /></a></Link>
         </div>
       </Layout>
     </>
