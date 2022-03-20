@@ -14,18 +14,8 @@ export default function Project() {
   const { data, error } = useSWR("/api/unlockapi/src/loadrepos", fetcher)
   const [content, setContent] = useState(<h4 className="grey">Please select a repository.</h4>);
   const [mode, setButtonMode] = useState("");
-  <input value={this.state.url} onChange={this.handleChange} />
   const [query, setQuery] = useState("");
 
-  state = {
-    url: ""
-  };
-
-  handleChange = (e)=>{
-    this.setState({
-      url: e.target.value
-    })
-  }
 
   if (error) return <div>Failed to load</div>
   if (!data) return <div>Loading....</div>
