@@ -40,8 +40,10 @@ export default function Project() {
               <h4>{repo.description || "No description."}<br /><br /><FontAwesomeIcon icon="star" /> Stars: {repo.stargazers_count} ∙ <FontAwesomeIcon icon="code-branch" /> Forks: {repo.forks_count} ∙ <FontAwesomeIcon icon="language" /> Language: {repo.language}</h4>
             </div>
             <p>Ready to connect? Enter the URL to your service with the API route.</p>
-            <input onChange={(input) => setButtonMode(input)}></input>
-            <button disabled={!mode}>Let&apos;s go!</button>
+            <div style={{display: 'flex'}}>
+              <input onChange={(input) => setButtonMode(input)} style={{flex: '1.7'}} placeholder="Enter URL (with main API route)"></input>
+              <button disabled={!mode} style={{flex: '0.3'}}>Let&apos;s go!</button>
+            </div>
         </>)}>
         Connect <FontAwesomeIcon icon="arrow-right" /></a></Link></span>
       </h3>
