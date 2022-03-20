@@ -13,6 +13,8 @@ export default function Project() {
   const fetcher = url => fetch(url).then(r => r.json())
   const { data, error } = useSWR("/api/unlockapi/src/loadrepos", fetcher)
   const [content, setContent] = useState(<h4 className="grey">Please select a repository.</h4>);
+  const [mode, setButtonMode] = useState("");
+  <input value={this.state.url} onChange={this.handleChange} />
   const [query, setQuery] = useState("");
 
   state = {
@@ -48,8 +50,8 @@ export default function Project() {
               <h4>{repo.description || "No description."}<br /><br /><FontAwesomeIcon icon="star" /> Stars: {repo.stargazers_count} ∙ <FontAwesomeIcon icon="code-branch" /> Forks: {repo.forks_count} ∙ <FontAwesomeIcon icon="language" /> Language: {repo.language}</h4>
             </div>
             <p>Ready to connect? Enter the URL to your service with the API route.</p>
-            <input value={this.state.url} onChange={this.handleChange} />
-            <button disabled={this.state.email.length<1}>Let&apos;s go!</button>
+            <input onInput={() => setButtonMode(0)}></input>
+            <button disabled={mode}>Let&apos;s go!</button>
         </>)}>
         Connect <FontAwesomeIcon icon="arrow-right" /></a></Link></span>
       </h3>
