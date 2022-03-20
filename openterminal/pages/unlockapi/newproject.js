@@ -15,6 +15,16 @@ export default function Project() {
   const [content, setContent] = useState(<h4 className="grey">Please select a repository.</h4>);
   const [query, setQuery] = useState("");
 
+  state = {
+    url: ""
+  };
+
+  handleChange = (e)=>{
+    this.setState({
+      url: e.target.value
+    })
+  }
+
   if (error) return <div>Failed to load</div>
   if (!data) return <div>Loading....</div>
 
@@ -37,10 +47,9 @@ export default function Project() {
               <h3>About this repo</h3>
               <h4>{repo.description || "No description."}<br /><br /><FontAwesomeIcon icon="star" /> Stars: {repo.stargazers_count} ∙ <FontAwesomeIcon icon="code-branch" /> Forks: {repo.forks_count} ∙ <FontAwesomeIcon icon="language" /> Language: {repo.language}</h4>
             </div>
-            <h3><Link href="">
-              <a className="padding">Create project <FontAwesomeIcon icon="arrow-right" /></a>
-            </Link>
-            </h3>
+            <p>Ready to connect? Enter the URL to your service with the API route.</p>
+            <input value={this.state.url} onChange={this.handleChange} />
+            <button disabled={this.state.email.length<1}>Let&apos;s go!</button>
         </>)}>
         Connect <FontAwesomeIcon icon="arrow-right" /></a></Link></span>
       </h3>
