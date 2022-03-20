@@ -13,7 +13,7 @@ export default function Project() {
   const fetcher = url => fetch(url).then(r => r.json())
   const { data, error } = useSWR("/api/unlockapi/src/loadrepos", fetcher)
   const [content, setContent] = useState(<h4 className="grey">Please select a repository.</h4>);
-  const [mode, setButtonMode] = useState("");
+  const [mode, setMode] = useState("");
   const [query, setQuery] = useState("");
 
 
@@ -41,7 +41,7 @@ export default function Project() {
             </div>
             <p>Ready to connect? Enter the URL to your service with the API route.</p>
             <div style={{display: 'flex'}}>
-              <input onChange={(input) => console.log(input.value)} style={{flex: '1.7'}} placeholder="Enter URL (with main API route)"></input>
+              <input type="url" onChange={(input) => setMode(input)} style={{flex: '1.7'}} placeholder="Enter URL (with main API route)"></input>
               <button disabled={!mode} style={{flex: '0.3'}}>Let&apos;s go!</button>
             </div>
         </>)}>
