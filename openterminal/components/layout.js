@@ -24,6 +24,10 @@ export default function Layout({ children, home }) {
       <header className={styles.header}>
           <>
           <ul>
+            <li>
+              <span className="codefont">Open Terminal</span>
+            </li>
+
             <li><Link href="/">
               <a className="navbar">Home</a>
             </Link></li>
