@@ -11,10 +11,9 @@ export default function Footer() {
         <div style={{flexDirection: "row"}}>
           <h4 className="codefont">Presenting</h4>
           <h1 className="codefont">Open Terminal</h1>
-          <p className="codefont">By Brinmeet Soin and Ekya Dogra</p>
+          <p className="codefont grey">By Brinmeet Soin and Ekya Dogra</p>
         </div>
         <div style={{ flexDirection: "row", marginLeft: 40 }}>
-        <div>
           <h4>Products</h4>
           <div className="grey" style={{ marginTop: "-10px", fontSize: 15 }}>
             <p>
@@ -82,7 +81,6 @@ export default function Footer() {
             </p>
           </div>
         </div>
-      </div>
       </div>
       <div style={{ display: "flex" }}>
         <a href="google.com" className="socials"><FontAwesomeIcon icon={faDiscord}/></a>
