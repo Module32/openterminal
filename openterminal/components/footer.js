@@ -13,7 +13,7 @@ export default function Footer() {
           <h1 className="codefont">Open Terminal</h1>
           <p className="codefont">By Brinmeet Soin and Ekya Dogra</p>
         </div>
-        <div style={{marginLeft: "auto" }}>
+        <div style={{ marginLeft: 40 }}>
         <div>
           <h4>Products</h4>
           <div className="grey" style={{ marginTop: "-10px", fontSize: 15 }}>
@@ -83,9 +83,9 @@ export default function Footer() {
           </div>
         </div>
       </div>
+      </div>
       <div style={{ display: "flex" }}>
         <a href="google.com" className="socials"><FontAwesomeIcon icon={faDiscord}/></a>
-      </div>
       </div>
     </footer>
   )
