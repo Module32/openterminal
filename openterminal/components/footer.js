@@ -13,7 +13,7 @@ export default function Footer() {
           <h1 className="codefont">Open Terminal</h1>
           <p className="codefont grey">By Brinmeet Soin and Ekya Dogra</p>
         </div>
-        <div style={{ flexDirection: "row", marginLeft: 40 }}>
+        <div style={{ flexDirection: "row", marginLeft: 'auto' }}>
           <h4>Products</h4>
           <div className="grey" style={{ marginTop: "-10px", fontSize: 15 }}>
             <p>
