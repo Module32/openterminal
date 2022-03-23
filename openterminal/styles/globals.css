@@ -27,7 +27,7 @@ ul {
   /* Color/tint overlay + Opacity */
   background: rgba(0, 0, 0, .2);
   color: white;
-  padding: 22px 70px;
+  padding: 30px 70px;
   position: fixed;
   top: 0;
   width: 100%;
