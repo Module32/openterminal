@@ -29,9 +29,9 @@ export default async function Project() {
 
   const listItems = repos.filter(repo => {
     if (query === '') {
-      return repo;
+      return repo.name;
     } else if (repo.name.toLowerCase().includes(query.toLowerCase())) {
-      return repo;
+      return repo.name;
     }
   }).map((repo, index) =>
     <div key={index} style={{padding: '5px', borderRadius: '10px', border: 'none', margin: '5px', backgroundColor: 'rgb(235, 235, 235, 0.7)', display: 'flex', flexDirection: 'row'}}>
