@@ -45,7 +45,7 @@ export default function Project() {
             </div>
             <p>Ready to connect? Enter the URL to your service with the API route.</p>
             <div style={{display: 'flex'}}>
-              <input type="url" onChange={() => setMode("true")} style={{flex: '1.7'}} oninput="inputValue(this)" placeholder="Enter URL (with main API route)"></input>
+              <input type="url" onChange={() => setMode("true")} style={{flex: '1.7'}} onInput="inputValue(this)" placeholder="Enter URL (with main API route)"></input>
               <button disabled={mode} style={{flex: '0.3'}}>Let&apos;s go!</button>
             </div>
         </>)}>
