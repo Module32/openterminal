@@ -9,7 +9,7 @@ import Fade from 'react-reveal/Fade';
 import styles from '../../styles/unlockapi/newproject.module.css';
 const { Octokit } = require("octokit");
 
-export default function Project() {
+export default async function Project() {
   const [content, setContent] = useState(<h4 className="grey">Please select a repository.</h4>);
   const [mode, setMode] = useState("false");
   const [query, setQuery] = useState("");
