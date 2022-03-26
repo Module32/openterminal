@@ -1,4 +1,3 @@
-import useSWR from 'swr'
 import fetch from 'unfetch'
 import Layout from '../../components/layout'
 import Footer from '../../components/footer'
@@ -8,25 +7,27 @@ import { faExclamation } from '@fortawesome/fontawesome-free-solid'
 import { useState } from "react";
 import Fade from 'react-reveal/Fade';
 import styles from '../../styles/unlockapi/newproject.module.css';
+const { Octokit } = require("octokit");
 
 export default function Project() {
-  const fetcher = url => fetch(url).then(r => r.json())
-  const { data, error } = useSWR("/api/unlockapi/src/loadrepos", fetcher)
   const [content, setContent] = useState(<h4 className="grey">Please select a repository.</h4>);
   const [mode, setMode] = useState("false");
   const [query, setQuery] = useState("");
+  const octokit = new Octokit({ auth: process.env.GITHUB_AUTH_TOKEN });
 
+  let user = session.user.name;
 
-  if (error) return <div>Failed to load</div>
-  if (!data) return <div>Loading....</div>
+  let repos = await octokit.paginate('GET /users/{username}/repos', {
+    username: user,
+  })
 
-  if (!data.repos) return <div>Looks like there are no repos under your account!</div>
+  if (!repos) return <div>Looks like there are no repos under your account!</div>
 
   function inputValue(el){
     el.value = <span style={{padding: '4px', margin: '3px', borderRadius: '4px', backgroundColor: 'rgb(255, 255, 255, 0.3)'}}>https://</span> + el.value;
   }
 
-  const listItems = data.repos.filter(repo => {
+  const listItems = repos.filter(repo => {
     if (query === '') {
       return repo;
     } else if (repo.name.toLowerCase().includes(query.toLowerCase())) {
@@ -37,8 +38,8 @@ export default function Project() {
       <h3 style={{marginLeft: '7px', color: 'black'}}>{repo.name}</h3>
       <h3 style={{marginLeft: 'auto', marginRight: '7px'}}><span><Link href=""><a onClick={() => setContent(
         <>
-            <h2><span style={{fontWeight: '600'}}>Connect </span>{data.user}/{repo.name}<br /></h2>
-            <p>Start a new project under .../unlockapi/{data.user}/{repo.name}.</p>
+            <h2><span style={{fontWeight: '600'}}>Connect </span>{user}/{repo.name}<br /></h2>
+            <p>Start a new project under .../unlockapi/{user}/{repo.name}.</p>
             <div className="acrylic" style={{padding: '7px 12px', margin: '5px'}}>
               <h3>About this repo</h3>
               <h4>{repo.description || "No description."}<br /><br /><FontAwesomeIcon icon="star" /> Stars: {repo.stargazers_count} ∙ <FontAwesomeIcon icon="code-branch" /> Forks: {repo.forks_count} ∙ <FontAwesomeIcon icon="language" /> Language: {repo.language}</h4>
