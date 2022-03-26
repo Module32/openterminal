@@ -22,6 +22,10 @@ export default function Project() {
 
   if (!data.repos) return <div>Looks like there are no repos under your account!</div>
 
+  function inputValue(el){
+    el.value = <span style={{padding: '4px', margin: '3px', borderRadius: '4px', backgroundColor: 'rgb(255, 255, 255, 0.3)'}}>https://</span> + el.value;
+  }
+
   const listItems = data.repos.filter(repo => {
     if (query === '') {
       return repo;
@@ -41,7 +45,7 @@ export default function Project() {
             </div>
             <p>Ready to connect? Enter the URL to your service with the API route.</p>
             <div style={{display: 'flex'}}>
-              <input type="url" onChange={() => setMode("true")} style={{flex: '1.7'}} placeholder="Enter URL (with main API route)"></input>
+              <input type="url" onChange={() => setMode("true")} style={{flex: '1.7'}} oninput="inputValue(this)" placeholder="Enter URL (with main API route)"></input>
               <button disabled={mode} style={{flex: '0.3'}}>Let&apos;s go!</button>
             </div>
         </>)}>
