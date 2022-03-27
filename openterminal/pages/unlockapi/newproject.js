@@ -11,7 +11,6 @@ const { Octokit } = require("octokit");
 
 export default async function Project() {
   const [content, setContent] = useState(<h4 className="grey">Please select a repository.</h4>);
-  const [mode, setMode] = useState("false");
   const [query, setQuery] = useState("");
   const octokit = new Octokit({ auth: process.env.GITHUB_AUTH_TOKEN });
 
@@ -33,7 +32,7 @@ export default async function Project() {
     <div key={index} style={{padding: '5px', borderRadius: '10px', border: 'none', margin: '5px', backgroundColor: 'rgb(235, 235, 235, 0.7)', display: 'flex', flexDirection: 'row'}}>
       <h3 style={{marginLeft: '7px', color: 'black'}}>{repo.name}</h3>
       <h3 style={{marginLeft: 'auto', marginRight: '7px'}}><span><Link href=""><a onClick={() => setContent(
-        <>
+        /* <>
             <h2><span style={{fontWeight: '600'}}>Connect </span>{user}/{repo.name}<br /></h2>
             <p>Start a new project under .../unlockapi/{user}/{repo.name}.</p>
             <div className="acrylic" style={{padding: '7px 12px', margin: '5px'}}>
@@ -42,10 +41,10 @@ export default async function Project() {
             </div>
             <p>Ready to connect? Enter the URL to your service with the API route.</p>
             <div style={{display: 'flex'}}>
-              <input type="url" onChange={() => setMode("true")} style={{flex: '1.7'}} placeholder="Enter URL (with main API route)"></input>
-              <button disabled={mode} style={{flex: '0.3'}}>Let&apos;s go!</button>
+              <input type="url" style={{flex: '1.7'}} placeholder="Enter URL (with main API route)"></input>
+              <button style={{flex: '0.3'}}>Let&apos;s go!</button>
             </div>
-        </>)}>
+        </>*/)}>
         Connect <FontAwesomeIcon icon="arrow-right" /></a></Link></span>
       </h3>
     </div>
@@ -63,9 +62,11 @@ export default async function Project() {
                 <h2>Choose a repository to import...</h2>
                 <input placeholder="Search up repo" onChange={event => setQuery(event.target.value)} style={{width: '98%'}} />
                 <div style={{height: '250px', overflow: 'scroll', padding: '10px', borderRadius: '10px', backgroundColor: 'rgb(46, 46, 46, 0.45)'}}>
+                  {listItems}
                 </div>
               </div>
               <div style={{flex: '1', borderLeft: '2px solid rgb(255, 255, 255, 0.2)', paddingLeft: '15px'}}>
+                {content}
               </div>
             </div>
           </div>
