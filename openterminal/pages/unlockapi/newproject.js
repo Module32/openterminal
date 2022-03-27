@@ -66,7 +66,6 @@ export default async function Project() {
                 </div>
               </div>
               <div style={{flex: '1', borderLeft: '2px solid rgb(255, 255, 255, 0.2)', paddingLeft: '15px'}}>
-                {content}
               </div>
             </div>
           </div>
