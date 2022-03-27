@@ -175,7 +175,7 @@ p {
 }
 
 .waves {
-  background-image: url("../public/pics/waves.svg");
+  background-image: url("/pics/waves.svg");
   background-repeat: no-repeat;
   height: 90%;
   background-position: center;
