@@ -23,11 +23,14 @@ export default async function Project() {
   if (!repos) return <div>Looks like there are no repos under your account!</div>
 
   const listItems = repos.filter(repo => {
+
+    /*
     if (query === '') {
       return repos;
     } else if (repo.name.toLowerCase().includes(query.toLowerCase())) {
       return repo;
     }
+    */
   }).map((repo, index) =>
     <div key={index} style={{padding: '5px', borderRadius: '10px', border: 'none', margin: '5px', backgroundColor: 'rgb(235, 235, 235, 0.7)', display: 'flex', flexDirection: 'row'}}>
       <h3 style={{marginLeft: '7px', color: 'black'}}>{repo.name}</h3>
@@ -62,11 +65,11 @@ export default async function Project() {
                 <h2>Choose a repository to import...</h2>
                 <input placeholder="Search up repo" onChange={event => setQuery(event.target.value)} style={{width: '98%'}} />
                 <div style={{height: '250px', overflow: 'scroll', padding: '10px', borderRadius: '10px', backgroundColor: 'rgb(46, 46, 46, 0.45)'}}>
-                  {listItems}
+                  
                 </div>
               </div>
               <div style={{flex: '1', borderLeft: '2px solid rgb(255, 255, 255, 0.2)', paddingLeft: '15px'}}>
-                {content}
+                
               </div>
             </div>
           </div>
