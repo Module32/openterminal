@@ -20,8 +20,6 @@ export default async function Project() {
     username: user,
   })
 
-  if (!repos) return <div>Looks like there are no repos under your account!</div>
-
   const listItems = repos.filter(repo => {
 
     /*
