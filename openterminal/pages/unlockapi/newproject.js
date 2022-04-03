@@ -20,19 +20,17 @@ export default async function Project() {
     username: user,
   }).then(repos => {
     const listItems = repos.filter(repo => {
-
-      /*
       if (query === '') {
         return repos;
       } else if (repo.name.toLowerCase().includes(query.toLowerCase())) {
         return repo;
       }
-      */
     }).map((repo, index) =>
+    /*
       <div key={index} style={{padding: '5px', borderRadius: '10px', border: 'none', margin: '5px', backgroundColor: 'rgb(235, 235, 235, 0.7)', display: 'flex', flexDirection: 'row'}}>
         <h3 style={{marginLeft: '7px', color: 'black'}}>{repo.name}</h3>
         <h3 style={{marginLeft: 'auto', marginRight: '7px'}}><span><Link href=""><a onClick={() => setContent(
-          /* <>
+          <>
               <h2><span style={{fontWeight: '600'}}>Connect </span>{user}/{repo.name}<br /></h2>
               <p>Start a new project under .../unlockapi/{user}/{repo.name}.</p>
               <div className="acrylic" style={{padding: '7px 12px', margin: '5px'}}>
@@ -44,10 +42,11 @@ export default async function Project() {
                 <input type="url" style={{flex: '1.7'}} placeholder="Enter URL (with main API route)"></input>
                 <button style={{flex: '0.3'}}>Let&apos;s go!</button>
               </div>
-          </>*/)}>
+          </>)}>
           Connect <FontAwesomeIcon icon="arrow-right" /></a></Link></span>
         </h3>
       </div>
+      */
     );
   
     return ( 
