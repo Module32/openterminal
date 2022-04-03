@@ -49,7 +49,8 @@ export default async function Project() {
     */
     console.log("hi")
     );
-  
+    
+    /*
     return ( 
       <>
         <Layout>
@@ -76,5 +77,7 @@ export default async function Project() {
         </Footer>
       </>
     )
+    */
+   return "hi"
   })
 }
