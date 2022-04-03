@@ -46,7 +46,8 @@ export default async function Project() {
           Connect <FontAwesomeIcon icon="arrow-right" /></a></Link></span>
         </h3>
       </div>
-      */
+    */
+    console.log("hi")
     );
   
     return ( 
