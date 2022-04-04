@@ -42,7 +42,7 @@ export default function Layout({ children, home }) {
             
             <div className="totheright">
               <li>
-                { session.user ? <span className="grey">Welcome back, <span style={{color: 'white', fontWeight: '700'}}>{session.user.name}</span>!</span> : <span><a href="/login">Login</a></span> }
+                { session.user ? <span className="grey">Welcome back, <span style={{color: 'white', fontWeight: '700'}}>{session.user.name}</span>!</span> : <span><Link href="/login"><a>Login</a></Link></span> }
               </li>
             </div>
           </ul>
