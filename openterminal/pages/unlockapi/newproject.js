@@ -10,6 +10,7 @@ import styles from '../../styles/unlockapi/newproject.module.css';
 const { Octokit } = require("octokit");
 
 export default async function Project() {
+  /*
   const [content, setContent] = useState(<h4 className="grey">Please select a repository.</h4>);
   const [query, setQuery] = useState("");
   const octokit = new Octokit({ auth: process.env.GITHUB_AUTH_TOKEN });
@@ -20,15 +21,12 @@ export default async function Project() {
     username: user,
   }).then(repos => {
     const listItems = repos.filter(repo => {
-      /*
       if (query === '') {
         return repos;
       } else if (repo.name.toLowerCase().includes(query.toLowerCase())) {
         return repo;
       }
-      */
     }).map((repo, index) =>
-    /*
       <div key={index} style={{padding: '5px', borderRadius: '10px', border: 'none', margin: '5px', backgroundColor: 'rgb(235, 235, 235, 0.7)', display: 'flex', flexDirection: 'row'}}>
         <h3 style={{marginLeft: '7px', color: 'black'}}>{repo.name}</h3>
         <h3 style={{marginLeft: 'auto', marginRight: '7px'}}><span><Link href=""><a onClick={() => setContent(
@@ -48,11 +46,9 @@ export default async function Project() {
           Connect <FontAwesomeIcon icon="arrow-right" /></a></Link></span>
         </h3>
       </div>
-    */
     console.log("hi")
     );
     
-    /*
     return ( 
       <>
         <Layout>
@@ -79,7 +75,7 @@ export default async function Project() {
         </Footer>
       </>
     )
-    */
-   return "hi"
   })
+  */
+  return "hi"
 }
