@@ -27,7 +27,7 @@ ul {
   /* Color/tint overlay + Opacity */
   background: rgba(0, 0, 0, .2);
   color: white;
-  padding: 22px 70px;
+  padding: 15px 40px;
   position: fixed;
   top: 0;
   width: 100%;
@@ -188,7 +188,7 @@ p {
 }
 
 .blobs {
-  background-image: url("../public/pics/blobs.svg");
+  background-image: url("/pics/blobs.svg");
 
   height: 100%; 
 
@@ -200,7 +200,7 @@ p {
 }
 
 .waves2 {
-  background-image: url("../public/pics/unlockapi/waves1.svg");
+  background-image: url("/pics/unlockapi/waves1.svg");
   background-repeat: no-repeat;
   height: 90%;
   background-position: center;

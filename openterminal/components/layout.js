@@ -24,7 +24,7 @@ export default function Layout({ children, home }) {
       <header className={styles.header}>
           <>
           <ul>
-            <li>
+            <li style={{backgroundColor: 'rgb(255, 255, 255, 0.3)', color: '#574AE2', marginRight: '15px'}}>
               <span className="codefont">Open Terminal</span>
             </li>
 
