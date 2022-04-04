@@ -20,11 +20,13 @@ export default async function Project() {
     username: user,
   }).then(repos => {
     const listItems = repos.filter(repo => {
+      /*
       if (query === '') {
         return repos;
       } else if (repo.name.toLowerCase().includes(query.toLowerCase())) {
         return repo;
       }
+      */
     }).map((repo, index) =>
     /*
       <div key={index} style={{padding: '5px', borderRadius: '10px', border: 'none', margin: '5px', backgroundColor: 'rgb(235, 235, 235, 0.7)', display: 'flex', flexDirection: 'row'}}>
