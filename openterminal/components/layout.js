@@ -41,8 +41,8 @@ export default function Layout({ children, home }) {
             </Link></li>
             
             <div className="totheright">
-              <li className="grey">
-              Welcome back, <span style={{color: 'white', fontWeight: '700'}}>{session.user.name}</span>!
+              <li>
+                { session.user ? <span className="grey">Welcome back, <span style={{color: 'white', fontWeight: '700'}}>{session.user.name}</span>!</span> : <span><a href="/login">Login</a></span> }
               </li>
             </div>
           </ul>
