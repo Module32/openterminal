@@ -3,7 +3,6 @@ import styles from './layout.module.css'
 import Link from 'next/link'
 import Image from 'next/image'
 import React, { useEffect, useState } from "react"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Favicon from 'react-favicon';
 import { useSession, signIn, signOut } from "next-auth/react"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
