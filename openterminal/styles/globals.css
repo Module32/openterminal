@@ -96,9 +96,8 @@ a:hover {
 }
 
 a.navbar {
-  all: revert;
   color: white;
-  text-decoration: none;
+  text-decoration: underline;
 }
 
 a.navbar:hover {

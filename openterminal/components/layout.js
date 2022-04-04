@@ -24,7 +24,7 @@ export default function Layout({ children, home }) {
       <header className={styles.header}>
           <>
           <ul>
-            <li style={{backgroundColor: 'rgb(255, 255, 255, 0.3)', color: '#574AE2', marginRight: '15px'}}>
+            <li>
               <span className="codefont">Open Terminal</span>
             </li>
 
@@ -41,7 +41,7 @@ export default function Layout({ children, home }) {
             </Link></li>
             
             <div className="totheright">
-              {session? <li><button onClick={() => signOut()} style={{marginTop: '-15px'}} className="red">Log out, {session.user.name}</button></li>: <li><Link href="/login"><button style={{marginTop: '-16px'}}>Log in</button></Link></li> }
+              {session? <li><button onClick={() => signOut()} style={{marginTop: '-12px'}} className="red">Log out, {session.user.name}</button></li>: <li><Link href="/login"><button style={{marginTop: '-16px'}}>Log in</button></Link></li> }
             </div>
           </ul>
           </>
