@@ -42,7 +42,7 @@ export default function Layout({ children, home }) {
             </Link></li>
             
             <li style={{flexDirection: 'row', marginLeft: 'auto'}}>
-              { session ? <span className="grey">| Welcome back, <span style={{color: 'white', fontWeight: '700'}}>{session.user.name}</span>!</span> : <span><Link href="/login" className="navbar"><a>Login <FontAwesomeIcon icon="arrow-circle-right" /></a></Link></span> }
+              { session ? <span className="grey">Welcome back, <span style={{color: 'white', fontWeight: '700'}}>{session.user.name}</span>!</span> : <span><Link href="/login"><a className="navbar">Login <FontAwesomeIcon icon="arrow-circle-right" /></a></Link></span> }
             </li>
           </ul>
           </>
