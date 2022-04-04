@@ -6,6 +6,8 @@ import React, { useEffect, useState } from "react"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Favicon from 'react-favicon';
 import { useSession, signIn, signOut } from "next-auth/react"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowRight, faArrowCircleRight, faHeart } from '@fortawesome/fontawesome-free-solid'
 
 const name = 'Module64'
 export const siteTitle = 'Open Terminal'
@@ -23,28 +25,26 @@ export default function Layout({ children, home }) {
       <Favicon url="../public/pics/ot-logo.png"/>
       <header className={styles.header}>
           <>
-          <ul>
-            <li>
+          <ul style={{display: 'flex'}}>
+            <li style={{flexDirection: 'row'}}>
               <span className="codefont">Open Terminal</span>
             </li>
 
-            <li><Link href="/">
+            <li style={{flexDirection: 'row'}}><Link href="/">
               <a className="navbar">Home</a>
             </Link></li>
 
-            <li><Link href="/whyot">
+            <li style={{flexDirection: 'row'}}><Link href="/whyot">
               <a className="navbar">Why OT</a>
             </Link></li>
             
-            <li><Link href="/">
+            <li style={{flexDirection: 'row'}}><Link href="/">
               <a className="navbar">Solutions</a>
             </Link></li>
             
-            <div className="totheright">
-              <li>
-                { session ? <span className="grey">Welcome back, <span style={{color: 'white', fontWeight: '700'}}>{session.user.name}</span>!</span> : <span><Link href="/login"><a>Login</a></Link></span> }
-              </li>
-            </div>
+            <li style={{flexDirection: 'row', marginLeft: 'auto'}}>
+              { session ? <span className="grey">| Welcome back, <span style={{color: 'white', fontWeight: '700'}}>{session.user.name}</span>!</span> : <span><Link href="/login" className="navbar"><a>Login <FontAwesomeIcon icon="arrow-circle-right" /></a></Link></span> }
+            </li>
           </ul>
           </>
       </header>

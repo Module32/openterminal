@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import Head from 'next/head'
-import Unlockapi from '../../components/layoutunlockapi'
+import Layout from '../../components/layout'
 import Footer from '../../components/footer'
 import TextLoop from "react-text-loop"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -11,7 +11,7 @@ import Fade from 'react-reveal/Fade';
 export default function Index() {
     return (
         <>
-        <Unlockapi>
+        <Layout>
             <div className="waves2" style={{padding: '50px', paddingTop: '60px'}}>
           <div className="infocard" style={{padding: '100px'}}>  
           <div style={{flexDirection: 'column'}}>
@@ -35,7 +35,7 @@ export default function Index() {
                   />
             </div>
   </div>
-  </Unlockapi>
+  </Layout>
       <Footer>
       </Footer>
         </>
