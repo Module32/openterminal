@@ -12,15 +12,15 @@ export default function Project() {
     return (
       <>
         <Layout>
-            <div className="hometop" style={{backgroundColor: '#efefefff', color: 'black', textAlign: 'left', boxShadow: '0px 5px 10px rgb(0, 0, 0, 0.4)'}}>
-                <div style={{backgroundColor: 'white', padding: '25px', borderRadius: '10px', display: 'flex', boxShadow: '0px 0px 0px'}}>
+            <div className="hometop" style={{backgroundColor: '#efefefff', color: 'black', textAlign: 'left'}}>
+                <div style={{backgroundColor: 'white', marginTop: '10px', padding: '25px', borderRadius: '10px', display: 'flex', boxShadow: '0px 5px 10px rgb(0, 0, 0, 0.15)'}}>
                     <h1 style={{fontWeight: '700', flexDirection: 'row'}}><span className="grey">Welcome back,</span> {session.user.name}</h1>
                     <h1 style={{flexDirection: 'row', marginLeft: 'auto'}}>0XP | Level 0</h1>
                 </div>
                 <p>Create a...</p>
                 <div style={{display: 'flex'}}>
-                    <Link href=""><a className="boxy" style={{flexDirection: 'row', color: 'black', position: "relative", backgroundImage: "url('/pics/genopi/newtest.png')", backgroundSize: 'cover'}}><div style={{backgroundColor: 'rgb(255, 255, 255, 0.3)', width: '100%', height: '100%', position: 'absolute'}}>New Test</div></a></Link>
-                    <Link href=""><a className="boxy" style={{flexDirection: 'row', color: 'black', position: "relative", backgroundImage: "url('/pics/genopi/newreading.png')", backgroundSize: 'cover'}}><div style={{backgroundColor: 'rgb(255, 255, 255, 0.3)', width: '100%', height: '100%', position: 'absolute'}}>New Reading</div></a></Link>
+                    <Link href=""><a className="boxy" style={{flexDirection: 'row', color: 'black', backgroundImage: "url('/pics/genopi/newtest.png')", backgroundSize: 'cover'}}><span style={{backgroundColor: 'white', padding: '5px', borderRadius: '5px'}}>New Test</span></a></Link>
+                    <Link href=""><a className="boxy" style={{flexDirection: 'row', color: 'black', backgroundImage: "url('/pics/genopi/newreading.png')", backgroundSize: 'cover'}}><span  style={{backgroundColor: 'white', padding: '5px', borderRadius: '5px'}}>New Reading</span></a></Link>
                 </div>
             </div>
         </Layout>
