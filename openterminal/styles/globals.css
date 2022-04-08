@@ -416,3 +416,10 @@ a.socials {
 a.socials:hover {
   background-color: rgb(255, 255, 255, 0.3);
 }
+
+a.boxy {
+  padding: 15px;
+  border: 1px solid rgb(255, 255, 255, 0.3);
+  border-radius: 10px;
+  margin: 5px;
+}
