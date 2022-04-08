@@ -12,7 +12,7 @@ export default function Index() {
     return (
         <>
         <Layout>
-            <div className="genopi1" style={{padding: '50px', paddingTop: '60px'}}>
+            <div className="genopi1" style={{paddingTop: '130px', paddingBottom: '75px'}}>
               <h1 style={{fontSize: '70px', margin: '0'}}>Make what you teach,<br />teach what you want</h1>
               <p style={{paddingBottom: '12px'}}><strong>genoπ</strong> | Made for Mr. McBrierty!</p>
               <div style={{flexDirection: 'row'}}>
