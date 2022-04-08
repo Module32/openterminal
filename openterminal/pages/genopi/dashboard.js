@@ -19,8 +19,8 @@ export default function Project() {
                 </div>
                 <p>Create a...</p>
                 <div style={{display: 'flex'}}>
-                    <Link href=""><a className="boxy" style={{flexDirection: 'row', color: 'black', position: "relative", backgroundImage: "url('/pics/genopi/newtest.png')", backgroundSize: 'cover'}}><div style={{clear: 'both', backgroundColor: 'rgb(255, 255, 255, 0.3)', width: '100%', height: '100%', position: 'absolute'}}>New Test</div></a></Link>
-                    <Link href=""><a className="boxy" style={{flexDirection: 'row', color: 'black', position: "relative", backgroundImage: "url('/pics/genopi/newreading.png')", backgroundSize: 'cover'}}><div style={{clear: 'both', backgroundColor: 'rgb(255, 255, 255, 0.3)', width: '100%', height: '100%', position: 'absolute'}}>New Reading</div></a></Link>
+                    <Link href=""><a className="boxy" style={{flexDirection: 'row', color: 'black', position: "relative", backgroundImage: "url('/pics/genopi/newtest.png')", backgroundSize: 'cover'}}><div style={{backgroundColor: 'rgb(255, 255, 255, 0.3)', width: '100%', height: '100%', position: 'absolute'}}>New Test</div></a></Link>
+                    <Link href=""><a className="boxy" style={{flexDirection: 'row', color: 'black', position: "relative", backgroundImage: "url('/pics/genopi/newreading.png')", backgroundSize: 'cover'}}><div style={{backgroundColor: 'rgb(255, 255, 255, 0.3)', width: '100%', height: '100%', position: 'absolute'}}>New Reading</div></a></Link>
                 </div>
             </div>
         </Layout>
