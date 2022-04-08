@@ -430,6 +430,6 @@ a.boxy {
 
 a.boxy:hover {
   box-shadow: 
-    13px 13px 16px 0 rgba(0, 0, 0, 0.18),
+    13px 13px 16px 0 rgba(0, 0, 0, 0.2),
     -9px -9px 12px 0 rgba(255, 255, 255, 0.75);
 }
