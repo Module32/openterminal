@@ -19,8 +19,8 @@ export default function Project() {
                 </div>
                 <p>Create a...</p>
                 <div style={{display: 'flex'}}>
-                    <Link href=""><a className="boxy" style={{flexDirection: 'row', color: 'black', backgroundImage: "url('/pics/genopi/newtest.png')", backgroundSize: 'cover'}}>New Test</a></Link>
-                    <Link href=""><a className="boxy" style={{flexDirection: 'row', color: 'black', backgroundImage: "url('/pics/genopi/newreading.png')", backgroundSize: 'cover'}}>New Reading</a></Link>
+                    <Link href=""><a className="boxy" style={{flexDirection: 'row', color: 'black', backgroundImage: "url('/pics/genopi/newtest.png')", backgroundSize: 'cover', backgroundColor: 'rgb(255, 255, 255, 0.3)'}}>New Test</a></Link>
+                    <Link href=""><a className="boxy" style={{flexDirection: 'row', color: 'black', backgroundImage: "url('/pics/genopi/newreading.png')", backgroundSize: 'cover', backgroundColor: 'rgb(255, 255, 255, 0.3)'}}>New Reading</a></Link>
                 </div>
             </div>
         </Layout>

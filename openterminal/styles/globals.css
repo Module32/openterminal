@@ -419,11 +419,17 @@ a.socials:hover {
 
 a.boxy {
   padding: 55px 65px;
-  background-color: rgb(255, 255, 255, 0.3);
   border-radius: 10px;
   margin: 5px;
   font-weight: 700;
   box-shadow: 
     12px 12px 16px 0 rgba(0, 0, 0, 0.15),
     -8px -8px 12px 0 rgba(255, 255, 255, 0.7);
+  transition: 150ms;
+}
+
+a.boxy:hover {
+  box-shadow: 
+    13px 13px 16px 0 rgba(0, 0, 0, 0.18),
+    -9px -9px 12px 0 rgba(255, 255, 255, 0.75);
 }
