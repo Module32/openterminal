@@ -13,7 +13,7 @@ export default function Project() {
         <Layout style={{backgroundColor: '#efefefff', color: 'black'}}>
             <div className="hometop">
                 <div style={{color: 'white', padding: '25px', borderRadius: '5px'}}>
-                    <h1 style={{fontWeight: '700'}}><span class="grey">Welcome back,</span> {session.user.name}</h1>
+                    <h1 style={{fontWeight: '700'}}><span className="grey">Welcome back,</span> {session.user.name}</h1>
                 </div>
                 <p>Create a...</p>
                 <div style={{display: 'flex'}}>
