@@ -208,6 +208,17 @@ p {
   text-align: left;
 }
 
+.waves2 {
+  background-image: url("/pics/genopi/main1.png");
+  background-repeat: no-repeat;
+  height: 90%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 25px;
+  text-align: left;
+}
+
 .dropdown {
   float: left;
   overflow: hidden;
