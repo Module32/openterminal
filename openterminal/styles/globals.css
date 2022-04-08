@@ -217,6 +217,7 @@ p {
   background-size: cover;
   padding: 25px;
   text-align: left;
+  color: black;
 }
 
 .dropdown {
