@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCopy, faNewspaper } from '@fortawesome/fontawesome-free-solid'
 import Fade from 'react-reveal/Fade';
+import { useSession } from "next-auth/react"
 
 export default function Project() {
     const { data: session, status } = useSession()
