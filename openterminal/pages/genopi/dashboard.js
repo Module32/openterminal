@@ -13,13 +13,13 @@ export default function Project() {
       <>
         <Layout>
             <div className="hometop" style={{backgroundColor: '#efefefff', color: 'black', textAlign: 'left'}}>
-                <div style={{backgroundColor: 'white', padding: '25px', borderRadius: '5px'}}>
+                <div style={{backgroundColor: 'white', padding: '25px', borderRadius: '10px'}}>
                     <h1 style={{fontWeight: '700'}}><span className="grey">Welcome back,</span> {session.user.name}</h1>
                 </div>
                 <p>Create a...</p>
                 <div style={{display: 'flex'}}>
-                    <Link href=""><a className="boxy" style={{flexDirection: 'row'}}><FontAwesomeIcon icon="copy" style={{color: 'rgb(25, 186, 255)'}}></FontAwesomeIcon>New Test</a></Link>
-                    <Link href=""><a className="boxy" style={{flexDirection: 'row'}}><FontAwesomeIcon icon="newspaper" style={{color: 'rgb(25, 186, 255)'}}></FontAwesomeIcon>New Reading</a></Link>
+                    <Link href=""><a className="boxy" style={{flexDirection: 'row'}}><FontAwesomeIcon icon="copy" style={{color: 'rgb(25, 186, 255)', paddingRight: '7px'}}></FontAwesomeIcon>New Test</a></Link>
+                    <Link href=""><a className="boxy" style={{flexDirection: 'row'}}><FontAwesomeIcon icon="newspaper" style={{color: 'rgb(25, 186, 255)', paddingRight: '7px'}}></FontAwesomeIcon>New Reading</a></Link>
                 </div>
             </div>
         </Layout>
