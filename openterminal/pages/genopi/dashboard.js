@@ -12,14 +12,15 @@ export default function Project() {
     return (
       <>
         <Layout>
-            <div className="hometop" style={{backgroundColor: '#efefefff', color: 'black', textAlign: 'left'}}>
-                <div style={{backgroundColor: 'white', padding: '25px', borderRadius: '10px'}}>
-                    <h1 style={{fontWeight: '700'}}><span className="grey">Welcome back,</span> {session.user.name}</h1>
+            <div className="hometop" style={{backgroundColor: '#efefefff', color: 'black', textAlign: 'left', boxShadow: '0px 5px 10px rgb(0, 0, 0, 0.4)'}}>
+                <div style={{backgroundColor: 'white', padding: '25px', borderRadius: '10px', display: 'flex', boxShadow: '0px 0px 0px'}}>
+                    <h1 style={{fontWeight: '700', flexDirection: 'row'}}><span className="grey">Welcome back,</span> {session.user.name}</h1>
+                    <h1 style={{flexDirection: 'row', marginLefT: 'auto'}}>0XP | Level 0</h1>
                 </div>
                 <p>Create a...</p>
                 <div style={{display: 'flex'}}>
-                    <Link href=""><a className="boxy" style={{flexDirection: 'row'}}><FontAwesomeIcon icon="copy" style={{color: 'rgb(25, 186, 255)', paddingRight: '7px'}}></FontAwesomeIcon>New Test</a></Link>
-                    <Link href=""><a className="boxy" style={{flexDirection: 'row'}}><FontAwesomeIcon icon="newspaper" style={{color: 'rgb(25, 186, 255)', paddingRight: '7px'}}></FontAwesomeIcon>New Reading</a></Link>
+                    <Link href=""><a className="boxy" style={{flexDirection: 'row', color: 'black', backgroundImage: "/pics/genopi/newtest.png"}}>New Test</a></Link>
+                    <Link href=""><a className="boxy" style={{flexDirection: 'row', color: 'black', backgroundImage: "/pics/genopi/newreading.png"}}>New Reading</a></Link>
                 </div>
             </div>
         </Layout>
