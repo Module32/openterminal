@@ -18,8 +18,8 @@ export default function Project() {
                 </div>
                 <p>Create a...</p>
                 <div style={{display: 'flex'}}>
-                    <Link href=""><a className="boxy" style={{flexDirection: 'row'}}><FontAwesomeIcon icon="copy" style={{padding: '10px', borderRadius: '5px', backgroundColor: 'rgb(25, 186, 255, 0.3)', color: 'rgb(25, 186, 255)'}}>New Test</FontAwesomeIcon></a></Link>
-                    <Link href=""><a className="boxy" style={{flexDirection: 'row'}}><FontAwesomeIcon icon="newspaper" style={{padding: '10px', borderRadius: '5px', backgroundColor: 'rgb(25, 186, 255, 0.3)', color: 'rgb(25, 186, 255)'}}>New Reading</FontAwesomeIcon></a></Link>
+                    <Link href=""><a className="boxy" style={{flexDirection: 'row'}}><FontAwesomeIcon icon="copy" style={{color: 'rgb(25, 186, 255)'}}></FontAwesomeIcon>New Test</a></Link>
+                    <Link href=""><a className="boxy" style={{flexDirection: 'row'}}><FontAwesomeIcon icon="newspaper" style={{color: 'rgb(25, 186, 255)'}}></FontAwesomeIcon>New Reading</a></Link>
                 </div>
             </div>
         </Layout>
