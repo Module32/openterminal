@@ -431,3 +431,7 @@ a.boxy:hover {
   box-shadow: 
     0px 0px 16px 0 rgba(0, 0, 0, 0.2);
 }
+
+.ProseMirror p {
+  margin: 1em 0;
+}
