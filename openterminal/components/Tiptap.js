@@ -84,7 +84,7 @@ const Tiptap = () => {
             <button
             onClick={() => editor.chain().focus().toggleHighlight().run()}
             className={editor.isActive('highlight') ? 'thin-active' : 'thin'}>
-                <FontAwesomeIcon icon={faPen} />
+                ✎
             </button>
 
             <button
@@ -102,7 +102,7 @@ const Tiptap = () => {
             <button
             onClick={() => editor.chain().focus().setHorizontalRule().run()}
             className={editor.isActive('horizontalrule') ? 'thin-active' : 'thin'}>
-                <FontAwesomeIcon icon={faGripLines} />
+                ━
             </button>
 
             <button
@@ -131,7 +131,7 @@ const Tiptap = () => {
 
             <button
             onClick={() => editor.chain().focus().insertTable({ rows: 3, cols: 3, withHeaderRow: true }).run()}
-            className={editor.isActive('tablerow') ? 'thin-active' : 'thin'}>
+            className={'thin'}>
                 <FontAwesomeIcon icon="square"></FontAwesomeIcon>
             </button>
 
