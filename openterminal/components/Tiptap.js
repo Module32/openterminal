@@ -8,7 +8,7 @@ import Code from "@tiptap/extension-code";
 import Highlight from "@tiptap/extension-highlight";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBold, faItalic, faUnderline, faStrikethrough, faCode, faHighlighter } from '@fortawesome/fontawesome-free-solid'
+import { faBold, faItalic, faUnderline, faStrikethrough, faCode, faMarker } from '@fortawesome/fontawesome-free-solid'
 
 const Tiptap = () => {
   const editor = useEditor({
@@ -30,7 +30,7 @@ const Tiptap = () => {
 
   return (
     <>
-        <div style={{padding: '7px', borderRadius: '4px 4px 1px 1px', borderColor: 'white'}}>
+        <div style={{padding: '7px', borderRadius: '4px 4px 1px 1px', border: 'white'}}>
             <button
             onClick={() => editor.chain().focus().toggleBold().run()}
             className={editor.isActive('bold') ? 'thin-active' : 'thin'}>
@@ -64,11 +64,11 @@ const Tiptap = () => {
             <button
             onClick={() => editor.chain().focus().toggleHighlight().run()}
             className={editor.isActive('highlight') ? 'thin-active' : 'thin'}>
-                <FontAwesomeIcon icon="highlighter"></FontAwesomeIcon>
+                <FontAwesomeIcon icon="marker"></FontAwesomeIcon>
             </button>
         </div>
 
-        <EditorContent style={{ padding: '10px', borderRadius: '1px 1px 6px 6px', borderColor: 'white' }} editor={editor} />
+        <EditorContent editor={editor} />
     </>
   )
 }
