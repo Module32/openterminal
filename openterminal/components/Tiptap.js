@@ -85,7 +85,7 @@ const Tiptap = () => {
                 ✎
             </button>
 
-            <FontAwesomeIcon icon={faGripLinesVertical} className="grey"></FontAwesomeIcon>
+            <span class="mini-divider">|</span>
 
             <button
             onClick={() => editor.chain().focus().toggleCode().run()}
@@ -111,7 +111,7 @@ const Tiptap = () => {
                 ━
             </button>
 
-            <FontAwesomeIcon icon={faGripLinesVertical} className="grey"></FontAwesomeIcon>
+            <span class="mini-divider">|</span>
 
             <button
             onClick={() => editor.chain().focus().toggleHeading({ level: 1 }).run()}
@@ -131,7 +131,7 @@ const Tiptap = () => {
                 H₃
             </button>
 
-            <FontAwesomeIcon icon={faGripLinesVertical} className="grey"></FontAwesomeIcon>
+            <span class="mini-divider">|</span>
 
             <button
             onClick={() => editor.chain().focus().insertTable({ rows: 3, cols: 3, withHeaderRow: true }).run()}
@@ -145,13 +145,7 @@ const Tiptap = () => {
                 <FontAwesomeIcon icon="square"></FontAwesomeIcon>
             </button>
 
-            <button
-            onClick={() => editor.chain().focus().toggleTableHeader().run()}
-            className={editor.isActive('tableheader') ? 'thin-active' : 'thin'}>
-                <FontAwesomeIcon icon={faBorderAll}></FontAwesomeIcon>
-            </button>
-
-            <FontAwesomeIcon icon={faGripLinesVertical} className="grey"></FontAwesomeIcon>
+            <span class="mini-divider">|</span>
 
             <button
             onClick={() => editor.chain().focus().setTextAlign('left').run()}
