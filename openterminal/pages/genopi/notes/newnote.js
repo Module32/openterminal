@@ -1,5 +1,5 @@
-import Layout from '../../components/layout'
-import Footer from '../../components/footer'
+import Layout from '../../../components/layout'
+import Footer from '../../../components/footer'
 import Link from 'next/link'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCopy, faNewspaper, faRocket } from '@fortawesome/fontawesome-free-solid'
@@ -19,6 +19,7 @@ export default function Project() {
         <Layout>
             <div className="hometop" style={{backgroundColor: '#efefefff', color: 'black', textAlign: 'left'}}>
                 <input placeholder="New Note" style={{width: '100%'}}></input>
+                <MDEditor height={500} value={value} onChange={setValue} />
             </div>
         </Layout>
         <Footer></Footer>
