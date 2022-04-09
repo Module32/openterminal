@@ -16,7 +16,7 @@ import TableCell from '@tiptap/extension-table-cell'
 import TableHeader from '@tiptap/extension-table-header'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBold, faItalic, faUnderline, faStrikethrough, faCode, faPen, faQuoteLeft, faFileCode, faHorizontalRule, faTable, faSquare, faBorderAll, faHeader } from '@fortawesome/fontawesome-free-solid'
+import { faBold, faItalic, faUnderline, faStrikethrough, faCode, faPen, faQuoteLeft, faFileCode, faGripLines, faTable, faSquare, faBorderAll, faHeader } from '@fortawesome/fontawesome-free-solid'
 
 const Tiptap = () => {
   const editor = useEditor({
@@ -84,7 +84,7 @@ const Tiptap = () => {
             <button
             onClick={() => editor.chain().focus().toggleHighlight().run()}
             className={editor.isActive('highlight') ? 'thin-active' : 'thin'}>
-                <FontAwesomeIcon icon={faPen}></FontAwesomeIcon>
+                <FontAwesomeIcon icon={faPen} />
             </button>
 
             <button
@@ -102,7 +102,7 @@ const Tiptap = () => {
             <button
             onClick={() => editor.chain().focus().setHorizontalRule().run()}
             className={editor.isActive('horizontalrule') ? 'thin-active' : 'thin'}>
-                <FontAwesomeIcon icon={faHorizontalRule}></FontAwesomeIcon>
+                <FontAwesomeIcon icon={faGripLines} />
             </button>
 
             <button
