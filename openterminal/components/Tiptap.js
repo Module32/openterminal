@@ -30,7 +30,7 @@ const Tiptap = () => {
 
   return (
     <>
-        <div style={{padding: '7px', borderRadius: '4px 4px 1px 1px', border: 'white'}}>
+        <div style={{padding: '7px', border: '4px solid white'}}>
             <button
             onClick={() => editor.chain().focus().toggleBold().run()}
             className={editor.isActive('bold') ? 'thin-active' : 'thin'}>

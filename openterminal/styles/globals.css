@@ -433,16 +433,15 @@ a.boxy:hover {
 }
 
 .ProseMirror {
-  padding: 10px;
-  border-radius: '1px 1px 6px 6px';
-  border-color: white;
+  padding: 5px;
+  border: 3px solid white;
 }
 
 button.thin {
   padding: 6px;
   border-radius: 3px;
   color: white;
-  background-color: none;
+  background-color: rgb(0, 0, 0, 0);
 }
 
 button.thin:hover {
