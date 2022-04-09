@@ -13,13 +13,13 @@ const mkdStr = "###### Note time!"
 export default function Project() {
     const { data: session, status } = useSession()
     const [value, setValue] = useState(mkdStr);
-    if (status !== "authenticated") { return 403 }
+    if (status !== "authenticated") { return null }
     return (
       <>
         <Layout>
             <div className="hometop" style={{backgroundColor: '#efefefff', color: 'black', textAlign: 'left'}}>
                 <input placeholder="New Note" style={{width: '100%'}}></input>
-                <MDEditor height={500} value={value} onChange={setValue} />
+                <MDEditor height={500} value={value} onChange={(newValue) => setValue(newValue)} />
             </div>
         </Layout>
         <Footer></Footer>
