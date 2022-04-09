@@ -144,7 +144,7 @@ const Tiptap = () => {
             <button
             onClick={() => editor.chain().focus().toggleTableCell().run()}
             className={editor.isActive('tablecell') ? 'thin-active' : 'thin'}>
-                <FontAwesomeIcon icon={faTableHeader}></FontAwesomeIcon>
+                <FontAwesomeIcon icon={faHeader}></FontAwesomeIcon>
             </button>
         </div>
 
