@@ -8,7 +8,7 @@ import { useSession } from "next-auth/react"
 import MDEditor from "@uiw/react-md-editor";
 import { useState } from "react";
 
-const mkdStr = "###### Let&apos;s take some notes!"
+const mkdStr = "###### Note time!"
 
 export default function Project() {
     const { data: session, status } = useSession()
@@ -19,9 +19,7 @@ export default function Project() {
         <Layout>
             <div className="hometop" style={{backgroundColor: '#efefefff', color: 'black', textAlign: 'left'}}>
                 <input placeholder="New Note"></input>
-                <div data-color-mode="light">
-                    <MDEditor height={200} value={markdown} onChange={setMarkdown} />
-                </div>
+                <MDEditor height={500} value={markdown} onChange={setMarkdown} />
             </div>
         </Layout>
         <Footer></Footer>
