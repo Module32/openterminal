@@ -7,6 +7,9 @@ import Strike from "@tiptap/extension-strike";
 import Code from "@tiptap/extension-code";
 import Highlight from "@tiptap/extension-highlight";
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBold, faItalic, faUnderline, faStrikethrough, faCode, faHighlighter } from '@fortawesome/fontawesome-free-solid'
+
 const Tiptap = () => {
   const editor = useEditor({
     extensions: [
@@ -18,11 +21,49 @@ const Tiptap = () => {
       Code,
       Highlight,
     ],
-    content: '###### Let&apos;s get writing!',
+    content: 'Let&apos;s get writing!',
   })
 
   return (
-    <EditorContent editor={editor} />
+    <>
+        <button
+        onClick={() => editor.chain().focus().toggleBold().run()}
+        className={editor.isActive('bold') ? 'is-active' : ''}>
+            <FontAwesomeIcon icon="bold"></FontAwesomeIcon>
+        </button>
+
+        <button
+        onClick={() => editor.chain().focus().toggleItalic().run()}
+        className={editor.isActive('italic') ? 'is-active' : ''}>
+            <FontAwesomeIcon icon="italic"></FontAwesomeIcon>
+        </button>
+
+        <button
+        onClick={() => editor.chain().focus().toggleUnderline().run()}
+        className={editor.isActive('underline') ? 'is-active' : ''}>
+            <FontAwesomeIcon icon="underline"></FontAwesomeIcon>
+        </button>
+
+        <button
+        onClick={() => editor.chain().focus().toggleStrike().run()}
+        className={editor.isActive('strike') ? 'is-active' : ''}>
+            <FontAwesomeIcon icon="strikethrough"></FontAwesomeIcon>
+        </button>
+
+        <button
+        onClick={() => editor.chain().focus().toggleCode().run()}
+        className={editor.isActive('code') ? 'is-active' : ''}>
+            <FontAwesomeIcon icon="code"></FontAwesomeIcon>
+        </button>
+
+        <button
+        onClick={() => editor.chain().focus().toggleHighlight().run()}
+        className={editor.isActive('highlight') ? 'is-active' : ''}>
+            <FontAwesomeIcon icon="highlighter"></FontAwesomeIcon>
+        </button>
+
+        <EditorContent editor={editor} />
+    </>
   )
 }
 
