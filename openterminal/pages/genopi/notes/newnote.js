@@ -6,6 +6,8 @@ import { faCopy, faNewspaper, faRocket } from '@fortawesome/fontawesome-free-sol
 import Fade from 'react-reveal/Fade';
 import { useSession } from "next-auth/react"
 import MDEditor from "@uiw/react-md-editor";
+import "@uiw/react-md-editor/dist/markdown-editor.css";
+import "@uiw/react-markdown-preview/dist/markdown.css";
 import { useState } from "react";
 
 const mkdStr = "###### Note time!"
