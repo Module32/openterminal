@@ -14,9 +14,10 @@ import Table from '@tiptap/extension-table'
 import TableRow from '@tiptap/extension-table-row'
 import TableCell from '@tiptap/extension-table-cell'
 import TableHeader from '@tiptap/extension-table-header'
+import TextAlign from '@tiptap/extension-text-align'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBold, faItalic, faUnderline, faStrikethrough, faCode, faPen, faQuoteLeft, faFileCode, faGripLines, faTable, faSquare, faBorderAll, faHeader } from '@fortawesome/fontawesome-free-solid'
+import { faBold, faItalic, faUnderline, faStrikethrough, faCode, faPen, faQuoteLeft, faFileCode, faGripLines, faTable, faSquare, faBorderAll, faHeader, faAlignLeft, faAlignCenter, faAlignRight } from '@fortawesome/fontawesome-free-solid'
 
 const Tiptap = () => {
   const editor = useEditor({
@@ -124,7 +125,7 @@ const Tiptap = () => {
             </button>
 
             <button
-            onClick={() => editor.chain().focus().toggleTable().run()}
+            onClick={() => editor.chain().focus().insertTable({ rows: 3, cols: 3, withHeaderRow: true }).run()}
             className={editor.isActive('table') ? 'thin-active' : 'thin'}>
                 <FontAwesomeIcon icon="table"></FontAwesomeIcon>
             </button>
@@ -146,6 +147,25 @@ const Tiptap = () => {
             className={editor.isActive('tablecell') ? 'thin-active' : 'thin'}>
                 <FontAwesomeIcon icon={faHeader}></FontAwesomeIcon>
             </button>
+
+            <button
+            onClick={() => editor.chain().focus().setTextAlign('left').run()}
+            className={editor.isActive({textAlign: 'left'}) ? 'thin-active' : 'thin'}>
+                <FontAwesomeIcon icon='align-left'></FontAwesomeIcon>
+            </button>
+
+            <button
+            onClick={() => editor.chain().focus().setTextAlign('center').run()}
+            className={editor.isActive({textAlign: 'center'}) ? 'thin-active' : 'thin'}>
+                <FontAwesomeIcon icon='align-center'></FontAwesomeIcon>
+            </button>
+
+            <button
+            onClick={() => editor.chain().focus().setTextAlign('right').run()}
+            className={editor.isActive({textAlign: 'right'}) ? 'thin-active' : 'thin'}>
+                <FontAwesomeIcon icon='align-right'></FontAwesomeIcon>
+            </button>
+
         </div>
 
         <EditorContent editor={editor} />
