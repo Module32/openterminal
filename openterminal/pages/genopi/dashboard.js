@@ -21,7 +21,7 @@ export default function Project() {
                 <div style={{display: 'flex'}}>
                     <Link href=""><a className="boxy" style={{flexDirection: 'row', color: 'black', backgroundImage: "url('/pics/genopi/newtest.png')", backgroundSize: 'cover'}}><span style={{backgroundColor: 'white', padding: '5px', borderRadius: '5px'}}>New Test</span></a></Link>
                     <Link href=""><a className="boxy" style={{flexDirection: 'row', color: 'black', backgroundImage: "url('/pics/genopi/newreading.png')", backgroundSize: 'cover'}}><span  style={{backgroundColor: 'white', padding: '5px', borderRadius: '5px'}}>New Reading</span></a></Link>
-                    <Link href="genopi/notes/newnotes"><a className="boxy" style={{flexDirection: 'row', color: 'black', backgroundImage: "url('/pics/genopi/newnotes.png')", backgroundSize: 'cover'}}><span  style={{backgroundColor: 'white', padding: '5px', borderRadius: '5px'}}>New Notes</span></a></Link>
+                    <Link href="genopi/notes/newnote"><a className="boxy" style={{flexDirection: 'row', color: 'black', backgroundImage: "url('/pics/genopi/newnotes.png')", backgroundSize: 'cover'}}><span  style={{backgroundColor: 'white', padding: '5px', borderRadius: '5px'}}>New Notes</span></a></Link>
                 </div>
             </div>
         </Layout>
