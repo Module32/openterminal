@@ -14,7 +14,7 @@ body {
   box-sizing: border-box;
 }
 
-ul {
+ul.navbar {
   margin-left: 0;
   margin-top: 0px;
   /* Parent background + Gaussian blur */

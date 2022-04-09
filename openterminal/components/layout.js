@@ -24,7 +24,7 @@ export default function Layout({ children, home }) {
       <Favicon url="../public/pics/ot-logo.png"/>
       <header className={styles.header}>
           <>
-          <ul style={{display: 'flex'}}>
+          <ul className="navbar" style={{display: 'flex'}}>
             <li style={{flexDirection: 'row'}}>
               <span className="codefont">Open Terminal</span>
             </li>

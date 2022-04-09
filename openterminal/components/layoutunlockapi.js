@@ -23,7 +23,7 @@ export default function Unlockapi({ children, home }) {
       <Favicon url="../public/pics/ot-logo.png"/>
       <header className={styles.header}>
           <>
-          <ul>
+          <ul className="navbar">
             <li><Link href="/">
               <a className="navbar">Home</a>
             </Link></li>
