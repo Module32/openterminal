@@ -12,9 +12,9 @@ export default function Project() {
     return (
       <>
         <Layout>
-            <div className="hometop" style={{backgroundColor: '#efefefff', color: 'black', textAlign: 'left'}}>
-                <div style={{backgroundColor: 'white', marginTop: '20px', padding: '25px', borderRadius: '10px', display: 'flex', boxShadow: '0px 5px 15px rgb(0, 0, 0, 0.11)'}}>
-                    <h1 style={{fontWeight: '700', flexDirection: 'row'}}><span className="grey">Welcome back,</span> {session.user.name}</h1>
+            <div className="hometop" style={{textAlign: 'left'}}>
+                <div style={{backgroundColor: '#1f1f1f', marginTop: '40px', padding: '25px', borderRadius: '10px', display: 'flex', boxShadow: '0px 5px 15px rgb(0, 0, 0, 0.11)'}}>
+                    <h1 style={{fontWeight: '700', flexDirection: 'row'}}>Welcome back, {session.user.name}</h1>
                     <h1 style={{flexDirection: 'row', marginLeft: 'auto'}}><FontAwesomeIcon icon="rocket"></FontAwesomeIcon> 0XP | Level 0</h1>
                 </div>
                 <p>Create a...</p>
