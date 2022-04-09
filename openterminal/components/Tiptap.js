@@ -19,7 +19,7 @@ import TextAlign from '@tiptap/extension-text-align'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBold, faItalic, faUnderline, faStrikethrough, faCode, faPen, faQuoteLeft, faFileCode, faGripLines, faTable, faSquare, faBorderAll, faHeader, faAlignLeft, faAlignCenter, faAlignRight, faGripLinesVertical } from '@fortawesome/fontawesome-free-solid'
 
-const Tiptap = () => {
+const Tiptap = (content) => {
   const editor = useEditor({
     extensions: [
       StarterKit,
@@ -45,7 +45,7 @@ const Tiptap = () => {
         types: ['heading', 'paragraph'],
       })      
     ],
-    content: 'Let&apos;s get writing!',
+    content: content,
   })
 
   if (!editor) {
