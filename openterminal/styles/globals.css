@@ -435,3 +435,20 @@ a.boxy:hover {
 .ProseMirror p {
   margin: 1em 0;
 }
+
+button.thin {
+  padding: 6px;
+  border-radius: 3px;
+  color: white;
+}
+
+button.thin:hover {
+  background-color: rgb(255, 255, 255, 0.3);
+}
+
+button.thin-active {
+  padding: 6px;
+  border-radius: 3px;
+  color: black;
+  background-color: white;
+}

@@ -30,43 +30,45 @@ const Tiptap = () => {
 
   return (
     <>
-        <button
-        onClick={() => editor.chain().focus().toggleBold().run()}
-        className={editor.isActive('bold') ? 'is-active' : ''}>
-            <FontAwesomeIcon icon="bold"></FontAwesomeIcon> bold
-        </button>
+        <div style={{padding: '7px', borderRadius: '4px 4px 1px 1px', borderColor: 'white'}}>
+            <button
+            onClick={() => editor.chain().focus().toggleBold().run()}
+            className={editor.isActive('bold') ? 'thin-active' : 'thin'}>
+                <FontAwesomeIcon icon="bold"></FontAwesomeIcon>
+            </button>
 
-        <button
-        onClick={() => editor.chain().focus().toggleItalic().run()}
-        className={editor.isActive('italic') ? 'is-active' : ''}>
-            <FontAwesomeIcon icon="italic"></FontAwesomeIcon>
-        </button>
+            <button
+            onClick={() => editor.chain().focus().toggleItalic().run()}
+            className={editor.isActive('italic') ? 'thin-active' : 'thin'}>
+                <FontAwesomeIcon icon="italic"></FontAwesomeIcon>
+            </button>
 
-        <button
-        onClick={() => editor.chain().focus().toggleUnderline().run()}
-        className={editor.isActive('underline') ? 'is-active' : ''}>
-            <FontAwesomeIcon icon="underline"></FontAwesomeIcon>
-        </button>
+            <button
+            onClick={() => editor.chain().focus().toggleUnderline().run()}
+            className={editor.isActive('underline') ? 'thin-active' : 'thin'}>
+                <FontAwesomeIcon icon="underline"></FontAwesomeIcon>
+            </button>
 
-        <button
-        onClick={() => editor.chain().focus().toggleStrike().run()}
-        className={editor.isActive('strike') ? 'is-active' : ''}>
-            <FontAwesomeIcon icon="strikethrough"></FontAwesomeIcon>
-        </button>
+            <button
+            onClick={() => editor.chain().focus().toggleStrike().run()}
+            className={editor.isActive('strike') ? 'thin-active' : 'thin'}>
+                <FontAwesomeIcon icon="strikethrough"></FontAwesomeIcon>
+            </button>
 
-        <button
-        onClick={() => editor.chain().focus().toggleCode().run()}
-        className={editor.isActive('code') ? 'is-active' : ''}>
-            <FontAwesomeIcon icon="code"></FontAwesomeIcon>
-        </button>
+            <button
+            onClick={() => editor.chain().focus().toggleCode().run()}
+            className={editor.isActive('code') ? 'thin-active' : 'thin'}>
+                <FontAwesomeIcon icon="code"></FontAwesomeIcon>
+            </button>
 
-        <button
-        onClick={() => editor.chain().focus().toggleHighlight().run()}
-        className={editor.isActive('highlight') ? 'is-active' : ''}>
-            <FontAwesomeIcon icon="highlighter"></FontAwesomeIcon>
-        </button>
+            <button
+            onClick={() => editor.chain().focus().toggleHighlight().run()}
+            className={editor.isActive('highlight') ? 'thin-active' : 'thin'}>
+                <FontAwesomeIcon icon="highlighter"></FontAwesomeIcon>
+            </button>
+        </div>
 
-        <EditorContent editor={editor} />
+        <EditorContent style={{ padding: '10px', borderRadius: '1px 1px 6px 6px', borderColor: 'white' }} editor={editor} />
     </>
   )
 }

@@ -12,8 +12,8 @@ export default function Project() {
     return (
       <>
         <Layout>
-            <div className="hometop" style={{backgroundColor: '#efefefff', color: 'black', textAlign: 'left'}}>
-                <input placeholder="New Note" style={{width: '100%'}}></input>
+            <div className="hometop" style={{textAlign: 'left', paddingTop: '70px'}}>
+                <h1><input placeholder="New Note" style={{width: '100%'}}></input></h1>
                 <Tiptap />
             </div>
         </Layout>
