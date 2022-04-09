@@ -12,14 +12,14 @@ const mkdStr = "###### Note time!"
 
 export default function Project() {
     const { data: session, status } = useSession()
-    const [markdown, setMarkdown] = useState(mkdStr);
+    const [value, setValue] = useState(mkdStr);
     if (status !== "authenticated") { return 403 }
     return (
       <>
         <Layout>
             <div className="hometop" style={{backgroundColor: '#efefefff', color: 'black', textAlign: 'left'}}>
                 <input placeholder="New Note"></input>
-                <MDEditor height={500} value={markdown} onChange={setMarkdown} />
+                <MDEditor height={500} value={value} onChange={setValue} />
             </div>
         </Layout>
         <Footer></Footer>
