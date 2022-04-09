@@ -1,10 +1,10 @@
-import Layout from '../../components/layout'
-import Footer from '../../components/footer'
+import Layout from '../../../components/layout'
+import Footer from '../../../components/footer'
+import Tiptap from '../../../components/Tiptap'
 import Link from 'next/link'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Fade from 'react-reveal/Fade';
 import { useSession } from "next-auth/react"
-import Tiptap from '../components/Tiptap'
 
 export default function Project() {
     const { data: session, status } = useSession()
