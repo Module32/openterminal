@@ -24,6 +24,10 @@ const Tiptap = () => {
     content: 'Let&apos;s get writing!',
   })
 
+  if (!editor) {
+    return null
+  }
+
   return (
     <>
         <button
