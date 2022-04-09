@@ -85,7 +85,7 @@ const Tiptap = () => {
                 ✎
             </button>
 
-            <span class="mini-divider">|</span>
+            <span className="mini-divider">|</span>
 
             <button
             onClick={() => editor.chain().focus().toggleCode().run()}
@@ -111,7 +111,7 @@ const Tiptap = () => {
                 ━
             </button>
 
-            <span class="mini-divider">|</span>
+            <span className="mini-divider">|</span>
 
             <button
             onClick={() => editor.chain().focus().toggleHeading({ level: 1 }).run()}
@@ -131,7 +131,7 @@ const Tiptap = () => {
                 H₃
             </button>
 
-            <span class="mini-divider">|</span>
+            <span className="mini-divider">|</span>
 
             <button
             onClick={() => editor.chain().focus().insertTable({ rows: 3, cols: 3, withHeaderRow: true }).run()}
@@ -145,7 +145,7 @@ const Tiptap = () => {
                 <FontAwesomeIcon icon="square"></FontAwesomeIcon>
             </button>
 
-            <span class="mini-divider">|</span>
+            <span className="mini-divider">|</span>
 
             <button
             onClick={() => editor.chain().focus().setTextAlign('left').run()}
