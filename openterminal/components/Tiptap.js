@@ -29,7 +29,7 @@ const Tiptap = () => {
         <button
         onClick={() => editor.chain().focus().toggleBold().run()}
         className={editor.isActive('bold') ? 'is-active' : ''}>
-            <FontAwesomeIcon icon="bold"></FontAwesomeIcon>
+            <FontAwesomeIcon icon="bold"></FontAwesomeIcon> bold
         </button>
 
         <button
