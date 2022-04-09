@@ -17,7 +17,7 @@ import TableHeader from '@tiptap/extension-table-header'
 import TextAlign from '@tiptap/extension-text-align'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBold, faItalic, faUnderline, faStrikethrough, faCode, faPen, faQuoteLeft, faFileCode, faGripLines, faTable, faSquare, faBorderAll, faHeader, faAlignLeft, faAlignCenter, faAlignRight } from '@fortawesome/fontawesome-free-solid'
+import { faBold, faItalic, faUnderline, faStrikethrough, faCode, faPen, faQuoteLeft, faFileCode, faGripLines, faTable, faSquare, faBorderAll, faHeader, faAlignLeft, faAlignCenter, faAlignRight, faGripLinesVertical } from '@fortawesome/fontawesome-free-solid'
 
 const Tiptap = () => {
   const editor = useEditor({
@@ -41,6 +41,9 @@ const Tiptap = () => {
       TableRow,
       TableHeader,
       TableCell,
+      TextAlign.configure({
+        types: ['heading', 'paragraph'],
+      })      
     ],
     content: 'Let&apos;s get writing!',
   })
@@ -77,15 +80,17 @@ const Tiptap = () => {
             </button>
 
             <button
-            onClick={() => editor.chain().focus().toggleCode().run()}
-            className={editor.isActive('code') ? 'thin-active' : 'thin'}>
-                <FontAwesomeIcon icon="code"></FontAwesomeIcon>
-            </button>
-
-            <button
             onClick={() => editor.chain().focus().toggleHighlight().run()}
             className={editor.isActive('highlight') ? 'thin-active' : 'thin'}>
                 ✎
+            </button>
+
+            <FontAwesomeIcon icon={faGripLinesVertical} className="grey"></FontAwesomeIcon>
+
+            <button
+            onClick={() => editor.chain().focus().toggleCode().run()}
+            className={editor.isActive('code') ? 'thin-active' : 'thin'}>
+                <FontAwesomeIcon icon="code"></FontAwesomeIcon>
             </button>
 
             <button
@@ -106,6 +111,8 @@ const Tiptap = () => {
                 ━
             </button>
 
+            <FontAwesomeIcon icon={faGripLinesVertical} className="grey"></FontAwesomeIcon>
+
             <button
             onClick={() => editor.chain().focus().toggleHeading({ level: 1 }).run()}
             className={editor.isActive('heading', { level: 1 }) ? 'thin-active' : 'thin'}>
@@ -124,6 +131,8 @@ const Tiptap = () => {
                 H₃
             </button>
 
+            <FontAwesomeIcon icon={faGripLinesVertical} className="grey"></FontAwesomeIcon>
+
             <button
             onClick={() => editor.chain().focus().insertTable({ rows: 3, cols: 3, withHeaderRow: true }).run()}
             className={editor.isActive('table') ? 'thin-active' : 'thin'}>
@@ -139,14 +148,10 @@ const Tiptap = () => {
             <button
             onClick={() => editor.chain().focus().toggleTableHeader().run()}
             className={editor.isActive('tableheader') ? 'thin-active' : 'thin'}>
-                <FontAwesomeIcon icon="borderall"></FontAwesomeIcon>
+                <FontAwesomeIcon icon={faBorderAll}></FontAwesomeIcon>
             </button>
 
-            <button
-            onClick={() => editor.chain().focus().toggleTableCell().run()}
-            className={editor.isActive('tablecell') ? 'thin-active' : 'thin'}>
-                <FontAwesomeIcon icon={faHeader}></FontAwesomeIcon>
-            </button>
+            <FontAwesomeIcon icon={faGripLinesVertical} className="grey"></FontAwesomeIcon>
 
             <button
             onClick={() => editor.chain().focus().setTextAlign('left').run()}
