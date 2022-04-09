@@ -19,6 +19,7 @@ export default function Project() {
         <Layout>
             <div className="hometop" style={{backgroundColor: '#efefefff', color: 'black', textAlign: 'left'}}>
                 <input placeholder="New Note" style={{width: '100%'}}></input>
+                <MDEditor height={500} value={value} onChange={setValue} />
             </div>
         </Layout>
         <Footer></Footer>
