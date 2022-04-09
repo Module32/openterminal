@@ -16,7 +16,7 @@ import TableCell from '@tiptap/extension-table-cell'
 import TableHeader from '@tiptap/extension-table-header'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBold, faItalic, faUnderline, faStrikethrough, faCode, faPen, faQuoteLeft, faFileCode, faGripLines, faTable, faSquare, faBorderAll, faTableHeader } from '@fortawesome/fontawesome-free-solid'
+import { faBold, faItalic, faUnderline, faStrikethrough, faCode, faPen, faQuoteLeft, faFileCode, faGripLines, faTable, faSquare, faBorderAll, faHeader } from '@fortawesome/fontawesome-free-solid'
 
 const Tiptap = () => {
   const editor = useEditor({
@@ -84,25 +84,25 @@ const Tiptap = () => {
             <button
             onClick={() => editor.chain().focus().toggleHighlight().run()}
             className={editor.isActive('highlight') ? 'thin-active' : 'thin'}>
-                <FontAwesomeIcon icon="pen"></FontAwesomeIcon>
+                <FontAwesomeIcon icon={faPen}></FontAwesomeIcon>
             </button>
 
             <button
             onClick={() => editor.chain().focus().toggleBlockquote().run()}
             className={editor.isActive('blockquote') ? 'thin-active' : 'thin'}>
-                <FontAwesomeIcon icon="quoteleft"></FontAwesomeIcon>
+                <FontAwesomeIcon icon={faQuoteLeft}></FontAwesomeIcon>
             </button>
 
             <button
             onClick={() => editor.chain().focus().toggleCodeblock().run()}
             className={editor.isActive('codeblock') ? 'thin-active' : 'thin'}>
-                <FontAwesomeIcon icon="filecode"></FontAwesomeIcon>
+                <FontAwesomeIcon icon={faFileCode}></FontAwesomeIcon>
             </button>
 
             <button
             onClick={() => editor.chain().focus().toggleHorizontalRule().run()}
             className={editor.isActive('horizontalrule') ? 'thin-active' : 'thin'}>
-                <FontAwesomeIcon icon="griplines"></FontAwesomeIcon>
+                <FontAwesomeIcon icon={faGripLines}></FontAwesomeIcon>
             </button>
 
             <button
@@ -144,7 +144,7 @@ const Tiptap = () => {
             <button
             onClick={() => editor.chain().focus().toggleTableCell().run()}
             className={editor.isActive('tablecell') ? 'thin-active' : 'thin'}>
-                <FontAwesomeIcon icon="header"></FontAwesomeIcon>
+                <FontAwesomeIcon icon={faTableHeader}></FontAwesomeIcon>
             </button>
         </div>
 
