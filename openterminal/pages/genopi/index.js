@@ -29,7 +29,7 @@ export default function Index() {
                     <Image
                         src="/pics/genopi/homepage/1.png"
                         width= '1350px'
-                        height= '1300px'
+                        height= '1200px'
                         />
                 </div>
             </div>
