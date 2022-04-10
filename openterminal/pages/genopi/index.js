@@ -24,8 +24,8 @@ export default function Index() {
                 <h1>What is Genopi?</h1>
                 <p>Genopi is an online learning and test preparation platform for students and teachers, created by two students for a science project!</p>
                 <div className="infocard">
-                    <h2 style={{color: '#f7a427ff'}}>An easy way to take &amp; store notes<br />
-                    <p>With the awesome <a href="https://tiptap.dev">TipTap editor</a>, taking notes as you follow along in a lesson is seamless and easy!</p></h2>
+                    <h2><span style={{color: '#f7a427ff'}}>An easy way to take &amp; store notes</span><br />
+                    <p style={{fontSize:'17px'}}>With the awesome <a href="https://tiptap.dev">TipTap editor</a>, taking notes as you follow along in a lesson is seamless and easy!</p></h2>
                     <Image
                         src="/pics/genopi/homepage/1.png"
                         width= '650px'

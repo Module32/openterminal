@@ -5,10 +5,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCopy, faNewspaper, faRocket } from '@fortawesome/fontawesome-free-solid'
 import Fade from 'react-reveal/Fade';
 import { useSession } from "next-auth/react"
+import redirect from 'nextjs-redirect'
 
 export default function Project() {
     const { data: session, status } = useSession()
-    if (status !== "authenticated") { return 403 }
+    if (status !== "authenticated") { redirect('/login') }
     return (
       <>
         <Layout>
