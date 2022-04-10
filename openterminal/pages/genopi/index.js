@@ -15,16 +15,22 @@ export default function Index() {
             <div className="genopi1" style={{paddingTop: '130px', paddingBottom: '75px'}}>
               <h1 style={{fontSize: '70px', margin: '0'}}>Make what you teach,<br />teach what you want</h1>
               <p style={{paddingBottom: '12px'}}><strong>genoπ</strong> | Made for Mr. McBrierty!</p>
-              <div style={{flexDirection: 'row'}}>
-              <Link href="">
-                <a className="padding" style={{width: '50%'}}>Get started</a>
-              </Link>
-
-              <Link href="">
-                <a className="padding" style={{width: '50%'}}>Learn more</a>
+              <Link href="dashboard">
+                <a className="padding">Get started today</a>
               </Link>
               
-              </div>
+            </div>
+            <div className="hometop">
+                <h1>What is Genopi?</h1>
+                <p>Genopi is an online learning and test preparation platform for students and teachers, created by two students for a science project!</p>
+                <div className="infocard">
+                    <h2 style={{color: '#f7a427ff'}}>An easy way to take &amp; store notes</h2>
+                    <p>With the awesome <a href="https://tiptap.dev">TipTap editor</a>, taking notes as you follow along in a lesson is seamless and easy!</p>
+                    <Image
+                        src="/pics/genopi/homepage/1.png"
+                        sizes="50vw"
+                        />
+                </div>
             </div>
   </Layout>
       <Footer>
