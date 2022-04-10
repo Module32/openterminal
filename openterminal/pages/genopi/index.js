@@ -28,8 +28,8 @@ export default function Index() {
                     <p style={{fontSize:'17px'}}>With the awesome <a href="https://tiptap.dev">TipTap editor</a>, taking notes as you follow along in a lesson is seamless and easy!</p></h2>
                     <Image
                         src="/pics/genopi/homepage/1.png"
-                        width= '1350px'
-                        height= '1200px'
+                        width= '1430px'
+                        height= '1100px'
                         />
                 </div>
             </div>
