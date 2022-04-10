@@ -9,7 +9,7 @@ import redirect from 'nextjs-redirect'
 
 export default function Project() {
     const { data: session, status } = useSession()
-    if (status !== "authenticated") { return redirect('/login') }
+    if (status !== "authenticated") { return redirect('https://openterminal.vercel.app/login') }
     return (
       <>
         <Layout>
