@@ -10,7 +10,7 @@ import redirect from 'nextjs-redirect'
 
 export default function Project() {
     const { data: session, status } = useSession()
-    if (status !== "authenticated") { redirect('/login') }
+    if (status !== "authenticated") { return "Log in to access this page!" }
     return (
       <>
         <Layout>
