@@ -47,7 +47,8 @@
     "@tiptap/extension-table-row": "^2.0.0-beta.19",
     "@tiptap/extension-table-cell": "^2.0.0-beta.20",
     "@tiptap/extension-table-header": "^2.0.0-beta.22",
-    "@tiptap/extension-text-align": "^2.0.0-beta.29"
+    "@tiptap/extension-text-align": "^2.0.0-beta.29",
+    "@tiptap/extension-typography": "^2.0.0-beta.20"
   },
   "devDependencies": {
     "eslint": "8.8.0",

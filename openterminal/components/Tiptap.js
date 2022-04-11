@@ -15,9 +15,10 @@ import TableRow from '@tiptap/extension-table-row'
 import TableCell from '@tiptap/extension-table-cell'
 import TableHeader from '@tiptap/extension-table-header'
 import TextAlign from '@tiptap/extension-text-align'
+import Typography from '@tiptap/extension-typography'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBold, faItalic, faUnderline, faStrikethrough, faCode, faPen, faQuoteLeft, faFileCode, faGripLines, faTable, faSquare, faBorderAll, faHeader, faAlignLeft, faAlignCenter, faAlignRight, faGripLinesVertical } from '@fortawesome/fontawesome-free-solid'
+import { faBold, faItalic, faUnderline, faStrikethrough, faCode, faPen, faQuoteLeft, faFileCode, faGripLines, faTable, faSquare, faBorderAll, faHeader, faAlignLeft, faAlignCenter, faAlignRight, faGripLinesVertical, faAngleUp, faAngleDown } from '@fortawesome/fontawesome-free-solid'
 
 const Tiptap = (content) => {
   const editor = useEditor({
@@ -43,7 +44,8 @@ const Tiptap = (content) => {
       TableCell,
       TextAlign.configure({
         types: ['heading', 'paragraph'],
-      })      
+      }),
+      Typography
     ],
     content: content,
   })
@@ -140,9 +142,27 @@ const Tiptap = (content) => {
             </button>
 
             <button
-            onClick={() => editor.chain().focus().insertTable({ rows: 3, cols: 3, withHeaderRow: true }).run()}
+            onClick={() => editor.chain().focus().addRowBefore().run()}
             className={'thin'}>
-                <FontAwesomeIcon icon="square"></FontAwesomeIcon>
+                R<FontAwesomeIcon icon={faAngleUp}></FontAwesomeIcon>
+            </button>
+
+            <button
+            onClick={() => editor.chain().focus().addRowAfter().run()}
+            className={'thin'}>
+                R<FontAwesomeIcon icon={faAngleDown}></FontAwesomeIcon>
+            </button>
+
+            <button
+            onClick={() => editor.chain().focus().addColumnBefore().run()}
+            className={'thin'}>
+                C<FontAwesomeIcon icon={faAngleUp}></FontAwesomeIcon>
+            </button>
+
+            <button
+            onClick={() => editor.chain().focus().addColumnAfter().run()}
+            className={'thin'}>
+                C<FontAwesomeIcon icon={faAngleDown}></FontAwesomeIcon>
             </button>
 
             <span className="mini-divider">|</span>

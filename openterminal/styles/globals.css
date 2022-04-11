@@ -468,8 +468,23 @@ button.thin-active {
   padding-right: 5px;
 }
 
-table, th, td {
-  border: 2px solid white;
-  border-radius: 4px;
+table {
+  border-collapse: collapse;
+  margin: 25px 0;
+  min-width: 400px;
+  background-color: rgb(255, 255, 255, 0.16);
+  border-radius: 10px;
 }
 
+td, th {
+padding: 10px 15px;
+color: white;
+}
+
+tr {
+  border-bottom: 1.5px solid rgb(255, 255, 255, 0.2);
+}
+
+tr:last-of-type {
+  border: none;
+}
