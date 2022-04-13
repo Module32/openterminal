@@ -54,7 +54,7 @@ const Tiptap = ({content}) => {
     return null
   }
 
-  db_save_status = "Start editing to save to the DB!"
+  let db_save_status = "Start editing to save to the DB!";
 
   return (
     <>
