@@ -43,7 +43,7 @@ const Tiptap = ({content}) => {
       TableHeader,
       TableCell,
       TextAlign.configure({
-        types: ['heading', 'paragraph'],
+        types: ['heading', 'paragraph', 'table'],
       }),
       Typography
     ],
