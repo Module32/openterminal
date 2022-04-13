@@ -191,7 +191,7 @@ const Tiptap = ({content}) => {
 
         <EditorContent editor={editor} />
 
-        <div style={{padding: '4px', border: '2px solid white', borderTopLeftRadius: '0px', borderTopRightRadius: '0px', borderBottomLeftRadius: '10px', borderBottomRightRadius: '10px'}}>
+        <div style={{padding: '1px', border: '2px solid white', borderTopLeftRadius: '0px', borderTopRightRadius: '0px', borderBottomLeftRadius: '10px', borderBottomRightRadius: '10px'}}>
             <p className="grey">{db_save_status}</p>
         </div>
     </>
