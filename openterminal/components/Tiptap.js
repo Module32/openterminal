@@ -18,7 +18,21 @@ import TextAlign from '@tiptap/extension-text-align'
 import Typography from '@tiptap/extension-typography'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBold, faItalic, faUnderline, faStrikethrough, faCode, faPen, faQuoteLeft, faFileCode, faGripLines, faTable, faSquare, faBorderAll, faHeader, faAlignLeft, faAlignCenter, faAlignRight, faGripLinesVertical, faAngleUp, faAngleDown } from '@fortawesome/fontawesome-free-solid'
+import { faBold, faItalic, faUnderline, faStrikethrough, faCode, faPen, faQuoteLeft, faFileCode, faGripLines, faTable, faSquare, faBorderAll, faHeader, faAlignLeft, faAlignCenter, faAlignRight, faGripLinesVertical, faAngleUp, faAngleDown, faCheck } from '@fortawesome/fontawesome-free-solid'
+
+const db_save_status = <p className="grey" style={{margin: '0', padding: '0'}}>Start editing to save to the DB!</p>;
+
+// thanks to @csharptest.net for this function
+function makeid(length) {
+    var result           = '';
+    var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    var charactersLength = characters.length;
+    for ( var i = 0; i < length; i++ ) {
+      result += characters.charAt(Math.floor(Math.random() * 
+ charactersLength));
+   }
+   return result;
+}
 
 const Tiptap = ({content}) => {
   const editor = useEditor({
@@ -48,13 +62,14 @@ const Tiptap = ({content}) => {
       Typography
     ],
     content: content,
+    onUpdate: ({ editor }) => {
+        db_save_status = <p style={{margin: '0', padding: '0'}}><span className="grey"><FontAwesomeIcon icon={faCheck} /> Saved edit</span> {makeid(7)}</p>;
+    },    
   })
 
   if (!editor) {
     return null
   }
-
-  let db_save_status = "Start editing to save to the DB!";
 
   return (
     <>
@@ -191,8 +206,8 @@ const Tiptap = ({content}) => {
 
         <EditorContent editor={editor}></EditorContent>
 
-        <div style={{padding: '2.5px 10px', border: '2px solid white', borderTopLeftRadius: '0px', borderTopRightRadius: '0px', borderBottomLeftRadius: '10px', borderBottomRightRadius: '10px', marginTop: '-2px'}}>
-            <p className="grey" style={{margin: '0', padding: '0'}}>{db_save_status}</p>
+        <div style={{padding: '7px', border: '2px solid white', borderTopLeftRadius: '0px', borderTopRightRadius: '0px', borderBottomLeftRadius: '10px', borderBottomRightRadius: '10px', marginTop: '-2px'}}>
+            {db_save_status}
         </div>
     </>
   )
