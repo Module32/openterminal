@@ -20,7 +20,7 @@ import Typography from '@tiptap/extension-typography'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBold, faItalic, faUnderline, faStrikethrough, faCode, faPen, faQuoteLeft, faFileCode, faGripLines, faTable, faSquare, faBorderAll, faHeader, faAlignLeft, faAlignCenter, faAlignRight, faGripLinesVertical, faAngleUp, faAngleDown } from '@fortawesome/fontawesome-free-solid'
 
-const Tiptap = (content) => {
+const Tiptap = ({content}) => {
   const editor = useEditor({
     extensions: [
       StarterKit,
@@ -53,6 +53,8 @@ const Tiptap = (content) => {
   if (!editor) {
     return null
   }
+
+  db_save_status = "Start editing to save to the DB!"
 
   return (
     <>
@@ -185,6 +187,10 @@ const Tiptap = (content) => {
                 <FontAwesomeIcon icon='align-right'></FontAwesomeIcon>
             </button>
 
+        </div>
+
+        <div style={{padding: '7px', border: '2px solid white', borderTopLeftRadius: '0px', borderTopRightRadius: '0px', borderBottomLeftRadius: '10px', borderBottomRightRadius: '10px'}}>
+            <p className="grey">{db_save_status}</p>
         </div>
 
         <EditorContent editor={editor} />

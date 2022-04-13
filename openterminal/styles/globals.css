@@ -435,10 +435,7 @@ a.boxy:hover {
 .ProseMirror {
   padding: 5px;
   border: 2px solid white;
-  border-top-left-radius: 0px;
-  border-top-right-radius: 0px;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
+  border-radius: 0px;
   background-color: rgb(0, 0, 0, 0);
   color: white;
   outline: none;
