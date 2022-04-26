@@ -41,10 +41,6 @@ li.navbar {
   padding: 15px;
 }
 
-li.navbar:hover {
-  color: #ff6f59ff;
-}
-
 footer {
   background-color: #0e0e0e;
   padding: 70px 50px;
