@@ -401,6 +401,17 @@ a.discord:hover, button.discord:hover {
   text-align: center;
 }
 
+.homepic {
+  background-image: url("/pics/homepic.png");
+  background-repeat: no-repeat;
+  height: 90%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 45px;
+  background-blend-mode: multiply;
+}
+
 .codefont {
   font-family: 'Space Mono', monospace;
 }

@@ -12,8 +12,8 @@ export default function Index() {
     return (
         <>
           <Layout>
-            <div className="hometop">
-              <h1 style={{fontWeight: 700, fontSize: '13vw', margin: 10, paddingTop: '65px', paddingBottom: 30}}><TextLoop mask={true} interval={1200}>
+            <div className="homepic">
+              <h1 style={{fontWeight: 700, fontSize: '11vw', margin: 10, paddingTop: '50px', paddingBottom: 30}}><TextLoop mask={true} interval={1200}>
                     <span style={{color: '#43AA8B'}}>Create</span>
                     <span style={{color: '#EF3054'}}>Code</span>
                     <span style={{color: '#FF6F59'}}>Teach</span>
@@ -24,6 +24,8 @@ export default function Index() {
                       <a className="padding">Explore solutions <FontAwesomeIcon icon="arrow-right" /></a>
                     </Link>
                   </div>
+            </div>
+            <div className="hometop">
                   <Fade up>
                     <h1 style={{fontSize: '35px'}}><span style={{backgroundColor: 'white', padding: '5px', margin: '5px', color: 'black', borderRadius: '15px'}}>Open Terminal is where <span style={{color: '#43AA8B'}}>inn</span><span style={{color: '#EF3054'}}>ova</span><span style={{color: '#574AE2'}}>ti</span><span style={{color: '#FF6F59'}}>ons</span> begin.</span></h1>
                     <h3>Started for developers, OT now builds products with all creatives in mind.<br />We have a huge focus on bringing viable technologies for people in all professions, especially developers.</h3>
