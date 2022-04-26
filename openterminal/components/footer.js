@@ -81,6 +81,8 @@ export default function Footer() {
           </div>
         </div>
       </div>
+      <hr></hr>
+      <p>Connect to us through</p>
       <div style={{ display: "flex" }}>
         <a href="google.com" className="socials"><FontAwesomeIcon icon={faDiscord}/></a>
       </div>

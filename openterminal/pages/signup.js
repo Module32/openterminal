@@ -24,7 +24,7 @@ export default function Signup() {
   <h2><FontAwesomeIcon icon="door-open" /> One portal to everything</h2>
               <p style={{color: 'rgb(200, 200, 200)'}}>Use just one account for every OT solution. You can quickly get going thanks to integrations that are easy to use.</p>
 
-  <h2><FontAwesomeIcon icon="users" /> A voice in the Terminal Community</h2>
+  <h2><FontAwesomeIcon icon="users" /> A voice in the Terminal Community <span style={{backgroundColor: '#bf1f0a', padding: '3px', borderRadius: '4px'}}>Soon</span></h2>
               <p style={{color: 'rgb(200, 200, 200)'}}>Want to talk to others about your experience? Have questions or feedback? An account gives you the power to do just that.</p>
   </div>
           </div>
@@ -38,7 +38,7 @@ export default function Signup() {
               {<FontAwesomeIcon icon={faDiscord} />} Sign up with Discord
             </button>
             <button onClick={() => signIn('google')} style={{width: '100%'}} className="google">
-              {<FontAwesomeIcon icon={faGoogle} />} Sign in with Google
+              {<FontAwesomeIcon icon={faGoogle} />} Sign up with Google
             </button>
           <p>Have an account? <Link href="/login"><a style={{color: '#5a30ff'}}>Log in instead</a></Link></p>
   </div>

@@ -33,7 +33,7 @@ export default function Index() {
                         />
                 </div>
             </div>
-  </Layout>
+  </Layout> 
       <Footer>
       </Footer>
         </>

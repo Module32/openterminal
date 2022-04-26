@@ -2,7 +2,7 @@ import Head from 'next/head'
 import styles from './layout.module.css'
 import Link from 'next/link'
 import Image from 'next/image'
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
 import Favicon from 'react-favicon';
 import { useSession, signIn, signOut } from "next-auth/react"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -12,7 +12,8 @@ const name = 'Module64'
 export const siteTitle = 'Open Terminal'
 
 export default function Layout({ children, home }) {
-  const { data: session } = useSession()
+  const { data: session } = useSession();
+  const [menu, showMenu] = useState(false);
   return (
     <div className={styles.container}>
       <Head>
@@ -42,7 +43,16 @@ export default function Layout({ children, home }) {
             </Link></li>
             
             <li className="navbar" style={{flexDirection: 'row', marginLeft: 'auto'}}>
-              { session ? <span className="grey">Welcome back, <span style={{color: 'white', fontWeight: '700'}}>{session.user.name}</span>!</span> : <span><Link href="/login"><a className="navbar">Login <FontAwesomeIcon icon="arrow-circle-right" /></a></Link></span> }
+              { session ? <>
+                <button onClick={showMenu(true)}>{session.user.name}</button>
+                { menu ?
+                  <div className="menu">
+                    <button>Logout</button>
+                    <button>Change Account</button>
+                  </div> : (
+                  null
+                ) }
+              </> : <span><Link href="/login"><a className="navbar">Login <FontAwesomeIcon icon="arrow-circle-right" /></a></Link></span> }
             </li>
           </ul>
           </>
