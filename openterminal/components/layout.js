@@ -25,8 +25,8 @@ export default function Layout({ children, home }) {
       <header className={styles.header}>
           <>
           <ul className="navbar" style={{display: 'flex'}}>
-            <li className="navbar" style={{flexDirection: 'row'}}>
-              <span className="codefont">Open Terminal</span>
+            <li style={{backgroundColor: 'rgb(220, 220, 220)', color: '#ff5b42', fontWeight: '800', marginRight: '15px'}}>
+              $ openterminal
             </li>
 
             <li className="navbar" style={{flexDirection: 'row'}}><Link href="/">
