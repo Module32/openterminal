@@ -25,7 +25,7 @@ export default function Layout({ children, home }) {
       <header className={styles.header}>
           <>
           <ul className="navbar" style={{display: 'flex'}}>
-            <li className="navbar" style={{backgroundColor: 'rgb(220, 220, 220)', color: '#ff5b42', fontWeight: '800', marginRight: '15px'}}>
+            <li className="navbar" style={{backgroundColor: 'rgb(15, 15, 15, 0.2)', fontWeight: '700', marginRight: '15px', borderRadius: '10px'}}>
               $ openterminal
             </li>
 
