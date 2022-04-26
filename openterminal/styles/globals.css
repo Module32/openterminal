@@ -43,7 +43,7 @@ li.navbar {
 
 footer {
   background-color: #0e0e0e;
-  padding: 70px 50px;
+  padding: 50px 85px;
   color: white;
   font-weight: 600;
 }
@@ -318,6 +318,16 @@ a.discord, button.discord {
 
 a.discord:hover, button.discord:hover {
   background-color: rgb(74, 85, 202);
+}
+
+a.google, button.google {
+  background-color: #ffa200;
+  color: white;
+  border: none;
+}
+
+a.google:hover, button.google:hover {
+  background-color: rgb(215, 137, 2);
 }
 
   /* Now all the acrylic layer is just only one class! */

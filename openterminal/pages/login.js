@@ -2,7 +2,7 @@ import { getProviders, signIn } from "next-auth/react"
 import Layout from '../components/layout'
 import Footer from '../components/footer'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faGithub, faDiscord } from '@fortawesome/free-brands-svg-icons'
+import { faGithub, faDiscord, faGoogle } from '@fortawesome/free-brands-svg-icons'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -19,6 +19,9 @@ export default function Login() {
             </button><br />
             <button onClick={() => signIn('discord')} style={{width: '100%'}} className="discord">
               {<FontAwesomeIcon icon={faDiscord} />} Sign in with Discord
+            </button>
+            <button onClick={() => signIn('google')} style={{width: '100%'}} className="google">
+              {<FontAwesomeIcon icon={faGoogle} />} Sign in with Google
             </button>
             <hr />
           <p>Don&apos;t have an account yet? <Link href="/signup"><a>Sign up now</a></Link></p>

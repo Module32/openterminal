@@ -37,6 +37,9 @@ export default function Signup() {
             <button onClick={() => signIn('discord')} style={{width: '100%'}} className="discord">
               {<FontAwesomeIcon icon={faDiscord} />} Sign up with Discord
             </button>
+            <button onClick={() => signIn('google')} style={{width: '100%'}} className="google">
+              {<FontAwesomeIcon icon={faGoogle} />} Sign in with Google
+            </button>
           <p>Have an account? <Link href="/login"><a style={{color: '#5a30ff'}}>Log in instead</a></Link></p>
   </div>
         </div>
