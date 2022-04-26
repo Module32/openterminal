@@ -4,7 +4,7 @@ import Layout from '../components/layout'
 import Footer from '../components/footer'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import '@fortawesome/fontawesome-free-solid'
-import { faGithub, faDiscord } from '@fortawesome/free-brands-svg-icons'
+import { faGithub, faDiscord, faGoogle } from '@fortawesome/free-brands-svg-icons'
 
 export default function Signup() {
   return (
