@@ -43,16 +43,7 @@ export default function Layout({ children, home }) {
             </Link></li>
             
             <li className="navbar" style={{flexDirection: 'row', marginLeft: 'auto'}}>
-              { session ? <>
-                <button onClick={showMenu(true)}>{session.user.name}</button>
-                { menu ?
-                  <div className="menu">
-                    <button>Logout</button>
-                    <button>Change Account</button>
-                  </div> : (
-                  null
-                ) }
-              </> : <span><Link href="/login"><a className="navbar">Login <FontAwesomeIcon icon="arrow-circle-right" /></a></Link></span> }
+              { session ? <span>{session.user.name}</span> : <span><Link href="/login"><a className="navbar">Login <FontAwesomeIcon icon="arrow-circle-right" /></a></Link></span> }
             </li>
           </ul>
           </>
