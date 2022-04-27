@@ -15,7 +15,7 @@ export default function Index() {
             <div className="genopi1" style={{paddingTop: '130px', paddingBottom: '75px'}}>
               <h1 style={{fontSize: '70px', margin: '0'}}>Make what you teach,<br />teach what you want</h1>
               <p style={{paddingBottom: '12px'}}><strong>genoπ</strong> | Made for Mr. McBrierty!</p>
-              <Link href="dashboard">
+              <Link href="genopi/dashboard">
                 <a className="padding">Get started today</a>
               </Link>
               
@@ -28,7 +28,7 @@ export default function Index() {
                     <p style={{fontSize:'17px'}}>With the awesome <a href="https://tiptap.dev">TipTap editor</a>, taking notes as you follow along in a lesson is seamless and easy!</p></h2>
                     <Image
                         src="/pics/genopi/homepage/1.png"
-                        width= '1600px'
+                        width= '1700px'
                         height= '1000px'
                         />
                 </div>
