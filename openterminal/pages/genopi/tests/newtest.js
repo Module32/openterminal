@@ -16,8 +16,8 @@ export default function Project() {
             <div className="hometop" style={{textAlign: 'left', paddingTop: '70px'}}>
                 <h2><span style={{ color: '#5d33f5' }}><FontAwesomeIcon icon={faFileAlt} /></span>New Test</h2>
                 <h3><input placeholder="Test Name" style={{width: '100%'}}></input></h3>
-                {[...Array(4)].map((x) => 
-                    <div style={{ backgroundColor: '#0f0f0f', padding: '10px', borderRadius: '10px', margin: '5px', border: '1px solid rgb(255, 255, 255, 0.4)', display: 'flex' }}>
+                {[...Array(4)].map((x, i) => 
+                    <div key={i} style={{ backgroundColor: '#0f0f0f', padding: '10px', borderRadius: '10px', margin: '5px', border: '1px solid rgb(255, 255, 255, 0.4)', display: 'flex' }}>
                     <h2>Question<br /><input style={{ width: '50%' }} placeholder="Enter a question"></input></h2>
                     <h2>Answer<br /><input style={{ width: '50%' }} placeholder="Enter the answer"></input></h2>
                     </div>
