@@ -13,7 +13,9 @@ function MakeQuestionDiv(props) {
       <div style={{display: 'flex', margin: '0', padding: '0'}}>
         <h3 style={{margin: '0', padding: '0', flex: '0.9'}}>Question<br /><input placeholder="Enter a question" style={{width: '100%'}}></input></h3>
         <h3 style={{margin: '0', padding: '0', flex: '0.9'}}>Answer<br /><input placeholder="Enter the answer" style={{width: '100%'}}></input></h3>
-        <h3 style={{margin: '0', padding: '0', flex: '0.9'}}>Hint <span className="grey">(optional)</span><br /><input placeholder="Any hint?" style={{width: '100%'}}></input></h3>
+      </div>
+      <div style={{display: 'flex', margin: '0', padding: '0'}}>
+      <h3 style={{margin: '0', padding: '0', flex: '0.9'}}>Hint <span className="grey">(optional)</span><br /><input placeholder="Any hint?" style={{width: '100%'}}></input></h3>
         <h3 style={{margin: '0', padding: '0', flex: '0.9'}}>Explanation <span className="grey">(optional)</span><br /><input placeholder="Any explanation?" style={{width: '100%'}}></input></h3>
       </div>
     </div>
