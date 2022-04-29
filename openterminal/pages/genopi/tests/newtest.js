@@ -30,7 +30,7 @@ export default function Project() {
                 {[...Array(4)].map((x, i) => 
                     { makeQuestionDiv(i) }
                 )}
-                <h4><button style={{ width: '100%' }} onClick={ makeQuestionDiv(i) }><FontAwesomeIcon icon={faPlus} /> Add question</button></h4>
+                <h4><button style={{ width: '100%' }} onClick={ makeQuestionDiv("no") }><FontAwesomeIcon icon={faPlus} /> Add question</button></h4>
             </div>
         </Layout>
         <Footer></Footer>
