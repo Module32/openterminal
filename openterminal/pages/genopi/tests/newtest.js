@@ -11,11 +11,11 @@ function MakeQuestionDiv(props) {
   return (
     <div key={props.key} style={{ backgroundColor: '#0f0f0f', padding: '10px', borderRadius: '10px', marginBottom: '8px', border: '1px solid rgb(255, 255, 255, 0.3)' }}>
       <div style={{display: 'flex', margin: '0', padding: '0'}}>
-        <h3 style={{margin: '0', padding: '0', flex: '0.9'}}>Question<br /><input placeholder="Enter a question"></input></h3>
-        <h3 style={{margin: '0', padding: '0', flex: '0.9'}}>Answer<br /><input placeholder="Enter the answer"></input></h3>
+        <h3 style={{margin: '0', padding: '0', flex: '0.9'}}>Question<br /><input placeholder="Enter a question" style={{width: '100%'}}></input></h3>
+        <h3 style={{margin: '0', padding: '0', flex: '0.9'}}>Answer<br /><input placeholder="Enter the answer" style={{width: '100%'}}></input></h3>
+        <h3 style={{margin: '0', padding: '0', flex: '0.9'}}>Hint <span className="grey">(optional)</span><br /><input placeholder="Any hint?" style={{width: '100%'}}></input></h3>
+        <h3 style={{margin: '0', padding: '0', flex: '0.9'}}>Explanation <span className="grey">(optional)</span><br /><input placeholder="Any explanation?" style={{width: '100%'}}></input></h3>
       </div>
-      <h3>Hint <span className="grey">(optional)</span><br /><span><input placeholder="Any hint?"></input></span></h3>
-      <h3>Explanation <span className="grey">(optional)</span><br /><span><input placeholder="Any explanation?"></input></span></h3>
     </div>
   )
 }
