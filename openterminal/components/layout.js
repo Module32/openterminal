@@ -25,29 +25,36 @@ export default function Layout({ children, home }) {
       <Favicon url="../public/pics/ot-logo.png"/>
       <header className={styles.header}>
           <>
-          <div className="navbar" style={{display: "flex"}}>
+          <ul className="navbar" style={{display: 'flex'}}>
+          <li className="logo">
             <Image
               src="pics/logo.png"
               alt="logo"
               width={300}
               height={300}
-              style={{ flexDirection: 'row', margin: '10' }}
             />
+          </li>
 
-            <Link href="/">
-              <a className="navbar" style={{ flexDirection: 'row', margin: '10' }}>Home</a>
-            </Link>
+            <li className="navbar" style={{backgroundColor: 'rgb(15, 15, 15, 0.2)', fontWeight: '600', marginRight: '3px', borderRadius: '10px'}}>
+              &gt; openterminal
+            </li>
 
-            <Link href="/whyot">
-              <a className="navbar" style={{ flexDirection: 'row', margin: '10' }}>Why OT</a>
-            </Link>
+            <li className="navbar"><Link href="/">
+              <a className="navbar">Home</a>
+            </Link></li>
+
+            <li className="navbar"><Link href="/whyot">
+              <a className="navbar">Why OT</a>
+            </Link></li>
             
-            <Link href="/">
-              <a className="navbar" style={{ flexDirection: 'row', margin: '10' }}>Solutions</a>
-            </Link>
+            <li className="navbar"><Link href="/">
+              <a className="navbar">Solutions</a>
+            </Link></li>
             
-            { session ? <span>{session.user.name}</span> : <span><Link href="/login"><a className="navbar">Login <FontAwesomeIcon icon="arrow-circle-right" /></a></Link></span> }
-          </div>
+            <li className="navbar" style={{flexDirection: 'row', marginLeft: 'auto'}}>
+              { session ? <span>{session.user.name}</span> : <span><Link href="/login"><a className="navbar">Login <FontAwesomeIcon icon="arrow-circle-right" /></a></Link></span> }
+            </li>
+          </ul>
           </>
       </header>
       <hr></hr>

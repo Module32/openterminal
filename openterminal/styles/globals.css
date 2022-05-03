@@ -14,7 +14,7 @@ body {
   box-sizing: border-box;
 }
 
-.navbar {
+ul.navbar {
   margin-left: 0;
   margin-top: 0px;
   backdrop-filter: blur(10px);
@@ -26,9 +26,22 @@ body {
   position: fixed;
   top: 0;
   width: 100%;
+  align-items: flex-start;     
+  flex-wrap: nowrap;
   font-family: -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
   z-index: 1030;
   border-bottom: 1px solid rgb(255, 255, 255, 0.3);
+}
+
+li.logo {
+  order: 0;
+}
+
+li.navbar {
+  order: 1;
+  position: relative;
+  display: block;
+  width: auto;
 }
 
 footer {

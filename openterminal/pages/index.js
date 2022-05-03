@@ -13,7 +13,7 @@ export default function Index() {
         <>
           <Layout>
             <div className="homepic">
-              <h1 style={{fontWeight: 700, fontSize: '11vw', margin: 10, paddingTop: '60px', paddingBottom: 30}}><TextLoop mask={true} interval={1200}>
+              <h1 style={{fontWeight: 700, fontSize: '11vw', margin: 0, paddingTop: '60px'}}><TextLoop mask={true} interval={1200}>
                     <span style={{color: '#43AA8B'}}>Create</span>
                     <span style={{color: '#EF3054'}}>Code</span>
                     <span style={{color: '#FF6F59'}}>Teach</span>
@@ -25,7 +25,7 @@ export default function Index() {
                       <a className="padding" style={{flexDirection: 'row'}}>Explore solutions <FontAwesomeIcon icon="arrow-right" /></a>
                     </Link>
                     <Link href="">
-                      <a className="padding green" style={{flexDirection: 'row'}}>Sign up <FontAwesomeIcon icon="arrow-right" /></a>
+                      <a className="padding" style={{flexDirection: 'row'}}><div className="green">Sign up <FontAwesomeIcon icon="arrow-right" /></div></a>
                     </Link>
                   </div>
             </div>
