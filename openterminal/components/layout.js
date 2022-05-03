@@ -30,14 +30,10 @@ export default function Layout({ children, home }) {
             <Image
               src="pics/logo.png"
               alt="logo"
-              width={300}
-              height={300}
+              width={50}
+              height={50}
             />
           </li>
-
-            <li className="navbar" style={{backgroundColor: 'rgb(15, 15, 15, 0.2)', fontWeight: '600', marginRight: '3px', borderRadius: '10px'}}>
-              &gt; openterminal
-            </li>
 
             <li className="navbar"><Link href="/">
               <a className="navbar">Home</a>

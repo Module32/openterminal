@@ -35,6 +35,8 @@ ul.navbar {
 
 li.logo {
   order: 0;
+  position: relative;
+  display: block;
 }
 
 li.navbar {
@@ -42,6 +44,7 @@ li.navbar {
   position: relative;
   display: block;
   width: auto;
+  margin: 10px;
 }
 
 footer {
