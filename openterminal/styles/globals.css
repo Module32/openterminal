@@ -44,6 +44,7 @@ li.navbar {
   position: relative;
   display: block;
   width: auto;
+  font-weight: 600;
   margin: 10px;
 }
 
@@ -98,7 +99,7 @@ a:hover {
 
 a.navbar {
   color: white;
-  text-decoration: underline;
+  font-weight: 600;
 }
 
 a.navbar:hover {
@@ -124,12 +125,12 @@ a.padding:hover, button:hover {
   cursor: pointer;
 }
 
-a.padding .green {
+a.padding.green {
   background-color: rgb(68, 173, 92);
   color: white;
 }
 
-a.padding .green:hover {
+a.padding.green:hover {
   background-color: rgb(50, 128, 68);
 }
 

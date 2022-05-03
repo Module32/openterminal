@@ -30,13 +30,13 @@ export default function Layout({ children, home }) {
             <Image
               src="pics/logo.png"
               alt="logo"
-              width={50}
+              width={110}
               height={50}
             />
           </li>
 
             <li className="navbar"><Link href="/">
-              <a className="navbar">Home</a>
+              <a className="navbar" style={{marginTop: '20px'}}>Home</a>
             </Link></li>
 
             <li className="navbar"><Link href="/whyot">
