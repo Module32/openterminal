@@ -14,31 +14,22 @@ body {
   box-sizing: border-box;
 }
 
-ul.navbar {
+.navbar {
   margin-left: 0;
   margin-top: 0px;
-  /* Parent background + Gaussian blur */
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-
-  /* Exclusion blend */
   background-blend-mode: exclusion;
-
-  /* Color/tint overlay + Opacity */
   background: rgba(0, 0, 0, .2);
   color: white;
   padding: 8px 40px;
+  height: 54px;
+  display: flex;
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 1030;
   border-bottom: 1px solid rgb(255, 255, 255, 0.3);
-}
-
-li.navbar {
-  display: inline;
-  font-weight: 600;
-  padding: 15px;
 }
 
 footer {
@@ -118,21 +109,13 @@ a.padding:hover, button:hover {
   cursor: pointer;
 }
 
-a.padding .blue {
-  color: #1789FC;
-}
-a.padding .blue:hover {
-  color: #126cc5;
-}
-
-button.red {
-  background-color: #f51d1d;
+a.padding .green {
+  background-color: rgb(68, 173, 92);
   color: white;
-  border: none;
 }
 
-button.red:hover {
-  background-color: rgb(185, 28, 28);
+a.padding .green:hover {
+  background-color: rgb(50, 128, 68);
 }
 
 .totheright {

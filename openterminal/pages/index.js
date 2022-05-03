@@ -18,10 +18,14 @@ export default function Index() {
                     <span style={{color: '#EF3054'}}>Code</span>
                     <span style={{color: '#FF6F59'}}>Teach</span>
                     <span style={{color: '#574AE2'}}>Design</span>
-                  </TextLoop>{" "} faster<br />than ever.</h1>
-                  <div style={{paddingBottom: 150}}>
+                  </TextLoop>{" "} faster<br />than ever</h1>
+                  <h3 style={{fontWeight: '600'}}>Creating products that inspire the next wave of creators</h3>
+                  <div style={{paddingBottom: 150, display: 'flex'}}>
                     <Link href="">
-                      <a className="padding">Explore solutions <FontAwesomeIcon icon="arrow-right" /></a>
+                      <a className="padding" style={{flexDirection: 'row'}}>Explore solutions <FontAwesomeIcon icon="arrow-right" /></a>
+                    </Link>
+                    <Link href="">
+                      <a className="padding green" style={{flexDirection: 'row'}}>Sign up <FontAwesomeIcon icon="arrow-right" /></a>
                     </Link>
                   </div>
             </div>

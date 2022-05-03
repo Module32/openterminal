@@ -25,27 +25,28 @@ export default function Layout({ children, home }) {
       <Favicon url="../public/pics/ot-logo.png"/>
       <header className={styles.header}>
           <>
-          <ul className="navbar" style={{display: 'flex'}}>
-            <li className="navbar" style={{backgroundColor: 'rgb(15, 15, 15, 0.2)', fontWeight: '600', marginRight: '3px', borderRadius: '10px'}}>
-              &gt; openterminal
-            </li>
+          <div className="navbar">
+            <Image
+              src="pics/logo.png"
+              alt="logo"
+              width={300}
+              height={300}
+            />
 
-            <li className="navbar" style={{flexDirection: 'row'}}><Link href="/">
+            <Link href="/">
               <a className="navbar">Home</a>
-            </Link></li>
+            </Link>
 
-            <li className="navbar" style={{flexDirection: 'row'}}><Link href="/whyot">
+            <Link href="/whyot">
               <a className="navbar">Why OT</a>
-            </Link></li>
+            </Link>
             
-            <li className="navbar" style={{flexDirection: 'row'}}><Link href="/">
+            <Link href="/">
               <a className="navbar">Solutions</a>
-            </Link></li>
+            </Link>
             
-            <li className="navbar" style={{flexDirection: 'row', marginLeft: 'auto'}}>
-              { session ? <span>{session.user.name}</span> : <span><Link href="/login"><a className="navbar">Login <FontAwesomeIcon icon="arrow-circle-right" /></a></Link></span> }
-            </li>
-          </ul>
+            { session ? <span>{session.user.name}</span> : <span><Link href="/login"><a className="navbar">Login <FontAwesomeIcon icon="arrow-circle-right" /></a></Link></span> }
+          </div>
           </>
       </header>
       <hr></hr>
