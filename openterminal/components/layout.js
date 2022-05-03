@@ -22,7 +22,7 @@ export default function Layout({ children, home }) {
         <meta name="twitter:card" content="summary_large_image" />
         <title>Open Terminal - Creating for all</title>
       </Head>
-      <Favicon url="../public/pics/ot-logo.png"/>
+      <Favicon url="../public/pics/logo.png"/>
       <header className={styles.header}>
           <>
           <ul className="navbar" style={{display: 'flex'}}>
@@ -36,7 +36,7 @@ export default function Layout({ children, home }) {
           </li>
 
             <li className="navbar"><Link href="/">
-              <a className="navbar">Home</a>
+              <a className="navbar" style={{paddingTop: '20px'}}>Home</a>
             </Link></li>
 
             <li className="navbar"><Link href="/whyot">
