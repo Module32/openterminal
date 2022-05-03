@@ -35,8 +35,6 @@ ul.navbar {
 
 li.logo {
   order: 0;
-  position: relative;
-  display: block;
 }
 
 li.navbar {

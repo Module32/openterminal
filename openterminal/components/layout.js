@@ -36,7 +36,7 @@ export default function Layout({ children, home }) {
           </li>
 
             <li className="navbar"><Link href="/">
-              <a className="navbar" style={{marginTop: '20px'}}>Home</a>
+              <a className="navbar">Home</a>
             </Link></li>
 
             <li className="navbar"><Link href="/whyot">
