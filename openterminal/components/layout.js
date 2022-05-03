@@ -25,24 +25,25 @@ export default function Layout({ children, home }) {
       <Favicon url="../public/pics/ot-logo.png"/>
       <header className={styles.header}>
           <>
-          <div className="navbar">
+          <div className="navbar" style={{display: "flex"}}>
             <Image
               src="pics/logo.png"
               alt="logo"
               width={300}
               height={300}
+              style={{ flexDirection: 'row', margin: '10' }}
             />
 
             <Link href="/">
-              <a className="navbar">Home</a>
+              <a className="navbar" style={{ flexDirection: 'row', margin: '10' }}>Home</a>
             </Link>
 
             <Link href="/whyot">
-              <a className="navbar">Why OT</a>
+              <a className="navbar" style={{ flexDirection: 'row', margin: '10' }}>Why OT</a>
             </Link>
             
             <Link href="/">
-              <a className="navbar">Solutions</a>
+              <a className="navbar" style={{ flexDirection: 'row', margin: '10' }}>Solutions</a>
             </Link>
             
             { session ? <span>{session.user.name}</span> : <span><Link href="/login"><a className="navbar">Login <FontAwesomeIcon icon="arrow-circle-right" /></a></Link></span> }

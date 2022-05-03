@@ -23,11 +23,10 @@ body {
   background: rgba(0, 0, 0, .2);
   color: white;
   padding: 8px 40px;
-  height: 54px;
-  display: flex;
   position: fixed;
   top: 0;
   width: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
   z-index: 1030;
   border-bottom: 1px solid rgb(255, 255, 255, 0.3);
 }
