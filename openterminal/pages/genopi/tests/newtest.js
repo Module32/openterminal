@@ -27,6 +27,13 @@ function MakeQuestionDiv(props) {
 export default function Project() {
     const { data: session, status } = useSession()
     const [qnum, setQnum] = useState(4);
+    const [questionList, setQuestionList] = useState([]);
+
+    const onAddQuestionClick = event => {
+      setQnum(qnum + 1)
+      setQuestionList(questionList.contact(<MakeQuestionDiv componentKey={qnum} />))
+    }
+
     if (status !== "authenticated") { return "Log in to access this page!" }
     return (
       <>
@@ -39,7 +46,7 @@ export default function Project() {
                 <MakeQuestionDiv componentKey={1} />
                 <MakeQuestionDiv componentKey={2} />
                 <MakeQuestionDiv componentKey={3} />
-                <h4><button style={{ width: '100%' }} onClick={ () => <MakeQuestionDiv componentKey={setQnum(qnum + 1)} /> }><FontAwesomeIcon icon={faPlus} /> Add question</button></h4>
+                <h4><button style={{ width: '100%' }} onClick={ onAddQuestionClick }><FontAwesomeIcon icon={faPlus} /> Add question</button></h4>
             </div>
         </Layout>
         <Footer></Footer>
