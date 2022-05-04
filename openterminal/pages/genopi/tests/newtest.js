@@ -13,7 +13,7 @@ export default function Project() {
     const [qnum, setQnum] = useState(1);
     const [questionList, setQuestionList] = useState([]);
 
-    const deleteQuestion = (questionIndex) => {
+    function deleteQuestion(questionIndex) {
       questionIndex -= 1;
       setQnum(qnum - 1)
       setQuestionList(questionList.splice(questionIndex, 1));
