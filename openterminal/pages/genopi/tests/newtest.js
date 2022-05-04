@@ -8,30 +8,30 @@ import { useSession } from "next-auth/react"
 import redirect from 'nextjs-redirect'
 import { useState } from "react"
 
-const MakeQuestion = (props) => {
-  return (
-    <div key={props.componentKey.toString()} style={{ backgroundColor: '#13141c', padding: '10px', borderRadius: '10px', margin: '10px', border: '1px solid rgb(255, 255, 255, 0.3)' }}>
-      <h1><span className="grey">Question</span> {props.componentKey.toString()}</h1>
-      <div style={{display: 'flex', margin: '0', padding: '0'}}>
-        <h3 style={{margin: '0', padding: '0', flex: '0.7'}}>Question<br /><input placeholder="Enter a question" style={{width: '96%'}}></input></h3>
-        <h3 style={{margin: '0', padding: '0', flex: '0.7'}}>Answer<br /><input placeholder="Enter the answer" style={{width: '96%'}}></input></h3>
-      </div>
-      <div style={{display: 'flex', margin: '0', padding: '0'}}>
-        <h4 style={{margin: '0', padding: '0', flex: '0.7'}}>Hint <span className="grey">(optional)</span><br /><input placeholder="Any hint?" style={{width: '96%'}}></input></h4>
-        <h4 style={{margin: '0', padding: '0', flex: '0.7'}}>Explanation <span className="grey">(optional)</span><br /><input placeholder="Any explanation?" style={{width: '96%'}}></input></h4>
-      </div>
-    </div>
-  )
-}
-
 export default function Project() {
     const { data: session, status } = useSession()
     const [qnum, setQnum] = useState(4);
     const [questionList, setQuestionList] = useState([]);
 
+    const MakeQuestion = (props) => {
+      return (
+        <div key={props.componentKey.toString()} style={{ backgroundColor: '#13141c', padding: '10px', borderRadius: '10px', margin: '10px', border: '1px solid rgb(255, 255, 255, 0.3)' }}>
+          <h1><span className="grey">Question</span> {props.componentKey.toString()}</h1>
+          <div style={{display: 'flex', margin: '0', padding: '0'}}>
+            <h3 style={{margin: '0', padding: '0', flex: '0.7'}}>Question<br /><input placeholder="Enter a question" style={{width: '96%'}}></input></h3>
+            <h3 style={{margin: '0', padding: '0', flex: '0.7'}}>Answer<br /><input placeholder="Enter the answer" style={{width: '96%'}}></input></h3>
+          </div>
+          <div style={{display: 'flex', margin: '0', padding: '0'}}>
+            <h4 style={{margin: '0', padding: '0', flex: '0.7'}}>Hint <span className="grey">(optional)</span><br /><input placeholder="Any hint?" style={{width: '96%'}}></input></h4>
+            <h4 style={{margin: '0', padding: '0', flex: '0.7'}}>Explanation <span className="grey">(optional)</span><br /><input placeholder="Any explanation?" style={{width: '96%'}}></input></h4>
+          </div>
+        </div>
+      )
+    }
+
     const onAddQuestionClick = event => {
       setQnum(qnum + 1)
-      setQuestionList(questionList.contact(<MakeQuestion componentKey={qnum} />))
+      setQuestionList(questionList.concat(<MakeQuestion componentKey={qnum} />))
     }
 
     if (status !== "authenticated") { return "Log in to access this page!" }
