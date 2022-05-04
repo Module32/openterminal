@@ -42,10 +42,7 @@ export default function Project() {
                 <h1><span style={{ color: '#5d33f5' }}><FontAwesomeIcon icon={faFileAlt} /></span> New Test</h1>
                 <p>Create a practice test to prepare for a test, get your students ready, or help your friends!</p>
                 <h3><input placeholder="Test Name" style={{width: '100%'}}></input></h3>
-                <MakeQuestionDiv componentKey={0} />
-                <MakeQuestionDiv componentKey={1} />
-                <MakeQuestionDiv componentKey={2} />
-                <MakeQuestionDiv componentKey={3} />
+                {questionList.map((x, i) => ( <MakeQuestionDiv componentKey={i} /> ))} 
                 <h4><button style={{ width: '100%' }} onClick={ onAddQuestionClick }><FontAwesomeIcon icon={faPlus} /> Add question</button></h4>
             </div>
         </Layout>
