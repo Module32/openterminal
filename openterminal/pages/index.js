@@ -24,7 +24,7 @@ export default function Index() {
                     <Link href="">
                       <a className="padding" style={{flexDirection: 'row'}}>Explore solutions <FontAwesomeIcon icon="arrow-right" /></a>
                     </Link>
-                    <Link href="">
+                    <Link href="/signup">
                       <a className="padding green" style={{flexDirection: 'row'}}>Sign up <FontAwesomeIcon icon="arrow-right" /></a>
                     </Link>
                   </div>
