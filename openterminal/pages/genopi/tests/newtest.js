@@ -10,8 +10,8 @@ import { useState } from "react"
 
 function MakeQuestionDiv(props) {
   return (
-    <div key={props.key.toString()} style={{ backgroundColor: '#13141c', padding: '10px', borderRadius: '10px', margin: '10px', border: '1px solid rgb(255, 255, 255, 0.3)' }}>
-      <h1><span className="grey">Question</span> {props.key.toString()}</h1>
+    <div key={props.componentKey.toString()} style={{ backgroundColor: '#13141c', padding: '10px', borderRadius: '10px', margin: '10px', border: '1px solid rgb(255, 255, 255, 0.3)' }}>
+      <h1><span className="grey">Question</span> {props.componentKey.toString()}</h1>
       <div style={{display: 'flex', margin: '0', padding: '0'}}>
         <h3 style={{margin: '0', padding: '0', flex: '0.7'}}>Question<br /><input placeholder="Enter a question" style={{width: '96%'}}></input></h3>
         <h3 style={{margin: '0', padding: '0', flex: '0.7'}}>Answer<br /><input placeholder="Enter the answer" style={{width: '96%'}}></input></h3>
@@ -35,11 +35,11 @@ export default function Project() {
                 <h1><span style={{ color: '#5d33f5' }}><FontAwesomeIcon icon={faFileAlt} /></span> New Test</h1>
                 <p>Create a practice test to prepare for a test, get your students ready, or help your friends!</p>
                 <h3><input placeholder="Test Name" style={{width: '100%'}}></input></h3>
-                <MakeQuestionDiv key={0} />
-                <MakeQuestionDiv key={1} />
-                <MakeQuestionDiv key={2} />
-                <MakeQuestionDiv key={3} />
-                <h4><button style={{ width: '100%' }} onClick={ () => <MakeQuestionDiv key={setQnum(qnum + 1)} /> }><FontAwesomeIcon icon={faPlus} /> Add question</button></h4>
+                <MakeQuestionDiv componentKey={0} />
+                <MakeQuestionDiv componentKey={1} />
+                <MakeQuestionDiv componentKey={2} />
+                <MakeQuestionDiv componentKey={3} />
+                <h4><button style={{ width: '100%' }} onClick={ () => <MakeQuestionDiv componentKey={setQnum(qnum + 1)} /> }><FontAwesomeIcon icon={faPlus} /> Add question</button></h4>
             </div>
         </Layout>
         <Footer></Footer>
