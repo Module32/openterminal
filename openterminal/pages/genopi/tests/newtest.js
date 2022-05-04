@@ -10,7 +10,7 @@ import { useState } from "react"
 
 export default function Project() {
     const { data: session, status } = useSession()
-    const [qnum, setQnum] = useState(5);
+    const [qnum, setQnum] = useState(1);
     const [questionList, setQuestionList] = useState([]);
 
     const MakeQuestion = (props) => {
@@ -34,8 +34,6 @@ export default function Project() {
       setQuestionList(questionList.concat(<MakeQuestion componentKey={qnum} />))
     }
 
-    setQuestionList([ <MakeQuestion componentKey="1" />, <MakeQuestion componentKey="2" />, <MakeQuestion componentKey="3" />, <MakeQuestion componentKey="4" /> ])
-
     if (status !== "authenticated") { return "Log in to access this page!" }
     return (
       <>
@@ -44,8 +42,8 @@ export default function Project() {
                 <h1><span style={{ color: '#5d33f5' }}><FontAwesomeIcon icon={faFileAlt} /></span> New Test</h1>
                 <p>Create a practice test to prepare for a test, get your students ready, or help your friends!</p>
                 <h3><input placeholder="Test Name" style={{width: '100%'}}></input></h3>
-                {questionList}
-                <h4><button style={{ width: '100%' }} onClick={ onAddQuestionClick }><FontAwesomeIcon icon={faPlus} /> Add question</button></h4>
+                {questionList === [] ? <p>Let&apos;s add some questions! Click <strong>Add question <FontAwesomeIcon icon={faPlus} /></strong></p> : questionList}
+                <h4><button style={{ width: '100%' }} onClick={ onAddQuestionClick }>Add question <FontAwesomeIcon icon={faPlus} /></button></h4>
             </div>
         </Layout>
         <Footer></Footer>
