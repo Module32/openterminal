@@ -18,7 +18,7 @@ export default function Project() {
       setQuestionList((prevQuestionList) =>
         prevQuestionList.filter((_, idx) => idx !== questionIndex)
       );
-      setQnum(questionList.length - 1);
+      setQnum(questionList.length);
     }    
 
     const MakeQuestion = (props) => {
