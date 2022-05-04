@@ -9,7 +9,8 @@ import redirect from 'nextjs-redirect'
 
 function MakeQuestionDiv(props) {
   return (
-    <div key={props.key} style={{ backgroundColor: '#13141c', padding: '10px', borderRadius: '10px', marginBottom: '8px', border: '1px solid rgb(255, 255, 255, 0.3)' }}>
+    <div key={props.key} style={{ backgroundColor: '#13141c', padding: '10px', borderRadius: '10px', margin: '10px', border: '1px solid rgb(255, 255, 255, 0.3)' }}>
+      <h1><span className="grey">Question</span> {props.key}</h1>
       <div style={{display: 'flex', margin: '0', padding: '0'}}>
         <h3 style={{margin: '0', padding: '0', flex: '0.7'}}>Question<br /><input placeholder="Enter a question" style={{width: '96%'}}></input></h3>
         <h3 style={{margin: '0', padding: '0', flex: '0.7'}}>Answer<br /><input placeholder="Enter the answer" style={{width: '96%'}}></input></h3>
@@ -24,6 +25,7 @@ function MakeQuestionDiv(props) {
 
 export default function Project() {
     const { data: session, status } = useSession()
+    const [qnum, setQnum] = useState(4);
     if (status !== "authenticated") { return "Log in to access this page!" }
     return (
       <>
@@ -35,7 +37,7 @@ export default function Project() {
                 {[...Array(4)].map((x, i) => 
                     <MakeQuestionDiv key={i} />
                 )}
-                <h4><button style={{ width: '100%' }} onClick={ () => <MakeQuestionDiv key="no" /> }><FontAwesomeIcon icon={faPlus} /> Add question</button></h4>
+                <h4><button style={{ width: '100%' }} onClick={ () => <MakeQuestionDiv key={setQnum(qnum + 1)} /> }><FontAwesomeIcon icon={faPlus} /> Add question</button></h4>
             </div>
         </Layout>
         <Footer></Footer>

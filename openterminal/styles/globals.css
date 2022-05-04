@@ -37,6 +37,7 @@ li.logo {
   order: 0;
   position: relative;
   display: block;
+  padding-right: 10px;
 }
 
 li.navbar {

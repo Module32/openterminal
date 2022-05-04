@@ -30,8 +30,8 @@ export default function Layout({ children, home }) {
             <Image
               src="pics/logo.png"
               alt="logo"
-              width={55}
-              height={25}
+              width={66}
+              height={30}
             />
           </li>
 
