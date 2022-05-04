@@ -35,11 +35,10 @@ export default function Project() {
                 <h1><span style={{ color: '#5d33f5' }}><FontAwesomeIcon icon={faFileAlt} /></span> New Test</h1>
                 <p>Create a practice test to prepare for a test, get your students ready, or help your friends!</p>
                 <h3><input placeholder="Test Name" style={{width: '100%'}}></input></h3>
-                {[...Array(4)].map((x, i) => 
-                    i.forEach(key => {
-                      <MakeQuestionDiv key={key} />
-                    })
-                )}
+                <MakeQuestionDiv key={0} />
+                <MakeQuestionDiv key={1} />
+                <MakeQuestionDiv key={2} />
+                <MakeQuestionDiv key={3} />
                 <h4><button style={{ width: '100%' }} onClick={ () => <MakeQuestionDiv key={setQnum(qnum + 1)} /> }><FontAwesomeIcon icon={faPlus} /> Add question</button></h4>
             </div>
         </Layout>
