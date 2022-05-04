@@ -10,7 +10,7 @@ import { useState } from "react"
 
 export default function Project() {
     const { data: session, status } = useSession()
-    const [qnum, setQnum] = useState(4);
+    const [qnum, setQnum] = useState(5);
     const [questionList, setQuestionList] = useState([]);
 
     const MakeQuestion = (props) => {
@@ -33,6 +33,8 @@ export default function Project() {
       setQnum(qnum + 1)
       setQuestionList(questionList.concat(<MakeQuestion componentKey={qnum} />))
     }
+
+    setQuestionList([ <MakeQuestion componentKey="1" />, <MakeQuestion componentKey="2" />, <MakeQuestion componentKey="3" />, <MakeQuestion componentKey="4" /> ])
 
     if (status !== "authenticated") { return "Log in to access this page!" }
     return (
