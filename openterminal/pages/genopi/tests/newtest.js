@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFileAlt, faPlus } from '@fortawesome/fontawesome-free-solid'
 import { useSession } from "next-auth/react"
 import redirect from 'nextjs-redirect'
+import { useState } from "react"
 
 function MakeQuestionDiv(props) {
   return (
