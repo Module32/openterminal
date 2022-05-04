@@ -126,13 +126,22 @@ a.padding:hover, button:hover {
   cursor: pointer;
 }
 
-a.padding.green {
+a.padding.green, button.green {
   background-color: rgb(68, 173, 92);
   color: white;
 }
 
-a.padding.green:hover {
-  background-color: rgb(50, 128, 68);
+a.padding.green:hover, button.green:hover {
+  background-color: rgb(61, 155, 83);
+}
+
+a.padding.red, button.red {
+  background-color: rgb(250, 73, 73);
+  color: white;
+}
+
+a.padding.red:hover, button.red:hover {
+  background-color: rgb(219, 65, 65);
 }
 
 .totheright {
