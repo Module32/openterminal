@@ -36,7 +36,9 @@ export default function Project() {
                 <p>Create a practice test to prepare for a test, get your students ready, or help your friends!</p>
                 <h3><input placeholder="Test Name" style={{width: '100%'}}></input></h3>
                 {[...Array(4)].map((x, i) => 
-                    <MakeQuestionDiv key={i} />
+                    i.forEach(key => {
+                      <MakeQuestionDiv key={key} />
+                    })
                 )}
                 <h4><button style={{ width: '100%' }} onClick={ () => <MakeQuestionDiv key={setQnum(qnum + 1)} /> }><FontAwesomeIcon icon={faPlus} /> Add question</button></h4>
             </div>
