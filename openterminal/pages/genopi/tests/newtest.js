@@ -19,7 +19,7 @@ export default function Project() {
       let newArr = [...questionList];
       newArr[questionIndex] = ""
       setQuestionList(newArr)
-      let newQnum = newArr.filter(x => x !== "").length + 1;
+      let newQnum = newArr.filter(x => x !== "").length;
       setQnum(newQnum);
     }
 
@@ -49,7 +49,8 @@ export default function Project() {
     const onAddQuestionClick = event => {
       let newQnum = qnum + 1;
       setQnum(newQnum)
-      setQuestionList(questionList.concat(<MakeQuestion componentKey={qnum} />))
+      console.log(qnum, newQnum)
+      setQuestionList(questionList.concat(<MakeQuestion componentKey={newQnum} />))
     }
 
     if (status !== "authenticated") { return "Log in to access this page!" }
