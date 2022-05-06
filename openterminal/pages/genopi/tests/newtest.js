@@ -13,7 +13,7 @@ export default function Project() {
     const { data: session, status } = useSession()
     const [qnum, setQnum] = useState(1);
     const [questionList, setQuestionList] = useState([]);
-    const { register, handleSubmit, watch, errors } = useForm();
+    const { register, handleSubmit, errors } = useForm();
 
     function deleteQuestion(questionIndex) {
       let newArr = [...questionList];
@@ -33,9 +33,9 @@ export default function Project() {
             <button className="red" onClick={() => deleteQuestion(props.componentKey)} style={{marginLeft: 'auto'}}><FontAwesomeIcon icon={faTrash} /></button>
           </div>
           <div style={{display: 'flex', margin: '0', padding: '0'}}>
-            <h3 style={{margin: '0', padding: '0', flex: '0.7'}}>Question<br /><input placeholder="Enter a question" style={{width: '96%'}} ref={register({ required: true })} ></input><br />
+            <h3 style={{margin: '0', padding: '0', flex: '0.7'}}>Question<br /><input placeholder="Enter a question" style={{width: '96%'}} {...register("question", { required: true })} ></input><br />
             {errors.requiredField && <span style={{color: '#ff3d3d', fontSize: '13px'}}>This is required!</span>}</h3>
-            <h3 style={{margin: '0', padding: '0', flex: '0.7'}}>Answer<br /><input placeholder="Enter the answer" style={{width: '96%'}} ref={register({ required: true })} ></input><br />
+            <h3 style={{margin: '0', padding: '0', flex: '0.7'}}>Answer<br /><input placeholder="Enter the answer" style={{width: '96%'}} {...register("answer", { required: true })} ></input><br />
             {errors.requiredField && <span style={{color: '#ff3d3d', fontSize: '13px'}}>This is required!</span>}</h3>
           </div>
           <div style={{display: 'flex', margin: '0', padding: '0'}}>
