@@ -15,9 +15,9 @@ export default function Project() {
 
     function deleteQuestion(questionIndex) {
       questionIndex -= 1;
-      setQuestionList((prevQuestionList) =>
-        prevQuestionList[questionIndex] = ""
-    )
+      let newArr = [...questionList];
+      newArr[questionIndex] = ""
+      setQuestionList(newArr)
     }
 
     const MakeQuestion = (props) => {
