@@ -7,40 +7,50 @@ import { faFileAlt, faPlus, faTrash } from '@fortawesome/fontawesome-free-solid'
 import { useSession } from "next-auth/react"
 import redirect from 'nextjs-redirect'
 import { useState } from "react"
+import { useForm } from "react-hook-form";
 
 export default function Project() {
     const { data: session, status } = useSession()
     const [qnum, setQnum] = useState(1);
     const [questionList, setQuestionList] = useState([]);
+    const { register, handleSubmit, watch, errors } = useForm();
 
     function deleteQuestion(questionIndex) {
       let newArr = [...questionList];
       newArr[questionIndex] = ""
       setQuestionList(newArr)
-      setQnum(newArr.length + 1);
+      newQnum = qnum + 1;
+      setQnum(newQnum);
     }
 
     const MakeQuestion = (props) => {
+      const onSubmit = data => console.log(data);
       return (
-        <div key={props.componentKey.toString()} style={{ backgroundColor: '#13141c', padding: '10px 20px', borderRadius: '10px', margin: '10px', border: '1px solid rgb(255, 255, 255, 0.3)' }}>
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <div key={props.componentKey.toString()} style={{ backgroundColor: '#13141c', padding: '10px 20px', borderRadius: '10px', margin: '10px', border: '1px solid rgb(255, 255, 255, 0.3)' }}>
           <div style={{display: 'flex', margin: '0', padding: '0'}}>
             <h1><span className="grey">Question</span> {props.componentKey.toString()}</h1>
             <button className="red" onClick={() => deleteQuestion(props.componentKey)} style={{marginLeft: 'auto'}}><FontAwesomeIcon icon={faTrash} /></button>
           </div>
           <div style={{display: 'flex', margin: '0', padding: '0'}}>
-            <h3 style={{margin: '0', padding: '0', flex: '0.7'}}>Question<br /><input placeholder="Enter a question" style={{width: '96%'}}></input></h3>
-            <h3 style={{margin: '0', padding: '0', flex: '0.7'}}>Answer<br /><input placeholder="Enter the answer" style={{width: '96%'}}></input></h3>
+            <h3 style={{margin: '0', padding: '0', flex: '0.7'}}>Question<br /><input placeholder="Enter a question" style={{width: '96%'}} ref={register({ required: true })} ></input><br />
+            {errors.requiredField && <span style={{color: '#ff3d3d', fontSize: '13px'}}>This is required!</span>}</h3>
+            <h3 style={{margin: '0', padding: '0', flex: '0.7'}}>Answer<br /><input placeholder="Enter the answer" style={{width: '96%'}} ref={register({ required: true })} ></input><br />
+            {errors.requiredField && <span style={{color: '#ff3d3d', fontSize: '13px'}}>This is required!</span>}</h3>
           </div>
           <div style={{display: 'flex', margin: '0', padding: '0'}}>
             <h4 style={{margin: '0', padding: '0', flex: '0.7'}}>Hint <span className="grey">(optional)</span><br /><input placeholder="Any hint?" style={{width: '96%'}}></input></h4>
             <h4 style={{margin: '0', padding: '0', flex: '0.7'}}>Explanation <span className="grey">(optional)</span><br /><input placeholder="Any explanation?" style={{width: '96%'}}></input></h4>
           </div>
+          <input type="submit" />
         </div>
+        </form>
       )
     }
 
     const onAddQuestionClick = event => {
-      setQnum(qnum + 1)
+      newQnum = qnum + 1;
+      setQnum(newQnum)
       setQuestionList(questionList.concat(<MakeQuestion componentKey={qnum} />))
     }
 
