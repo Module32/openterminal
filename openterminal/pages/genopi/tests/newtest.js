@@ -33,10 +33,8 @@ export default function Project() {
             <button className="red" onClick={() => deleteQuestion(props.componentKey)} style={{marginLeft: 'auto'}}><FontAwesomeIcon icon={faTrash} /></button>
           </div>
           <div style={{display: 'flex', margin: '0', padding: '0'}}>
-            <h3 style={{margin: '0', padding: '0', flex: '0.7'}}>Question<br /><input placeholder="Enter a question" style={{width: '96%'}} {...register("question", { required: true })} ></input><br />
-            {errors.requiredField && <span style={{color: '#ff3d3d', fontSize: '13px'}}>This is required!</span>}</h3>
-            <h3 style={{margin: '0', padding: '0', flex: '0.7'}}>Answer<br /><input placeholder="Enter the answer" style={{width: '96%'}} {...register("answer", { required: true })} ></input><br />
-            {errors.requiredField && <span style={{color: '#ff3d3d', fontSize: '13px'}}>This is required!</span>}</h3>
+            <h3 style={{margin: '0', padding: '0', flex: '0.7'}}>Question<br /><input placeholder="Enter a question" style={{width: '96%'}} {...register("question", { required: true })} ></input><br /></h3>
+            <h3 style={{margin: '0', padding: '0', flex: '0.7'}}>Answer<br /><input placeholder="Enter the answer" style={{width: '96%'}} {...register("answer", { required: true })} ></input><br /></h3>
           </div>
           <div style={{display: 'flex', margin: '0', padding: '0'}}>
             <h4 style={{margin: '0', padding: '0', flex: '0.7'}}>Hint <span className="grey">(optional)</span><br /><input placeholder="Any hint?" style={{width: '96%'}}></input></h4>
