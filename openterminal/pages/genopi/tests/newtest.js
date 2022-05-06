@@ -19,7 +19,7 @@ export default function Project() {
       let newArr = [...questionList];
       newArr[questionIndex] = ""
       setQuestionList(newArr)
-      let newQnum = newArr.map(x => x !== "").length + 1;
+      let newQnum = newArr.map((x) => x !== "").length;
       setQnum(newQnum);
     }
 
@@ -33,8 +33,8 @@ export default function Project() {
             <h4><button className="red" onClick={() => deleteQuestion(props.componentKey)} style={{marginLeft: 'auto'}}><FontAwesomeIcon icon={faTrash} /></button></h4>
           </div>
           <div style={{display: 'flex', margin: '0', padding: '0'}}>
-            <h3 style={{margin: '0', padding: '0', flex: '0.7'}}>Question <span color="#eb4034"><FontAwesomeIcon icon={faAsterisk} /></span><br /><input placeholder="Enter a question" style={{width: '96%'}} {...register(`question-${props.componentKey}`, { required: true })} ></input><br /></h3>
-            <h3 style={{margin: '0', padding: '0', flex: '0.7'}}>Answer <span color="#eb4034"><FontAwesomeIcon icon={faAsterisk} /></span><br /><input placeholder="Enter the answer" style={{width: '96%'}} {...register(`answer-${props.componentKey}`, { required: true })} ></input><br /></h3>
+            <h3 style={{margin: '0', padding: '0', flex: '0.7'}}>Question <span style={{color: "#eb4034"}}><FontAwesomeIcon icon={faAsterisk} /></span><br /><input placeholder="Enter a question" style={{width: '96%'}} {...register(`question-${props.componentKey}`, { required: true })} ></input><br /></h3>
+            <h3 style={{margin: '0', padding: '0', flex: '0.7'}}>Answer <span style={{color: "#eb4034"}}><FontAwesomeIcon icon={faAsterisk} /></span><br /><input placeholder="Enter the answer" style={{width: '96%'}} {...register(`answer-${props.componentKey}`, { required: true })} ></input><br /></h3>
           </div>
           <div style={{display: 'flex', margin: '0', padding: '0'}}>
             <h4 style={{margin: '0', padding: '0', flex: '0.7'}}>Hint <span className="grey">(optional)</span><br /><input placeholder="Any hint?" style={{width: '96%'}}></input></h4>
