@@ -14,10 +14,10 @@ export default function Project() {
     const [questionList, setQuestionList] = useState([]);
 
     function deleteQuestion(questionIndex) {
-      questionIndex -= 1;
       let newArr = [...questionList];
       newArr[questionIndex] = ""
       setQuestionList(newArr)
+      setQnum(newArr.length + 1);
     }
 
     const MakeQuestion = (props) => {
