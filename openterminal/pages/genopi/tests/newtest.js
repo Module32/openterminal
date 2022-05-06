@@ -11,7 +11,7 @@ import { useForm } from "react-hook-form";
 
 export default function Project() {
     const { data: session, status } = useSession()
-    const [qnum, setQnum] = useState(1);
+    const [qnum, setQnum] = useState(0);
     const [questionList, setQuestionList] = useState([]);
     const { register, handleSubmit, errors } = useForm();
 
