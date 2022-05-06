@@ -16,10 +16,9 @@ export default function Project() {
     function deleteQuestion(questionIndex) {
       questionIndex -= 1;
       setQuestionList((prevQuestionList) =>
-        prevQuestionList.filter((_, idx) => idx !== questionIndex)
-      );
-      setQnum(questionList.length + 1);
-    } 
+        prevQuestionList[questionIndex] = ""
+    )
+    }
 
     const MakeQuestion = (props) => {
       return (
