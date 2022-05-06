@@ -19,7 +19,7 @@ export default function Project() {
       let newArr = [...questionList];
       newArr[questionIndex] = ""
       setQuestionList(newArr)
-      let newQnum = qnum + 1;
+      let newQnum = newArr.length;
       setQnum(newQnum);
     }
 
@@ -30,11 +30,11 @@ export default function Project() {
           <div key={props.componentKey.toString()} style={{ backgroundColor: '#13141c', padding: '10px 20px', borderRadius: '10px', margin: '10px', border: '1px solid rgb(255, 255, 255, 0.3)' }}>
           <div style={{display: 'flex', margin: '0', padding: '0'}}>
             <h1><span className="grey">Question</span> {props.componentKey.toString()}</h1>
-            <button className="red" onClick={() => deleteQuestion(props.componentKey)} style={{marginLeft: 'auto'}}><FontAwesomeIcon icon={faTrash} /></button>
+            <h4><button className="red" onClick={() => deleteQuestion(props.componentKey)} style={{marginLeft: 'auto'}}><FontAwesomeIcon icon={faTrash} /></button></h4>
           </div>
           <div style={{display: 'flex', margin: '0', padding: '0'}}>
             <h3 style={{margin: '0', padding: '0', flex: '0.7'}}>Question<br /><input placeholder="Enter a question" style={{width: '96%'}} {...register(`question-${props.componentKey}`, { required: true })} ></input><br /></h3>
-            <h3 style={{margin: '0', padding: '0', flex: '0.7'}}>Answer<br /><input placeholder="Enter the answer" style={{width: '96%'}} {...register(`question-${props.componentKey}`, { required: true })} ></input><br /></h3>
+            <h3 style={{margin: '0', padding: '0', flex: '0.7'}}>Answer<br /><input placeholder="Enter the answer" style={{width: '96%'}} {...register(`answer-${props.componentKey}`, { required: true })} ></input><br /></h3>
           </div>
           <div style={{display: 'flex', margin: '0', padding: '0'}}>
             <h4 style={{margin: '0', padding: '0', flex: '0.7'}}>Hint <span className="grey">(optional)</span><br /><input placeholder="Any hint?" style={{width: '96%'}}></input></h4>
