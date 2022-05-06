@@ -19,7 +19,7 @@ export default function Project() {
       let newArr = [...questionList];
       newArr[questionIndex] = ""
       setQuestionList(newArr)
-      let newQnum = newArr.map((x) => x !== "").length;
+      let newQnum = newArr.filter(x => x !== "").length + 1;
       setQnum(newQnum);
     }
 
@@ -30,7 +30,7 @@ export default function Project() {
           <div key={props.componentKey.toString()} style={{ backgroundColor: '#13141c', padding: '10px 20px', borderRadius: '10px', margin: '10px', border: '1px solid rgb(255, 255, 255, 0.3)' }}>
           <div style={{display: 'flex', margin: '0', padding: '0'}}>
             <h1><span className="grey">Question</span> {props.componentKey.toString()}</h1>
-            <h4><button className="red" onClick={() => deleteQuestion(props.componentKey)} style={{marginLeft: 'auto'}}><FontAwesomeIcon icon={faTrash} /></button></h4>
+            <h4 style={{marginLeft: 'auto'}}><button className="red" onClick={() => deleteQuestion(props.componentKey)} style={{padding: '7px'}}><FontAwesomeIcon icon={faTrash} /></button></h4>
           </div>
           <div style={{display: 'flex', margin: '0', padding: '0'}}>
             <h3 style={{margin: '0', padding: '0', flex: '0.7'}}>Question <span style={{color: "#eb4034"}}><FontAwesomeIcon icon={faAsterisk} /></span><br /><input placeholder="Enter a question" style={{width: '96%'}} {...register(`question-${props.componentKey}`, { required: true })} ></input><br /></h3>
