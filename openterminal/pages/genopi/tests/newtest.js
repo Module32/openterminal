@@ -19,7 +19,7 @@ export default function Project() {
       let newArr = [...questionList];
       newArr[questionIndex] = ""
       setQuestionList(newArr)
-      newQnum = qnum + 1;
+      let newQnum = qnum + 1;
       setQnum(newQnum);
     }
 
@@ -49,7 +49,7 @@ export default function Project() {
     }
 
     const onAddQuestionClick = event => {
-      newQnum = qnum + 1;
+      let newQnum = qnum + 1;
       setQnum(newQnum)
       setQuestionList(questionList.concat(<MakeQuestion componentKey={qnum} />))
     }
