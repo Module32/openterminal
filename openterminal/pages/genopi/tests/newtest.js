@@ -18,8 +18,8 @@ export default function Project() {
       setQuestionList((prevQuestionList) =>
         prevQuestionList.filter((_, idx) => idx !== questionIndex)
       );
-      setQnum(questionList.length);
-    }    
+      setQnum(questionList.length + 1);
+    } 
 
     const MakeQuestion = (props) => {
       return (
