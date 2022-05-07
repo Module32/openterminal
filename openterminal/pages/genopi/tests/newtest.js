@@ -29,7 +29,7 @@ export default function Project() {
 
       useEffect(()=> {
         const timer = setTimeout(()=> {
-          setQuestionSaveText(text);
+          setQuestionSaveText("Save Question");
         }, 1000);
         return ()=> clearTimeout(timer);
      }, [questionSaveText])
@@ -49,7 +49,7 @@ export default function Project() {
             <h4 style={{margin: '0', padding: '0', flex: '0.7'}}>Hint <span className="grey">(optional)</span><br /><input placeholder="Any hint?" style={{width: '96%'}}></input></h4>
             <h4 style={{margin: '0', padding: '0', flex: '0.7'}}>Explanation <span className="grey">(optional)</span><br /><input placeholder="Any explanation?" style={{width: '96%'}}></input></h4>
           </div>
-          <button style={{margin: "auto"}} type="submit" onClick={() => {setButtonText("Saved")}}>{questionSaveText}</button>
+          <button style={{margin: "auto"}} type="submit" onClick={() => {setQuestionSaveText("Saved")}}>{questionSaveText}</button>
         </div>
         </form>
       )
