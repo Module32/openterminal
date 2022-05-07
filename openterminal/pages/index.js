@@ -66,25 +66,31 @@ export default function Index() {
                   <Fade up>
                     <h3 className="grey">Products our customers love</h3>
                     <div style={{display: 'flex', alignItems: 'center', justifyContent:'center'}}>
-                      <Link to="">
-                        <div className={['card img track', 'dynamiclayout'].join(' ')}>
-                          <h1>Track</h1>
-                          <p>Web monitoring made easy</p>
-                        </div>
+                      <Link href="">
+                        <a>
+                          <div className={['card img track', 'dynamiclayout'].join(' ')}>
+                            <h1>Track</h1>
+                            <p>Web monitoring made easy</p>
+                          </div>
+                        </a>
                       </Link>
 
-                      <Link to="/genopi">
-                        <div className={['card img genopi', 'dynamiclayout'].join(' ')}>
-                          <h1>Genopi</h1>
-                          <p>An all-in-one system for learners</p>
-                        </div>
+                      <Link href="/genopi">
+                        <a>
+                          <div className={['card img genopi', 'dynamiclayout'].join(' ')}>
+                            <h1>Genopi</h1>
+                            <p>An all-in-one system for learners</p>
+                          </div>
+                        </a>
                       </Link>
 
-                      <Link to="https://discord.gg/BKTVN9c3yK">
-                        <div className={['card img bbs', 'dynamiclayout'].join(' ')}>
-                          <h1>Bot Building Site</h1>
-                          <p>Discord bots, for no cost</p>
-                        </div>
+                      <Link href="https://discord.gg/BKTVN9c3yK">
+                        <a>
+                          <div className={['card img bbs', 'dynamiclayout'].join(' ')}>
+                            <h1>Bot Building Site</h1>
+                            <p>Discord bots, for no cost</p>
+                          </div>
+                        </a>
                       </Link>
                     </div>
                 </Fade>
