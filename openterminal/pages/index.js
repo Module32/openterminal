@@ -66,32 +66,20 @@ export default function Index() {
                   <Fade up>
                     <h3 className="grey">Products our customers love</h3>
                     <div style={{display: 'flex', alignItems: 'center', justifyContent:'center'}}>
-                      <Link href="">
-                        <a>
-                          <div className={['card img track', 'dynamiclayout'].join(' ')}>
-                            <h1>Track</h1>
-                            <p>Web monitoring made easy</p>
-                          </div>
-                        </a>
-                      </Link>
+                      <div className={['card img track', 'dynamiclayout'].join(' ')}>
+                        <h1>Track</h1>
+                        <p><Link href=""><a style={{color: 'white'}}>Web monitoring made easy <FontAwesomeIcon icon="arrow-circle-right" /></a></Link></p>
+                      </div>
 
-                      <Link href="/genopi">
-                        <a>
-                          <div className={['card img genopi', 'dynamiclayout'].join(' ')}>
-                            <h1>Genopi</h1>
-                            <p>An all-in-one system for learners</p>
-                          </div>
-                        </a>
-                      </Link>
+                      <div className={['card img genopi', 'dynamiclayout'].join(' ')}>
+                        <h1>Genopi</h1>
+                        <p><Link href="/genopi"><a style={{color: 'white'}}>An all-in-one system for learners <FontAwesomeIcon icon="arrow-circle-right" /></a></Link></p>
+                      </div>
 
-                      <Link href="https://discord.gg/BKTVN9c3yK">
-                        <a>
-                          <div className={['card img bbs', 'dynamiclayout'].join(' ')}>
-                            <h1>Bot Building Site</h1>
-                            <p>Discord bots, for no cost</p>
-                          </div>
-                        </a>
-                      </Link>
+                      <div className={['card img bbs', 'dynamiclayout'].join(' ')}>
+                        <h1>Bot Building Site</h1>
+                        <p><a href="https://discord.gg/BKTVN9c3yK" style={{color: 'white'}}>Discord bots, for no cost <FontAwesomeIcon icon="arrow-circle-right" /></a></p>
+                      </div>
                     </div>
                 </Fade>
             </div>
