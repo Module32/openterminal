@@ -82,6 +82,12 @@ hr {
   padding: 50px;
 }
 
+@media screen and (max-width: 768px) {
+  .hometop {
+    padding: 25px;
+  }
+}
+
 .homepage-top-img {
   float: right;
   margin-top: -120px;
