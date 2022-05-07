@@ -10,26 +10,30 @@ export default function Login() {
   return (
     <>
       <Layout>
-      <div className="hometop">
-        <h1 style={{fontSize: '40px', paddingTop: '40px'}}>Log in</h1>
-        <p>Welcome back! Let&apos;s get you signed in.</p>
+        <div className="hometop">
+          <h1 style={{fontSize: '40px', paddingTop: '40px'}}>Log in</h1>
+          <p>Welcome back! Let&apos;s get you signed in.</p>
+
           <div className="card" style={{margin: 'auto', width: '40%', padding: '20px', borderWidth: '0'}}>
             <button onClick={() => signIn('github')} style={{width: '100%'}}>
               {<FontAwesomeIcon icon={faGithub}/>} Sign in with GitHub
             </button><br />
+
             <button onClick={() => signIn('discord')} style={{width: '100%'}} className="discord">
               {<FontAwesomeIcon icon={faDiscord} />} Sign in with Discord
             </button>
+
             <button onClick={() => signIn('google')} style={{width: '100%'}} className="google">
               {<FontAwesomeIcon icon={faGoogle} />} Sign in with Google
             </button>
             <hr />
-          <p>Don&apos;t have an account yet? <Link href="/signup"><a>Sign up now</a></Link></p>
-        </div>
+
+            <p>Don&apos;t have an account yet? <Link href="/signup"><a>Sign up now</a></Link></p>
+          </div>
         </div>
       </Layout>
-  <Footer>
-  </Footer>
+      <Footer>
+      </Footer>
     </>
   )
 }
