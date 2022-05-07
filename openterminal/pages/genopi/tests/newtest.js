@@ -16,6 +16,8 @@ export default function Project() {
     const [questionSaveText, setQuestionSaveText] = useState("Save Question");
     const { register, handleSubmit, errors } = useForm();
 
+    let questions = [  ]
+
     function deleteQuestion(questionIndex) {
       let newArr = [...questionList];
       newArr[questionIndex] = ""
@@ -24,8 +26,18 @@ export default function Project() {
       setQnum(newQnum);
     }
 
+    // thanks @tanguy_k https://stackoverflow.com/questions/25764719/update-if-exists-or-add-new-element-to-array-of-objects-elegant-way-in-javascr
+    function upsert(array, element) { // (1)
+      const i = array.findIndex(_element => _element.id === element.id);
+      if (i > -1) array[i] = element; // (2)
+      else array.push(element);
+    }
+
     const MakeQuestion = (props) => {
-      const onSubmit = data => console.log(data);
+      const onSubmit = data => {
+        upsert(questions, data)
+        console.log(questions);
+      }
 
       useEffect(()=> {
         const timer = setTimeout(()=> {
