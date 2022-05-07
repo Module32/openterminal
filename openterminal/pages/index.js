@@ -58,7 +58,7 @@ export default function Index() {
                   </p></h1>
                   <Image
                     src="/pics/homepic2.png"
-                    width='890px'
+                    width='603px'
                     height='500px'
                   />
                   </Fade>
@@ -67,8 +67,8 @@ export default function Index() {
                     <h3 className="grey">Products our customers love</h3>
                     <div style={{display: 'flex', alignItems: 'center', justifyContent:'center'}}>
                       <div className={['card', 'dynamiclayout'].join(' ')}>
-                        <h1>UnlockAPI</h1>
-                        <p className="grey">The API monitoring platform made for the future.<br /><Link href="/unlockapi"><a>Check it out <FontAwesomeIcon icon="arrow-circle-right" /></a></Link></p>
+                        <h1>Track</h1>
+                        <p className="grey">Web monitoring made easy<br /><Link href=""><a>Coming soon!</a></Link></p>
                       </div>
 
                       <div className={['card', 'dynamiclayout'].join(' ')}>
@@ -77,7 +77,7 @@ export default function Index() {
                       </div>
                       <div className={['card', 'dynamiclayout'].join(' ')}>
                         <h1>Bot Building Site</h1>
-                        <p className="grey">The best Discord bot development platform. 😉<br /><a href="https://botbuilding.site/">Check it out <FontAwesomeIcon icon="arrow-circle-right" /></a></p>
+                        <p className="grey">The best Discord bot development platform 😉<br /><a href="https://botbuilding.site/">Check it out <FontAwesomeIcon icon="arrow-circle-right" /></a></p>
                       </div>
                     </div>
                 </Fade>
