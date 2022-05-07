@@ -177,8 +177,8 @@ p {
   margin: 5px;
 }
 
-.waves {
-  background-image: url("/pics/waves.svg");
+.bottomhomepic {
+  background-image: url("/pics/homepic3.svg");
   background-repeat: no-repeat;
   height: 90%;
   background-position: center;

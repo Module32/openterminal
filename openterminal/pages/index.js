@@ -58,8 +58,8 @@ export default function Index() {
                   </p></h1>
                   <Image
                     src="/pics/homepic2.png"
-                    width='603px'
-                    height='500px'
+                    width='723px'
+                    height='600px'
                   />
                   </Fade>
                   </div>
@@ -68,7 +68,7 @@ export default function Index() {
                     <div style={{display: 'flex', alignItems: 'center', justifyContent:'center'}}>
                       <div className={['card', 'dynamiclayout'].join(' ')}>
                         <h1>Track</h1>
-                        <p className="grey">Web monitoring made easy<br /><Link href=""><a>Coming soon!</a></Link></p>
+                        <p className="grey">Web monitoring made easy<br /><Link href=""><a>Update coming soon!</a></Link></p>
                       </div>
 
                       <div className={['card', 'dynamiclayout'].join(' ')}>
@@ -77,17 +77,17 @@ export default function Index() {
                       </div>
                       <div className={['card', 'dynamiclayout'].join(' ')}>
                         <h1>Bot Building Site</h1>
-                        <p className="grey">The best Discord bot development platform 😉<br /><a href="https://botbuilding.site/">Check it out <FontAwesomeIcon icon="arrow-circle-right" /></a></p>
+                        <p className="grey">Discord bots, for no cost<br /><a href="https://botbuilding.site/">Check it out <FontAwesomeIcon icon="arrow-circle-right" /></a></p>
                       </div>
                     </div>
                 </Fade>
             </div>
 
-            <div className="waves">
+            <div className="bottomhomepic">
               <Fade up>
-                <h1 style={{paddingBottom: '10px'}}>Let&apos;s create a new future today</h1>
+                <h1 style={{paddingBottom: '10px'}}><span style={{padding: '7px', borderRadius: '5px', backgroundColor: 'white', color: 'black', transform: 'skew(20deg)'}}>Let&apos;s create a new future today</span></h1>
                 <Link href="/signup">
-                      <a className="padding">Sign up</a>
+                      <a className="padding">Sign up now</a>
                     </Link>
               </Fade>
             </div>

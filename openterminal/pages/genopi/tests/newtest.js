@@ -3,7 +3,7 @@ import Footer from '../../../components/footer'
 import Tiptap from '../../../components/Tiptap'
 import Link from 'next/link'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faFileAlt, faPlus, faTrash, faAsterisk } from '@fortawesome/fontawesome-free-solid'
+import { faFileAlt, faPlus, faTrash, faAsterisk, faCheck } from '@fortawesome/fontawesome-free-solid'
 import { useSession } from "next-auth/react"
 import redirect from 'nextjs-redirect'
 import { useState } from "react"
@@ -13,6 +13,7 @@ export default function Project() {
     const { data: session, status } = useSession()
     const [qnum, setQnum] = useState(0);
     const [questionList, setQuestionList] = useState([]);
+    const [questionSaveText, setQuestionSaveText] = useState(<p>Save Question</p>);
     const { register, handleSubmit, errors } = useForm();
 
     function deleteQuestion(questionIndex) {
@@ -40,7 +41,12 @@ export default function Project() {
             <h4 style={{margin: '0', padding: '0', flex: '0.7'}}>Hint <span className="grey">(optional)</span><br /><input placeholder="Any hint?" style={{width: '96%'}}></input></h4>
             <h4 style={{margin: '0', padding: '0', flex: '0.7'}}>Explanation <span className="grey">(optional)</span><br /><input placeholder="Any explanation?" style={{width: '96%'}}></input></h4>
           </div>
-          <button style={{margin: "auto"}} type="submit">Save Question</button>
+          <button style={{margin: "auto"}} type="submit" onClick={() => {
+            setQuestionSaveText(<p>Saved <FontAwesomeIcon icon={faCheck} /></p>)
+            setTimeout(() => {
+              setButtonText(<p>Save Question</p>);
+            }, 2000);
+          }}>{questionSaveText}</button>
         </div>
         </form>
       )
