@@ -38,10 +38,10 @@ export default function Index() {
                   <Fade up>
                   <Image
                     src="/pics/homepic1.png"
-                    width='700px'
+                    width='854px'
                     height='480px'
                   />
-                  <h1>Reliable code. Everyday, any day.<br /><p style={{fontSize:'17px'}}>At Open Terminal, we&apos;re all about optimizing our software and making it more efficient. Each product is developed and maintained with precision to make it trustworthy.<br /><br />
+                  <h1><span className="codefont">$ Reliable software.</span> Everyday, any day.<br /><p style={{fontSize:'17px'}}>At Open Terminal, we&apos;re all about optimizing our software and making it more efficient. Each product is developed and maintained with precision to make it trustworthy.<br /><br />
                     <Link href="">
                       <a>Find tools now <FontAwesomeIcon icon="arrow-circle-right" /></a>
                     </Link>
@@ -57,9 +57,9 @@ export default function Index() {
                     </Link>
                   </p></h1>
                   <Image
-                    src="/pics/homepic3.png"
-                    width='760px'
-                    height='600px'
+                    src="/pics/homepic2.png"
+                    width='890px'
+                    height='500px'
                   />
                   </Fade>
                   </div>
@@ -72,8 +72,8 @@ export default function Index() {
                       </div>
 
                       <div className={['card', 'dynamiclayout'].join(' ')}>
-                        <h1>Lexicon</h1>
-                        <p className="grey">An intuitive dictionary created for everybody.<br /><Link href=""><a>Check it out <FontAwesomeIcon icon="arrow-circle-right" /></a></Link></p>
+                        <h1>Genopi</h1>
+                        <p className="grey">An all-in-one system for learners<br /><Link href="/genopi"><a>Check it out <FontAwesomeIcon icon="arrow-circle-right" /></a></Link></p>
                       </div>
                       <div className={['card', 'dynamiclayout'].join(' ')}>
                         <h1>Bot Building Site</h1>
