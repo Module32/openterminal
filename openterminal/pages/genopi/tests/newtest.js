@@ -13,7 +13,7 @@ export default function Project() {
     const { data: session, status } = useSession()
     const [qnum, setQnum] = useState(0);
     const [questionList, setQuestionList] = useState([]);
-    const [questionSaveText, setQuestionSaveText] = useState(<p>Save Question</p>);
+    const [questionSaveText, setQuestionSaveText] = useState(<p style={{padding: '0', margin: '0'}}>Save Question</p>);
     const { register, handleSubmit, errors } = useForm();
 
     function deleteQuestion(questionIndex) {
@@ -42,9 +42,9 @@ export default function Project() {
             <h4 style={{margin: '0', padding: '0', flex: '0.7'}}>Explanation <span className="grey">(optional)</span><br /><input placeholder="Any explanation?" style={{width: '96%'}}></input></h4>
           </div>
           <button style={{margin: "auto"}} type="submit" onClick={() => {
-            setQuestionSaveText(<p>Saved <FontAwesomeIcon icon={faCheck} /></p>)
+            setQuestionSaveText(<p style={{padding: '0', margin: '0'}}>Saved <FontAwesomeIcon icon={faCheck} /></p>)
             setTimeout(() => {
-              setButtonText(<p>Save Question</p>);
+              setQuestionSaveText(<p style={{padding: '0', margin: '0'}}>Save Question</p>);
             }, 2000);
           }}>{questionSaveText}</button>
         </div>
