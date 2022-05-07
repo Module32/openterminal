@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFileAlt, faPlus, faTrash, faAsterisk, faCheck } from '@fortawesome/fontawesome-free-solid'
 import { useSession } from "next-auth/react"
 import redirect from 'nextjs-redirect'
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useForm } from "react-hook-form";
 
 export default function Project() {
@@ -26,6 +26,14 @@ export default function Project() {
 
     const MakeQuestion = (props) => {
       const onSubmit = data => console.log(data);
+
+      useEffect(()=> {
+        const timer = setTimeout(()=> {
+          setQuestionSaveText(text);
+        }, 1000);
+        return ()=> clearTimeout(timer);
+     }, [buttonText])
+
       return (
         <form onSubmit={handleSubmit(onSubmit)}>
           <div key={props.componentKey.toString()} style={{ backgroundColor: '#13141c', padding: '10px 20px', borderRadius: '10px', margin: '10px', border: '1px solid rgb(255, 255, 255, 0.3)' }}>
@@ -41,10 +49,7 @@ export default function Project() {
             <h4 style={{margin: '0', padding: '0', flex: '0.7'}}>Hint <span className="grey">(optional)</span><br /><input placeholder="Any hint?" style={{width: '96%'}}></input></h4>
             <h4 style={{margin: '0', padding: '0', flex: '0.7'}}>Explanation <span className="grey">(optional)</span><br /><input placeholder="Any explanation?" style={{width: '96%'}}></input></h4>
           </div>
-          <button style={{margin: "auto"}} type="submit" onClick={() => {
-            setQuestionSaveText("Saved");
-            setTimeout(() => setQuestionSaveText("Save Question"), 2000);
-          }}>{questionSaveText}</button>
+          <button style={{margin: "auto"}} type="submit" onClick={() => {setButtonText("Saved")}}>{questionSaveText}</button>
         </div>
         </form>
       )
