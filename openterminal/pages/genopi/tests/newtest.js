@@ -32,7 +32,7 @@ export default function Project() {
           setQuestionSaveText(text);
         }, 1000);
         return ()=> clearTimeout(timer);
-     }, [buttonText])
+     }, [questionSaveText])
 
       return (
         <form onSubmit={handleSubmit(onSubmit)}>
