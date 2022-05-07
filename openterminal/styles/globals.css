@@ -177,6 +177,30 @@ p {
   margin: 5px;
 }
 
+.card.img {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  -webkit-filter: grayscale(1);
+  transition: 150ms;
+}
+
+.card.img:hover {
+  -webkit-filter: grayscale(0);
+}
+
+.card.img.bbs {
+  background-image: url("/pics/bbs-card.png");
+}
+
+.card.img.track {
+  background-image: url("/pics/track-card.png");
+}
+
+.card.img.genopi {
+  background-image: url("/pics/genopi-card.png");
+}
+
 .bottomhomepic {
   background-image: url("/pics/homepic3.png");
   background-repeat: no-repeat;
