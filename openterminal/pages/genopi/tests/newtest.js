@@ -22,6 +22,7 @@ export default function Project() {
       let newArr = [...questionList];
       newArr[questionIndex] = ""
       setQuestionList(newArr)
+      questions.splice(questionIndex, 1);
       let newQnum = newArr.filter(x => x !== "").length;
       setQnum(newQnum);
     }

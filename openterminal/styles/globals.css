@@ -477,6 +477,7 @@ a.socials:hover {
 a.boxy {
   padding: 55px 65px;
   border-radius: 10px;
+  border: 1px solid #383838;
   margin: 5px;
   font-weight: 700;
   box-shadow: 
