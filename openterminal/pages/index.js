@@ -66,26 +66,23 @@ export default function Index() {
                   />
                   </Fade>
                   </div>
-
+                  
                   <Fade up>
                     <h3 className="grey">Products our customers love</h3>
                     <div style={{display: 'flex', alignItems: 'center', justifyContent:'center'}}>
-                      <div className={['card img track', 'dynamiclayout'].join(' ')} style={{paddingTop: '20px', paddingBottom: '20px'}}>
-                        <h1>Track<br />
-                        <span style={{fontSize: '16px', fontWeight: '600'}}><Link href=""><a style={{color: 'white'}}>Web monitoring made easy <FontAwesomeIcon icon="arrow-circle-right" /></a></Link></span>
-                        </h1>
+                      <div className={['card img track', 'dynamiclayout'].join(' ')}>
+                        <h1>Track</h1>
+                        <p><Link href=""><a style={{color: 'white'}}>Web monitoring made easy <FontAwesomeIcon icon="arrow-circle-right" /></a></Link></p>
                       </div>
 
-                      <div className={['card img genopi', 'dynamiclayout'].join(' ')} style={{paddingTop: '20px', paddingBottom: '20px'}}>
-                        <h1>Genopi<br/>
-                        <span style={{fontSize: '16px', fontWeight: '600'}}><Link href="/genopi"><a style={{color: 'white'}}>An all-in-one system for learners <FontAwesomeIcon icon="arrow-circle-right" /></a></Link></span>
-                        </h1>
+                      <div className={['card img genopi', 'dynamiclayout'].join(' ')}>
+                        <h1>Genopi</h1>
+                        <p><Link href="/genopi"><a style={{color: 'white'}}>An all-in-one system for learners <FontAwesomeIcon icon="arrow-circle-right" /></a></Link></p>
                       </div>
 
-                      <div className={['card img bbs', 'dynamiclayout'].join(' ')} style={{paddingTop: '20px', paddingBottom: '20px'}}>
-                        <h1>Bot Building Site<br/>
-                        <span style={{fontSize: '16px', fontWeight: '600'}}><a href="https://discord.gg/BKTVN9c3yK" style={{color: 'white'}}>Discord bots, for no cost <FontAwesomeIcon icon="arrow-circle-right" /></a></span>
-                        </h1>
+                      <div className={['card img bbs', 'dynamiclayout'].join(' ')}>
+                        <h1>Bot Building Site</h1>
+                        <p><a href="https://discord.gg/BKTVN9c3yK" style={{color: 'white'}}>Discord bots, for no cost <FontAwesomeIcon icon="arrow-circle-right" /></a></p>
                       </div>
                     </div>
                 </Fade>
