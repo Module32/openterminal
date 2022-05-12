@@ -30,8 +30,8 @@ export default function Layout({ children, home }) {
             <Image
               src="pics/logo.png"
               alt="logo"
-              width={77}
-              height={35}
+              width={88}
+              height={40}
             />
           </li>
 
@@ -45,6 +45,10 @@ export default function Layout({ children, home }) {
             
             <li className="navbar"><Link href="/">
               <a className="navbar">Solutions</a>
+            </Link></li>
+
+            <li className="navbar"><Link href="/">
+              <a className="navbar">Team</a>
             </Link></li>
             
             <li className="navbar" style={{flexDirection: 'row', marginLeft: 'auto'}}>
