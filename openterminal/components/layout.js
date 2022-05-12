@@ -53,8 +53,8 @@ export default function Layout({ children, home }) {
             
             <li className="navbar" style={{flexDirection: 'row', marginLeft: 'auto'}}>
               { session ? 
-                <span><Link href=""><a><FontAwesomeIcon icon={faBell} /></a></Link> <Link href=""><a><FontAwesomeIcon icon={faBookmark} /></a></Link> {session.user.name} <button className="navbar" onClick={() => signOut()}><FontAwesomeIcon icon={faBookmark} /></button></span> : 
-                <span><Link href="/login"><a className="navbar">Login <FontAwesomeIcon icon="arrow-circle-right" /></a></Link></span>
+                <li className="navbar" style={{marginLeft: 'auto'}}><Link href=""><a className="navbar"><FontAwesomeIcon icon={faBell} /></a></Link> <Link href=""><a  className="navbar"><FontAwesomeIcon icon={faBookmark} /></a></Link> {session.user.name} <button className="navbar" onClick={() => signOut()}><FontAwesomeIcon icon={faBookmark} /></button></li> : 
+                <li className="navbar" style={{marginLeft: 'auto'}}><Link href="/login"><a className="navbar">Login</a></Link> <span className="grey">|</span> <Link href="/signup"><a className="navbar">Sign up</a></Link></li>
               }
             </li>
           </ul>
