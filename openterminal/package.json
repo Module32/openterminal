@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-free-solid": "^6.1.1",
-    "@fortawesome/fontawesome-svg-core": "^6.1.1",
+    "@fortawesome/fontawesome-svg-core": "^1.2.36",
     "@fortawesome/free-brands-svg-icons": "^6.1.1",
     "@fortawesome/react-fontawesome": "^0.1.18",
     "animate.css": "^4.1.1",
