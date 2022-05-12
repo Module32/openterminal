@@ -5,7 +5,7 @@ import Layout from '../components/layout'
 import Footer from '../components/footer'
 import TextLoop from "react-text-loop"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowRight, faArrowCircleRight, faHeart } from '@fortawesome/fontawesome-free-solid'
+import { faArrowRight, faArrowCircleRight, faHeart } from '@fortawesome/fontawesome-free'
 import Fade from 'react-reveal/Fade';
 import Typical from 'react-typical';
 

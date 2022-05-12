@@ -6,7 +6,7 @@ import React, { useState, useEffect } from "react"
 import Favicon from 'react-favicon';
 import { useSession, signIn, signOut } from "next-auth/react"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBell, faBookmark, faArrowRight } from '@fortawesome/fontawesome-free-solid'
+import { faBell, faBookmark, faArrowRight } from '@fortawesome/fontawesome-free'
 
 const name = 'Module64'
 export const siteTitle = 'Open Terminal'
