@@ -4,7 +4,7 @@ import Layout from '../../components/layout'
 import Footer from '../../components/footer'
 import Link from 'next/link'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faExclamation } from '@fortawesome/fontawesome-free'
+import { faExclamation } from '@fortawesome/free-solid-svg-icons'
 import { useState } from "react";
 import Fade from 'react-reveal/Fade';
 import styles from '../../styles/unlockapi/newproject.module.css';

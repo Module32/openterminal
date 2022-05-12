@@ -2,7 +2,7 @@ import Layout from '../../components/layout'
 import Footer from '../../components/footer'
 import Link from 'next/link'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCopy, faNewspaper, faRocket } from '@fortawesome/fontawesome-free'
+import { faCopy, faNewspaper, faRocket } from '@fortawesome/free-solid-svg-icons'
 import Fade from 'react-reveal/Fade';
 import { useSession } from "next-auth/react"
 import redirect from 'nextjs-redirect'

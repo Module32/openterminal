@@ -3,7 +3,7 @@ import Footer from '../../../components/footer'
 import Tiptap from '../../../components/Tiptap'
 import Link from 'next/link'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faStickyNote } from '@fortawesome/fontawesome-free'
+import { faStickyNote } from '@fortawesome/free-solid-svg-icons'
 import Fade from 'react-reveal/Fade';
 import { useSession } from "next-auth/react"
 import redirect from 'nextjs-redirect'

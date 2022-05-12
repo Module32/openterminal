@@ -3,7 +3,7 @@ import Link from 'next/link'
 import Layout from '../components/layout'
 import Footer from '../components/footer'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import '@fortawesome/fontawesome-free'
+import '@fortawesome/free-solid-svg-icons'
 import { faGithub, faDiscord, faGoogle } from '@fortawesome/free-brands-svg-icons'
 
 export default function Signup() {

@@ -18,7 +18,7 @@ import TextAlign from '@tiptap/extension-text-align'
 import Typography from '@tiptap/extension-typography'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBold, faItalic, faUnderline, faStrikethrough, faCode, faPen, faQuoteLeft, faFileCode, faGripLines, faTable, faSquare, faBorderAll, faHeader, faAlignLeft, faAlignCenter, faAlignRight, faGripLinesVertical, faAngleUp, faAngleDown, faCheck } from '@fortawesome/fontawesome-free'
+import { faBold, faItalic, faUnderline, faStrikethrough, faCode, faPen, faQuoteLeft, faFileCode, faGripLines, faTable, faSquare, faBorderAll, faHeader, faAlignLeft, faAlignCenter, faAlignRight, faGripLinesVertical, faAngleUp, faAngleDown, faCheck } from '@fortawesome/free-solid-svg-icons'
 
 const db_save_status = <p className="grey" style={{margin: '0', padding: '0'}}>Start editing to save to the DB!</p>;
 
