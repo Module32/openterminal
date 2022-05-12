@@ -51,10 +51,10 @@ export default function Layout({ children, home }) {
               <a className="navbar">Team</a>
             </Link></li>
             
-            <li className="navbar" style={{flexDirection: 'row', marginLeft: 'auto'}}>
+            <li className="navbar" style={{marginLeft: 'auto'}}>
               { session ? 
-                <li className="navbar" style={{marginLeft: 'auto'}}><Link href=""><a className="navbar"><FontAwesomeIcon icon={faBell} /></a></Link> <Link href=""><a  className="navbar"><FontAwesomeIcon icon={faBookmark} /></a></Link> {session.user.name} <button className="navbar" onClick={() => signOut()}><FontAwesomeIcon icon={faBookmark} /></button></li> : 
-                <li className="navbar" style={{marginLeft: 'auto'}}><Link href="/login"><a className="navbar">Login</a></Link> <span className="grey">|</span> <Link href="/signup"><a className="navbar">Sign up</a></Link></li>
+                <span style={{padding: '0', margin: '0'}}><Link href=""><a className="navbar" style={{color: 'rgb(146)', paddingLeft: '7px'}}><FontAwesomeIcon icon={faBell} /></a></Link> <Link href=""><a className="navbar" style={{color: 'rgb(146)', paddingLeft: '7px'}}><FontAwesomeIcon icon={faBookmark} /></a></Link> {session.user.name} <button className="navbar" onClick={() => signOut()}><FontAwesomeIcon icon={faBookmark} /></button></span> : 
+                <span style={{padding: '0', margin: '0'}}><Link href="/login"><a className="navbar">Login</a></Link> <span className="grey">|</span> <Link href="/signup"><a className="navbar">Sign up</a></Link></span>
               }
             </li>
           </ul>
