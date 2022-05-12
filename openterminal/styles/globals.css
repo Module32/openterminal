@@ -26,6 +26,7 @@ ul.navbar {
   position: fixed;
   top: 0;
   width: 100%;
+  display: flex;
   align-items: flex-start;     
   flex-wrap: nowrap;
   font-family: -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
