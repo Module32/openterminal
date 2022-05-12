@@ -2,7 +2,7 @@ import Head from 'next/head'
 import styles from './layout.module.css'
 import Link from 'next/link'
 import Image from 'next/image'
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import Favicon from 'react-favicon';
 import { useSession, signIn, signOut } from "next-auth/react"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -13,7 +13,17 @@ export const siteTitle = 'Open Terminal'
 
 export default function Layout({ children, home }) {
   const { data: session } = useSession();
-  const [menu, showMenu] = useState(false);
+  const [show, handleShow] = useState(false);
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 100) {
+        handleShow(true);
+      } else handleShow(false);
+    });
+    return () => {
+      window.removeEventListener("scroll");
+    }
+  }, [])
   return (
     <div className={styles.container}>
       <Head>
@@ -25,7 +35,7 @@ export default function Layout({ children, home }) {
       <Favicon url="../public/pics/logo.png"/>
       <header className={styles.header}>
           <>
-          <ul className="navbar" style={{display: 'flex'}}>
+          <ul className="navbar" style={{borderBottom: `${show === true ? '1px solid rgb(255, 255, 255, 0.3)' : 'none'}` }}>
           <li className="logo">
             <Image
               src="pics/logo.png"
@@ -50,13 +60,6 @@ export default function Layout({ children, home }) {
             <li className="navbar"><Link href="/">
               <a className="navbar">Team</a>
             </Link></li>
-            
-            <li className="navbar" style={{marginLeft: 'auto'}}>
-              { session ? 
-                <span style={{padding: '0', margin: '0'}}><Link href=""><a className="navbar" style={{color: 'rgb(146)', paddingLeft: '7px'}}><FontAwesomeIcon icon={faBell} /></a></Link> <Link href=""><a className="navbar" style={{color: 'rgb(146)', paddingLeft: '7px'}}><FontAwesomeIcon icon={faBookmark} /></a></Link> {session.user.name} <button className="navbar" onClick={() => signOut()}><FontAwesomeIcon icon={faBookmark} /></button></span> : 
-                <span style={{padding: '0', margin: '0'}}><Link href="/login"><a className="navbar">Login</a></Link> <span className="grey">|</span> <Link href="/signup"><a className="navbar">Sign up</a></Link></span>
-              }
-            </li>
           </ul>
           </>
       </header>
