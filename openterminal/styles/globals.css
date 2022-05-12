@@ -42,9 +42,7 @@ li.logo {
 
 li.navbar {
   order: 1;
-  position: relative;
   display: block;
-  width: auto;
   font-weight: 600;
   margin: 10px;
 }
@@ -104,19 +102,22 @@ a:hover {
   text-decoration: underline;
 }
 
-a.navbar {
+a.navbar, button.navbar {
   color: white;
   font-weight: 600;
+  padding: 0;
+  background-color: none;
+  text-decoration: none;
 }
 
-a.navbar:hover {
+a.navbar:hover, button.navbar:hover {
   color: rgb(255, 255, 255, 0.6);
 }
 
 a.padding, button {
   all: revert;
   text-decoration: none;
-  padding: 15px 30px;
+  padding: 12px;
   border-radius: 10px;
   background-color: white;
   color: black;

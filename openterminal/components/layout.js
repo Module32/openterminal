@@ -6,7 +6,7 @@ import React, { useState } from "react"
 import Favicon from 'react-favicon';
 import { useSession, signIn, signOut } from "next-auth/react"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowRight, faArrowCircleRight, faHeart } from '@fortawesome/fontawesome-free-solid'
+import { faBell, faBookmark, faArrowRight } from '@fortawesome/fontawesome-free-solid'
 
 const name = 'Module64'
 export const siteTitle = 'Open Terminal'
@@ -52,7 +52,10 @@ export default function Layout({ children, home }) {
             </Link></li>
             
             <li className="navbar" style={{flexDirection: 'row', marginLeft: 'auto'}}>
-              { session ? <span>{session.user.name}</span> : <span><Link href="/login"><a className="navbar">Login <FontAwesomeIcon icon="arrow-circle-right" /></a></Link></span> }
+              { session ? 
+                <span><Link href=""><a><FontAwesomeIcon icon={faBell} /></a></Link> <Link href=""><a><FontAwesomeIcon icon={faBookmark} /></a></Link> {session.user.name} <button className="navbar" onClick={() => signOut()}><FontAwesomeIcon icon={faBookmark} /></button></span> : 
+                <span><Link href="/login"><a className="navbar">Login <FontAwesomeIcon icon="arrow-circle-right" /></a></Link></span>
+              }
             </li>
           </ul>
           </>
