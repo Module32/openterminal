@@ -27,7 +27,7 @@ ul.navbar {
   top: 0;
   width: 100%;
   display: flex;
-  align-items: flex-start;     
+  align-items: center;     
   flex-wrap: nowrap;
   font-family: -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
   z-index: 1030;
@@ -112,6 +112,7 @@ a.navbar, button.navbar {
 
 a.navbar:hover, button.navbar:hover {
   color: rgb(255, 255, 255, 0.6);
+  background-color: rgb(0, 0, 0, 0);
 }
 
 a.padding, button {
