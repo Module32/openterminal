@@ -52,7 +52,7 @@ export default function Layout({ children, home }) {
 
             <li className="navbar" style={{marginLeft: 'auto'}}>
               { session ? 
-                <span style={{padding: '0', margin: '0'}}><Link href=""><a className="navbar" style={{paddingRight: '7px'}}><FontAwesomeIcon icon={faBell} style={{color: 'rgb(146, 146, 146)'}} /></a></Link> <Link href=""><a className="navbar" style={{paddingRight: '7px'}}><FontAwesomeIcon icon={faBookmark} style={{color: 'rgb(146, 146, 146)'}} /></a></Link> {session.user.name} <button className="navbar" onClick={() => signOut()}><FontAwesomeIcon icon={faArrowRight} style={{color: 'rgb(146, 146, 146)'}} /></button></span> : 
+                <span style={{padding: '0', margin: '0'}}><Link href=""><a className="navbar" style={{paddingRight: '7px'}}><FontAwesomeIcon icon={faBell} style={{color: 'rgb(146, 146, 146)'}} /></a></Link> <Link href=""><a className="navbar" style={{paddingRight: '7px'}}><FontAwesomeIcon icon={faBookmark} style={{color: 'rgb(146, 146, 146)'}} /></a></Link> {session.user.name} <button className="navbar" onClick={() => signOut()}><FontAwesomeIcon icon={faArrowRight} style={{color: 'rgb(196, 55, 45)'}} /></button></span> : 
                 <span style={{padding: '0', margin: '0'}}><Link href="/login"><a className="navbar">Login</a></Link> <span className="grey">|</span> <Link href="/signup"><a className="navbar">Sign up</a></Link></span>
               }
             </li>
