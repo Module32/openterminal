@@ -54,7 +54,7 @@ export default function Index() {
 
                   <div className="infocard" style={{margin: 'auto'}}>
                   <Fade up>
-                  <h1>Stick to what you <FontAwesomeIcon icon="heart" className="heart" />. No changes.<br /><p style={{fontSize:'17px'}}>No need to adjust your entire workflow and environment. Our products make it easy to set up your existing tools and get going quickly.<br /><br />
+                  <h1>Stick to what you <FontAwesomeIcon icon={faHeart} className="heart" />. No changes.<br /><p style={{fontSize:'17px'}}>No need to adjust your entire workflow and environment. Our products make it easy to set up your existing tools and get going quickly.<br /><br />
                     <Link href="">
                       <a>Discover more <FontAwesomeIcon icon="arrow-circle-right" /></a>
                     </Link>

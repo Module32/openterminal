@@ -18,7 +18,7 @@ import TextAlign from '@tiptap/extension-text-align'
 import Typography from '@tiptap/extension-typography'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBold, faItalic, faUnderline, faStrikethrough, faCode, faPen, faQuoteLeft, faFileCode, faGripLines, faTable, faSquare, faBorderAll, faHeader, faAlignLeft, faAlignCenter, faAlignRight, faGripLinesVertical, faAngleUp, faAngleDown, faCheck } from '@fortawesome/free-solid-svg-icons'
+import { faBold, faItalic, faUnderline, faHighlighter, faStrikethrough, faCode, faQuoteLeft, faFileCode, faGripLines, faTable, faSquare, faBorderAll, faHeader, faAlignLeft, faAlignCenter, faAlignRight, faGripLinesVertical, faAngleUp, faAngleDown, faCheck } from '@fortawesome/free-solid-svg-icons'
 
 const db_save_status = <p className="grey" style={{margin: '0', padding: '0'}}>Start editing to save to the DB!</p>;
 
@@ -73,35 +73,35 @@ const Tiptap = ({content}) => {
 
   return (
     <>
-        <div style={{padding: '7px', backgroundColor: 'rgb(255, 255, 255)', border: '2px solid white', borderTopLeftRadius: '10px', borderTopRightRadius: '10px', borderBottomLeftRadius: '0px', borderBottomRightRadius: '0px', marginTop: '2px'}}>
+        <div style={{padding: '4px', backgroundColor: 'rgb(255, 255, 255)', border: '2px solid white', borderTopLeftRadius: '10px', borderTopRightRadius: '10px', borderBottomLeftRadius: '0px', borderBottomRightRadius: '0px', marginTop: '2px'}}>
             <button
             onClick={() => editor.chain().focus().toggleBold().run()}
             className={editor.isActive('bold') ? 'thin-active' : 'thin'}>
-                <FontAwesomeIcon icon="bold"></FontAwesomeIcon>
+                <FontAwesomeIcon icon={faBold}></FontAwesomeIcon>
             </button>
 
             <button
             onClick={() => editor.chain().focus().toggleItalic().run()}
             className={editor.isActive('italic') ? 'thin-active' : 'thin'}>
-                <FontAwesomeIcon icon="italic"></FontAwesomeIcon>
+                <FontAwesomeIcon icon={faItalic}></FontAwesomeIcon>
             </button>
 
             <button
             onClick={() => editor.chain().focus().toggleUnderline().run()}
             className={editor.isActive('underline') ? 'thin-active' : 'thin'}>
-                <FontAwesomeIcon icon="underline"></FontAwesomeIcon>
+                <FontAwesomeIcon icon={faUnderline}></FontAwesomeIcon>
             </button>
 
             <button
             onClick={() => editor.chain().focus().toggleStrike().run()}
             className={editor.isActive('strike') ? 'thin-active' : 'thin'}>
-                <FontAwesomeIcon icon="strikethrough"></FontAwesomeIcon>
+                <FontAwesomeIcon icon={faStrikethrough}></FontAwesomeIcon>
             </button>
 
             <button
             onClick={() => editor.chain().focus().toggleHighlight().run()}
             className={editor.isActive('highlight') ? 'thin-active' : 'thin'}>
-                ✎
+                <FontAwesomeIcon icon={faHighlighter}></FontAwesomeIcon>
             </button>
 
             <span className="mini-divider">|</span>
@@ -109,7 +109,7 @@ const Tiptap = ({content}) => {
             <button
             onClick={() => editor.chain().focus().toggleCode().run()}
             className={editor.isActive('code') ? 'thin-active' : 'thin'}>
-                <FontAwesomeIcon icon="code"></FontAwesomeIcon>
+                <FontAwesomeIcon icon={faCode}></FontAwesomeIcon>
             </button>
 
             <button
@@ -155,7 +155,7 @@ const Tiptap = ({content}) => {
             <button
             onClick={() => editor.chain().focus().insertTable({ rows: 3, cols: 3, withHeaderRow: true }).run()}
             className={editor.isActive('table') ? 'thin-active' : 'thin'}>
-                <FontAwesomeIcon icon="table"></FontAwesomeIcon>
+                <FontAwesomeIcon icon={faTable}></FontAwesomeIcon>
             </button>
 
             <button
@@ -187,19 +187,19 @@ const Tiptap = ({content}) => {
             <button
             onClick={() => editor.chain().focus().setTextAlign('left').run()}
             className={editor.isActive({textAlign: 'left'}) ? 'thin-active' : 'thin'}>
-                <FontAwesomeIcon icon='align-left'></FontAwesomeIcon>
+                <FontAwesomeIcon icon={faAlignLeft}></FontAwesomeIcon>
             </button>
 
             <button
             onClick={() => editor.chain().focus().setTextAlign('center').run()}
             className={editor.isActive({textAlign: 'center'}) ? 'thin-active' : 'thin'}>
-                <FontAwesomeIcon icon='align-center'></FontAwesomeIcon>
+                <FontAwesomeIcon icon={faAlignCenter}></FontAwesomeIcon>
             </button>
 
             <button
             onClick={() => editor.chain().focus().setTextAlign('right').run()}
             className={editor.isActive({textAlign: 'right'}) ? 'thin-active' : 'thin'}>
-                <FontAwesomeIcon icon='align-right'></FontAwesomeIcon>
+                <FontAwesomeIcon icon={faAlignRight}></FontAwesomeIcon>
             </button>
 
         </div>
