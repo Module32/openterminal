@@ -6,7 +6,7 @@ import { useSession } from "next-auth/react"
 import redis from "redis"
 import { useRouter } from 'next/router'
 
-export default function Project() {
+export default async function Project() {
     const router = useRouter()
     const { num } = router.query
 
