@@ -6,7 +6,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStickyNote } from '@fortawesome/free-solid-svg-icons'
 import Fade from 'react-reveal/Fade';
 import { useSession } from "next-auth/react"
-import redirect from 'nextjs-redirect'
 
 export default function Project() {
     const { data: session, status } = useSession()

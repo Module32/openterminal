@@ -5,7 +5,7 @@ import Layout from '../../components/layout'
 import Footer from '../../components/footer'
 import TextLoop from "react-text-loop"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowRight, faArrowCircleRight, faHeart } from '@fortawesome/free-solid-svg-icons'
+import { faArrowRight, faArrowCircleRight } from '@fortawesome/free-solid-svg-icons'
 import Fade from 'react-reveal/Fade';
 
 export default function Index() {

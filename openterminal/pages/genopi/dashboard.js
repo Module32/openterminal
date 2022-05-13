@@ -5,7 +5,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCopy, faNewspaper, faRocket } from '@fortawesome/free-solid-svg-icons'
 import Fade from 'react-reveal/Fade';
 import { useSession } from "next-auth/react"
-import redirect from 'nextjs-redirect'
 
 export default function Project() {
     const { data: session, status } = useSession()
@@ -20,7 +19,7 @@ export default function Project() {
                 </div>
                 <p>Create a...</p>
                 <div style={{display: 'flex'}}>
-                    <Link href="tests/newtest"><a className="boxy" style={{flexDirection: 'row', color: 'black', backgroundImage: "url('/pics/genopi/newtest.png')", backgroundSize: 'cover'}}><span style={{backgroundColor: 'white', padding: '5px', borderRadius: '5px'}}>New Test</span></a></Link>
+                    <Link href="test/newtest"><a className="boxy" style={{flexDirection: 'row', color: 'black', backgroundImage: "url('/pics/genopi/newtest.png')", backgroundSize: 'cover'}}><span style={{backgroundColor: 'white', padding: '5px', borderRadius: '5px'}}>New Test</span></a></Link>
                     <Link href=""><a className="boxy" style={{flexDirection: 'row', color: 'black', backgroundImage: "url('/pics/genopi/newreading.png')", backgroundSize: 'cover'}}><span  style={{backgroundColor: 'white', padding: '5px', borderRadius: '5px'}}>New Reading</span></a></Link>
                     <Link href="notes/newnote"><a className="boxy" style={{flexDirection: 'row', color: 'black', backgroundImage: "url('/pics/genopi/newnotes.png')", backgroundSize: 'cover'}}><span  style={{backgroundColor: 'white', padding: '5px', borderRadius: '5px'}}>New Notes</span></a></Link>
                 </div>

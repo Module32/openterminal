@@ -5,17 +5,29 @@ import Link from 'next/link'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFileAlt, faPlus, faTrash, faAsterisk, faCheck } from '@fortawesome/free-solid-svg-icons'
 import { useSession } from "next-auth/react"
-import redirect from 'nextjs-redirect'
 import { useState, useEffect } from "react"
 import { useForm } from "react-hook-form";
+import redis from "redis"
+import { Redirect } from 'react-router-dom';
 
 export default function Project() {
     const { data: session, status } = useSession()
     const [qnum, setQnum] = useState(0);
     const [questionList, setQuestionList] = useState([]);
     const [questionSaveText, setQuestionSaveText] = useState("Save Question");
+    const [testTitle, setTestTitle] = useState("(unnamed)");
     const { register, handleSubmit, errors } = useForm();
 
+    var client = redis.createClient ({
+      host : process.env.GENOPI_HOST,
+      port : process.env.GENOPI_PORT,
+      password: process.env.GENOPI_PASSWORD
+    });
+    
+    client.on("error", function(err) {
+      throw err;
+    });
+    
     let questions = [  ]
 
     function deleteQuestion(questionIndex) {
@@ -75,14 +87,33 @@ export default function Project() {
       setQuestionList(questionList.concat(<MakeQuestion componentKey={newQnum} />))
     }
 
+    const onQuizSubmit = async event => {
+      const tests = await client.json.get(`genopi-${session.user.name}-${session.email}`, {
+        path: [
+          '.tests'
+        ]
+      });
+
+      if (!tests) tests = []
+
+      await client.json.arrAppend(`genopi-${session.user.name}-${session.email}`, '.tests', {
+        name: testTitle,
+        test: questions,
+        date: Date.now()
+      });
+
+      await client.quit();
+
+      await <Redirect to="/genopi/dashboard" />
+    }
+
     if (status !== "authenticated") { return "Log in to access this page!" }
     return (
       <>
         <Layout>
             <div className="hometop" style={{textAlign: 'left', paddingTop: '70px'}}>
                 <h1><span style={{ color: '#5d33f5' }}><FontAwesomeIcon icon={faFileAlt} /></span> New Test</h1>
-                <p>Create a practice test to prepare for a test, get your students ready, or help your friends!</p>
-                <h3><input placeholder="Test Name" style={{width: '100%'}}></input></h3>
+                <h3><input placeholder="Test Name" style={{width: '100%'}} onChange={(msg) => setTestTitle(msg)}></input></h3>
                 {questionList.toString() === "" ? <p>Let&apos;s add some questions! Click <strong>Add question <FontAwesomeIcon icon={faPlus} /></strong></p> : questionList}
                 <h4><button style={{ width: '100%' }} onClick={ onAddQuestionClick }>Add question <FontAwesomeIcon icon={faPlus} /></button></h4>
                 <h4><button style={{ width: '100%' }} className="green" onClick={ onAddQuestionClick }>Save test <FontAwesomeIcon icon={faCheck} /></button></h4>
