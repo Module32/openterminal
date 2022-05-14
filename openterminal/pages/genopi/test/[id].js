@@ -5,35 +5,26 @@ import Link from 'next/link'
 import { useSession } from "next-auth/react"
 import redis from "redis"
 import { useRouter } from 'next/router'
+import { MongoClient, ServerApiVersion } from 'mongodb';
 
 export default async function Project() {
     const router = useRouter()
-    const { num } = router.query
+    const { id } = router.query
 
-    var client = redis.createClient ({
-      host : process.env.GENOPI_HOST,
-      port : process.env.GENOPI_PORT,
-      password: process.env.GENOPI_PASSWORD
-    });
-    
-    client.on("error", function(err) {
-      throw err;
-    });
-    
-    const test = await client.json.get(`genopi-${session.user.name}-${session.email}`, {
-        path: [
-          `.tests[${num}]`
-        ]
-    });
+    const uri = process.env.MONGO_GENOPI;
+    const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
+    await client.connect();
 
-    console.log(test);
+    let test = client.db('Genopi').collection('Tests').find({"_id": id});
+    if (!test) return 404;
 
     if (status !== "authenticated") { return "Log in to access this page!" }
     return (
       <>
         <Layout>
             <div className="hometop" style={{textAlign: 'left', paddingTop: '70px'}}>
-                <p>console?</p>
+                <h1>{test.name}</h1>
+                <p className="grey">{test.creator.split("::-")[1]} • {test.date}</p>
             </div>
         </Layout>
         <Footer></Footer>

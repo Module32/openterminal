@@ -7,10 +7,10 @@ import { faFileAlt, faPlus, faTrash, faAsterisk, faCheck } from '@fortawesome/fr
 import { useSession } from "next-auth/react"
 import { useState, useEffect } from "react"
 import { useForm } from "react-hook-form";
-import redis from "redis"
 import { Redirect } from 'react-router-dom';
+import { MongoClient, ServerApiVersion } from 'mongodb';
 
-export default function Project() {
+export default async function Project() {
     const { data: session, status } = useSession()
     const [qnum, setQnum] = useState(0);
     const [questionList, setQuestionList] = useState([]);
@@ -18,16 +18,10 @@ export default function Project() {
     const [testTitle, setTestTitle] = useState("(unnamed)");
     const { register, handleSubmit, errors } = useForm();
 
-    var client = redis.createClient ({
-      host : process.env.GENOPI_HOST,
-      port : process.env.GENOPI_PORT,
-      password: process.env.GENOPI_PASSWORD
-    });
-    
-    client.on("error", function(err) {
-      throw err;
-    });
-    
+    const uri = process.env.MONGO_GENOPI;
+    const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
+    await client.connect();
+
     let questions = [  ]
 
     function deleteQuestion(questionIndex) {
@@ -88,21 +82,15 @@ export default function Project() {
     }
 
     const onQuizSubmit = async event => {
-      const tests = await client.json.get(`genopi-${session.user.name}-${session.email}`, {
-        path: [
-          '.tests'
-        ]
-      });
-
-      if (!tests) tests = []
-
-      await client.json.arrAppend(`genopi-${session.user.name}-${session.email}`, '.tests', {
+      if (questions.length = 0) return;
+      const tests = client.db('Genopi').collection('Tests');
+      await tests.insertOne({
         name: testTitle,
-        test: questions,
+        creator: `${session.user.email}::-${session.user.name}`,
+        questions: questions,
         date: Date.now()
-      });
-
-      await client.quit();
+      })
+      await client.close()
 
       await <Redirect to="/genopi/dashboard" />
     }
