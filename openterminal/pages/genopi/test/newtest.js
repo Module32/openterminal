@@ -82,7 +82,7 @@ export default async function Project() {
             method: "POST",
             body: JSON.stringify({
               title: testTitle,
-              creator: creator: `${session.user.email}::-${session.user.name}`,
+              creator: `${session.user.email}::-${session.user.name}`,
               questions: questions,
               date: Date.now(),
             }),
