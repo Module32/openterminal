@@ -8,7 +8,6 @@ import { useSession } from "next-auth/react"
 import { useState, useEffect } from "react"
 import { useForm } from "react-hook-form";
 import { Redirect } from 'react-router-dom';
-import { MongoClient, ServerApiVersion } from 'mongodb';
 
 export default async function Project() {
     const { data: session, status } = useSession()
@@ -17,10 +16,6 @@ export default async function Project() {
     const [questionSaveText, setQuestionSaveText] = useState("Save Question");
     const [testTitle, setTestTitle] = useState("(unnamed)");
     const { register, handleSubmit, errors } = useForm();
-
-    const uri = process.env.MONGO_GENOPI;
-    const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
-    await client.connect();
 
     let questions = [  ]
 
@@ -46,12 +41,12 @@ export default async function Project() {
         console.log(questions);
       }
 
-      useEffect(()=> {
-        const timer = setTimeout(()=> {
-          setQuestionSaveText("Save Question");
-        }, 1000);
-        return ()=> clearTimeout(timer);
-     }, [questionSaveText])
+    const onQuestionSave() = event => {
+      setQuestionSaveText("Saved")
+      setTimeout(() => {
+        setQuestionSaveText("Save Question")
+      }, 3000)
+    }
 
       return (
         <form onSubmit={handleSubmit(onSubmit)}>
@@ -68,7 +63,7 @@ export default async function Project() {
             <h4 style={{margin: '0', padding: '0', flex: '0.7'}}>Hint <span className="grey">(optional)</span><br /><input placeholder="Any hint?" style={{width: '96%'}} {...register(`hint-${props.componentKey}`, { required: false })}></input></h4>
             <h4 style={{margin: '0', padding: '0', flex: '0.7'}}>Explanation <span className="grey">(optional)</span><br /><input placeholder="Any explanation?" style={{width: '96%'}} {...register(`explanation-${props.componentKey}`, { required: false })}></input></h4>
           </div>
-          <button style={{margin: "auto"}} type="submit" onClick={() => {setQuestionSaveText("Saved")}}>{questionSaveText}</button>
+          <button style={{margin: "auto"}} type="submit" onClick={() => {onQuestionSave}}>{questionSaveText}</button>
         </div>
         </form>
       )
@@ -83,15 +78,16 @@ export default async function Project() {
 
     const onQuizSubmit = async event => {
       if (questions.length = 0) return;
-      const tests = client.db('Genopi').collection('Tests');
-      await tests.insertOne({
-        name: testTitle,
-        creator: `${session.user.email}::-${session.user.name}`,
-        questions: questions,
-        date: Date.now()
-      })
-      await client.close()
-
+        let res = await fetch("http://openterminal.vercel.app/api/genopisys/test", {
+            method: "POST",
+            body: JSON.stringify({
+              title: testTitle,
+              creator: creator: `${session.user.email}::-${session.user.name}`,
+              questions: questions,
+              date: Date.now(),
+            }),
+        });
+    
       await <Redirect to="/genopi/dashboard" />
     }
 
