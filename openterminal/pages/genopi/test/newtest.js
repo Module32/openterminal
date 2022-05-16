@@ -41,7 +41,7 @@ export default async function Project() {
         console.log(questions);
       }
 
-    const onQuestionSave() = event => {
+    const onQuestionSave = event => {
       setQuestionSaveText("Saved")
       setTimeout(() => {
         setQuestionSaveText("Save Question")
