@@ -78,15 +78,8 @@ export default async function Project() {
 
     const onQuizSubmit = async event => {
       if (questions.length = 0) return;
-        let res = await fetch("http://openterminal.vercel.app/api/genopisys/test", {
-            method: "POST",
-            body: JSON.stringify({
-              title: testTitle,
-              creator: `${session.user.email}::-${session.user.name}`,
-              questions: questions,
-              date: Date.now(),
-            }),
-        });
+      
+      // working on this
     
       await <Redirect to="/genopi/dashboard" />
     }

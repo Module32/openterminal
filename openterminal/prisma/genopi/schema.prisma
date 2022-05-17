@@ -1,0 +1,16 @@
+datasource db {
+  provider = "mongodb"
+  url      = env("MONGO_GENOPI")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Test {
+  id       String    @id @default(auto()) @map("_id") @db.ObjectId
+  name    String
+  creator    String
+  questions    String[]
+  date   String
+}

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600&display=swap');
 
 html,
 body {
@@ -461,7 +461,7 @@ a.google:hover, button.google:hover {
 }
 
 .codefont {
-  font-family: 'Space Mono', monospace;
+  font-family: 'Space Grotesk', sans-serif;
 }
 
 a.socials {
