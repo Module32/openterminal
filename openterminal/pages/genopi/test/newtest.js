@@ -13,7 +13,6 @@ export default async function Project() {
     const { data: session, status } = useSession()
     const [qnum, setQnum] = useState(0);
     const [questionList, setQuestionList] = useState([]);
-    const [questionSaveText, setQuestionSaveText] = useState("Save Question");
     const [testTitle, setTestTitle] = useState("(unnamed)");
     const { register, handleSubmit, errors } = useForm();
 
@@ -41,13 +40,6 @@ export default async function Project() {
         console.log(questions);
       }
 
-    const onQuestionSave = event => {
-      setQuestionSaveText("Saved")
-      setTimeout(() => {
-        setQuestionSaveText("Save Question")
-      }, 3000)
-    }
-
       return (
         <form onSubmit={handleSubmit(onSubmit)}>
           <div key={props.componentKey.toString()} style={{ backgroundColor: '#13141c', padding: '10px 20px', borderRadius: '10px', margin: '10px', border: '1px solid rgb(255, 255, 255, 0.3)' }}>
@@ -63,7 +55,7 @@ export default async function Project() {
             <h4 style={{margin: '0', padding: '0', flex: '0.7'}}>Hint <span className="grey">(optional)</span><br /><input placeholder="Any hint?" style={{width: '96%'}} {...register(`hint-${props.componentKey}`, { required: false })}></input></h4>
             <h4 style={{margin: '0', padding: '0', flex: '0.7'}}>Explanation <span className="grey">(optional)</span><br /><input placeholder="Any explanation?" style={{width: '96%'}} {...register(`explanation-${props.componentKey}`, { required: false })}></input></h4>
           </div>
-          <button style={{margin: "auto"}} type="submit" onClick={() => {onQuestionSave}}>{questionSaveText}</button>
+          <button style={{margin: "auto"}} type="submit">Save Question</button>
         </div>
         </form>
       )
