@@ -77,11 +77,7 @@ export default async function Project() {
     }
 
     const onQuizSubmit = event => {
-      if (questions.length = 0) return;
-      
-      // working on this
-    
-      <Navigate to="/genopi/dashboard" />
+      console.log("submit detected")
     }
 
     if (status !== "authenticated") { return "Log in to access this page!" }
