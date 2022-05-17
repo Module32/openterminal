@@ -7,7 +7,7 @@ import { faFileAlt, faPlus, faTrash, faAsterisk, faCheck } from '@fortawesome/fr
 import { useSession } from "next-auth/react"
 import { useState, useEffect } from "react"
 import { useForm } from "react-hook-form";
-import { Redirect } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 
 export default async function Project() {
     const { data: session, status } = useSession()
@@ -81,7 +81,7 @@ export default async function Project() {
       
       // working on this
     
-      await <Redirect to="/genopi/dashboard" />
+      await <Navigate to="/genopi/dashboard" />
     }
 
     if (status !== "authenticated") { return "Log in to access this page!" }
