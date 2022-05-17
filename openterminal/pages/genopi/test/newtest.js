@@ -76,12 +76,12 @@ export default async function Project() {
       setQuestionList(questionList.concat(<MakeQuestion componentKey={newQnum} />))
     }
 
-    const onQuizSubmit = async event => {
+    const onQuizSubmit = event => {
       if (questions.length = 0) return;
       
       // working on this
     
-      await <Navigate to="/genopi/dashboard" />
+      <Navigate to="/genopi/dashboard" />
     }
 
     if (status !== "authenticated") { return "Log in to access this page!" }
