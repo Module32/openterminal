@@ -9,7 +9,7 @@ import { useState, useEffect } from "react"
 import { useForm } from "react-hook-form";
 import { Navigate } from 'react-router-dom';
 
-export default async function Project() {
+export default function Project() {
     const { data: session, status } = useSession()
     const [qnum, setQnum] = useState(0);
     const [questionList, setQuestionList] = useState([]);
@@ -67,7 +67,11 @@ export default async function Project() {
       console.log(qnum, newQnum)
       setQuestionList(questionList.concat(<MakeQuestion componentKey={newQnum} />))
     }
-    
+
+    const onQuizSubmit = event => {
+      console.log("submit detected")
+    }
+
     if (status !== "authenticated") { return "Log in to access this page!" }
     return (
       <>
@@ -77,7 +81,7 @@ export default async function Project() {
                 <h3><input placeholder="Test Name" style={{width: '100%'}} onChange={(msg) => setTestTitle(msg)}></input></h3>
                 {questionList.toString() === "" ? <p>Let&apos;s add some questions! Click <strong>Add question <FontAwesomeIcon icon={faPlus} /></strong></p> : questionList}
                 <h4><button style={{ width: '100%' }} onClick={ onAddQuestionClick }>Add question <FontAwesomeIcon icon={faPlus} /></button></h4>
-                <h4><button style={{ width: '100%' }} className="green">Save test <FontAwesomeIcon icon={faCheck} /></button></h4>
+                <h4><button style={{ width: '100%' }} className="green" onClick={ onQuizSubmit }>Save test <FontAwesomeIcon icon={faCheck} /></button></h4>
             </div>
         </Layout>
         <Footer></Footer>
