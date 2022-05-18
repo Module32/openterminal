@@ -8,11 +8,13 @@ import { useSession } from "next-auth/react"
 import { useState, useEffect } from "react"
 import { useForm } from "react-hook-form";
 import { Navigate } from 'react-router-dom';
+import { createTest } from '../../../prisma/genopi/test'
 
 export default function Project() {
     const { data: session, status } = useSession()
     const [qnum, setQnum] = useState(0);
     const [questionList, setQuestionList] = useState([]);
+    const [questionSaveText, setQuestionSaveText] = useState("Save Question");
     const [testTitle, setTestTitle] = useState("(unnamed)");
     const { register, handleSubmit, errors } = useForm();
 
@@ -40,6 +42,13 @@ export default function Project() {
         console.log(questions);
       }
 
+    const onQuestionSave = event => {
+      setQuestionSaveText("Saved")
+      setTimeout(() => {
+        setQuestionSaveText("Save Question")
+      }, 3000)
+    }
+
       return (
         <form onSubmit={handleSubmit(onSubmit)}>
           <div key={props.componentKey.toString()} style={{ backgroundColor: '#13141c', padding: '10px 20px', borderRadius: '10px', margin: '10px', border: '1px solid rgb(255, 255, 255, 0.3)' }}>
@@ -55,7 +64,7 @@ export default function Project() {
             <h4 style={{margin: '0', padding: '0', flex: '0.7'}}>Hint <span className="grey">(optional)</span><br /><input placeholder="Any hint?" style={{width: '96%'}} {...register(`hint-${props.componentKey}`, { required: false })}></input></h4>
             <h4 style={{margin: '0', padding: '0', flex: '0.7'}}>Explanation <span className="grey">(optional)</span><br /><input placeholder="Any explanation?" style={{width: '96%'}} {...register(`explanation-${props.componentKey}`, { required: false })}></input></h4>
           </div>
-          <button style={{margin: "auto"}} type="submit">Save Question</button>
+          <button style={{margin: "auto"}} type="submit" onClick={() => {onQuestionSave}}>{questionSaveText}</button>
         </div>
         </form>
       )
@@ -68,8 +77,10 @@ export default function Project() {
       setQuestionList(questionList.concat(<MakeQuestion componentKey={newQnum} />))
     }
 
-    const onQuizSubmit = event => {
-      console.log("submit detected")
+    const onQuizSubmit = async event => {
+      if (questions.length = 0) return;
+      
+      await createTest(testTitle, `${session.user.name}::-${session.user.email}`, questions, Date.now())
     }
 
     if (status !== "authenticated") { return "Log in to access this page!" }
@@ -81,7 +92,7 @@ export default function Project() {
                 <h3><input placeholder="Test Name" style={{width: '100%'}} onChange={(msg) => setTestTitle(msg)}></input></h3>
                 {questionList.toString() === "" ? <p>Let&apos;s add some questions! Click <strong>Add question <FontAwesomeIcon icon={faPlus} /></strong></p> : questionList}
                 <h4><button style={{ width: '100%' }} onClick={ onAddQuestionClick }>Add question <FontAwesomeIcon icon={faPlus} /></button></h4>
-                <h4><button style={{ width: '100%' }} className="green" onClick={ onQuizSubmit }>Save test <FontAwesomeIcon icon={faCheck} /></button></h4>
+                <h4><button style={{ width: '100%' }} className="green" onClick={ onAddQuestionClick }>Save test <FontAwesomeIcon icon={faCheck} /></button></h4>
             </div>
         </Layout>
         <Footer></Footer>
