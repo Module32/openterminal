@@ -8,7 +8,7 @@ import { useSession } from "next-auth/react"
 import { useState, useEffect } from "react"
 import { useForm } from "react-hook-form";
 import { Navigate } from 'react-router-dom';
-import { createTest } from '../../../prisma/genopi/test'
+import { createTest } from '../../../prisma/test'
 
 export default function Project() {
     const { data: session, status } = useSession()

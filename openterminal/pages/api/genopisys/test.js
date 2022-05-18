@@ -4,7 +4,7 @@ import {
         getAllTests,
         getTest,
         updateTest
-} from '../../../prisma/genopi/test'
+} from '../../../prisma/test'
       
 export default async function handle (req, res) {
         try {
