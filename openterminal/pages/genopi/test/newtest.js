@@ -90,7 +90,6 @@ export default function Project() {
             <div className="hometop" style={{textAlign: 'left', paddingTop: '70px'}}>
                 <h1><span style={{ color: '#5d33f5' }}><FontAwesomeIcon icon={faFileAlt} /></span> New Test</h1>
                 <h3><input placeholder="Test Name" style={{width: '100%'}} onChange={(msg) => setTestTitle(msg)}></input></h3>
-                {questionList.toString() === "" ? <p>Let&apos;s add some questions! Click <strong>Add question <FontAwesomeIcon icon={faPlus} /></strong></p> : questionList}
                 <h4><button style={{ width: '100%' }} onClick={ onAddQuestionClick }>Add question <FontAwesomeIcon icon={faPlus} /></button></h4>
                 <h4><button style={{ width: '100%' }} className="green" onClick={ onAddQuestionClick }>Save test <FontAwesomeIcon icon={faCheck} /></button></h4>
             </div>

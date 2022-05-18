@@ -34,8 +34,10 @@ function makeid(length) {
    return result;
 }
 
-const Tiptap = ({content}) => {
+const Tiptap = ({content, readonly}) => {
+  if (!readonly) let readonly = true;
   const editor = useEditor({
+    readonly,
     extensions: [
       StarterKit,
       Bold,
