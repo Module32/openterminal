@@ -221,7 +221,7 @@ const Tiptap = ({content, readonly}) => {
                 {db_save_status}
             </div>
             </>
-            : None
+            : null
         }
     </>
   )
