@@ -73,7 +73,9 @@ const Tiptap = ({content, readonly}) => {
     return null
   }
 
-  editor.setEditable(readonly)
+  if (readonly === true) {
+    editor.setEditable(false)
+  }
 
   return (
     <>
@@ -216,13 +218,9 @@ const Tiptap = ({content, readonly}) => {
 
         <EditorContent editor={editor}></EditorContent>
 
-        {readonly === false ? <>
             <div style={{padding: '7px 10px', border: '2px solid white', borderTopLeftRadius: '0px', borderTopRightRadius: '0px', borderBottomLeftRadius: '10px', borderBottomRightRadius: '10px', marginTop: '-2px'}}>
-                {db_save_status}
+                {readonly === false ? {db_save_status} : <p style={{margin: '0', padding: '0'}}></p> }
             </div>
-            </>
-            : null
-        }
     </>
   )
 }
