@@ -18,7 +18,7 @@ import TextAlign from '@tiptap/extension-text-align'
 import Typography from '@tiptap/extension-typography'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBold, faItalic, faUnderline, faHighlighter, faStrikethrough, faCode, faQuoteLeft, faFileCode, faGripLines, faTable, faSquare, faBorderAll, faHeader, faAlignLeft, faAlignCenter, faAlignRight, faGripLinesVertical, faAngleUp, faAngleDown, faCheck } from '@fortawesome/free-solid-svg-icons'
+import { faBold, faItalic, faUnderline, faHighlighter, faStrikethrough, faCode, faQuoteLeft, faFileCode, faGripLines, faTable, faSquare, faBorderAll, faHeader, faAlignLeft, faAlignCenter, faAlignRight, faGripLinesVertical, faAngleUp, faAngleDown, faCheck, faEye } from '@fortawesome/free-solid-svg-icons'
 
 const db_save_status = <p className="grey" style={{margin: '0', padding: '0'}}>Start editing to save to the DB!</p>;
 
@@ -35,7 +35,7 @@ function makeid(length) {
 }
 
 const Tiptap = ({content, readonly}) => {
-  if (!readonly) let readonly = true;
+  if (!readonly) readonly = true;
   const editor = useEditor({
     readonly,
     extensions: [
@@ -75,7 +75,8 @@ const Tiptap = ({content, readonly}) => {
 
   return (
     <>
-        <div style={{padding: '4px', backgroundColor: 'rgb(255, 255, 255)', border: '2px solid white', borderTopLeftRadius: '10px', borderTopRightRadius: '10px', borderBottomLeftRadius: '0px', borderBottomRightRadius: '0px', marginTop: '2px'}}>
+        {readonly === false ? <>
+            <div style={{padding: '4px', backgroundColor: 'rgb(255, 255, 255)', border: '2px solid white', borderTopLeftRadius: '10px', borderTopRightRadius: '10px', borderBottomLeftRadius: '0px', borderBottomRightRadius: '0px', marginTop: '2px'}}>
             <button
             onClick={() => editor.chain().focus().toggleBold().run()}
             className={editor.isActive('bold') ? 'thin-active' : 'thin'}>
@@ -205,6 +206,7 @@ const Tiptap = ({content, readonly}) => {
             </button>
 
         </div>
+        </> : <p><FontAwesome icon={eye} /> Marked as <strong>read only</strong></p>}
 
         <EditorContent editor={editor}></EditorContent>
 

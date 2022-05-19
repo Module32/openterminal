@@ -16,7 +16,7 @@ export default function Project() {
             <div className="hometop" style={{textAlign: 'left', paddingTop: '70px'}}>
                 <h1><span style={{ color: '#f7a427ff' }}><FontAwesomeIcon icon={faStickyNote} /></span> New Note Session</h1>
                 <h3><input placeholder="Title goes here...!" style={{width: '100%'}}></input></h3>
-                <Tiptap content="Let&apos;s write something!"/>
+                <Tiptap content="Let&apos;s write something!" readonly={false}/>
             </div>
         </Layout>
         <Footer></Footer>
