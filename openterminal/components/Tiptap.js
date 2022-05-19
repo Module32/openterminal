@@ -73,6 +73,8 @@ const Tiptap = ({content, readonly}) => {
     return null
   }
 
+  editor.setEditable(readonly)
+
   return (
     <>
         {readonly === false ? <>
@@ -206,13 +208,21 @@ const Tiptap = ({content, readonly}) => {
             </button>
 
         </div>
-        </> : <p><FontAwesomeIcon icon={faEye} /> Marked as <strong>read only</strong></p>}
+        </> : <>
+        <div style={{padding: '4px', backgroundColor: 'rgb(255, 255, 255)', border: '2px solid white', borderTopLeftRadius: '10px', borderTopRightRadius: '10px', borderBottomLeftRadius: '0px', borderBottomRightRadius: '0px', marginTop: '2px'}}>
+            <p><FontAwesomeIcon icon={faEye} /> Marked as <strong>read only</strong></p>
+        </div>
+        </>}
 
         <EditorContent editor={editor}></EditorContent>
 
-        <div style={{padding: '7px 10px', border: '2px solid white', borderTopLeftRadius: '0px', borderTopRightRadius: '0px', borderBottomLeftRadius: '10px', borderBottomRightRadius: '10px', marginTop: '-2px'}}>
-            {db_save_status}
-        </div>
+        {readonly === false ? <>
+            <div style={{padding: '7px 10px', border: '2px solid white', borderTopLeftRadius: '0px', borderTopRightRadius: '0px', borderBottomLeftRadius: '10px', borderBottomRightRadius: '10px', marginTop: '-2px'}}>
+                {db_save_status}
+            </div>
+            </>
+            : None
+        }
     </>
   )
 }

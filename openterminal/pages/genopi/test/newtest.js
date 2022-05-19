@@ -8,7 +8,6 @@ import { useSession } from "next-auth/react"
 import { useState, useEffect } from "react"
 import { useForm } from "react-hook-form";
 import { Navigate } from 'react-router-dom';
-import { createTest } from '../../../prisma/test'
 
 export default function Project() {
     const { data: session, status } = useSession()
@@ -80,7 +79,18 @@ export default function Project() {
     const onQuizSubmit = async event => {
       if (questions.length = 0) return;
       
-      await createTest(testTitle, `${session.user.name}::-${session.user.email}`, questions, Date.now())
+      let test = {
+        title: testTitle,
+        creator: `${session.user.name}::-${session.user.email}`,
+        questions: questions,
+        date: Date.now()
+      };
+      
+      fetch('https://openterminal.vercel.app/api/genopi/test', {
+          method: 'POST',
+          body: JSON.stringify(test),
+          headers: { 'Content-Type': 'application/json' }
+      })
     }
 
     if (status !== "authenticated") { return "Log in to access this page!" }
