@@ -101,7 +101,7 @@ export default function Project() {
                 <h3><input placeholder="Test Name" style={{width: '100%'}} onChange={(msg) => setTestTitle(msg)}></input></h3>
                 {questionList}
                 <h4><button style={{ width: '100%' }} onClick={ onAddQuestionClick }>Add question <FontAwesomeIcon icon={faPlus} /></button></h4>
-                <h4><button style={{ width: '100%' }} className="green" onClick={ onAddQuestionClick }>Save test <FontAwesomeIcon icon={faCheck} /></button></h4>
+                <h4><button style={{ width: '100%' }} className="green" onClick={ onQuizSubmit }>Save test <FontAwesomeIcon icon={faCheck} /></button></h4>
             </div>
         </Layout>
         <Footer></Footer>
