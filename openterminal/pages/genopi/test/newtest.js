@@ -89,7 +89,7 @@ export default function Project() {
           method: 'POST',
           body: JSON.stringify(test),
           headers: { 'Content-Type': 'application/json' }
-      })
+      }).catch(err => console.log(err));
     }
 
     if (status !== "authenticated") { return "Log in to access this page!" }
