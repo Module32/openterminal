@@ -206,7 +206,7 @@ const Tiptap = ({content, readonly}) => {
             </button>
 
         </div>
-        </> : <p><FontAwesomeIcon icon={eye} /> Marked as <strong>read only</strong></p>}
+        </> : <p><FontAwesomeIcon icon={faEye} /> Marked as <strong>read only</strong></p>}
 
         <EditorContent editor={editor}></EditorContent>
 
