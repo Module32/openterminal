@@ -35,7 +35,7 @@ function makeid(length) {
 }
 
 const Tiptap = ({content, readonly}) => {
-  if (!readonly) readonly = true;
+  if (!readonly) readonly = false;
   const editor = useEditor({
     readonly,
     extensions: [
@@ -206,7 +206,7 @@ const Tiptap = ({content, readonly}) => {
             </button>
 
         </div>
-        </> : <p><FontAwesome icon={eye} /> Marked as <strong>read only</strong></p>}
+        </> : <p><FontAwesomeIcon icon={eye} /> Marked as <strong>read only</strong></p>}
 
         <EditorContent editor={editor}></EditorContent>
 

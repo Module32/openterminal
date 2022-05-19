@@ -17,6 +17,8 @@ export default function Project() {
                 <h1><span style={{ color: '#f7a427ff' }}><FontAwesomeIcon icon={faStickyNote} /></span> New Note Session</h1>
                 <h3><input placeholder="Title goes here...!" style={{width: '100%'}}></input></h3>
                 <Tiptap content="Let&apos;s write something!" readonly={false}/>
+                <Tiptap content="this is read-only" readonly={true}/>
+                <Tiptap content="one more lil test"/>
             </div>
         </Layout>
         <Footer></Footer>
