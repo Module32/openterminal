@@ -209,8 +209,8 @@ const Tiptap = ({content, readonly}) => {
 
         </div>
         </> : <>
-        <div style={{padding: '4px', backgroundColor: 'rgb(255, 255, 255)', border: '2px solid white', borderTopLeftRadius: '10px', borderTopRightRadius: '10px', borderBottomLeftRadius: '0px', borderBottomRightRadius: '0px', marginTop: '2px'}}>
-            <p><FontAwesomeIcon icon={faEye} /> Marked as <strong>read only</strong></p>
+        <div style={{padding: '7px 10px', backgroundColor: 'rgb(255, 255, 255)', border: '2px solid white', borderTopLeftRadius: '10px', borderTopRightRadius: '10px', borderBottomLeftRadius: '0px', borderBottomRightRadius: '0px', marginTop: '2px', color: 'black'}}>
+            <p style={{margin: '0', padding: '0'}}><FontAwesomeIcon icon={faEye} /> Marked as <strong>read only</strong></p>
         </div>
         </>}
 
