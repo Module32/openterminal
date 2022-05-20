@@ -20,8 +20,6 @@ import Typography from '@tiptap/extension-typography'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBold, faItalic, faUnderline, faHighlighter, faStrikethrough, faCode, faQuoteLeft, faFileCode, faGripLines, faTable, faSquare, faBorderAll, faHeader, faAlignLeft, faAlignCenter, faAlignRight, faGripLinesVertical, faAngleUp, faAngleDown, faCheck, faEye } from '@fortawesome/free-solid-svg-icons'
 
-const db_save_status = <p className="grey" style={{margin: '0', padding: '0'}}>Start editing to save to the DB!</p>;
-
 // thanks to @csharptest.net for this function
 function makeid(length) {
     var result           = '';
@@ -72,6 +70,8 @@ const Tiptap = ({content, readonly}) => {
   if (!editor) {
     return null
   }
+
+  let db_save_status = <p className="grey" style={{margin: '0', padding: '0'}}>No edits</p>;
 
   if (readonly === true) {
     editor.setEditable(false)
@@ -219,7 +219,7 @@ const Tiptap = ({content, readonly}) => {
         <EditorContent editor={editor}></EditorContent>
 
             <div style={{padding: '7px 10px', border: '2px solid white', borderTopLeftRadius: '0px', borderTopRightRadius: '0px', borderBottomLeftRadius: '10px', borderBottomRightRadius: '10px', marginTop: '-2px'}}>
-                {readonly === false ? {db_save_status} : <p style={{margin: '0', padding: '0'}}></p> }
+                {db_save_status}
             </div>
     </>
   )
