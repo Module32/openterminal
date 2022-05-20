@@ -32,6 +32,8 @@ function makeid(length) {
    return result;
 }
 
+let db_save_status = <p className="grey" style={{margin: '0', padding: '0'}}>Start editing to save to the DB!</p>;
+
 const Tiptap = ({content, readonly}) => {
   if (!readonly) readonly = false;
   const editor = useEditor({
@@ -70,8 +72,6 @@ const Tiptap = ({content, readonly}) => {
   if (!editor) {
     return null
   }
-  
-  let db_save_status = <p className="grey" style={{margin: '0', padding: '0'}}>Start editing to save to the DB!</p>;
 
   if (readonly === true) {
     editor.setEditable(false)
