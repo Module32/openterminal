@@ -70,11 +70,12 @@ const Tiptap = ({content, readonly}) => {
   if (!editor) {
     return null
   }
-
-  let db_save_status = <p className="grey" style={{margin: '0', padding: '0'}}>No edits</p>;
+  
+  let db_save_status = <p className="grey" style={{margin: '0', padding: '0'}}>Start editing to save to the DB!</p>;
 
   if (readonly === true) {
     editor.setEditable(false)
+    db_save_status = <p className="grey" style={{margin: '0', padding: '0'}}>No edits</p>;
   }
 
   return (
