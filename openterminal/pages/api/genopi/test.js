@@ -9,7 +9,7 @@ export default async function handler(req, res) {
     } else {
       return await prisma.test.findMany({});
     }
-  } else if (req.metod === "POST") {
+  } else if (req.method === "POST") {
     const { name, creator, questions, date } = req.body;
     return await prisma.test.create({
       data: {
