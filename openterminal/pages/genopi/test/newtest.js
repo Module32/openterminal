@@ -87,7 +87,7 @@ export default function Project() {
       
       fetch('https://openterminal.vercel.app/api/genopi/test', {
           method: 'POST',
-          body: JSON.stringify(test),
+          body: test,
           headers: { 'Content-Type': 'application/json' }
       }).catch(err => console.log(err));
     }
