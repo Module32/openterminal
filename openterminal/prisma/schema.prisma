@@ -1,14 +1,16 @@
-datasource db {
-  provider = "mongodb"
-  url      = env("MONGO_GENOPI")
-}
-
 generator client {
   provider = "prisma-client-js"
+  previewFeatures = ["referentialIntegrity"]
+}
+
+datasource db {
+  provider = "mysql"
+  url = env("DB_GENOPI")
+  referentialIntegrity = "prisma"
 }
 
 model Test {
-  id       String    @id @default(auto()) @map("_id") @db.ObjectId
+  id      Int   @default(autoincrement()) @id
   name    String
   creator    String
   questions    String[]
