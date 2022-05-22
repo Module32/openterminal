@@ -81,7 +81,7 @@ export default function Project() {
       let test = {
         title: testTitle,
         creator: `${session.user.name}::-${session.user.email}`,
-        questions: questions,
+        questions: questions.toString(),
         date: Date.now()
       };
       
