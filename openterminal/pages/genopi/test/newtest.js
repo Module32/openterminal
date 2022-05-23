@@ -17,6 +17,8 @@ export default function Project() {
     const [testTitle, setTestTitle] = useState("(unnamed)");
     const { register, handleSubmit, errors } = useForm();
 
+    if (status !== "authenticated") { return "Log in to access this page!" }
+
     let questions = [  ]
 
     function deleteQuestion(questionIndex) {
@@ -92,7 +94,6 @@ export default function Project() {
       }).catch(err => console.log(err));
     }
 
-    if (status !== "authenticated") { return "Log in to access this page!" }
     return (
       <>
         <Layout>

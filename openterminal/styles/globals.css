@@ -143,6 +143,15 @@ a.padding.green:hover, button.green:hover {
   background-color: rgb(61, 155, 83);
 }
 
+a.padding.neutral, button.neutral {
+  background-color: rgb(221, 225, 255, 0.2);
+  color: white;
+}
+
+a.padding.neutral:hover, button.neutral:hover {
+  background-color: rgb(221, 225, 255, 0.1);
+}
+
 a.padding.red, button.red {
   background-color: rgb(250, 73, 73);
   color: white;
