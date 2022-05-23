@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router'
 import Layout from '../../../components/layout'
 import Footer from '../../../components/footer'
+import Link from 'next/link'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 import { useSession } from "next-auth/react"
@@ -62,7 +63,7 @@ export default function Play() {
         <>
             <Layout>
                 <div style={{paddingTop: '50px', paddingBottom: '20px', padding: '10px 5px', backgroundColor: '#1c1c1c', display: 'flex'}}>
-                    <Link href="/genopi/dashboard" ><a className="padding neutral"><FontAwesomeIcon icon={faArrowLeft} /></a></Link> // change later 
+                    <Link href="/genopi/dashboard" ><a className="padding neutral"><FontAwesomeIcon icon={faArrowLeft} /></a></Link>
                     <p className="grey" style={{margin: 'auto'}}>{test.name}</p>
                 </div>
                 <div style={{display: 'flex'}}>
