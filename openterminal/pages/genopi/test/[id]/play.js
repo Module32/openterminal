@@ -17,7 +17,7 @@ export default function Play() {
         "name": "McBrierty End-Of-Year Review",
         "creator": "Ekya Dogra",
         "questions": [
-            { "question1": "Homeostasis is the balance of what?", "answer1": "Internal and external processes of the body", "hint1": "test", "explanation1": "" },
+            { "question1": "Homeostasis is the balance of what?", "answer1": "Internal and external processes of the body", "hint1": "when it's cold outside, you take a blanket", "explanation1": "" },
             { "question2": "What is an angiosperm?", "answer2": "A flowering plant", "hint2": "", "explanation2": "" },
             { "question3": "An organism with more than one cell is known as...", "answer3": "Eukaryote", "hint3": "", "explanation3": "" },
             { "question4": "The powerhouse of the cell is...", "answer4": "Mitochondria", "hint4": "", "explanation4": "" }
@@ -73,7 +73,7 @@ export default function Play() {
                             <p style={{marginLeft: 'auto'}}><span style={{color: '#ff3624'}}><FontAwesomeIcon icon={faArrowUpRightDots} /></span> 0 points</p>
                         </div>
                         <h1 style={{fontSize: '2.4em'}}>{questions[questionNumber][`question${questionNumber + 1}`]}</h1>
-                        {questions[questionNumber][`hint${questionNumber}`] ? <p><span style={{color: '#ffa70f'}}><FontAwesomeIcon icon={faArrowUpRightDots} /></span> {questions[questionNumber][`question${questionNumber}`]}</p> : null}
+                        {questions[questionNumber][`hint${questionNumber}`] !== "" ? (<><p><span style={{color: '#ffa70f'}}><FontAwesomeIcon icon={faArrowUpRightDots} /></span> {questions[questionNumber][`question${questionNumber}`]}</p></>) : null}
                     </div>
                     <div style={{flex: '1', padding: '10px', paddingTop: '25px', borderLeft: '2px solid rgb(255, 255, 255, 0.2)'}}>
                         {CreateAnswers(questionNumber)}
