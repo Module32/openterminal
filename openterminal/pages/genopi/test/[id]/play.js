@@ -50,12 +50,13 @@ export default function Play() {
                 let amountGained = 100 - pointsDeducted;
                 setScore(score + amountGained)
                 setStreak(streak + 1)
-                if (index + 1 === questions.length) return;
-                setTimeout(() => {
-                    setQuestionNumber(index + 1);
-                    setButtonStyle("neutral");
-                    setDisabled(false);
-                }, 1500)
+                if (index + 1 === questions.length) {
+                    setTimeout(() => {
+                        setQuestionNumber(index + 1);
+                        setButtonStyle("neutral");
+                        setDisabled(false);
+                    }, 1500)
+                }
             } else {
                 setStreak(0)
                 setButtonStyle("red")
@@ -96,8 +97,6 @@ export default function Play() {
                 i += 1;
             }
         }
-
-        answers = answers.sort(() => (Math.random() > 0.5) ? 1 : -1)
         let time = Date.now();
 
         return (<>
