@@ -27,7 +27,7 @@ export default function Play() {
     if (status !== "authenticated") { return "Log in to access this page!" }
     
     const CreateAnswers = (index) => {
-        let questions = test.questions;
+        let questions = test["questions"];
         let answers = [];
         answers.push(questions[index][`answer${index}`])
         console.log(answers)
@@ -60,7 +60,7 @@ export default function Play() {
         return (<>
             <div>
                 {answers.map((answer, index) => 
-                    <button key={index} className="neutral" style={{flexDirection: 'column'}}>{answer}</button>
+                    <button key={index} className="neutral" style={{flexDirection: 'column'}} style={{width: '100%'}}>{answer}</button>
                 )}
             </div>
         </>)
@@ -69,7 +69,7 @@ export default function Play() {
     return (
         <>
             <Layout>
-                <div style={{paddingTop: '90px', paddingBottom: '20px', padding: '10px 5px', backgroundColor: '#1c1c1c', display: 'flex'}}>
+                <div style={{marginTop: '90px', marginBottom: '20px', padding: '10px 5px', backgroundColor: '#1c1c1c', display: 'flex'}}>
                     <Link href="/genopi/dashboard" ><a className="padding neutral"><FontAwesomeIcon icon={faArrowLeft} /></a></Link>
                     <p className="grey" style={{margin: 'auto'}}>{test.name}</p>
                 </div>
