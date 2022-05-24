@@ -48,7 +48,7 @@ export default function Play() {
                 let pointsDeducted = Math.floor(1.7**secs);
                 if (pointsDeducted > 80) pointsDeducted = 80;
                 let amountGained = 100 - pointsDeducted;
-                setScore(amountGained)
+                setScore(score + amountGained)
                 setTimeout(() => {
                     setQuestionNumber(index + 1);
                     setButtonStyle("neutral");
