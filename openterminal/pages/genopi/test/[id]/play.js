@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router'
-import Layout from '../../../components/layout'
-import Footer from '../../../components/footer'
+import Layout from '../../../../components/layout'
+import Footer from '../../../../components/footer'
 import Link from 'next/link'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
