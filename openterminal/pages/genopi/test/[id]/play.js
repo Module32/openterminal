@@ -17,7 +17,7 @@ export default function Play() {
         "name": "McBrierty End-Of-Year Review",
         "creator": "Ekya Dogra",
         "questions": [
-            { "question1": "Homeostasis is the balance of what?", "answer1": "Internal and external processes of the body", "hint1": "", "explanation1": "" },
+            { "question1": "Homeostasis is the balance of what?", "answer1": "Internal and external processes of the body", "hint1": "test", "explanation1": "" },
             { "question2": "What is an angiosperm?", "answer2": "A flowering plant", "hint2": "", "explanation2": "" },
             { "question3": "An organism with more than one cell is known as...", "answer3": "Eukaryote", "hint3": "", "explanation3": "" },
             { "question4": "The powerhouse of the cell is...", "answer4": "Mitochondria", "hint4": "", "explanation4": "" }
