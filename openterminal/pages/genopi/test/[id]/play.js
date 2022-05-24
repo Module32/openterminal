@@ -11,6 +11,9 @@ export default function Play() {
     const router = useRouter()
     const { data: session, status } = useSession()
     const [questionNumber, setQuestionNumber] = useState(0);
+    const [buttonStyle, setButtonStyle] = useState("neutral");
+    const [streak, setStreak] = useState(0);
+    const [explanation, setExplanation] = useState("");
     const { pid } = router.query
 
     let test = {
@@ -26,34 +29,31 @@ export default function Play() {
     
     if (status !== "authenticated") { return "Log in to access this page!" }
     let questions = test["questions"];
-    let buttonStyle = "neutral";
-    let streak = 0;
-    let explanation = "";
 
     const handleAnswerSumbit = (index, answer) => {
         if (index + 1 < questions.length) {
             let question = questions[index]
             if (question[`answer${index+1}`] === answer) {
-                buttonStyle = "green"
+                setButtonStyle("green")
                 setTimeout(() => {
                     setQuestionNumber(index + 1);
-                    buttonStyle = "neutral";
+                    setButtonStyle("neutral")
                 }, 2000)
-                streak += 1;
+                setStreak(streak + 1)
             } else {
-                streak = 0;
-                buttonStyle = "red";
-                explanation = <>
+                setStreak(0)
+                setButtonStyle("red")
+                setExplanation(<>
                     <p><span style={{color: '#1ac74e'}}><FontAwesomeIcon icon={faCheck} /></span> <span className="grey">Answer:</span> {question[`answer${index+1}`]}</p>
                     {question[`explanation${index+1}`] !== "" ? <>
                         <p><span className="grey">Explanation:</span> {question[`explanation${index+1}`] !== ""}</p>
                         <button className="green" onClick={() => {
                             setQuestionNumber(index + 1);
-                            buttonStyle = "neutral";
-                            explanation = "";
+                            setButtonStyle("neutral")
+                            setExplanation("")
                         }}>Got it</button>
                     </> : null}
-                </>
+                </>)
             }
         } else {
             console.log("this is the end")
@@ -102,11 +102,12 @@ export default function Play() {
                 <div style={{display: 'flex'}}>
                     <div style={{flex: '1', padding: '10px 20px'}}>
                         <div style={{display: 'flex'}}>
-                            <p>1 <span className="grey">of {questions.length}</span></p>
+                            <p>{questionNumber + 1} <span className="grey">of {questions.length}</span></p>
                             <p style={{marginLeft: 'auto'}}><span style={{color: '#ff3624'}}><FontAwesomeIcon icon={faArrowUpRightDots} /></span> 0 points</p>
                         </div>
                         <h1 style={{fontSize: '2.4em'}}>{questions[questionNumber][`question${questionNumber + 1}`]}</h1>
                         {questions[questionNumber][`hint${questionNumber + 1}`] !== "" ? (<><p><span style={{color: '#ffa70f'}}><FontAwesomeIcon icon={faLightbulb} /></span> {questions[questionNumber][`hint${questionNumber + 1}`]}</p></>) : null}
+                        {explanation !== "" ? explanation : null}
                     </div>
                     <div style={{flex: '1', paddingTop: '25px', borderLeft: '2px solid rgb(255, 255, 255, 0.2)'}}>
                         <div style={{padding: '10px'}}>
