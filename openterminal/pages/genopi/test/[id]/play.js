@@ -21,7 +21,7 @@ export default function Play() {
         "name": "McBrierty End-Of-Year Review",
         "creator": "Ekya Dogra",
         "questions": [
-            { "question1": "Homeostasis is the balance of what?", "answer1": "Internal and external processes of the body", "hint1": "when it&apos;s cold outside, you take a blanket", "explanation1": "Homeostasis is the balance between the external environment and an organism&apos;s internal stability. It keeps the body&apos;s conditions in equilibrium with the environment&apos;s conditions to keep the organism safe and healthy." },
+            { "question1": "Homeostasis is the balance of what?", "answer1": "Internal and external processes of the body", "hint1": "when it's cold outside, you take a blanket", "explanation1": "Homeostasis is the balance between the external environment and an organism's internal stability. It keeps the body's conditions in equilibrium with the environment's conditions to keep the organism safe and healthy." },
             { "question2": "What is an angiosperm?", "answer2": "A flowering plant", "hint2": "", "explanation2": "" },
             { "question3": "An organism with more than one cell is known as...", "answer3": "Eukaryote", "hint3": "", "explanation3": "" },
             { "question4": "The powerhouse of the cell is...", "answer4": "Mitochondria", "hint4": "", "explanation4": "" },
