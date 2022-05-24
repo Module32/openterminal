@@ -60,7 +60,7 @@ export default function Play() {
         return (<>
             <div>
                 {answers.map((answer, index) => 
-                    <button key={index} className="neutral" style={{flexDirection: 'column'}} style={{width: '100%'}}>{answer}</button>
+                    <button key={index} className="neutral" style={{flexDirection: 'column', width: '100%'}}>{answer}</button>
                 )}
             </div>
         </>)
