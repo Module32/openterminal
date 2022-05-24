@@ -50,7 +50,7 @@ export default function Play() {
                 let amountGained = 100 - pointsDeducted;
                 setScore(score + amountGained)
                 setStreak(streak + 1)
-                if (index + 1 === questions.length) {
+                if (questionNumber + 1 === questions.length) {
                     setTimeout(() => {
                         setQuestionNumber(index + 1);
                         setButtonStyle("neutral");
