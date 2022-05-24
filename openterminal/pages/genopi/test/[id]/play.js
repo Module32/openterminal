@@ -30,6 +30,7 @@ export default function Play() {
         let questions = test.questions;
         let answers = [];
         answers.push(questions[index][`answer${index}`])
+        console.log(answers)
         let i;
         if (questions.length < 3) {
             while (i < questions.length) {
@@ -41,6 +42,7 @@ export default function Play() {
                     answers.push(randomAnswer);
                 }
             }
+            console.log(answers)
         } else {
             while (i < 4) {
                 if (answers.includes(questions[i][`answer${i}`])) {
@@ -49,20 +51,25 @@ export default function Play() {
                     answers.push(questions[i][`answer${i}`]);
                 }
             }
+            console.log(answers)
         }
+        console.log(answers)
         answers = answers.sort(() => (Math.random() > 0.5) ? 1 : -1)
+        console.log(answers)
 
         return (<>
-            {answers.map((answer, index) => 
-                <button key={index} className="neutral" style={{flexDirection: 'column'}}>{answer}</button>
-            )}
+            <div>
+                {answers.map((answer, index) => 
+                    <button key={index} className="neutral" style={{flexDirection: 'column'}}>{answer}</button>
+                )}
+            </div>
         </>)
     }
 
     return (
         <>
             <Layout>
-                <div style={{paddingTop: '50px', paddingBottom: '20px', padding: '10px 5px', backgroundColor: '#1c1c1c', display: 'flex'}}>
+                <div style={{paddingTop: '90px', paddingBottom: '20px', padding: '10px 5px', backgroundColor: '#1c1c1c', display: 'flex'}}>
                     <Link href="/genopi/dashboard" ><a className="padding neutral"><FontAwesomeIcon icon={faArrowLeft} /></a></Link>
                     <p className="grey" style={{margin: 'auto'}}>{test.name}</p>
                 </div>
