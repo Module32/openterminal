@@ -73,7 +73,7 @@ export default function Play() {
                             <p style={{marginLeft: 'auto'}}><span style={{color: '#ff3624'}}><FontAwesomeIcon icon={faArrowUpRightDots} /></span> 0 points</p>
                         </div>
                         <h1 style={{fontSize: '2.4em'}}>{questions[questionNumber][`question${questionNumber}`]}</h1>
-                        {questions[questionNumber][`hint${questionNumber}`] ? <p><span style={{color: '#ffa70f'}}><FontAwesomeIcon icon={faArrowUpRightDots} /></span> {questions[questionNumber][`question${questionNumber}`]}</p> : None}
+                        {questions[questionNumber][`hint${questionNumber}`] ? <p><span style={{color: '#ffa70f'}}><FontAwesomeIcon icon={faArrowUpRightDots} /></span> {questions[questionNumber][`question${questionNumber}`]}</p> : null}
                     </div>
                     <div style={{flex: '1', padding: '10px', paddingTop: '25px', borderLeft: '2px solid rgb(255, 255, 255, 0.2)'}}>
                         {CreateAnswers(questionNumber)}
