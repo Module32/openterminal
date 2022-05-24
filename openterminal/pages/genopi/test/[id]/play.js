@@ -14,6 +14,7 @@ export default function Play() {
     const [buttonStyle, setButtonStyle] = useState("neutral");
     const [streak, setStreak] = useState(0);
     const [explanation, setExplanation] = useState("");
+    const [disabled, setDisabled] = useState(false);
     const { pid } = router.query
 
     let test = {
@@ -35,24 +36,26 @@ export default function Play() {
             let question = questions[index]
             if (question[`answer${index+1}`] === answer) {
                 setButtonStyle("green")
+                setDisabled(true);
                 setTimeout(() => {
                     setQuestionNumber(index + 1);
-                    setButtonStyle("neutral")
-                }, 2000)
+                    setButtonStyle("neutral");
+                    setDisabled(false);
+                }, 1500)
                 setStreak(streak + 1)
             } else {
                 setStreak(0)
                 setButtonStyle("red")
+                setDisabled(true);
                 setExplanation(<>
                     <p><span style={{color: '#1ac74e'}}><FontAwesomeIcon icon={faCheck} /></span> <span className="grey">Answer:</span> {question[`answer${index+1}`]}</p>
-                    {question[`explanation${index+1}`] !== "" ? <>
-                        <p><span className="grey">Explanation:</span> {question[`explanation${index+1}`] !== ""}</p>
-                        <button className="green" onClick={() => {
+                    {question[`explanation${index+1}`] !== "" ? <p><span className="grey">Explanation:</span> {question[`explanation${index+1}`] !== ""}</p> : null}
+                    <button className="green" onClick={() => {
                             setQuestionNumber(index + 1);
                             setButtonStyle("neutral")
                             setExplanation("")
-                        }}>Got it</button>
-                    </> : null}
+                            setDisabled(false);
+                    }}>Got it</button>
                 </>)
             }
         } else {
@@ -86,7 +89,7 @@ export default function Play() {
         return (<>
             <div>
                 {answers.map((answer, index) => 
-                    <button key={index} className={buttonStyle} style={{flexDirection: 'column', width: '95%'}} onClick={() => handleAnswerSumbit(questionNumber, answer)}>{answer}</button>
+                    <button key={index} className={buttonStyle} style={{flexDirection: 'column', width: '95%'}} onClick={() => handleAnswerSumbit(questionNumber, answer)} disabled={disabled}>{answer}</button>
                 )}
             </div>
         </>)
