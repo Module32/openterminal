@@ -3,7 +3,7 @@ import Layout from '../../../../components/layout'
 import Footer from '../../../../components/footer'
 import Link from 'next/link'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowLeft, faArrowUpRightDots, faLightbulb, faCheck } from '@fortawesome/free-solid-svg-icons'
+import { faArrowLeft, faArrowUpRightDots, faLightbulb, faCheck, faFire } from '@fortawesome/free-solid-svg-icons'
 import { useSession } from "next-auth/react"
 import { useState, useEffect } from "react"
 
@@ -21,10 +21,16 @@ export default function Play() {
         "name": "McBrierty End-Of-Year Review",
         "creator": "Ekya Dogra",
         "questions": [
-            { "question1": "Homeostasis is the balance of what?", "answer1": "Internal and external processes of the body", "hint1": "when it's cold outside, you take a blanket", "explanation1": "" },
+            { "question1": "Homeostasis is the balance of what?", "answer1": "Internal and external processes of the body", "hint1": "when it's cold outside, you take a blanket", "explanation1": "Homeostasis is the balance between the external environment and an organism's internal stability. It keeps the body's conditions in equilibrium with the environment's conditions to keep the organism safe and healthy." },
             { "question2": "What is an angiosperm?", "answer2": "A flowering plant", "hint2": "", "explanation2": "" },
             { "question3": "An organism with more than one cell is known as...", "answer3": "Eukaryote", "hint3": "", "explanation3": "" },
-            { "question4": "The powerhouse of the cell is...", "answer4": "Mitochondria", "hint4": "", "explanation4": "" }
+            { "question4": "The powerhouse of the cell is...", "answer4": "Mitochondria", "hint4": "", "explanation4": "" },
+            { "question5": "Ekya, William, and I are:", "answer5": "Eukaryotes", "hint5": "", "explanation5": "" },
+            { "question6": "Which of the following is NOT a characteristic of all living things?", "answer6": "Form relationships", "hint6": "", "explanation6": "" },
+            { "question7": "Darwin sailed on the...", "answer7": "HMS Beagle", "hint7": "", "explanation7": "" },
+            { "question8": "Diffusion is the process of:", "answer8": "Higher concentrations moving into lower concentration areas", "hint8": "", "explanation8": "" },
+            { "question9": "Which of the following is not a stage of the cell cycle?", "answer9": "Transpiration", "hint9": "", "explanation9": "" },
+            { "question10": "Osmosis is the diffusion of:", "answer10": "Water", "hint10": "", "explanation10": "" }
         ]
     }
     
@@ -116,8 +122,15 @@ export default function Play() {
                         <div style={{padding: '10px'}}>
                             {CreateAnswers(questionNumber)}
                         </div>
-                        <div style={{width: '98%'}}>
-
+                        <div style={{width: '98%', backgroundColor: streak > 9 ? '#eb4034' : streak > 4 ? '#fc7826' : '' }}>
+                            <p style={{ color: streak > 9 ? 'white' : streak > 4 ? '#242323' : 'rgb(255, 255, 255, 0.4)' }}>
+                                <FontAwesomeIcon icon={faFire} /> { streak > 9 ?
+                                    <span><strong>You're on fire!</strong> Streak of <strong>{streak}</strong></span> :
+                                    streak > 4 ?
+                                    <span><strong>Nice!</strong> Streak of <strong>{streak}</strong></span> :
+                                    <span>Streak of <strong>{streak}</strong></span>
+                                }
+                            </p>
                         </div>
                     </div>
                 </div>
