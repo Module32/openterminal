@@ -3,7 +3,7 @@ import Layout from '../../../../components/layout'
 import Footer from '../../../../components/footer'
 import Link from 'next/link'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowLeft, faArrowUpRightDots, faLightbulb } from '@fortawesome/free-solid-svg-icons'
+import { faArrowLeft, faArrowUpRightDots, faLightbulb, faCheck } from '@fortawesome/free-solid-svg-icons'
 import { useSession } from "next-auth/react"
 import { useState, useEffect } from "react"
 
@@ -26,6 +26,39 @@ export default function Play() {
     
     if (status !== "authenticated") { return "Log in to access this page!" }
     let questions = test["questions"];
+    let buttonStyle = "neutral";
+    let streak = 0;
+    let explanation = "";
+
+    const handleAnswerSumbit = (index, answer) => {
+        if (index + 1 < questions.length) {
+            let question = questions[index]
+            if (question[`answer${index+1}`] === answer) {
+                buttonStyle = "green"
+                setTimeout(() => {
+                    setQuestionNumber(index + 1);
+                    buttonStyle = "neutral";
+                }, 2000)
+                streak += 1;
+            } else {
+                streak = 0;
+                buttonStyle = "red";
+                explanation = <>
+                    <p><span style={{color: '#1ac74e'}}><FontAwesomeIcon icon={faCheck} /></span> <span className="grey">Answer:</span> {question[`answer${index+1}`]}</p>
+                    {question[`explanation${index+1}`] !== "" ? <>
+                        <p><span className="grey">Explanation:</span> {question[`explanation${index+1}`] !== ""}</p>
+                        <button className="green" onClick={() => {
+                            setQuestionNumber(index + 1);
+                            buttonStyle = "neutral";
+                            explanation = "";
+                        }}>Got it</button>
+                    </> : null}
+                </>
+            }
+        } else {
+            console.log("this is the end")
+        }
+    }
     
     const CreateAnswers = (index) => {
         let answers = [];
@@ -53,7 +86,7 @@ export default function Play() {
         return (<>
             <div>
                 {answers.map((answer, index) => 
-                    <button key={index} className="neutral" style={{flexDirection: 'column', width: '95%'}}>{answer}</button>
+                    <button key={index} className={buttonStyle} style={{flexDirection: 'column', width: '95%'}} onClick={() => handleAnswerSumbit(questionNumber, answer)}>{answer}</button>
                 )}
             </div>
         </>)
@@ -75,8 +108,13 @@ export default function Play() {
                         <h1 style={{fontSize: '2.4em'}}>{questions[questionNumber][`question${questionNumber + 1}`]}</h1>
                         {questions[questionNumber][`hint${questionNumber + 1}`] !== "" ? (<><p><span style={{color: '#ffa70f'}}><FontAwesomeIcon icon={faLightbulb} /></span> {questions[questionNumber][`hint${questionNumber + 1}`]}</p></>) : null}
                     </div>
-                    <div style={{flex: '1', padding: '10px', paddingTop: '25px', borderLeft: '2px solid rgb(255, 255, 255, 0.2)'}}>
-                        {CreateAnswers(questionNumber)}
+                    <div style={{flex: '1', paddingTop: '25px', borderLeft: '2px solid rgb(255, 255, 255, 0.2)'}}>
+                        <div style={{padding: '10px'}}>
+                            {CreateAnswers(questionNumber)}
+                        </div>
+                        <div style={{width: '98%'}}>
+
+                        </div>
                     </div>
                 </div>
             </Layout>
