@@ -15,6 +15,7 @@ export default function Play() {
     const [streak, setStreak] = useState(0);
     const [explanation, setExplanation] = useState("");
     const [disabled, setDisabled] = useState(false);
+    const [score, setScore] = useState(0);
     const { pid } = router.query
 
     let test = {
@@ -37,12 +38,17 @@ export default function Play() {
     if (status !== "authenticated") { return "Log in to access this page!" }
     let questions = test["questions"];
 
-    const handleAnswerSumbit = (index, answer) => {
+    const handleAnswerSumbit = (index, answer, time) => {
         if (index + 1 <= questions.length) {
             let question = questions[index]
             if (question[`answer${index+1}`] === answer) {
                 setButtonStyle("green")
                 setDisabled(true);
+                let secs = Math.floor(time / 1000);
+                let pointsDeducted = Math.floor(1.7**secs);
+                if (pointsDeducted > 80) pointsDeducted = 80;
+                let amountGained = 100 - pointsDeducted;
+                setScore(amountGained)
                 setTimeout(() => {
                     setQuestionNumber(index + 1);
                     setButtonStyle("neutral");
@@ -91,11 +97,12 @@ export default function Play() {
         }
 
         answers = answers.sort(() => (Math.random() > 0.5) ? 1 : -1)
+        let time = Date.now();
 
         return (<>
             <div>
                 {answers.map((answer, index) => 
-                    <button key={index} className={buttonStyle} style={{flexDirection: 'column', width: '95%'}} onClick={() => handleAnswerSumbit(questionNumber, answer)} disabled={disabled}>{answer}</button>
+                    <button key={index} className={buttonStyle} style={{flexDirection: 'column', width: '95%'}} onClick={() => handleAnswerSumbit(questionNumber, answer, Date.now() - time)} disabled={disabled}>{answer}</button>
                 )}
             </div>
         </>)
@@ -112,7 +119,7 @@ export default function Play() {
                     <div style={{flex: '1', padding: '10px 20px'}}>
                         <div style={{display: 'flex'}}>
                             <p>{questionNumber + 1} <span className="grey">of {questions.length}</span></p>
-                            <p style={{marginLeft: 'auto'}}><span style={{color: '#ff3624'}}><FontAwesomeIcon icon={faArrowUpRightDots} /></span> 0 points</p>
+                            <p style={{marginLeft: 'auto'}}><span style={{color: '#ff3624'}}><FontAwesomeIcon icon={faArrowUpRightDots} /></span> {score} XP</p>
                         </div>
                         <h1 style={{fontSize: '2.4em'}}>{questions[questionNumber][`question${questionNumber + 1}`]}</h1>
                         {questions[questionNumber][`hint${questionNumber + 1}`] !== "" ? (<><p><span style={{color: '#ffa70f'}}><FontAwesomeIcon icon={faLightbulb} /></span> {questions[questionNumber][`hint${questionNumber + 1}`]}</p></>) : null}
