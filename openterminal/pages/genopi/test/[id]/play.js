@@ -62,7 +62,7 @@ export default function Play() {
     return (
         <>
             <Layout>
-                <div style={{marginTop: '85px', marginBottom: '20px', padding: '10px', backgroundColor: '#1c1c1c', display: 'flex'}}>
+                <div style={{marginTop: '80px', marginBottom: '20px', padding: '10px', backgroundColor: '#1c1c1c', display: 'flex'}}>
                     <Link href="/genopi/dashboard" ><a className="padding neutral"><FontAwesomeIcon icon={faArrowLeft} /></a></Link>
                     <p className="grey" style={{margin: 'auto'}}>{test.name}</p>
                 </div>
@@ -72,7 +72,7 @@ export default function Play() {
                             <p>1 <span className="grey">of {questions.length}</span></p>
                             <p style={{marginLeft: 'auto'}}><span style={{color: '#ff3624'}}><FontAwesomeIcon icon={faArrowUpRightDots} /></span> 0 points</p>
                         </div>
-                        <h1 style={{fontSize: '2.4em'}}>{questions[questionNumber][`question${questionNumber}`]}</h1>
+                        <h1 style={{fontSize: '2.4em'}}>{questions[questionNumber][`question${questionNumber + 1}`]}</h1>
                         {questions[questionNumber][`hint${questionNumber}`] ? <p><span style={{color: '#ffa70f'}}><FontAwesomeIcon icon={faArrowUpRightDots} /></span> {questions[questionNumber][`question${questionNumber}`]}</p> : null}
                     </div>
                     <div style={{flex: '1', padding: '10px', paddingTop: '25px', borderLeft: '2px solid rgb(255, 255, 255, 0.2)'}}>
