@@ -38,7 +38,7 @@ export default function Play() {
     let questions = test["questions"];
 
     const handleAnswerSumbit = (index, answer) => {
-        if (index + 1 < questions.length) {
+        if (index + 1 <= questions.length) {
             let question = questions[index]
             if (question[`answer${index+1}`] === answer) {
                 setButtonStyle("green")
@@ -55,7 +55,7 @@ export default function Play() {
                 setDisabled(true);
                 setExplanation(<>
                     <p><span style={{color: '#1ac74e'}}><FontAwesomeIcon icon={faCheck} /></span> <span className="grey">Answer:</span> {question[`answer${index+1}`]}</p>
-                    {question[`explanation${index+1}`] !== "" ? <p><span className="grey">Explanation:</span> {question[`explanation${index+1}`] !== ""}</p> : null}
+                    {question[`explanation${index+1}`] !== "" ? <p><span className="grey">Explanation:</span> {question[`explanation${index+1}`]}</p> : null}
                     <button className="green" onClick={() => {
                             setQuestionNumber(index + 1);
                             setButtonStyle("neutral")
