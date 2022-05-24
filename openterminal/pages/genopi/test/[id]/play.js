@@ -104,7 +104,7 @@ export default function Play() {
     return (
         <>
             <Layout>
-                <div style={{marginTop: '80px', marginBottom: '20px', padding: '10px', backgroundColor: '#1c1c1c', display: 'flex'}}>
+                <div style={{marginTop: '80px', paddingBottom: '0px', padding: '10px', backgroundColor: '#1c1c1c', display: 'flex'}}>
                     <Link href="/genopi/dashboard" ><a className="padding neutral"><FontAwesomeIcon icon={faArrowLeft} /></a></Link>
                     <p className="grey" style={{margin: 'auto'}}>{test.name}</p>
                 </div>
@@ -122,7 +122,7 @@ export default function Play() {
                         <div style={{padding: '10px'}}>
                             {CreateAnswers(questionNumber)}
                         </div>
-                        <div style={{width: '98%', backgroundColor: streak > 9 ? '#eb4034' : streak > 4 ? '#fc7826' : '' }}>
+                        <div style={{width: '100%', padding: '10px', backgroundColor: streak > 9 ? '#eb4034' : streak > 4 ? '#fc7826' : '' }}>
                             <p style={{ color: streak > 9 ? 'white' : streak > 4 ? '#242323' : 'rgb(255, 255, 255, 0.4)' }}>
                                 <FontAwesomeIcon icon={faFire} /> { streak > 9 ?
                                     <span><strong>You&apos;re on fire!</strong> Streak of <strong>{streak}</strong></span> :
