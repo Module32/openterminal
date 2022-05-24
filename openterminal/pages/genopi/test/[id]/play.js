@@ -49,12 +49,13 @@ export default function Play() {
                 if (pointsDeducted > 80) pointsDeducted = 80;
                 let amountGained = 100 - pointsDeducted;
                 setScore(score + amountGained)
+                setStreak(streak + 1)
+                if (index + 1 === questions.length) return;
                 setTimeout(() => {
                     setQuestionNumber(index + 1);
                     setButtonStyle("neutral");
                     setDisabled(false);
                 }, 1500)
-                setStreak(streak + 1)
             } else {
                 setStreak(0)
                 setButtonStyle("red")
