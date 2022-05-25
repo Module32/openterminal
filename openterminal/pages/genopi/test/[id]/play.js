@@ -170,7 +170,7 @@ export default function Play() {
                                     setExplanation("");
                                     setDisabled(false);
                                     setScore(0);
-                                    setHighStreak();
+                                    setHighStreak(0);
                                     setCorrect(0);
                                     setAvgTime(0);
                                     setScreen("test");

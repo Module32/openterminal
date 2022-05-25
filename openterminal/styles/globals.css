@@ -150,7 +150,7 @@ a.padding.neutral, button.neutral {
 }
 
 a.padding.neutral:hover, button.neutral:hover {
-  background-color: rgb(221, 225, 255, 0.1);
+  background-color: rgb(221, 225, 255, 0.15);
 }
 
 a.padding.red, button.red {
