@@ -163,7 +163,18 @@ export default function Play() {
                             </h3>
                             <div style={{display: 'flex', paddingBottom: '30px'}}>
                                 <Link href=""><a className="padding">Return to test overview</a></Link>
-                                <button className="padding neutral" onClick={Router.reload(window.location.pathname)}>Retake test</button>
+                                <button className="padding neutral" onClick={() => {
+                                    setQuestionNumber(0);
+                                    setButtonStyle("neutral");
+                                    setStreak(0);
+                                    setExplanation("");
+                                    setDisabled(false);
+                                    setScore(0);
+                                    setHighStreak();
+                                    setCorrect(0);
+                                    setAvgTime(0);
+                                    setScreen("test");
+                                }}>Answer more</button>
                             </div>
                         </div>
                 </>}
