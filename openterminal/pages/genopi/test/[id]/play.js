@@ -156,6 +156,7 @@ export default function Play() {
                 </> : <>
                         <div style={{padding: '10px', paddingTop: '30px', textAlign: 'center'}}>
                             <h1><span style={{color: '#fac30f'}}><FontAwesomeIcon icon={faFlagCheckered} /></span> Congrats, you finished!</h1>
+                            <h2><span style={{color: '#ff3624'}}><FontAwesomeIcon icon={faArrowUpRightDots} /></span> {score} XP gained</h2>
                             <h3>
                                 <span style={{color: '#1ac74e'}}><FontAwesomeIcon icon={faCheck} /></span> {correct} correct out of {questions.length}<br />
                                 <span style={{color: '#fc7826'}}><FontAwesomeIcon icon={faFire} /></span> High streak of {highStreak}<br />
