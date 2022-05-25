@@ -4,7 +4,7 @@ html,
 body {
   color: white;
   background-color: black;
-  font-family: -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Inter", Helvetica, sans-serif;
   margin: 0;
 	padding: 0;
   z-index: 1;
@@ -127,6 +127,7 @@ a.padding, button {
   font-size: 100%;
   margin: 5px;
   border: none;
+  font-family: -apple-system, BlinkMacSystemFont, "Inter", Helvetica, sans-serif;
 }
 
 a.padding:hover, button:hover {
