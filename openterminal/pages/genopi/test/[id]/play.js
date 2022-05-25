@@ -161,7 +161,7 @@ export default function Play() {
                                 <span style={{color: '#fc7826'}}><FontAwesomeIcon icon={faFire} /></span> High streak of {highStreak}<br />
                                 <FontAwesomeIcon icon={faClock} /> Average time of {Math.floor((avgTime / questions.length) / 1000)} secs
                             </h3>
-                            <div style={{display: 'flex', paddingBottom: '30px', margin: 'auto'}}>
+                            <div style={{display: 'flex', paddingBottom: '30px', justifyContent: 'center', alignItems: 'center'}}>
                                 <Link href=""><a className="padding">Return to test overview</a></Link>
                                 <button className="padding neutral" onClick={() => {
                                     setQuestionNumber(0);
