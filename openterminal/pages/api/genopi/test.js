@@ -43,7 +43,7 @@ export default async function handler(req, res) {
   }
 }
 
-main()
+handler()
   .catch(e => {
     throw e
   })
