@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft, faArrowUpRightDots, faLightbulb, faCheck, faFire, faFlagCheckered, faClock } from '@fortawesome/free-solid-svg-icons'
 import { useSession } from "next-auth/react"
 import { useState, useEffect } from "react"
-import Fade from 'react-reveal/Fade';
+import Router from 'next/router'
 
 export default function Play() {
     const router = useRouter()
@@ -45,6 +45,7 @@ export default function Play() {
 
     const handleAnswerSumbit = (index, answer, time) => {
         setAvgTime(avgTime + time)
+        if (streak > highStreak) setHighStreak(streak);
         if (index + 1 <= questions.length) {
             let question = questions[index]
             if (question[`answer${index+1}`] === answer) {
@@ -69,7 +70,6 @@ export default function Play() {
                     }, 1500)
                 }
             } else {
-                if (streak > highStreak) setHighStreak(streak);
                 setStreak(0)
                 setButtonStyle("red")
                 setDisabled(true);
@@ -154,16 +154,18 @@ export default function Play() {
                         </div>
                     </div>
                 </> : <>
-                    <Fade in>
                         <div style={{padding: '10px', paddingTop: '30px', textAlign: 'center'}}>
                             <h1><span style={{color: '#fac30f'}}><FontAwesomeIcon icon={faFlagCheckered} /></span> Congrats, you finished!</h1>
                             <h3>
                                 <span style={{color: '#1ac74e'}}><FontAwesomeIcon icon={faCheck} /></span> {correct} correct out of {questions.length}<br />
-                                <span style={{color: '#242323'}}><FontAwesomeIcon icon={faFire} /></span> High streak of {highStreak}<br />
+                                <span style={{color: '#fc7826'}}><FontAwesomeIcon icon={faFire} /></span> High streak of {highStreak}<br />
                                 <FontAwesomeIcon icon={faClock} /> Average time of {Math.floor((avgTime / questions.length) / 1000)} secs
                             </h3>
+                            <div style={{display: 'flex', paddingBottom: '30px'}}>
+                                <Link href=""><a className="padding">Return to test overview</a></Link>
+                                <button className="padding neutral" onClick={Router.reload(window.location.pathname)}>Retake test</button>
+                            </div>
                         </div>
-                    </Fade>
                 </>}
             </Layout>
             <Footer>
