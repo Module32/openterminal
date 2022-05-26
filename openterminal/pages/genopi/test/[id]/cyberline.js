@@ -123,11 +123,9 @@ export default function Play() {
         </>)
     }
 
-    class MakePlayers extends React.Component {
-        render() {
-          return <span className="codefont" style={{backgroundColor: props.bkgmode === "neutral" ? '#383838' : "#ff306e", padding: '5px 10px', borderRadius: '7px', margin: '10px'}}>props.name</span>
-        }
-      }
+    const MakePlayers = (props) => {
+        return <span className="codefont" style={{backgroundColor: props.bkgmode === "neutral" ? '#383838' : "#ff306e", padding: '5px 10px', borderRadius: '7px', margin: '10px'}}>props.name</span>
+    }
 
     return (
         <>
