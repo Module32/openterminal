@@ -124,7 +124,9 @@ export default function Play() {
     }
 
     const MakePlayers = (name, bkgmode) => {
-        return (<span className="codefont" style={{backgroundColor: bkgmode === "neutral" ? '#383838' : "#ff306e", padding: '5px 15px', borderRadius: '7px', margin: '10px'}}>{name}</span>)
+        return (<>
+            <span className="codefont" style={{backgroundColor: bkgmode === "neutral" ? '#383838' : "#ff306e", padding: '5px 15px', borderRadius: '7px', margin: '10px'}}>{name}</span>
+        </>)
     }
 
     return (
