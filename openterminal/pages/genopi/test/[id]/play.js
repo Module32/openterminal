@@ -58,7 +58,7 @@ export default function Play() {
                 let amountGained = 100 - pointsDeducted;
                 setScore(score + amountGained)
                 setStreak(streak + 1)
-                if (index + 1 !== questions.length) {
+                if (questionNumber + 1 <= questions.length) {
                     setTimeout(() => {
                         setQuestionNumber(index + 1);
                         setButtonStyle("neutral");
@@ -133,9 +133,13 @@ export default function Play() {
                                 <p>{questionNumber + 1} <span className="grey">of {questions.length}</span></p>
                                 <p style={{marginLeft: 'auto'}}><span style={{color: '#ff3624'}}><FontAwesomeIcon icon={faArrowUpRightDots} /></span> {score} XP</p>
                             </div>
-                            <h1 style={{fontSize: '2.4em'}}>{questions[questionNumber][`question${questionNumber + 1}`]}</h1>
-                            {questions[questionNumber][`hint${questionNumber + 1}`] !== "" ? (<><p><span style={{color: '#ffa70f'}}><FontAwesomeIcon icon={faLightbulb} /></span> {questions[questionNumber][`hint${questionNumber + 1}`]}</p></>) : null}
-                            {explanation !== "" ? explanation : null}
+                            { questionNumber + 1 <= questions.length ? 
+                                <>
+                                    <h1 style={{fontSize: '2.4em'}}>{questions[questionNumber][`question${questionNumber + 1}`]}</h1>
+                                    {questions[questionNumber][`hint${questionNumber + 1}`] !== "" ? (<><p><span style={{color: '#ffa70f'}}><FontAwesomeIcon icon={faLightbulb} /></span> {questions[questionNumber][`hint${questionNumber + 1}`]}</p></>) : null}
+                                    {explanation !== "" ? explanation : null}
+                                </>
+                            : null }
                         </div>
                         <div style={{flex: '1', paddingTop: '25px', borderLeft: '2px solid rgb(255, 255, 255, 0.2)'}}>
                             <div style={{padding: '10px'}}>
