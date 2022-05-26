@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft, faArrowUpRightDots, faLightbulb, faCheck, faFire, faFlagCheckered, faClock } from '@fortawesome/free-solid-svg-icons'
 import { useSession } from "next-auth/react"
-import { useState, useEffect } from "react"
+import React, { useState, useEffect } from "react"
 import Router from 'next/router'
 import Image from 'next/image'
 
@@ -22,6 +22,7 @@ export default function Play() {
     const [correct, setCorrect] = useState(0);
     const [avgTime, setAvgTime] = useState(0);
     const [screen, setScreen] = useState("test");
+    const [showHint, setShowHint] = useState(false);
     const { pid } = router.query
 
     let test = {
@@ -52,11 +53,12 @@ export default function Play() {
             if (question[`answer${index+1}`] === answer) {
                 setButtonStyle("green")
                 setDisabled(true);
+                setShowHint(false);
                 setCorrect(correct + 1);
                 let secs = Math.floor(time / 1000);
-                let pointsDeducted = Math.floor(1.7**secs);
+                let pointsDeducted = Math.floor(1.6**secs);
                 if (pointsDeducted > 80) pointsDeducted = 80;
-                let amountGained = 100 - pointsDeducted;
+                let amountGained = 200 - pointsDeducted;
                 setScore(score + amountGained)
                 setStreak(streak + 1)
                 if (questionNumber + 1 <= questions.length) {
@@ -82,6 +84,7 @@ export default function Play() {
                             setButtonStyle("neutral")
                             setExplanation("")
                             setDisabled(false);
+                            setShowHint(false);
                     }}>Got it</button>
                 </>)
             }
@@ -120,21 +123,21 @@ export default function Play() {
         </>)
     }
 
-    const MakePlayers = (name, bkgmode) => { 
-        return <>
-            <span className="codefont" style={{backgroundColor: bkgmode === "neutral" ? '#595959ff' : "#ff2975ff", padding: '5px 10px', borderRadius: '7px', margin: '10px'}}>You</span>
-        </>
-    }
+    class MakePlayers extends React.Component {
+        render() {
+          return <span className="codefont" style={{backgroundColor: this.props.bkgmode === "neutral" ? '#383838' : "#ff306e", padding: '5px 10px', borderRadius: '7px', margin: '10px'}}>this.props.name</span>
+        }
+      }
 
     return (
         <>
             <Layout>
                 <div style={{marginTop: '80px', paddingBottom: '0px', padding: '10px', backgroundColor: 'black', display: 'flex', justifyContent: 'center'}}>
-                    <Link href="/genopi/dashboard" ><a className="padding neutral"><FontAwesomeIcon icon={faArrowLeft} /></a></Link>
+                    <span style={{marginRight: 'auto'}}><Link href="/genopi/dashboard" ><a className="padding neutral"><FontAwesomeIcon icon={faArrowLeft} /></a></Link></span>
                     <Image
                         src="pics/genopi/cyberline/cyberline.png"
-                        width="225"
-                        height="50"
+                        width="180"
+                        height="40"
                         alt="Cyberlink"
                     />
                 </div>
@@ -150,17 +153,18 @@ export default function Play() {
                         <div style={{flex: '1', padding: '10px 20px'}}>
                             <div style={{display: 'flex'}}>
                                 <p>{questionNumber + 1} <span className="grey">of {questions.length}</span></p>
-                                <p style={{marginLeft: 'auto'}}><span style={{color: '#ff3624'}}><FontAwesomeIcon icon={faArrowUpRightDots} /></span> {score} XP</p>
+                                <p style={{marginLeft: 'auto'}}><span style={{color: '#ff306e'}}><FontAwesomeIcon icon={faArrowUpRightDots} /> {score}</span> XP</p>
                             </div>
                             { questionNumber + 1 <= questions.length ? 
                                 <>
-                                    <h1 style={{fontSize: '2.4em'}}>{questions[questionNumber][`question${questionNumber + 1}`]}</h1>
-                                    {questions[questionNumber][`hint${questionNumber + 1}`] !== "" ? (<><p><span style={{color: '#ffa70f'}}><FontAwesomeIcon icon={faLightbulb} /></span> {questions[questionNumber][`hint${questionNumber + 1}`]}</p></>) : null}
+                                    <h1 style={{fontSize: '3em'}}>{questions[questionNumber][`question${questionNumber + 1}`]}</h1>
+                                    {questions[questionNumber][`hint${questionNumber + 1}`] !== "" ? (<><button className="neutral" onClick={() => setShowHint(true)}><span style={{color: '#ffa70f'}}><FontAwesomeIcon icon={faLightbulb} /></span> {showHint === true ? questions[questionNumber][`hint${questionNumber + 1}`] : null}</button></>
+                                    ) : null}
                                     {explanation !== "" ? explanation : null}
                                 </>
                             : null }
                         </div>
-                        <div style={{flex: '1', paddingTop: '25px', borderLeft: '2px solid rgb(255, 255, 255, 0.2)'}}>
+                        <div style={{flex: '1', paddingTop: '25px'}}>
                             <div style={{padding: '10px'}}>
                                 {CreateAnswers(questionNumber)}
                             </div>
@@ -175,6 +179,9 @@ export default function Play() {
                                 </p>
                             </div>
                         </div>
+                    </div>
+                    <div style={{paddingBottom: '0px', padding: '10px', backgroundColor: 'black', display: 'flex'}}>
+                        <span style={{marginLeft: 'auto'}}><span style={{color: '#ff306e'}}>Cyberlink</span> <span className="grey">|</span> The future awaits</span>
                     </div>
                 </> : <>
                         <div style={{padding: '10px', paddingTop: '30px', textAlign: 'center'}}>

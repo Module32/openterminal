@@ -8,16 +8,14 @@ import { useSession } from "next-auth/react"
 import { useState, useEffect } from "react"
 import Router from 'next/router'
 
-export default function Play() {
+export default function Practice() {
     const router = useRouter()
     const { data: session, status } = useSession()
     const [questionNumber, setQuestionNumber] = useState(0);
     const [buttonStyle, setButtonStyle] = useState("neutral");
-    const [streak, setStreak] = useState(0);
     const [explanation, setExplanation] = useState("");
     const [disabled, setDisabled] = useState(false);
     const [score, setScore] = useState(0);
-    const [highStreak, setHighStreak] = useState(0);
     const [correct, setCorrect] = useState(0);
     const [avgTime, setAvgTime] = useState(0);
     const [screen, setScreen] = useState("test");
@@ -45,7 +43,6 @@ export default function Play() {
 
     const handleAnswerSumbit = (index, answer, time) => {
         setAvgTime(avgTime + time)
-        if (streak > highStreak) setHighStreak(streak);
         if (index + 1 <= questions.length) {
             let question = questions[index]
             if (question[`answer${index+1}`] === answer) {
@@ -57,7 +54,6 @@ export default function Play() {
                 if (pointsDeducted > 80) pointsDeducted = 80;
                 let amountGained = 100 - pointsDeducted;
                 setScore(score + amountGained)
-                setStreak(streak + 1)
                 if (questionNumber + 1 <= questions.length) {
                     setTimeout(() => {
                         setQuestionNumber(index + 1);
@@ -70,7 +66,6 @@ export default function Play() {
                     }, 1500)
                 }
             } else {
-                setStreak(0)
                 setButtonStyle("red")
                 setDisabled(true);
                 setExplanation(<>
@@ -145,16 +140,6 @@ export default function Play() {
                             <div style={{padding: '10px'}}>
                                 {CreateAnswers(questionNumber)}
                             </div>
-                            <div style={{width: '100%', padding: '10px', backgroundColor: streak > 9 ? '#eb4034' : streak > 4 ? '#fc7826' : '' }}>
-                                <p style={{ color: streak > 9 ? 'white' : streak > 4 ? '#242323' : 'rgb(255, 255, 255, 0.4)' }}>
-                                    <FontAwesomeIcon icon={faFire} /> { streak > 9 ?
-                                        <span><strong>You&apos;re on fire!</strong> Streak of <strong>{streak}</strong></span> :
-                                        streak > 4 ?
-                                        <span><strong>Nice!</strong> Streak of <strong>{streak}</strong></span> :
-                                        <span>Streak of <strong>{streak}</strong></span>
-                                    }
-                                </p>
-                            </div>
                         </div>
                     </div>
                 </> : <>
@@ -163,7 +148,6 @@ export default function Play() {
                             <h2><span style={{color: '#ff3624'}}><FontAwesomeIcon icon={faArrowUpRightDots} /></span> {score} XP gained</h2>
                             <h3>
                                 <span style={{color: '#1ac74e'}}><FontAwesomeIcon icon={faCheck} /></span> {correct} correct out of {questions.length}<br />
-                                <span style={{color: '#fc7826'}}><FontAwesomeIcon icon={faFire} /></span> High streak of {highStreak}<br />
                                 <FontAwesomeIcon icon={faClock} /> Average time of {Math.floor((avgTime / questions.length) / 1000)} secs
                             </h3>
                             <div style={{display: 'flex', paddingBottom: '30px', justifyContent: 'center', alignItems: 'center'}}>
@@ -171,11 +155,9 @@ export default function Play() {
                                 <button className="padding neutral" onClick={() => {
                                     setQuestionNumber(0);
                                     setButtonStyle("neutral");
-                                    setStreak(0);
                                     setExplanation("");
                                     setDisabled(false);
                                     setScore(0);
-                                    setHighStreak(0);
                                     setCorrect(0);
                                     setAvgTime(0);
                                     setScreen("test");
