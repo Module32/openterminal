@@ -123,23 +123,23 @@ export default function Play() {
         </>)
     }
 
-    const MakePlayers = (props) => {
-        return <span className="codefont" style={{backgroundColor: props.bkgmode === "neutral" ? '#383838' : "#ff306e", padding: '5px 10px', borderRadius: '7px', margin: '10px'}}>props.name</span>
+    const MakePlayers = (name, bkgmode) => {
+        return <span className="codefont" style={{backgroundColor: bkgmode === "neutral" ? '#383838' : "#ff306e", padding: '5px 10px', borderRadius: '7px', margin: '10px'}}>name</span>
     }
 
     return (
         <>
             <Layout>
                 <div style={{marginTop: '80px', paddingBottom: '0px', padding: '10px', backgroundColor: 'black', display: 'flex', alignItems: 'center'}}>
-                    <span style={{marginRight: 'auto'}}><Link href="/genopi/dashboard" ><a className="padding neutral"><FontAwesomeIcon icon={faArrowLeft} /></a></Link></span>
-                    <span style={{justifyContent: 'center'}}>
+                    <Link href="/genopi/dashboard" ><a className="padding neutral"><FontAwesomeIcon icon={faArrowLeft} /></a></Link>
+                    <div style={{margin: 'auto'}}>
                         <Image
                             src="pics/genopi/cyberline/cyberline.png"
                             width="180"
                             height="40"
                             alt="Cyberlink"
                         />
-                    </span>
+                    </div>
                 </div>
                 <div style={{paddingBottom: '0px', padding: '10px', width: '100%', backgroundColor: '#1c1c1c', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
                     <MakePlayers name="Gaston" bkgmode="neutral" />
