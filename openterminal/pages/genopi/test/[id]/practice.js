@@ -138,11 +138,11 @@ export default function Practice() {
                                         ) : null}
                                     {explanation !== "" ? explanation : null}
                                 </>
-                            : null }
+                            : setScreen("final") }
                         </div>
                         <div style={{flex: '1', paddingTop: '25px', borderLeft: '2px solid rgb(255, 255, 255, 0.2)'}}>
                             <div style={{padding: '10px'}}>
-                                {questionNumber + 1 <= questions.length ? CreateAnswers(questionNumber) : null}
+                                {questionNumber + 1 <= questions.length ? CreateAnswers(questionNumber) : setScreen("final") }
                             </div>
                         </div>
                     </div>

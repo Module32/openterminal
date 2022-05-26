@@ -132,7 +132,7 @@ export default function Play() {
             <Layout>
                 <div style={{marginTop: '80px', paddingBottom: '0px', padding: '10px', backgroundColor: 'black', display: 'flex', alignItems: 'center'}}>
                     <span style={{marginRight: 'auto'}}><Link href="/genopi/dashboard" ><a className="padding neutral"><FontAwesomeIcon icon={faArrowLeft} /></a></Link></span>
-                    <span style={{margin: 'auto'}}>
+                    <span style={{justifyContent: 'center'}}>
                         <Image
                             src="pics/genopi/cyberline/cyberline.png"
                             width="180"
@@ -161,7 +161,7 @@ export default function Play() {
                                     <div style={{display: 'flex'}}>
                                         {questions[questionNumber][`hint${questionNumber + 1}`] !== "" ? (<><button onClick={() => setShowHint(true)} className="neutral"><span style={{color: '#ffa70f'}}><FontAwesomeIcon icon={faLightbulb} /></span> {showHint === true ? questions[questionNumber][`hint${questionNumber + 1}`] : null}</button></>
                                         ) : null}
-                                        <button style={{ backgroundColor: streak > 9 ? '#eb4034' : streak > 4 ? '#fc7826' : 'rgb(255, 255, 255, 0.2)' }}>
+                                        <button style={{ backgroundColor: streak > 4 ? '#ff2975' : 'rgb(255, 255, 255, 0.2)', color: 'white' }}>
                                             <FontAwesomeIcon icon={faFire} /> { streak > 9 ?
                                                 <span><strong>You&apos;re on fire!</strong> Streak of <strong>{streak}</strong></span> :
                                                 streak > 4 ?
@@ -172,15 +172,15 @@ export default function Play() {
                                     </div>
                                     {explanation !== "" ? explanation : null}
                                 </>
-                            : null }
+                            : setScreen("final") }
                         </div>
                         <div style={{flex: '1', paddingTop: '25px'}}>
                             <div style={{padding: '10px'}}>
-                                {CreateAnswers(questionNumber)}
+                                {questionNumber + 1 <= questions.length ? CreateAnswers(questionNumber) : setScreen("final") }
                             </div>
                         </div>
                     </div>
-                    <div className="codefont" style={{padding: '15px', backgroundColor: 'black', display: 'flex'}}>
+                    <div className="codefont" style={{padding: '10px', backgroundColor: 'black', display: 'flex'}}>
                         <p style={{marginLeft: 'auto'}}><span style={{color: '#ff306e'}}>Cyberlink</span> <span className="grey">|</span> The future awaits</p>
                     </div>
                 </> : <>
