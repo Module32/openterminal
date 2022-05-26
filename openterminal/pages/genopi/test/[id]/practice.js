@@ -19,6 +19,7 @@ export default function Practice() {
     const [correct, setCorrect] = useState(0);
     const [avgTime, setAvgTime] = useState(0);
     const [screen, setScreen] = useState("test");
+    const [showHint, setShowHint] = useState(false);
     const { pid } = router.query
 
     let test = {
@@ -56,6 +57,7 @@ export default function Practice() {
                 setScore(score + amountGained)
                 if (questionNumber + 1 <= questions.length) {
                     setTimeout(() => {
+                        setShowHint(false);
                         setQuestionNumber(index + 1);
                         setButtonStyle("neutral");
                         setDisabled(false);
@@ -76,6 +78,7 @@ export default function Practice() {
                             setButtonStyle("neutral")
                             setExplanation("")
                             setDisabled(false);
+                            setShowHint(false);
                     }}>Got it</button>
                 </>)
             }
@@ -131,14 +134,15 @@ export default function Practice() {
                             { questionNumber + 1 <= questions.length ? 
                                 <>
                                     <h1 style={{fontSize: '2.4em'}}>{questions[questionNumber][`question${questionNumber + 1}`]}</h1>
-                                    {questions[questionNumber][`hint${questionNumber + 1}`] !== "" ? (<><p><span style={{color: '#ffa70f'}}><FontAwesomeIcon icon={faLightbulb} /></span> {questions[questionNumber][`hint${questionNumber + 1}`]}</p></>) : null}
+                                    {questions[questionNumber][`hint${questionNumber + 1}`] !== "" ? (<><button onClick={() => setShowHint(true)} className="neutral"><span style={{color: '#ffa70f'}}><FontAwesomeIcon icon={faLightbulb} /></span> {showHint === true ? questions[questionNumber][`hint${questionNumber + 1}`] : null}</button></>
+                                        ) : null}
                                     {explanation !== "" ? explanation : null}
                                 </>
                             : null }
                         </div>
                         <div style={{flex: '1', paddingTop: '25px', borderLeft: '2px solid rgb(255, 255, 255, 0.2)'}}>
                             <div style={{padding: '10px'}}>
-                                {CreateAnswers(questionNumber)}
+                                {questionNumber + 1 <= questions.length ? CreateAnswers(questionNumber) : null}
                             </div>
                         </div>
                     </div>

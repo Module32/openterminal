@@ -53,7 +53,6 @@ export default function Play() {
             if (question[`answer${index+1}`] === answer) {
                 setButtonStyle("green")
                 setDisabled(true);
-                setShowHint(false);
                 setCorrect(correct + 1);
                 let secs = Math.floor(time / 1000);
                 let pointsDeducted = Math.floor(1.6**secs);
@@ -63,6 +62,7 @@ export default function Play() {
                 setStreak(streak + 1)
                 if (questionNumber + 1 <= questions.length) {
                     setTimeout(() => {
+                        setShowHint(false);
                         setQuestionNumber(index + 1);
                         setButtonStyle("neutral");
                         setDisabled(false);
@@ -125,21 +125,23 @@ export default function Play() {
 
     class MakePlayers extends React.Component {
         render() {
-          return <span className="codefont" style={{backgroundColor: this.props.bkgmode === "neutral" ? '#383838' : "#ff306e", padding: '5px 10px', borderRadius: '7px', margin: '10px'}}>this.props.name</span>
+          return <span className="codefont" style={{backgroundColor: props.bkgmode === "neutral" ? '#383838' : "#ff306e", padding: '5px 10px', borderRadius: '7px', margin: '10px'}}>props.name</span>
         }
       }
 
     return (
         <>
             <Layout>
-                <div style={{marginTop: '80px', paddingBottom: '0px', padding: '10px', backgroundColor: 'black', display: 'flex', justifyContent: 'center'}}>
+                <div style={{marginTop: '80px', paddingBottom: '0px', padding: '10px', backgroundColor: 'black', display: 'flex', alignItems: 'center'}}>
                     <span style={{marginRight: 'auto'}}><Link href="/genopi/dashboard" ><a className="padding neutral"><FontAwesomeIcon icon={faArrowLeft} /></a></Link></span>
-                    <Image
-                        src="pics/genopi/cyberline/cyberline.png"
-                        width="180"
-                        height="40"
-                        alt="Cyberlink"
-                    />
+                    <span style={{margin: 'auto'}}>
+                        <Image
+                            src="pics/genopi/cyberline/cyberline.png"
+                            width="180"
+                            height="40"
+                            alt="Cyberlink"
+                        />
+                    </span>
                 </div>
                 <div style={{paddingBottom: '0px', padding: '10px', width: '100%', backgroundColor: '#1c1c1c', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
                     <MakePlayers name="Gaston" bkgmode="neutral" />
@@ -158,8 +160,18 @@ export default function Play() {
                             { questionNumber + 1 <= questions.length ? 
                                 <>
                                     <h1 style={{fontSize: '3em'}}>{questions[questionNumber][`question${questionNumber + 1}`]}</h1>
-                                    {questions[questionNumber][`hint${questionNumber + 1}`] !== "" ? (<><button className="neutral" onClick={() => setShowHint(true)}><span style={{color: '#ffa70f'}}><FontAwesomeIcon icon={faLightbulb} /></span> {showHint === true ? questions[questionNumber][`hint${questionNumber + 1}`] : null}</button></>
-                                    ) : null}
+                                    <div style={{display: 'flex'}}>
+                                        {questions[questionNumber][`hint${questionNumber + 1}`] !== "" ? (<><button onClick={() => setShowHint(true)} className="neutral"><span style={{color: '#ffa70f'}}><FontAwesomeIcon icon={faLightbulb} /></span> {showHint === true ? questions[questionNumber][`hint${questionNumber + 1}`] : null}</button></>
+                                        ) : null}
+                                        <button style={{ backgroundColor: streak > 9 ? '#eb4034' : streak > 4 ? '#fc7826' : 'rgb(255, 255, 255, 0.2)' }}>
+                                            <FontAwesomeIcon icon={faFire} /> { streak > 9 ?
+                                                <span><strong>You&apos;re on fire!</strong> Streak of <strong>{streak}</strong></span> :
+                                                streak > 4 ?
+                                                <span><strong>Nice!</strong> Streak of <strong>{streak}</strong></span> :
+                                                <span>Streak of <strong>{streak}</strong></span>
+                                            }
+                                        </button>
+                                    </div>
                                     {explanation !== "" ? explanation : null}
                                 </>
                             : null }
@@ -168,20 +180,10 @@ export default function Play() {
                             <div style={{padding: '10px'}}>
                                 {CreateAnswers(questionNumber)}
                             </div>
-                            <div style={{width: '100%', padding: '10px', backgroundColor: streak > 9 ? '#eb4034' : streak > 4 ? '#fc7826' : '' }}>
-                                <p style={{ color: streak > 9 ? 'white' : streak > 4 ? '#242323' : 'rgb(255, 255, 255, 0.4)' }}>
-                                    <FontAwesomeIcon icon={faFire} /> { streak > 9 ?
-                                        <span><strong>You&apos;re on fire!</strong> Streak of <strong>{streak}</strong></span> :
-                                        streak > 4 ?
-                                        <span><strong>Nice!</strong> Streak of <strong>{streak}</strong></span> :
-                                        <span>Streak of <strong>{streak}</strong></span>
-                                    }
-                                </p>
-                            </div>
                         </div>
                     </div>
-                    <div style={{paddingBottom: '0px', padding: '10px', backgroundColor: 'black', display: 'flex'}}>
-                        <span style={{marginLeft: 'auto'}}><span style={{color: '#ff306e'}}>Cyberlink</span> <span className="grey">|</span> The future awaits</span>
+                    <div className="codefont" style={{padding: '15px', backgroundColor: 'black', display: 'flex'}}>
+                        <p style={{marginLeft: 'auto'}}><span style={{color: '#ff306e'}}>Cyberlink</span> <span className="grey">|</span> The future awaits</p>
                     </div>
                 </> : <>
                         <div style={{padding: '10px', paddingTop: '30px', textAlign: 'center'}}>
