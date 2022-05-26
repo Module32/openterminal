@@ -44,7 +44,7 @@ export default function Index() {
                     width='854px'
                     height='480px'
                   />
-                  <h1><p style={{fontSize:'13px'}} className="grey">Software</p><br /><span className="codefont">$ Reliable software.</span> Everyday, any day.<br /><p style={{fontSize:'17px'}}>At Open Terminal, we&apos;re all about optimizing our software and making it more efficient. Each product is developed and maintained with precision to make it trustworthy.<br /><br />
+                  <h1><p style={{fontSize: '13px', padding: '0', margin: '0'}} className="grey">Software</p><br /><span className="codefont">$ Reliable software.</span> Everyday, any day.<br /><p style={{fontSize:'17px'}}>At Open Terminal, we&apos;re all about optimizing our software and making it more efficient. Each product is developed and maintained with precision to make it trustworthy.<br /><br />
                     <Link href="">
                       <a>Find tools now <FontAwesomeIcon icon="arrow-circle-right" /></a>
                     </Link>
@@ -54,7 +54,7 @@ export default function Index() {
 
                   <div className="infocard" style={{margin: 'auto'}}>
                   <Fade up>
-                  <h1><p style={{fontSize:'13px'}} className="grey">Integrations</p><br />Stick to what you <FontAwesomeIcon icon={faHeart} className="heart" />. No changes.<br /><p style={{fontSize:'17px'}}>No need to adjust your entire workflow and environment. Our products make it easy to set up your existing tools and get going quickly.<br /><br />
+                  <h1><p style={{fontSize: '13px', padding: '0', margin: '0'}} className="grey">Integrations</p><br />Stick to what you <FontAwesomeIcon icon={faHeart} className="heart" />. No changes.<br /><p style={{fontSize:'17px'}}>No need to adjust your entire workflow and environment. Our products make it easy to set up your existing tools and get going quickly.<br /><br />
                     <Link href="">
                       <a>Discover more <FontAwesomeIcon icon="arrow-circle-right" /></a>
                     </Link>

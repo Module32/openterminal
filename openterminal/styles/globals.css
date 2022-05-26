@@ -201,11 +201,13 @@ p {
   background-repeat: no-repeat;
   background-size: cover;
   -webkit-filter: grayscale(1);
+  filter: grayscale(1);
   transition: 150ms;
 }
 
 .card.img:hover {
   -webkit-filter: grayscale(0);
+  filter: grayscale(1);
 }
 
 .card.img.bbs {
@@ -550,4 +552,11 @@ table, td, th {
 table {
   width: 100%;
   border-collapse: collapse;
+}
+
+
+.genopi1.cyberline {
+  background-image: url("/pics/genopi/cyberline/city.png");
+  padding: 0px;
+  color: white;
 }
