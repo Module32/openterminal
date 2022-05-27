@@ -187,29 +187,27 @@ export default function Play() {
                         <p style={{marginLeft: 'auto'}}><span style={{color: '#ff306e'}}>Cyberlink</span> <span className="grey">|</span> The future awaits</p>
                     </div>
                 </> : <>
-                        <div style={{padding: '10px', paddingTop: '30px'}}>
-                            <h1 style={{fontSize: '3em'}}>Congrats, you finished!</h1>
-                            <p>Check out how you did below.</p>
-                            <div style={{display: 'flex', paddingBottom: '30px', justifyContent: 'center', alignItems: 'center'}}>
-                                <Link href=""><a className="padding">Return to test overview</a></Link>
-                                <button className="padding neutral" onClick={() => {
-                                    setQuestionNumber(0);
-                                    setButtonStyle("neutral");
-                                    setStreak(0);
-                                    setExplanation("");
-                                    setDisabled(false);
-                                    setScore(0);
-                                    setHighStreak(0);
-                                    setCorrect(0);
-                                    setAvgTime(0);
-                                    setScreen("test");
-                                }}>Answer more</button>
+                        <div style={{padding: '10px 30px', paddingTop: '30px', display: 'flex'}}>
+                            <div style={{flex: '1'}}>
+                                <h1 style={{fontSize: '3em'}}>Congrats, you finished!</h1>
+                                <p>Check out how you did below.</p>
+                                <div style={{display: 'flex', paddingBottom: '30px'}}>
+                                    <Link href=""><a className="padding">Return to test overview</a></Link>
+                                    <button className="padding neutral" onClick={() => {
+                                        setQuestionNumber(0);
+                                        setButtonStyle("neutral");
+                                        setStreak(0);
+                                        setExplanation("");
+                                        setDisabled(false);
+                                        setScore(0);
+                                        setHighStreak(0);
+                                        setCorrect(0);
+                                        setAvgTime(0);
+                                        setScreen("test");
+                                    }}>Answer more</button>
+                                </div>
                             </div>
-                            <h3>
-                                <span style={{color: '#fc7826'}}><FontAwesomeIcon icon={faFire} /></span> High streak of {highStreak}<br />
-                                <FontAwesomeIcon icon={faClock} /> Average time of {Math.floor((avgTime / questions.length) / 1000)} secs
-                            </h3>
-                            <div style={{display: 'flex'}}>
+                            <div style={{flex: '1', display: 'flex'}}>
                                 <div style={{padding: '10px', borderRadius: '7px', backgroundColor: 'rgb(255, 48, 110, 0.4)', margin: '5px'}}>
                                     <h1><FontAwesomeIcon icon={faCheck} /> {correct} questions</h1>
                                     <p>Number of questions you got right</p>
