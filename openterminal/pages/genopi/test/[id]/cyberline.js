@@ -143,7 +143,7 @@ export default function Play() {
                             src="pics/genopi/cyberline/cyberline.png"
                             width="180"
                             height="40"
-                            alt="Cyberlink"
+                            alt="Cyberline"
                         />
                     </div>
                 </div>
@@ -187,7 +187,7 @@ export default function Play() {
                         </div>
                     </div>
                     <div className="codefont" style={{padding: '10px', backgroundColor: 'black', display: 'flex'}}>
-                        <p style={{marginLeft: 'auto'}}><span style={{color: '#ff306e'}}>Cyberlink</span> <span className="grey">|</span> The future awaits</p>
+                        <p style={{marginLeft: 'auto'}}><span style={{color: '#ff306e'}}>Cyberline</span> <span className="grey">|</span> The future awaits</p>
                     </div>
                 </> : <>
                         <div className="codefont" style={{padding: '10px 30px', paddingTop: '30px', display: 'flex'}}>
