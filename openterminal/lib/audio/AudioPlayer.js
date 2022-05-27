@@ -62,11 +62,11 @@ const AudioPlayer = ({ tracks }) => {
 
     return (
         <div style={{display: 'flex', alignItems: 'center'}}>
-            <img
-			    src={image}
-			    alt={`track artwork for ${title} by ${artist}`}
-                style={{ width: '30px', height: '30px' }}
-			/>
+            <Image
+              src={image}
+              width={40}
+              height={40}
+			      />
             <span><strong>{title}</strong> {artist}</span>
             <AudioControls
                 isPlaying={isPlaying}
