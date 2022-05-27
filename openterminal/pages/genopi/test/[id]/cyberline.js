@@ -54,12 +54,15 @@ export default function Play() {
                 setButtonStyle("green")
                 setDisabled(true);
                 setCorrect(correct + 1);
+                setStreak(streak + 1)
                 let secs = Math.floor(time / 1000);
                 let pointsDeducted = Math.floor(1.6**secs);
                 if (pointsDeducted > 80) pointsDeducted = 80;
-                let amountGained = 200 - pointsDeducted;
+                let amountGained = 110 - pointsDeducted;
+                if (streak >= 5) {
+                    amountGained += streak * 1.5;
+                }
                 setScore(score + amountGained)
-                setStreak(streak + 1)
                 if (questionNumber + 1 <= questions.length) {
                     setTimeout(() => {
                         setShowHint(false);
@@ -126,7 +129,7 @@ export default function Play() {
     const MakePlayers = (name, bkgmode) => {
         console.log(name, bkgmode)
         return (<>
-            <span className="codefont" style={{backgroundColor: bkgmode === "neutral" ? '#383838' : "#ff306e", padding: '5px 15px', borderRadius: '7px', margin: '10px'}}>{name.toString()}</span>
+            <span className="codefont" style={{backgroundColor: bkgmode[bkgmode] === "neutral" ? '#383838' : "#ff306e", padding: '5px 15px', borderRadius: '7px', margin: '10px'}}>{name[name]}</span>
         </>)
     }
 
@@ -156,7 +159,7 @@ export default function Play() {
                         <div style={{flex: '1', padding: '10px 20px'}}>
                             <div style={{display: 'flex'}}>
                                 <p>{questionNumber + 1} <span className="grey">of {questions.length}</span></p>
-                                <p style={{marginLeft: 'auto'}}><span style={{color: '#ff306e'}}><FontAwesomeIcon icon={faArrowUpRightDots} /> {score}</span> XP</p>
+                                <p style={{marginLeft: 'auto'}}><span style={{color: '#ff306e'}}><FontAwesomeIcon icon={faArrowUpRightDots} /> {score}</span> XP {streak >= 5 ? <span>+ <span style={{color: '#f5b00f'}}>{streak * 1.5}</span> streak XP</span>: null}</p>
                             </div>
                             { questionNumber + 1 <= questions.length ? 
                                 <>
@@ -210,7 +213,7 @@ export default function Play() {
                             <div style={{flex: '1.2', display: 'flex'}}>
                                 <div style={{padding: '10px', borderRadius: '7px', backgroundColor: 'rgb(255, 48, 110, 0.4)', margin: '5px'}}>
                                     <h1><FontAwesomeIcon icon={faCheck} /> {correct} questions</h1>
-                                    <p>Number of questions you got right</p>
+                                    <p>Number of questions correct</p>
                                 </div>
 
                                 <div style={{padding: '10px', borderRadius: '7px', backgroundColor: 'rgb(255, 48, 110, 0.4)', margin: '5px'}}>
