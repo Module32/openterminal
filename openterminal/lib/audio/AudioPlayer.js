@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import AudioControls from './AudioControls';
+import Image from 'next/image'
 
 const AudioPlayer = ({ tracks }) => {
     const [trackIndex, setTrackIndex] = useState(0);
