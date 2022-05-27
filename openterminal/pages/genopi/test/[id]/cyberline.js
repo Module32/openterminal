@@ -124,6 +124,7 @@ export default function Play() {
     }
 
     const MakePlayers = (name, bkgmode) => {
+        console.log(name, bkgmode)
         return (<>
             <span className="codefont" style={{backgroundColor: bkgmode === "neutral" ? '#383838' : "#ff306e", padding: '5px 15px', borderRadius: '7px', margin: '10px'}}>{name.toString()}</span>
         </>)
@@ -186,14 +187,9 @@ export default function Play() {
                         <p style={{marginLeft: 'auto'}}><span style={{color: '#ff306e'}}>Cyberlink</span> <span className="grey">|</span> The future awaits</p>
                     </div>
                 </> : <>
-                        <div style={{padding: '10px', paddingTop: '30px', textAlign: 'center'}}>
-                            <h1><span style={{color: '#fac30f'}}><FontAwesomeIcon icon={faFlagCheckered} /></span> Congrats, you finished!</h1>
-                            <h2><span style={{color: '#ff3624'}}><FontAwesomeIcon icon={faArrowUpRightDots} /></span> {score} XP gained</h2>
-                            <h3>
-                                <span style={{color: '#1ac74e'}}><FontAwesomeIcon icon={faCheck} /></span> {correct} correct out of {questions.length}<br />
-                                <span style={{color: '#fc7826'}}><FontAwesomeIcon icon={faFire} /></span> High streak of {highStreak}<br />
-                                <FontAwesomeIcon icon={faClock} /> Average time of {Math.floor((avgTime / questions.length) / 1000)} secs
-                            </h3>
+                        <div style={{padding: '10px', paddingTop: '30px'}}>
+                            <h1 style={{fontSize: '3em'}}>Congrats, you finished!</h1>
+                            <p>Check out how you did below.</p>
                             <div style={{display: 'flex', paddingBottom: '30px', justifyContent: 'center', alignItems: 'center'}}>
                                 <Link href=""><a className="padding">Return to test overview</a></Link>
                                 <button className="padding neutral" onClick={() => {
@@ -208,6 +204,31 @@ export default function Play() {
                                     setAvgTime(0);
                                     setScreen("test");
                                 }}>Answer more</button>
+                            </div>
+                            <h3>
+                                <span style={{color: '#fc7826'}}><FontAwesomeIcon icon={faFire} /></span> High streak of {highStreak}<br />
+                                <FontAwesomeIcon icon={faClock} /> Average time of {Math.floor((avgTime / questions.length) / 1000)} secs
+                            </h3>
+                            <div style={{display: 'flex'}}>
+                                <div style={{padding: '10px', borderRadius: '7px', backgroundColor: 'rgb(255, 48, 110, 0.4)', margin: '5px'}}>
+                                    <h1><FontAwesomeIcon icon={faCheck} /> {correct} questions</h1>
+                                    <p>Number of questions you got right</p>
+                                </div>
+
+                                <div style={{padding: '10px', borderRadius: '7px', backgroundColor: 'rgb(255, 48, 110, 0.4)', margin: '5px'}}>
+                                    <h1><FontAwesomeIcon icon={faArrowUpRightDots} /> {score} XP</h1>
+                                    <p>Gained from this session</p>
+                                </div>
+
+                                <div style={{padding: '10px', borderRadius: '7px', backgroundColor: 'rgb(255, 48, 110, 0.4)', margin: '5px'}}>
+                                    <h1><FontAwesomeIcon icon={faFire} /> {highStreak} questions</h1>
+                                    <p>Your highest streak</p>
+                                </div>
+
+                                <div style={{padding: '10px', borderRadius: '7px', backgroundColor: 'rgb(255, 48, 110, 0.4)', margin: '5px'}}>
+                                    <h1><FontAwesomeIcon icon={faClock} /> {Math.floor((avgTime / questions.length) / 1000)} seconds</h1>
+                                    <p>Average time per question</p>
+                                </div>
                             </div>
                         </div>
                 </>}
