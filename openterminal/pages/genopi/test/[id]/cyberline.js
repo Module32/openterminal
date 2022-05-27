@@ -8,6 +8,7 @@ import { useSession } from "next-auth/react"
 import React, { useState, useEffect } from "react"
 import Router from 'next/router'
 import Image from 'next/image'
+import AudioPlayer from '../../../../lib/audio/AudioPlayer'
 
 export default function Play() {
     const router = useRouter()
@@ -129,9 +130,18 @@ export default function Play() {
     const MakePlayers = (name, bkgmode) => {
         console.log(name, bkgmode)
         return (<>
-            <span className="codefont" style={{backgroundColor: bkgmode[bkgmode] === "neutral" ? '#383838' : "#ff306e", padding: '5px 15px', borderRadius: '7px', margin: '10px'}}>{name[name]}</span>
+            <span className="codefont" style={{backgroundColor: bkgmode['bkgmode'] === "neutral" ? '#383838' : "#ff306e", padding: '5px 15px', borderRadius: '7px', margin: '10px'}}>{name['name']}</span>
         </>)
     }
+
+    const music = [
+        {
+          title: "Dynamic",
+          artist: "Voyage",
+          audioSrc: require('../../../../public/music/genopi/cyberline/Mundian To Bach Ke.mp3'),
+          image: require('../../../../public/pics/genopi/cyberline/dynamic-voyage.png'),
+        },
+    ]
 
     return (
         <>
@@ -163,7 +173,7 @@ export default function Play() {
                             </div>
                             { questionNumber + 1 <= questions.length ? 
                                 <>
-                                    <h1 style={{fontSize: '3em'}}>{questions[questionNumber][`question${questionNumber + 1}`]}</h1>
+                                    <h1 style={{fontSize: '6vw'}}>{questions[questionNumber][`question${questionNumber + 1}`]}</h1>
                                     <div style={{display: 'flex'}}>
                                         {questions[questionNumber][`hint${questionNumber + 1}`] !== "" ? (<><button onClick={() => setShowHint(true)} className="neutral"><span style={{color: '#ffa70f'}}><FontAwesomeIcon icon={faLightbulb} /></span> {showHint === true ? questions[questionNumber][`hint${questionNumber + 1}`] : null}</button></>
                                         ) : null}
@@ -187,6 +197,7 @@ export default function Play() {
                         </div>
                     </div>
                     <div className="codefont" style={{padding: '10px', backgroundColor: 'black', display: 'flex'}}>
+                        <AudioPlayer tracks={music} />
                         <p style={{marginLeft: 'auto'}}><span style={{color: '#ff306e'}}>Cyberline</span> <span className="grey">|</span> The future awaits</p>
                     </div>
                 </> : <>
