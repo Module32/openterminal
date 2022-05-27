@@ -187,8 +187,8 @@ export default function Play() {
                         <p style={{marginLeft: 'auto'}}><span style={{color: '#ff306e'}}>Cyberlink</span> <span className="grey">|</span> The future awaits</p>
                     </div>
                 </> : <>
-                        <div style={{padding: '10px 30px', paddingTop: '30px', display: 'flex'}}>
-                            <div style={{flex: '1'}}>
+                        <div className="codefont" style={{padding: '10px 30px', paddingTop: '30px', display: 'flex'}}>
+                            <div style={{flex: '0.8'}}>
                                 <h1 style={{fontSize: '3em'}}>Congrats, you finished!</h1>
                                 <p>Check out how you did below.</p>
                                 <div style={{display: 'flex', paddingBottom: '30px'}}>
@@ -207,7 +207,7 @@ export default function Play() {
                                     }}>Answer more</button>
                                 </div>
                             </div>
-                            <div style={{flex: '1', display: 'flex'}}>
+                            <div style={{flex: '1.2', display: 'flex'}}>
                                 <div style={{padding: '10px', borderRadius: '7px', backgroundColor: 'rgb(255, 48, 110, 0.4)', margin: '5px'}}>
                                     <h1><FontAwesomeIcon icon={faCheck} /> {correct} questions</h1>
                                     <p>Number of questions you got right</p>

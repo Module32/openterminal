@@ -10,7 +10,7 @@ export default function Footer() {
       <div style={{ display: "flex" }}>
         <div style={{flexDirection: "row"}}>
           <h1 className="codefont" style={{margin: '3'}}>Open Terminal</h1>
-          <p className="codefont grey">By Brinmeet Soin and Ekya Dogra<br />2021-{new Date().getFullYear()} | All rights reserved.</p>
+          <p className="codefont grey">By MrNames and Module64<br />2021-{new Date().getFullYear()} | All rights reserved.</p>
         </div>
         <div style={{ flexDirection: "row", marginLeft: 'auto' }}>
           <h4>Products</h4>
