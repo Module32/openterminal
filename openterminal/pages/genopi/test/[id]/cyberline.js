@@ -138,7 +138,7 @@ export default function Play() {
         {
           title: "Dynamic",
           artist: "Voyage",
-          audioSrc: require('../../../../public/music/genopi/cyberline/Mundian To Bach Ke.mp3'),
+          audioSrc: require('../../../../public/music/genopi/Mundian To Bach Ke.mp3'),
           image: require('../../../../public/pics/genopi/cyberline/dynamic-voyage.png'),
         },
     ]
