@@ -9,6 +9,7 @@ import React, { useState, useEffect } from "react"
 import Router from 'next/router'
 import Image from 'next/image'
 import AudioPlayer from '../../../../lib/audio/AudioPlayer'
+import Dynamic from '../../../../public/music/genopi/mundian-to-bach-ke.mp3'
 
 export default function Play() {
     const router = useRouter()
@@ -173,7 +174,7 @@ export default function Play() {
                             </div>
                             { questionNumber + 1 <= questions.length ? 
                                 <>
-                                    <h1 style={{fontSize: '6vw'}}>{questions[questionNumber][`question${questionNumber + 1}`]}</h1>
+                                    <h1 style={{fontSize: '2.4em'}}>{questions[questionNumber][`question${questionNumber + 1}`]}</h1>
                                     <div style={{display: 'flex'}}>
                                         {questions[questionNumber][`hint${questionNumber + 1}`] !== "" ? (<><button onClick={() => setShowHint(true)} className="neutral"><span style={{color: '#ffa70f'}}><FontAwesomeIcon icon={faLightbulb} /></span> {showHint === true ? questions[questionNumber][`hint${questionNumber + 1}`] : null}</button></>
                                         ) : null}

@@ -8,6 +8,14 @@ const AudioPlayer = ({ tracks }) => {
     const [trackIndex, setTrackIndex] = useState(0);
     const [trackProgress, setTrackProgress] = useState(0);
     const [isPlaying, setIsPlaying] = useState(false);
+    
+    const audioRef = useRef(new Audio(audioSrc));
+    const intervalRef = useRef();
+    const isReady = useRef(false);
+
+    const { title, artist, color, image, audioSrc } = tracks[trackIndex];
+    const { duration } = audioRef.current;
+
     useEffect(() => {
         if (isPlaying) {
           audioRef.current.play();
@@ -37,13 +45,6 @@ const AudioPlayer = ({ tracks }) => {
           isReady.current = true;
         }
       }, [trackIndex]);
-
-    const audioRef = useRef(new Audio(audioSrc));
-    const intervalRef = useRef();
-    const isReady = useRef(false);
-
-    const { title, artist, color, image, audioSrc } = tracks[trackIndex];
-    const { duration } = audioRef.current;
 
     const toPrevTrack = () => {
         if (trackIndex - 1 < 0) {
