@@ -9,7 +9,6 @@ import React, { useState, useEffect } from "react"
 import Router from 'next/router'
 import Image from 'next/image'
 import AudioPlayer from '../../../../lib/audio/AudioPlayer'
-import Dynamic from '../../../../public/music/genopi/mundian-to-bach-ke.mp3'
 
 export default function Play() {
     const router = useRouter()
