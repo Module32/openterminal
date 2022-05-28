@@ -5,7 +5,7 @@ import AudioControls from './AudioControls';
 import Image from 'next/image'
 
 const AudioPlayer = ({ tracks }) => {
-    const [trackIndex, setTrackIndex] = useState(0);
+  const [trackIndex, setTrackIndex] = useState(0);
     const [trackProgress, setTrackProgress] = useState(0);
     const [isPlaying, setIsPlaying] = useState(false);
 
@@ -21,10 +21,10 @@ const AudioPlayer = ({ tracks }) => {
           audioRef.current.play();
           startTimer();
         } else {
-          clearInterval(intervalRef.current);
           audioRef.current.pause();
         }
     }, [isPlaying]);
+    
     useEffect(() => {
         return () => {
           audioRef.current.pause();
@@ -46,7 +46,7 @@ const AudioPlayer = ({ tracks }) => {
           // Set the isReady ref as true for the next pass
           isReady.current = true;
         }
-      }, [trackIndex]);
+    }, [trackIndex]);
 
     const toPrevTrack = () => {
         if (trackIndex - 1 < 0) {
@@ -65,16 +65,17 @@ const AudioPlayer = ({ tracks }) => {
     }
 
     const startTimer = () => {
-      // Clear any timers already running
-      clearInterval(intervalRef.current);
-  
-      intervalRef.current = setInterval(() => {
-        if (audioRef.current.ended) {
-          toNextTrack();
-        } else {
-          setTrackProgress(audioRef.current.currentTime);
-        }
-    }, [1000]);
+        // Clear any timers already running
+        clearInterval(intervalRef.current);
+    
+        intervalRef.current = setInterval(() => {
+          if (audioRef.current.ended) {
+            toNextTrack();
+          } else {
+            setTrackProgress(audioRef.current.currentTime);
+          }
+      }, [1000]);
+    }
 
     return (
         <div style={{display: 'flex', alignItems: 'center'}}>
@@ -83,7 +84,7 @@ const AudioPlayer = ({ tracks }) => {
               width={40}
               height={40}
 			      />
-            <span style={{paddingLeft: '8px'}}><strong>{title}</strong> {artist}</span>
+            <span style={{paddingLeft: '7px'}}><strong>{title}</strong> {artist}</span>
             <AudioControls
                 isPlaying={isPlaying}
                 onPrevClick={toPrevTrack}
@@ -93,7 +94,6 @@ const AudioPlayer = ({ tracks }) => {
             <span style={{paddingLeft: '5px', paddingRight: '5px'}}><span className="grey">|</span> {duration}</span>
         </div>
     );
-  }
 }
 
-export default AudioPlayer
+export default AudioPlayer;
