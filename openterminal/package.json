@@ -34,6 +34,8 @@
     "react-hook-form": "^7.30.0",
     "mongodb": "^4.6.0",
     "prisma": "^3.14.0",
+    "url-loader": "^4.1.1",
+    "file-loader": "^6.2.0",
     "@prisma/client": "^3.14.0",
     "@tiptap/react": "^2.0.0-beta.108",
     "@tiptap/starter-kit": "^2.0.0-beta.183",
