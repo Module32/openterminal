@@ -138,8 +138,14 @@ export default function Play() {
         {
           title: "Dynamic",
           artist: "Voyage",
-          audioSrc: require('../../../../public/music/genopi/mundian-to-bach-ke.mp3'),
-          image: require('../../../../public/pics/genopi/cyberline/dynamic-voyage.png'),
+          audioSrc: require('../../../../public/music/genopi/dynamic.mp3'),
+          image: require('../../../../public/pics/genopi/cyberline/waves.png'),
+        },
+        {
+            title: "Dusk",
+            artist: "Jasper De Ceuster",
+            audioSrc: require('../../../../public/music/genopi/dusk.mp3'),
+            image: require('../../../../public/pics/genopi/cyberline/waves.png'),
         },
     ]
 

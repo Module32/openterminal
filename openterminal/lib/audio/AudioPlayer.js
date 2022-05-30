@@ -91,7 +91,6 @@ const AudioPlayer = ({ tracks }) => {
                 onNextClick={toNextTrack}
                 onPlayPauseClick={setIsPlaying}
             />
-            <span style={{paddingLeft: '5px', paddingRight: '5px'}}><span className="grey">|</span> {duration}</span>
         </div>
     );
 }
