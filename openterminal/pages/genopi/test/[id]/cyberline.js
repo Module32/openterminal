@@ -182,7 +182,16 @@ export default function Play() {
     "Teresa","Diaz",
     "Wanda","Thomas" ]
 
+    let i = 0;
+    while (i < 30) {
+        let firstName = firstNames.sort(() => 0.5 - Math.random())[0];
+        let lastName = lastNames.sort(() => 0.5 - Math.random())[0]
+        players.push({ name: `${firstName} ${lastName}`, points: 0 });
+        i += 1;
+    }
+
     const currentPlayerIndex = players.indexOf({ name: 'You', points: score });
+    console.log(currentPlayerIndex)
 
     const LoadPlayers = () => {
         if (currentPlayerIndex >= 2) {
