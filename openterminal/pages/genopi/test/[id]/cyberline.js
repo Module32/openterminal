@@ -182,7 +182,7 @@ export default function Play() {
     "Teresa","Diaz",
     "Wanda","Thomas" ]
 
-    i = 0;
+    let i = 0;
     while (i < 30) {
         let firstName = firstNames.sort(() => 0.5 - Math.random())[0];
         let lastName = lastNames.sort(() => 0.5 - Math.random())[0]
