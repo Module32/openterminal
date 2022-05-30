@@ -127,10 +127,10 @@ export default function Play() {
         </>)
     }
 
-    const MakePlayers = (name, bkgmode) => {
+    const MakePlayer = (name, bkgmode) => {
         console.log(name, bkgmode)
         return (<>
-            <span className="codefont" style={{backgroundColor: bkgmode['bkgmode'] === "neutral" ? '#383838' : "#ff306e", padding: '5px 15px', borderRadius: '7px', margin: '10px'}}>{name['name']}</span>
+            <span className="codefont" style={{backgroundColor: name['bkgmode'] === "neutral" ? '#383838' : "#ff306e", padding: '5px 15px', borderRadius: '7px', margin: '10px'}}>{name['name']}</span>
         </>)
     }
 
@@ -149,6 +149,78 @@ export default function Play() {
         },
     ]
 
+    const players = [ 
+        { name: "You", points: 0 }
+    ]
+
+    let firstNames = [ "Harry","Ross",
+    "Bruce","Cook",
+    "Carolyn","Morgan",
+    "Albert","Walker",
+    "Randy","Reed",
+    "Larry","Barnes",
+    "Lois","Wilson",
+    "Jesse","Campbell",
+    "Ernest","Rogers",
+    "Theresa","Patterson",
+    "Henry","Simmons",
+    "Michelle","Perry",
+    "Frank","Butler",
+    "Shirley", "Sidhu" ]
+    let lastNames = [ "Ruth","Jackson",
+    "Debra","Allen",
+    "Gerald","Harris",
+    "Raymond","Carter",
+    "Jacqueline","Torres",
+    "Joseph","Nelson",
+    "Carlos","Sanchez",
+    "Ralph","Clark",
+    "Jean","Alexander",
+    "Stephen","Roberts",
+    "Eric","Long",
+    "Amanda","Scott",
+    "Teresa","Diaz",
+    "Wanda","Thomas" ]
+
+    i = 0;
+    while (i < 30) {
+        let firstName = firstNames.sort(() => 0.5 - Math.random())[0];
+        let lastName = lastNames.sort(() => 0.5 - Math.random())[0]
+        players.push({ name: `${firstName} ${lastName}`, points: 0 });
+    }
+
+    const currentPlayerIndex = players.indexOf({ name: 'You', points: score });
+
+    const LoadPlayers = () => {
+        if (currentPlayerIndex >= 2) {
+            return <>
+                    <MakePlayer bkgmode="neutral" name={players[currentPlayerIndex + 2]} />
+                    <MakePlayer bkgmode="neutral" name={players[currentPlayerIndex + 1]} />
+                    <MakePlayer bkgmode="main" name={players[currentPlayerIndex]} />
+                    <MakePlayer bkgmode="neutral" name={players[currentPlayerIndex - 1]} />
+                    <MakePlayer bkgmode="neutral" name={players[currentPlayerIndex - 2]} />
+            </>
+        } else if (currentPlayerIndex === 1) {
+            return <>
+                <MakePlayer bkgmode="neutral" name={players[4]} />
+                <MakePlayer bkgmode="neutral" name={players[3]} />
+                <MakePlayer bkgmode="neutral" name={players[2]} />
+                <MakePlayer bkgmode="main" name={players[1]} />
+                <MakePlayer bkgmode="neutral" name={players[0]} />
+            </>
+        } else if (currentPlayerIndex === 0) {
+            return <>
+                <MakePlayer bkgmode="neutral" name={players[4]} />
+                <MakePlayer bkgmode="neutral" name={players[3]} />
+                <MakePlayer bkgmode="neutral" name={players[2]} />
+                <MakePlayer bkgmode="neutral" name={players[1]} />
+                <MakePlayer bkgmode="main" name={players[0]} />
+            </>
+        } else {
+            return <span>Couldn&apos;t load user ranks.</span>
+        }
+    }
+
     return (
         <>
             <Layout>
@@ -164,10 +236,8 @@ export default function Play() {
                     </div>
                 </div>
                 <div style={{paddingBottom: '0px', padding: '10px', width: '100%', backgroundColor: '#1c1c1c', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-                    <MakePlayers name="Gaston" bkgmode="neutral" />
-                    <MakePlayers name="IrateChipmunk" bkgmode="neutral" />
-                    <MakePlayers name="You" bkgmode="main" />
-                    <span style={{marginLeft: 'auto'}}><MakePlayers name="1" bkgmode="main" /></span>
+                    <LoadPlayers />
+                    <span style={{marginLeft: 'auto'}}><MakePlayer name="1" bkgmode="main" /></span>
                 </div>
                 <div className="genopi1 cyberline">
                 { screen === "test" ? <>
@@ -201,10 +271,6 @@ export default function Play() {
                                 {questionNumber + 1 <= questions.length ? CreateAnswers(questionNumber) : setScreen("final") }
                             </div>
                         </div>
-                    </div>
-                    <div className="codefont" style={{padding: '10px', backgroundColor: 'black', display: 'flex'}}>
-                        <AudioPlayer tracks={music} />
-                        <p style={{marginLeft: 'auto'}}><span style={{color: '#ff306e'}}>Cyberline</span> <span className="grey">|</span> The future awaits</p>
                     </div>
                 </> : <>
                         <div className="codefont" style={{padding: '10px 30px', paddingTop: '30px', display: 'flex'}}>
@@ -250,6 +316,10 @@ export default function Play() {
                             </div>
                         </div>
                 </>}
+                <div className="codefont" style={{padding: '10px', backgroundColor: 'black', display: 'flex'}}>
+                        <AudioPlayer tracks={music} />
+                        <p style={{marginLeft: 'auto'}}><span style={{color: '#ff306e'}}>Cyberline</span> <span className="grey">|</span> The future awaits</p>
+                </div>
                 </div>
             </Layout>
             <Footer>
