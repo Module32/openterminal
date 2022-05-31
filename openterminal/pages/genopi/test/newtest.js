@@ -58,12 +58,12 @@ export default function Project() {
             <h4 style={{marginLeft: 'auto'}}><button className="red" onClick={() => deleteQuestion(props.componentKey)} style={{padding: '7px'}}><FontAwesomeIcon icon={faTrash} /></button></h4>
           </div>
           <div style={{display: 'flex', margin: '0', padding: '0'}}>
-            <h3 style={{margin: '0', padding: '0', flex: '0.7'}}>Question <span style={{color: "#eb4034"}}><FontAwesomeIcon icon={faAsterisk} /></span><br /><input placeholder="Enter a question" style={{width: '96%'}} {...register(`question-${props.componentKey}`, { required: true })} ></input><br /></h3>
-            <h3 style={{margin: '0', padding: '0', flex: '0.7'}}>Answer <span style={{color: "#eb4034"}}><FontAwesomeIcon icon={faAsterisk} /></span><br /><input placeholder="Enter the answer" style={{width: '96%'}} {...register(`answer-${props.componentKey}`, { required: true })} ></input><br /></h3>
+            <h3 style={{margin: '0', padding: '0', flex: '0.7'}}>Question <span style={{color: "#eb4034"}}><FontAwesomeIcon icon={faAsterisk} /></span><br /><input placeholder="Enter a question" style={{width: '96%'}} {...register(`question`, { required: true })} ></input><br /></h3>
+            <h3 style={{margin: '0', padding: '0', flex: '0.7'}}>Answer <span style={{color: "#eb4034"}}><FontAwesomeIcon icon={faAsterisk} /></span><br /><input placeholder="Enter the answer" style={{width: '96%'}} {...register(`answer`, { required: true })} ></input><br /></h3>
           </div>
           <div style={{display: 'flex', margin: '0', padding: '0'}}>
-            <h4 style={{margin: '0', padding: '0', flex: '0.7'}}>Hint <span className="grey">(optional)</span><br /><input placeholder="Any hint?" style={{width: '96%'}} {...register(`hint-${props.componentKey}`, { required: false })}></input></h4>
-            <h4 style={{margin: '0', padding: '0', flex: '0.7'}}>Explanation <span className="grey">(optional)</span><br /><input placeholder="Any explanation?" style={{width: '96%'}} {...register(`explanation-${props.componentKey}`, { required: false })}></input></h4>
+            <h4 style={{margin: '0', padding: '0', flex: '0.7'}}>Hint <span className="grey">(optional)</span><br /><input placeholder="Any hint?" style={{width: '96%'}} {...register(`hint`, { required: false })}></input></h4>
+            <h4 style={{margin: '0', padding: '0', flex: '0.7'}}>Explanation <span className="grey">(optional)</span><br /><input placeholder="Any explanation?" style={{width: '96%'}} {...register(`explanation`, { required: false })}></input></h4>
           </div>
           <button style={{margin: "auto"}} type="submit" onClick={() => {onQuestionSave}}>{questionSaveText}</button>
         </div>

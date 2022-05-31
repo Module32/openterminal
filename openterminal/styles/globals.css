@@ -27,7 +27,7 @@ ul.navbar {
   top: 0;
   width: 100%;
   display: flex;
-  align-items: center;     
+  align-items: center;
   flex-wrap: nowrap;
   font-family: -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
   z-index: 1030;
