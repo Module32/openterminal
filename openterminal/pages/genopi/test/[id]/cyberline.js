@@ -45,7 +45,7 @@ export default function Play() {
     
     if (status !== "authenticated") { return "Log in to access this page!" }
     let questions = test["questions"];
-    let wrong = []
+    let incorrectQuestions = []
 
     const handleAnswerSumbit = (index, answer, time) => {
         setAvgTime(avgTime + time)
@@ -81,7 +81,8 @@ export default function Play() {
                 setStreak(0)
                 setButtonStyle("red")
                 setDisabled(true);
-                wrong.push(index)
+                incorrectQuestions.push(index)
+                console.log(incorrectQuestions)
                 setExplanation(<>
                     <p><span style={{color: '#1ac74e'}}><FontAwesomeIcon icon={faCheck} /></span> <span className="grey">Answer:</span> {question[`answer${index+1}`]}</p>
                     {question[`explanation${index+1}`] !== "" ? <p><span className="grey">Explanation:</span> {question[`explanation${index+1}`]}</p> : null}
@@ -192,8 +193,7 @@ export default function Play() {
         i += 1;
     }
 
-    const currentPlayerIndex = players.indexOf({ name: 'You', points: score });
-    console.log(currentPlayerIndex)
+    const currentPlayerIndex = players.findIndex(obj => obj.name=="You");
 
     const LoadPlayers = () => {
         if (currentPlayerIndex >= 2) {
@@ -318,8 +318,9 @@ export default function Play() {
                                     <p>Average time per question</p>
                                 </div>
                             </div>
+                            <br />
                             <h1 style={{fontSize: '45px'}}>Questions to practice</h1>
-                            { wrong.map((index) => <>
+                            { incorrectQuestions.map((index) => <>
                                 <div style={{padding: '10px', borderRadius: '7px', margin: '5px', backgroundColor: 'white', border: '3px solid '}}>
                                     <div style={{display: 'flex'}}>
                                         <div style={{flex: '1'}}>
