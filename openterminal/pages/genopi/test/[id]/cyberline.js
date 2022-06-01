@@ -198,27 +198,27 @@ export default function Play() {
     const LoadPlayers = () => {
         if (currentPlayerIndex >= 2) {
             return <>
-                    <MakePlayer bkgmode="neutral" name={players[currentPlayerIndex + 2]} />
-                    <MakePlayer bkgmode="neutral" name={players[currentPlayerIndex + 1]} />
-                    <MakePlayer bkgmode="main" name={players[currentPlayerIndex]} />
-                    <MakePlayer bkgmode="neutral" name={players[currentPlayerIndex - 1]} />
-                    <MakePlayer bkgmode="neutral" name={players[currentPlayerIndex - 2]} />
+                    <MakePlayer bkgmode="neutral" name={players[currentPlayerIndex + 2]['name']} />
+                    <MakePlayer bkgmode="neutral" name={players[currentPlayerIndex + 1]['name']} />
+                    <MakePlayer bkgmode="main" name={players[currentPlayerIndex]['name']} />
+                    <MakePlayer bkgmode="neutral" name={players[currentPlayerIndex - 1]['name']} />
+                    <MakePlayer bkgmode="neutral" name={players[currentPlayerIndex - 2]['name']} />
             </>
         } else if (currentPlayerIndex === 1) {
             return <>
-                <MakePlayer bkgmode="neutral" name={players[4]} />
-                <MakePlayer bkgmode="neutral" name={players[3]} />
-                <MakePlayer bkgmode="neutral" name={players[2]} />
-                <MakePlayer bkgmode="main" name={players[1]} />
-                <MakePlayer bkgmode="neutral" name={players[0]} />
+                <MakePlayer bkgmode="neutral" name={players[4]['name']} />
+                <MakePlayer bkgmode="neutral" name={players[3]['name']} />
+                <MakePlayer bkgmode="neutral" name={players[2]['name']} />
+                <MakePlayer bkgmode="main" name={players[1]['name']} />
+                <MakePlayer bkgmode="neutral" name={players[0]['name']} />
             </>
         } else if (currentPlayerIndex === 0) {
             return <>
-                <MakePlayer bkgmode="neutral" name={players[4]} />
-                <MakePlayer bkgmode="neutral" name={players[3]} />
-                <MakePlayer bkgmode="neutral" name={players[2]} />
-                <MakePlayer bkgmode="neutral" name={players[1]} />
-                <MakePlayer bkgmode="main" name={players[0]} />
+                <MakePlayer bkgmode="neutral" name={players[4]['name']} />
+                <MakePlayer bkgmode="neutral" name={players[3]['name']} />
+                <MakePlayer bkgmode="neutral" name={players[2]['name']} />
+                <MakePlayer bkgmode="neutral" name={players[1]['name']} />
+                <MakePlayer bkgmode="main" name={players[0]['name']} />
             </>
         } else {
             return <span>Couldn&apos;t load user ranks.</span>
