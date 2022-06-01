@@ -1,7 +1,5 @@
-const { PrismaClient } = require("@prisma/client")
-
-const prisma = new PrismaClient()      
-
+import prisma from '../../../prisma/prisma'
+      
 export default async function handler(req, res) {
   if (req.method === "GET") {
     if (req.query.parameter) {
@@ -42,11 +40,3 @@ export default async function handler(req, res) {
     return res.status(405).json({ message: 'Method not allowed' });
   }
 }
-
-handler()
-  .catch(e => {
-    throw e
-  })
-  .finally(async () => {
-    await prisma.$disconnect()
-  })
