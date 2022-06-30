@@ -54,7 +54,7 @@ export default function Project({ genouser }) {
                     <span className="bg-slate-800 p-2 px-3 rounded-l-md mr-2 flex">
                         {loading === false ? <FontAwesomeIcon icon={icon} className="my-auto" /> :
                         <span className="animate-pulse flex">
-                            <div class="bg-slate-600 rounded h-7 my-auto">
+                            <div className="bg-slate-600 rounded h-7 my-auto">
                                 <p className="text-transparent">hm</p>
                             </div>
                         </span>
@@ -63,7 +63,7 @@ export default function Project({ genouser }) {
                     <p className="ml-1 my-auto w-6/12 leading-tight flex flex-col">
                         {loading === false ? <span>{content}<br /><span className="text-gray text-lg">{date}</span></span> : 
                         <span className="animate-pulse flex">
-                            <div class="bg-slate-500 rounded h-7 my-auto">
+                            <div className="bg-slate-500 rounded h-7 my-auto">
                                 <p className="text-transparent">Loading stuff</p>
                             </div>
                         </span>
@@ -72,7 +72,7 @@ export default function Project({ genouser }) {
                     <div className="p-1 pl-3 bg-slate-800 rounded-r-md text-base w-full"><span className="justify-center"><span className="text-gray text-sm my-0">Preview</span><br />
                     {loading === false ? preview : 
                     <span className="animate-pulse flex">
-                        <div class="bg-slate-500 rounded h-9 mb-2 my-auto">
+                        <div className="bg-slate-500 rounded h-9 mb-2 my-auto">
                             <p className="text-transparent">Made with music by Open Terminal :D</p>
                         </div>
                     </span>
@@ -92,7 +92,7 @@ export default function Project({ genouser }) {
             <div>
                 <div className={`bg-slate-300 font-bold text-3xl flex ${isMobile && 'flex-col'} gap-4`}>
                     <div className={`flex-1 ${isMobile ? 'px-3 pt-3' : 'p-6'}`}><p className="flex">Welcome back, {session.user.name.split(' ')[0]}</p></div>
-                    <div className={`flex-1 p-6 bg-emerald-500 text-white ${isMobile ? 'px-3 pt-3 pb-3' : 'p-6 rounded-l-2xl'} flex`}><p className="float-right my-auto">{loading === false ? <span>{xp} XP ∙ Level {level}</span> : <span className="animate-pulse flex"><div class="bg-emerald-600 rounded ml-2"><p className="text-transparent">0 XP ∙ Level 0</p></div></span>}</p></div>
+                    <div className={`flex-1 p-6 bg-emerald-500 text-white ${isMobile ? 'px-3 pt-3 pb-3' : 'p-6 rounded-l-2xl'} flex`}><p className="float-right my-auto">{loading === false ? <span>{xp} XP ∙ Level {level}</span> : <span className="animate-pulse flex"><div className="bg-emerald-600 rounded ml-2"><p className="text-transparent">0 XP ∙ Level 0</p></div></span>}</p></div>
                 </div>
                 <div className='p-5 text-xl'>
                     <div className={`flex ${isMobile && 'flex-col'} font-medium ${isMobile && 'w-[95%]'}`}>

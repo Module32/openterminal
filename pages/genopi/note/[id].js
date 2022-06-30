@@ -64,7 +64,7 @@ export default function Project({ genouser, dbnote }) {
           </div>
 
           <div className='bg-white'>
-            <Tiptap content={`Write something!`} formattingClass='mx-2' propsClass='min-h-screen' user={session.user.name} />
+            <Tiptap content={`Write something!`} formattingclassName='mx-2' propsclassName='min-h-screen' user={session.user.name} />
           </div>
           
 
@@ -77,11 +77,13 @@ export default function Project({ genouser, dbnote }) {
                   <p className='text-gray'>Options</p>
                   <p className='text-xl flex items-center'><span className='mr-2'>Make this note</span> {viewabilityArray.map(option =>
                   <button
+                    key={option}
                     className={`flex-1 ml-0 py-1 border-none rounded ${viewability === option.toLowerCase() ? 'bg-amber-500/75 hover:bg-amber-500/60' : 'bg-slate-400 hover:bg-slate-400/75'}`}
                     onClick={() => setViewability(option.toLowerCase())}>{option}</button>
                   )}</p>
                   <p className={`text-xl flex items-center ${viewability === 'private' && 'text-gray-light'}`}><span className='mr-2'>Allow viewers to</span> {editabilityArray.map(mode =>
                   <button
+                    key={option}
                     className={`flex-1 ml-0 py-1 border-none rounded ${editability === mode.toLowerCase() ? viewability === 'public' ? 'bg-amber-500/75 hover:bg-amber-500/60' : 'bg-amber-500/50 hover:bg-amber-500/50' : 'bg-slate-400 hover:bg-slate-400/75 disabled:bg-slate-300'}`}
                     onClick={() => setEditability(mode.toLowerCase())} disabled={viewability === 'private' ? true : false}>{mode}</button>
                   )}</p>

@@ -16,7 +16,6 @@ import TableHeader from '@tiptap/extension-table-header'
 import TextAlign from '@tiptap/extension-text-align'
 import Typography from '@tiptap/extension-typography'
 import CodeBlock from '@tiptap/extension-code-block'
-import TableOfContents from './Tiptap/TableOfContents'
 import CharacterCount from '@tiptap/extension-character-count'
 import Tippy from '@tippyjs/react';
 import Text from '@tiptap/extension-text'
