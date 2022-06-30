@@ -5,8 +5,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "vercel-build": "npx prisma generate && npx prisma db push && next build"
+    "lint": "next lint"
   },
   "dependencies": {
     "@craco/craco": "^6.4.3",
