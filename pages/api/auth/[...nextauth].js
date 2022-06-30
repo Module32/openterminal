@@ -6,16 +6,16 @@ import GoogleProvider from "next-auth/providers/google"
 export default NextAuth({
   providers: [
     GithubProvider({
-      clientId: process.env.GITHUB_ID,
-      clientSecret: process.env.GITHUB_SECRET,
+      clientId: process.env.NEXT_PUBLIC_GITHUB_ID,
+      clientSecret: process.env.NEXT_PUBLIC_GITHUB_SECRET,
     }),
     DiscordProvider({
-      clientId: process.env.DISCORD_CLIENT_ID,
-      clientSecret: process.env.DISCORD_CLIENT_SECRET
+      clientId: process.env.NEXT_PUBLIC_DISCORD_CLIENT_ID,
+      clientSecret: process.env.NEXT_PUBLIC_DISCORD_CLIENT_SECRET
     }),
     GoogleProvider({
-      clientId: process.env.GOOGLE_CLIENT_ID,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET
+      clientId: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID,
+      clientSecret: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_SECRET
     }),
   ],
   pages: {
