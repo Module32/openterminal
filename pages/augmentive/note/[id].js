@@ -133,6 +133,7 @@ export async function getServerSideProps(context) {
           editability: 'edit',
           viewability: 'private',
           bgcolor: 'bg-white',
+          starred: false,
           invUsers: [],
           content: 'Write something!'
         });
