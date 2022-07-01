@@ -54,20 +54,28 @@ export default function Layout({ children, home }) {
                 <span className="text-gray-dark">|</span>
               </>}
               { session ? 
-                <img
-                  src={session.user.image}
-                  alt="logo"
-                  width={32}
-                  height={32}
-                  className='rounded inline-flex ml-2 shadow-xl'
-                /> :
+                <Tippy
+                  content={<div>
+                    <p className='text-gray'>Signed in as</p>
+                    <p className='text-lg'>{session.user.name}</p>
+                    <button onClick={() => signIn('google')} className="bg-red-500 border-none hover:bg-red-600 w-full"><FontAwesomeIcon icon={faGoogle} /> Google</button>
+                  </div>}
+                  className='bg-slate-200 p-2 py-3 m-0 border border-slate-400/50 rounded-lg'
+                  interactive='true'
+                  trigger='click'><span className='ml-2 hover:cursor-pointer p-1 text-xl'><img
+                    src={session.user.image}
+                    alt="logo"
+                    width={32}
+                    height={32}
+                    className='rounded inline-flex ml-2 shadow-xl'
+                  /></span></Tippy> :
                 <>
                   <Link href="/login"><a className="font-medium hover:text-gray px-2 text-lg">Login</a></Link>
                   <Link href="/signup"><a className="font-medium hover:text-gray px-2 border-2 p-1 border-black rounded-lg hover:border-gray text-lg">Sign up</a></Link>
                 </>
               }
               {isMobile && <Tippy
-                content={<div className='flex flex-col font-medium pl-4 text-right text-[6vw] leading-relaxed'>
+                content={<div className='flex flex-col font-medium pl-4 text-right text-xl leading-relaxed'>
                   <span className='text-lg font-mono text-gray'>Explore</span>
                   <Link href=""><a className="hover:text-black/50">Why OT</a></Link>
                   <Link href=""><a className="hover:text-black/50">Products</a></Link>

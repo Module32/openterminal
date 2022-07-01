@@ -64,7 +64,7 @@ export default function Project({ genouser, dbnote }) {
           </div>
 
           <div className='bg-white'>
-            <Tiptap content={`Write something!`} formattingclassName='mx-2' propsclassName='min-h-screen' user={session.user.name} />
+            <Tiptap content={`Write something!`} formattingClass='mx-2' propsClass='min-h-screen' user={session.user.name} />
           </div>
           
 
