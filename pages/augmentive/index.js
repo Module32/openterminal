@@ -1,4 +1,4 @@
-import Layout from '../../components/genopi/layout'
+import Layout from '../../components/augmentive/layout'
 import Footer from '../../components/footer'
 import Linker from '../../components/Linker'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -34,11 +34,11 @@ export default function Index() {
         <div className={`p-5 ${isMobile ? 'pt-5' : 'pt-16'} pb-1 font-medium flex ${isMobile && 'flex-col'}`}>
           <div className='flex-1'>
             <h1 className={`leading-tight ${isMobile ? 'text-[50px]' : 'text-[60px]'} font-extrabold`}>All-in-one learning platform <span className='text-emerald-500'>built for every profession</span></h1>
-            <p className='my-2 mb-4 text-xl flex flex-wrap items-center'>Genopi <span className='bg-yellow/60 p-[2px] rounded mx-1'>changes</span> the way you<span className='ml-[.3rem]'></span><Typical
+            <p className='my-2 mb-4 text-xl flex flex-wrap items-center'>Augmentive <span className='bg-yellow/60 p-[2px] rounded mx-1'>changes</span> the way you<span className='ml-[.3rem]'></span><Typical
               steps={['study for tests', 2000, 'work with teams', 2000, 'prepare for interviews', 2000, 'tune in to lectures', 2000]}
               loop={Infinity}
             /></p>
-            <Linker href="/genopi/dashboard" content="Start learning today" color='slate-50' bgcolor='emerald-500' />
+            <Linker href="/augmentive/dashboard" content="Start learning today" color='slate-50' bgcolor='emerald-500' />
           </div>
           <div className={`flex-1 ${isMobile ? 'translate-y-5' : '-translate-y-10'}`}>
             <Fade bottom cascade>

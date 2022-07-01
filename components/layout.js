@@ -40,13 +40,13 @@ export default function Layout({ children, home }) {
       </Head>
           <>
           <div className={`flex py-2 ${isMobile ? 'px-2' : 'px-10'} bg-slate-200 border border-slate-400/75 items-center sticky top-0 z-50`}>
-            <Link href="/"><a className='px-2 text-xl font-semibold flex items-center'><Image
+            <Link href="/"><a className='px-2 text-xl bg-slate-50 border border-slate-400/75 rounded-md font-semibold flex items-center'><Image
               src="/pics/logo.png"
               alt="logo"
               width={40}
               height={40}
               className='inline-flex'
-            /> <span className='ml-1'>open terminal {!isMobile && <span className='p-1 border-2 rounded-lg text-primary'>beta 1.0</span>}</span></a></Link>
+            /> <span className='ml-1'>open terminal {!isMobile && <span className='rounded-lg text-primary'><span className='text-gray'>|</span> beta 1.0</span>}</span></a></Link>
             <div className="ml-auto">
               {!isMobile && <>
                 <Link href=""><a className="font-medium hover:text-gray px-2 text-lg">Why OT</a></Link>

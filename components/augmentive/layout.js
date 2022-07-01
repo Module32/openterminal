@@ -37,27 +37,27 @@ export default function Layout({ children, home }) {
       </Head>
           <>
           <div className={`flex py-2 ${isMobile ? 'px-2' : 'px-10'} bg-slate-200 border-b border-slate-400/75 items-center sticky top-0 z-50`}>
-            <Link href="/genopi"><a className='px-2 text-xl text-gray flex items-center'>
+            <Link href="/augmentive"><a className='px-2 text-xl bg-slate-50 border border-slate-400/75 rounded-md text-gray flex items-center'>
             <Image
-              src="/pics/genopi/logo.png"
+              src="/pics/augmentive/logo.png"
               alt="logo"
               width={40}
               height={40}
               className='inline-flex'
             />
               <span className='font-semibold flex items-center mx-1 text-black'>
-              genopi</span>{!isMobile && 'by OT'}</a></Link>
+              augmentive</span>{!isMobile && 'by OT'}</a></Link>
             <div className="ml-auto">
                 {!isMobile && <><Link href=""><a className="font-medium hover:text-gray px-2 text-lg">Explore</a></Link>
                 <Link href=""><a className="font-medium hover:text-gray px-2 text-lg">Leaderboard</a></Link>
                 <span className="text-gray-dark">|</span></>}
-                <Link href="/genopi/dashboard"><a className="font-medium hover:text-gray px-2 ml-3 border-2 p-1 border-black rounded-lg hover:border-gray text-lg">Dashboard</a></Link>
+                <Link href="/augmentive/dashboard"><a className="font-medium hover:text-gray px-2 ml-3 border-2 p-1 border-black rounded-lg hover:border-gray text-lg">Dashboard</a></Link>
                 {isMobile && <Tippy
                 content={<div className='flex flex-col font-medium pl-4 text-right text-[6vw] leading-relaxed'>
                   <span className='text-lg font-mono text-gray'>Create a new</span>
-                  <Link href="/genopi/note/new"><a className="hover:text-black/50">Note</a></Link>
-                  <Link href="/genopi/test/new"><a className="hover:text-black/50">Test</a></Link>
-                  <Link href="/genopi/article/new"><a className="hover:text-black/50">Article</a></Link>
+                  <Link href="/augmentive/note/new"><a className="hover:text-black/50">Note</a></Link>
+                  <Link href="/augmentive/test/new"><a className="hover:text-black/50">Test</a></Link>
+                  <Link href="/augmentive/article/new"><a className="hover:text-black/50">Article</a></Link>
                   <span className='text-lg mt-2 font-mono text-gray'>Account</span>
                   <Link href="/login"><a className="hover:text-black/50 rounded-lg">Go to dashboard</a></Link>
                 </div>}

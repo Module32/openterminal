@@ -87,7 +87,7 @@ export default function Project() {
         date: Date.now()
       };
       
-      fetch('https://openterminal.vercel.app/api/genopi/test', {
+      fetch('https://openterminal.vercel.app/api/augmentive/test', {
           method: 'POST',
           body: test,
           headers: { 'Content-Type': 'application/json' }

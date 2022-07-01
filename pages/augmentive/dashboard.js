@@ -1,4 +1,4 @@
-import Layout from '../../components/genopi/layout'
+import Layout from '../../components/augmentive/layout'
 import Footer from '../../components/footer'
 import Link from 'next/link'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -63,19 +63,19 @@ export default function Project({ genouser }) {
                             icon={faStickyNote}
                             color="amber-500"
                             content="New Note Session"
-                            href="/genopi/note/new"
+                            href="/augmentive/note/new"
                         />
                         <WidgetCreator
                             icon={faQuestion}
                             color="emerald-500"
                             content="New Practice Test"
-                            href="/genopi/test/newtest"
+                            href="/augmentive/test/newtest"
                         />
                         <WidgetCreator
                             icon={faFileLines}
                             color="primary"
                             content="New Reading"
-                            href="/genopi/test/newreading"
+                            href="/augmentive/test/newreading"
                         />
                     </div>
                 </div>

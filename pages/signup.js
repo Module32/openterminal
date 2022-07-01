@@ -81,9 +81,9 @@ export default function Signup() {
                   <h1 className={`${isMobile ? 'text-4xl' : 'text-5xl'} mt-2 font-bold leading-tight`}>Welcome to<br /><span className='text-slate-100 bg-primary px-2 pb-1 rounded-xl shadow-xl shadow-primary/40'>Open Terminal</span></h1>
                   <p className='mt-5 mb-3'>Explore some of our best products!</p>
                   <div className='flex flex-col'>
-                    <Link href='/genopi'>
+                    <Link href='/augmentive'>
                     <a className='flex-1 border border-gray-light shadow shadow-black/5 mx-1 py-1 rounded transition group hover:bg-emerald-400 hover:border-emerald-500 hover:shadow-emerald-300'>
-                      <p className='text-xl transition group-hover:text-white'>Genopi</p>
+                      <p className='text-xl transition group-hover:text-white'>Augmentive</p>
                       <p className='text-gray transition group-hover:text-white'>The all-in-one learning tool for everyone.</p>
                     </a>
                     </Link>

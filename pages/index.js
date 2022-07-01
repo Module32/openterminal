@@ -100,14 +100,14 @@ export default function Index() {
                   <p className="text-5xl py-4 font-bold">Staying on top of work can be <em>that</em> <span className="text-emerald-400">easy</span>.</p>
                   <p className="text-xl leading-normal">
                     Learning doesn&apos;t have to be for just school. From taking notes during an online lesson to practicing for an interview, 
-                    {" "}<strong>Genopi</strong>{" "}
+                    {" "}<strong>Augmentive</strong>{" "}
                     is the solution. Create practice tests, take notes effortlessly, and start actual learning with the all-in-one tool.
                   </p>
                   <div className="flex pt-3 flex-col">
                     <LinkCard
-                      href="/genopi"
-                      title="Learn faster with Genopi"
-                      content="Genopi supports taking uninterrupted notes, creating practice tests for review, reading articles by other learners, and planning out new ideas."
+                      href="/augmentive"
+                      title="Learn faster with Augmentive"
+                      content="Augmentive supports taking uninterrupted notes, creating practice tests for review, reading articles by other learners, and planning out new ideas."
                       color="emerald-500"
                       secondary="gray-dark"
                       bgcolor="slate-100" />

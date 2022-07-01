@@ -40,13 +40,13 @@ export default function Footer() {
           />
           <p className='-translate-y-3 text-gray-dark mt-3'>Open Terminal Co.</p>
           <p className='-translate-y-3 text-gray'>2021-{new Date().getFullYear()}</p>
-          <p className='-translate-y-3 text-gray'>Developed with <FontAwesomeIcon icon={faMusic} className='hover:text-primary hover:animate-bounce' /></p>
+          <p className='-translate-y-3 text-gray'>Developed with <FontAwesomeIcon icon={faMusic} className='hover:text-primary hover:animate-bounce' /> by Module64 and MrNames</p>
         </div>
         <div className='flex-1 flex'>
           <div className={`flex flex-col mr-10 ${!isMobile && 'ml-auto'}`}>
             <div className='text-gray text-lg flex flex-col mb-2'>
               <span className="font-semibold text-gray-dark">Products</span>
-              <Link href="genopi"><a className="font-normal m-0 p-0 hover:text-slate-500">Genopi</a></Link>
+              <Link href="augmentive"><a className="font-normal m-0 p-0 hover:text-slate-500">Augmentive</a></Link>
               <Link href=""><a className="font-normal m-0 p-0 hover:text-slate-500">Track</a></Link>
               <Link href=""><a className="font-normal m-0 p-0 hover:text-slate-500">BBS</a></Link>
             </div>

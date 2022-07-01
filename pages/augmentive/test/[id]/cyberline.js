@@ -212,10 +212,10 @@ export default function Play() {
         <>
             <Layout>
                 <div className="p-2 flex bg-black">
-                    <Link href="/genopi/dashboard" ><a className="padding neutral"><FontAwesomeIcon icon={faArrowLeft} /></a></Link>
+                    <Link href="/augmentive/dashboard" ><a className="padding neutral"><FontAwesomeIcon icon={faArrowLeft} /></a></Link>
                     <div className="m-auto">
                         <Image
-                            src="/pics/genopi/cyberline/cyberline.png"
+                            src="/pics/augmentive/cyberline/cyberline.png"
                             width="180"
                             height="40"
                             alt="Cyberline"
@@ -225,7 +225,7 @@ export default function Play() {
                 <div className="bg-neutral-900 p-1 flex">
                     <LoadPlayers />
                 </div>
-                <div className="bg-[url('/pics/genopi/cyberline/city.png')] bg-contain">
+                <div className="bg-[url('/pics/augmentive/cyberline/city.png')] bg-contain">
                 { screen === "test" ? <>
                     <div className="flex">
                         <div className="flex-1 p-8 py-9 font-medium">

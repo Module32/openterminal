@@ -6,19 +6,15 @@ import { useSession, getSession } from "next-auth/react"
 import React, { useState } from 'react';
 import Redirect from '../../../components/Redirect'
 import { connectToDatabase } from "../../../util/db";
+import Custom404 from '../../404.js'
 import { ObjectId } from 'mongodb'
-import Tippy from '@tippyjs/react';
-import Linker from '../../../components/Linker'
 
 export default function Project({ genouser, dbnote }) {
-    const [ tags, setTags ] = useState('');
-    const [ title, setTitle ] = useState(dbnote.title || 'Untitled');
-    const [ desc, setDesc ] = useState(dbnote.desc || '');
+    const [ title, setTitle ] = useState(dbnote ? dbnote.title : 'Untitled');
     const [ star, setStar ] = useState(false);
     const [ shareModal, setShareModal ] = useState(false);
     const [ editability, setEditability ] = useState('edit');
     const [ viewability, setViewability ] = useState('public');
-    const [ sideBarPage, setSideBarPage ] = useState('overview');
 
     const { data: session, status } = useSession({
       required: true
@@ -27,13 +23,13 @@ export default function Project({ genouser, dbnote }) {
     if (!session) { return <Redirect text='OT login' link='/login'></Redirect> }
     if (title.length === 0) setTitle('Untitled')
 
-    if (dbnote === 'Note does not exist') return 'whoops'
+    if (dbnote === 'Note does not exist') return <Custom404 />
 
-    let token = process.env.NEXT_PUBLIC_API_TOKEN
+    let token = process.env.API_TOKEN
 
     const onTitleChange = async (value) => {
       setTitle(value);
-      const res = await fetch('http://openterminal.vercel.app/api/genopi/note', {
+      const res = await fetch('http://openterminal.vercel.app/api/augmentive/note', {
         method: 'PUT',
         body: JSON.stringify({
           id: dbnote._id,
@@ -56,7 +52,7 @@ export default function Project({ genouser, dbnote }) {
     return (
       <>
           <div className='flex pt-3 pb-2 px-5 bg-white font-medium'>
-            <span className='flex items-center'><Link href='/genopi/dashboard'><a><FontAwesomeIcon icon={faArrowLeft} className='text-gray mr-2' /></a></Link> <span className={title === "Couldn't update title" && 'text-red-500'}><input className='p-0 border-0 m-0 hover:border-0 focus:border-0 focus:shadow-none' onChange={(e) => onTitleChange(e.target.value)} value={title}></input></span></span>
+            <span className='flex items-center'><Link href='/augmentive/dashboard'><a><FontAwesomeIcon icon={faArrowLeft} className='text-gray mr-2' /></a></Link> <span className={title === "Couldn't update title" && 'text-red-500'}><input className='p-0 border-0 m-0 hover:border-0 focus:border-0 focus:shadow-none' onChange={(e) => onTitleChange(e.target.value)} value={title}></input></span></span>
             <div className='ml-auto mr-1'>
               <button className={`${star === false ? 'text-gray-dark hover:text-gray' : 'text-amber-500'} p-0 m-0 mx-1.5 bg-transparent hover:bg-transparent border-none`} onClick={() => star === false ? setStar(true) : setStar(false) }><FontAwesomeIcon icon={faStar} /></button>
               <button className='text-gray-dark hover:text-gray p-0 m-0 mx-1.5 bg-transparent hover:bg-transparent border-none' onClick={() => setShareModal(true)}><FontAwesomeIcon icon={faShare} /></button>
@@ -93,7 +89,7 @@ export default function Project({ genouser, dbnote }) {
                   <input className='w-full p-2 py-1 ml-0 bg-slate-300/30' type='email' placeholder='Search by email, press Enter to add'></input>
                 </div>
                 <div className='px-0 bg-slate-300 text-center rounded-b'>
-                  <button className={`flex border-none w-full overflow-scroll ml-0 rounded-none bg-transparent group active:text-green text-black hover:bg-transparent hover:text-gray`} onClick={() => navigator.clipboard.writeText(`openterminal.vercel.app/genopi/note/${dbnote._id}`)}><FontAwesomeIcon icon={faClipboard} className='text-gray mt-[1px] mr-1 group-active:text-green' /> openterminal.vercel.app/genopi/note/{dbnote._id}</button>
+                  <button className={`flex border-none w-full overflow-scroll ml-0 rounded-none bg-transparent group active:text-green text-black hover:bg-transparent hover:text-gray`} onClick={() => navigator.clipboard.writeText(`openterminal.vercel.app/augmentive/note/${dbnote._id}`)}><FontAwesomeIcon icon={faClipboard} className='text-gray mt-[1px] mr-1 group-active:text-green' /> openterminal.vercel.app/augmentive/note/{dbnote._id}</button>
                 </div>
               </div>
           </div> }
