@@ -135,7 +135,7 @@ export async function getServerSideProps(context) {
           bgcolor: '',
           invUsers: [],
           content: 'Write something!'
-        }, function (err, result) {
+        }, async function (err, result) {
           if (err) throw err;
           const newNote = result[0];
           await db.collection('users').updateOne({ email: session['user']['email'] }, { $addToSet: { 'owned': { id: newNote._id } } }, function(err, res) {
