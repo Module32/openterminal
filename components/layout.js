@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Link from 'next/link'
 import Image from 'next/image'
 import React from "react"
-import { useSession, signIn, signOut } from "next-auth/react"
+import { useSession, signOut } from "next-auth/react"
 import {useState, useEffect} from 'react'
 import Tippy from '@tippyjs/react';
 
@@ -58,7 +58,7 @@ export default function Layout({ children, home }) {
                   content={<div>
                     <p className='text-gray'>Signed in as</p>
                     <p className='text-lg'>{session.user.name}</p>
-                    <button onClick={() => signIn('google')} className="bg-red-500 border-none hover:bg-red-600 w-full"><FontAwesomeIcon icon={faGoogle} /> Google</button>
+                    <button onClick={() => signOut()} className="bg-red-500 border-none hover:bg-red-600 w-full">Log out</button>
                   </div>}
                   className='bg-slate-200 p-2 py-3 m-0 border border-slate-400/50 rounded-lg'
                   interactive='true'
