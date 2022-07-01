@@ -83,7 +83,7 @@ export default function Project({ genouser, dbnote }) {
                   )}</p>
                   <p className={`text-xl flex items-center ${viewability === 'private' && 'text-gray-light'}`}><span className='mr-2'>Allow viewers to</span> {editabilityArray.map(mode =>
                   <button
-                    key={option}
+                    key={mode}
                     className={`flex-1 ml-0 py-1 border-none rounded ${editability === mode.toLowerCase() ? viewability === 'public' ? 'bg-amber-500/75 hover:bg-amber-500/60' : 'bg-amber-500/50 hover:bg-amber-500/50' : 'bg-slate-400 hover:bg-slate-400/75 disabled:bg-slate-300'}`}
                     onClick={() => setEditability(mode.toLowerCase())} disabled={viewability === 'private' ? true : false}>{mode}</button>
                   )}</p>
