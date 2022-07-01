@@ -130,7 +130,7 @@ export async function getServerSideProps(context) {
         const newNote = await db.collection('notes').insertOne({
           title: 'Untitled',
           owner: session.user.name,
-          date: Date().now(),
+          date: (new Date().now()),
           editability: 'edit',
           viewability: 'private',
           bgcolor: 'bg-white',
