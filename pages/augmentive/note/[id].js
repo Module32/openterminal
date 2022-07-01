@@ -125,11 +125,11 @@ export async function getServerSideProps(context) {
       }
     }
   } else if (ObjectId.isValid(routeid) === false && routeid === 'new') {
-    await db.collection('notes').findOne({ title: 'Untitled', content: 'Write something!', owner: session['user']['email'] }).then(async function(note) {
+    await db.collection('notes').findOne({ title: 'Untitled', content: 'Write something!', owner: session.user.email }).then(async function(note) {
       if (!note || note === null) {
         const newNote = await db.collection('notes').insertOne({
           title: 'Untitled',
-          owner: session.user.name,
+          owner: session.user.email,
           editability: 'edit',
           viewability: 'private',
           bgcolor: 'bg-white',
