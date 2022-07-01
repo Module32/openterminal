@@ -141,7 +141,12 @@ export async function getServerSideProps(context) {
           await db.collection('users').updateOne({ email: session['user']['email'] }, { $addToSet: { 'owned': { id: newNote._id } } }, function(err, res) {
             if (err) throw err;
           })
-          dbnote = newNote;
+          return {
+              props: {
+                genouser: JSON.parse(JSON.stringify(genouser)),
+                dbnote: JSON.parse(JSON.stringify(newNote))
+              },
+          };
         });
       } else dbnote = note;
     });
