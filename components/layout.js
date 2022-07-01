@@ -58,9 +58,9 @@ export default function Layout({ children, home }) {
                   content={<div>
                     <p className='text-gray'>Signed in as</p>
                     <p className='text-lg'>{session.user.name}</p>
-                    <button onClick={() => signOut()} className="bg-red-500 border-none hover:bg-red-600 w-full">Log out</button>
+                    <button onClick={() => signOut()} className="bg-red-500 m-0 p-2 border-none hover:bg-red-600 w-full">Log out</button>
                   </div>}
-                  className='bg-slate-200 p-2 py-3 m-0 border border-slate-400/50 rounded-lg'
+                  className='bg-slate-200 px-3 py-2 m-0 border border-slate-400/50 rounded-lg'
                   interactive='true'
                   trigger='click'><span className='ml-2 hover:cursor-pointer p-1 text-xl'><img
                     src={session.user.image}
