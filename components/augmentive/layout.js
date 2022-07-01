@@ -53,7 +53,7 @@ export default function Layout({ children, home }) {
                 <span className="text-gray-dark">|</span></>}
                 <Link href="/augmentive/dashboard"><a className="font-medium hover:text-gray px-2 ml-3 border-2 p-1 border-black rounded-lg hover:border-gray text-lg">Dashboard</a></Link>
                 {isMobile && <Tippy
-                content={<div className='flex flex-col font-medium pl-4 text-right text-[6vw] leading-relaxed'>
+                content={<div className='flex flex-col font-medium pl-4 text-right text-xl leading-relaxed'>
                   <span className='text-lg font-mono text-gray'>Create a new</span>
                   <Link href="/augmentive/note/new"><a className="hover:text-black/50">Note</a></Link>
                   <Link href="/augmentive/test/new"><a className="hover:text-black/50">Test</a></Link>
