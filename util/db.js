@@ -1,6 +1,6 @@
 import { MongoClient } from 'mongodb'
 
-let uri = process.env.NEXT_PUBLIC_MONGO_URI
+let uri = process.env.MONGO_URI
 
 let cachedClient = null
 
