@@ -10,7 +10,7 @@ import Custom404 from '../../404.js'
 import { ObjectId } from 'mongodb'
 
 export default function Project({ genouser, dbnote }) {
-    const [ title, setTitle ] = useState(dbnote ? dbnote.title : 'Untitled');
+    const [ title, setTitle ] = useState(dbnote.title || 'Untitled');
     const [ star, setStar ] = useState(false);
     const [ shareModal, setShareModal ] = useState(false);
     const [ editability, setEditability ] = useState('edit');
@@ -21,9 +21,10 @@ export default function Project({ genouser, dbnote }) {
     })
     
     if (!session) { return <Redirect text='OT login' link='/login'></Redirect> }
-    if (title.length === 0) setTitle('Untitled')
 
     if (dbnote === 'Note does not exist') return <Custom404 />
+
+    if (title.length === 0) setTitle('Untitled')
 
     let token = process.env.API_TOKEN
 
@@ -126,28 +127,20 @@ export async function getServerSideProps(context) {
   } else if (ObjectId.isValid(routeid) === false && routeid === 'new') {
     await db.collection('notes').findOne({ title: 'Untitled', content: 'Write something!', owner: session['user']['email'] }).then(async function(note) {
       if (!note || note === null) {
-        await db.collection('notes').insertOne({
+        const newNote = await db.collection('notes').insertOne({
           title: 'Untitled',
-          owner: session['user']['email'],
-          date: '',
-          editing: '',
-          viewability: '',
-          bgcolor: '',
+          owner: session.user.name,
+          date: new Date().now(),
+          editability: 'edit',
+          viewability: 'private',
+          bgcolor: 'bg-white',
           invUsers: [],
           content: 'Write something!'
-        }, async function (err, result) {
-          if (err) throw err;
-          const newNote = result[0];
-          await db.collection('users').updateOne({ email: session['user']['email'] }, { $addToSet: { 'owned': { id: newNote._id } } }, function(err, res) {
-            if (err) throw err;
-          })
-          return {
-              props: {
-                genouser: JSON.parse(JSON.stringify(genouser)),
-                dbnote: JSON.parse(JSON.stringify(newNote))
-              },
-          };
         });
+        await db.collection('users').updateOne({ email: session.user.email }, { $addToSet: { 'owned': { id: newNote._id } } }, function(err, res) {
+          if (err) throw err;
+        })
+        dbnote = newNote;
       } else dbnote = note;
     });
   } else if (ObjectId.isValid(routeid) === true && routeid !== 'new') {
