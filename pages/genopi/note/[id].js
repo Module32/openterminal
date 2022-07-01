@@ -33,7 +33,7 @@ export default function Project({ genouser, dbnote }) {
 
     const onTitleChange = async (value) => {
       setTitle(value);
-      const res = await fetch('http://localhost:3000/api/genopi/note', {
+      const res = await fetch('http://openterminal.vercel.app/api/genopi/note', {
         method: 'PUT',
         body: JSON.stringify({
           id: dbnote._id,
