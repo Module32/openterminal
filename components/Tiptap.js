@@ -42,7 +42,6 @@ const Tiptap = ({content, readonly, formattingClass, propsClass, user}) => {
   const editor = useEditor({
     readonly,
     extensions: [
-      TableOfContents,
       StarterKit,
       Bold,
       Italic,

@@ -2,11 +2,11 @@ import Layout from '../../components/genopi/layout'
 import Footer from '../../components/footer'
 import Link from 'next/link'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBold, faItalic, faUnderline, faArrowRight, faStickyNote, faFile, faNewspaper, faQuestion, faFileLines } from '@fortawesome/free-solid-svg-icons'
+import { faArrowRight, faStickyNote, faQuestion, faFileLines } from '@fortawesome/free-solid-svg-icons'
 import { useSession, getSession } from "next-auth/react"
 import { connectToDatabase } from "../../util/db";
 import Redirect from '../../components/Redirect'
-import {useState, useEffect} from 'react';
+import { useState, useEffect } from 'react';
 
 export default function Project({ genouser }) {
     const { data: session, status } = useSession({
@@ -15,7 +15,6 @@ export default function Project({ genouser }) {
 
     const [isMobile, setIsMobile] = useState(false)
     
-    //choose the screen size 
     const handleResize = () => {
         if (window.innerWidth < 720) {
             setIsMobile(true)
@@ -47,43 +46,7 @@ export default function Project({ genouser }) {
         </div>
     }
 
-    const Notif = ({ icon, content, date, href, preview }) => {
-        return <Link href={href}>
-            <a className="bg-slate-700 rounded-md text-xl m-1">
-                <div className="flex">
-                    <span className="bg-slate-800 p-2 px-3 rounded-l-md mr-2 flex">
-                        {loading === false ? <FontAwesomeIcon icon={icon} className="my-auto" /> :
-                        <span className="animate-pulse flex">
-                            <div className="bg-slate-600 rounded h-7 my-auto">
-                                <p className="text-transparent">hm</p>
-                            </div>
-                        </span>
-                        }
-                    </span>
-                    <p className="ml-1 my-auto w-6/12 leading-tight flex flex-col">
-                        {loading === false ? <span>{content}<br /><span className="text-gray text-lg">{date}</span></span> : 
-                        <span className="animate-pulse flex">
-                            <div className="bg-slate-500 rounded h-7 my-auto">
-                                <p className="text-transparent">Loading stuff</p>
-                            </div>
-                        </span>
-                        }
-                    </p>
-                    <div className="p-1 pl-3 bg-slate-800 rounded-r-md text-base w-full"><span className="justify-center"><span className="text-gray text-sm my-0">Preview</span><br />
-                    {loading === false ? preview : 
-                    <span className="animate-pulse flex">
-                        <div className="bg-slate-500 rounded h-9 mb-2 my-auto">
-                            <p className="text-transparent">Made with music by Open Terminal :D</p>
-                        </div>
-                    </span>
-                    }
-                    </span></div>
-                </div>
-            </a>
-        </Link>
-    }
-
-    let [xp, level, menu, notifs] = [genouser['xp'], genouser['level'], genouser['dashboardmenu'], genouser['owned']];
+    let [xp, level] = [genouser['xp'], genouser['level']];
     console.log(xp);
 
     return (
@@ -135,20 +98,16 @@ export async function getServerSideProps(context) {
     const collection = client.db('Genopi').collection('users');
     await collection.findOne({ email: session['user']['email'] }).then(function(user) {
         if (!user || user === null) {
-            const abtme = null;
             const xp = 0;
             const level = 0;
             const owned = [];
-            const dashboardmenu = [ 'note', 'test', 'article' ];
             collection.insertOne({
                 email: session['user']['email'],
-                abtme: abtme,
                 xp: xp,
                 level: level,
                 owned: owned,
-                dashboardmenu: dashboardmenu
             });
-            genouser = { 'xp': xp, 'level': level, 'dashboardmenu': dashboardmenu, 'owned': owned };
+            genouser = { 'xp': xp, 'level': level, 'owned': owned };
         } else {
             genouser = user
         }

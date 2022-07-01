@@ -7,7 +7,6 @@ import { faArrowLeft, faArrowUpRightDots, faLightbulb, faCheck, faFire, faFlagCh
 import { useSession } from "next-auth/react"
 import React, { useState, useEffect } from "react"
 import Image from 'next/image'
-import AudioPlayer from '../../../../lib/audio/AudioPlayer'
 
 export default function Play() {
     const router = useRouter()
@@ -135,21 +134,6 @@ export default function Play() {
             <span className={name['bkgmode'] === "neutral" ? 'bg-neutral-700 py-1 px-2 m-2 rounded-lg font-semibold' : "bg-primary py-1 px-2 m-2 rounded-lg font-bold"}>{name['name']}</span>
         </>)
     }
-
-    const music = [
-        {
-          title: "Dynamic",
-          artist: "Voyage",
-          audioSrc: require('../../../../public/music/genopi/dynamic.mp3'),
-          image: require('../../../../public/pics/genopi/cyberline/waves.png'),
-        },
-        {
-            title: "Dusk",
-            artist: "Jasper De Ceuster",
-            audioSrc: require('../../../../public/music/genopi/dusk.mp3'),
-            image: require('../../../../public/pics/genopi/cyberline/waves.png'),
-        },
-    ]
 
     const players = [ 
         { name: "You", points: 0 }
