@@ -8,6 +8,7 @@ import Redirect from '../../../components/Redirect'
 import { connectToDatabase } from "../../../util/db";
 import Custom404 from '../../404.js'
 import { ObjectId } from 'mongodb'
+import { useRouter } from 'next/router'
 
 export default function Project({ dbnote }) {
     const [ title, setTitle ] = useState(dbnote.title || 'Untitled');
@@ -15,6 +16,8 @@ export default function Project({ dbnote }) {
     const [ shareModal, setShareModal ] = useState(false);
     const [ editability, setEditability ] = useState('edit');
     const [ viewability, setViewability ] = useState('public');
+
+    const { id } = useRouter();
 
     const { data: session } = useSession({
       required: true
@@ -31,7 +34,7 @@ export default function Project({ dbnote }) {
       const res = await fetch('http://openterminal.vercel.app/api/augmentive/note', {
         method: 'PUT',
         body: JSON.stringify({
-          id: dbnote.insertedId,
+          id: ObjectId(id),
           updateDoc: { title: value }
         }),
         headers: {
@@ -50,7 +53,7 @@ export default function Project({ dbnote }) {
       const res = await fetch('http://openterminal.vercel.app/api/augmentive/note', {
         method: 'PUT',
         body: JSON.stringify({
-          id: dbnote.insertedId,
+          id: ObjectId(id),
           updateDoc: { starred: !star }
         }),
         headers: {
