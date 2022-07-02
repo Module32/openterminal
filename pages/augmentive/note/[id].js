@@ -132,7 +132,7 @@ export async function getServerSideProps(context) {
   const db = client.db('Genopi');
 
   if (routeid === 'new') {
-    fetchExistingNote = (query) => {
+    const fetchExistingNote = (query) => {
       db.collection('notes').findOne(query)
       .then(note => note)
     }
