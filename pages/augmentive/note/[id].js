@@ -118,7 +118,7 @@ export default function Project({ dbnote }) {
 export async function getServerSideProps(context) {
   const { client } = await connectToDatabase();
   const session = await getSession(context);
-  let dbnote;
+  var dbnote;
 
   if (!session) return {
     redirect: {
