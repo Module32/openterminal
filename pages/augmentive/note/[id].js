@@ -118,7 +118,7 @@ export default function Project({ dbnote }) {
 export async function getServerSideProps(context) {
   const { client } = await connectToDatabase();
   const session = await getSession(context);
-  var dbnote;
+  let dbnote = null;
 
   if (!session) return {
     redirect: {
@@ -133,8 +133,8 @@ export async function getServerSideProps(context) {
   const db = client.db('Genopi');
 
   if (routeid === 'new') {
-    const fetchExistingNote = (query) => {
-      db.collection('notes').findOne(query)
+    const fetchExistingNote = async (query) => {
+      await db.collection('notes').findOne(query)
       .then(note => note)
     }
     const existingNote = fetchExistingNote({ title: 'Untitled', content: 'Write something!', owner: session.user.email })
