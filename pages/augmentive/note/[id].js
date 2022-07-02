@@ -140,20 +140,22 @@ export async function getServerSideProps(context) {
   } else if (ObjectId.isValid(routeid) === false && routeid === 'new') {
     await db.collection('notes').findOne({ title: 'Untitled', content: 'Write something!', owner: session['user']['email'] }).then(async function(note) {
       if (!note || note === null) {
-        const note = await db.collection('notes').insertOne({
+        const newNote = {
           title: 'Untitled',
           owner: session['user']['email'],
           date: '',
-          editing: '',
+          editability: '',
           viewability: '',
           bgcolor: '',
+          starred: false,
           invUsers: [],
           content: 'Write something!'
-        });
+        }
+        await db.collection('notes').insertOne(newNote);
         await db.collection('users').updateOne({ email: session['user']['email'] }, { $addToSet: { 'owned': { id: note._id } } }, function(err, res) {
           if (err) return res.status(422).json({ message: 'Update failed', err: err });
         })
-        dbnote = note;
+        dbnote = newNote;
       } else dbnote = note;
     });
   } else if (ObjectId.isValid(routeid) === true && routeid !== 'new') {
