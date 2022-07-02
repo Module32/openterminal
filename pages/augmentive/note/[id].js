@@ -166,7 +166,6 @@ export async function getServerSideProps(context) {
   
   return {
       props: {
-        genouser: JSON.parse(JSON.stringify(genouser)),
         dbnote: JSON.parse(JSON.stringify(dbnote))
       },
   };
