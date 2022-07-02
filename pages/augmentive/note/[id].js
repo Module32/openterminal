@@ -47,6 +47,25 @@ export default function Project({ genouser, dbnote }) {
       }
     }
 
+    const onStar = async () => {
+      setStar(!star);
+      const res = await fetch('http://openterminal.vercel.app/api/augmentive/note', {
+        method: 'PUT',
+        body: JSON.stringify({
+          id: dbnote._id,
+          updateDoc: { starred: !star }
+        }),
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'apitoken': token
+        }
+      });
+      if (!res.ok) {
+        setTitle("Couldn't update title")
+      }
+    }
+
     const editabilityArray = [ 'Edit', 'View', 'Comment' ];
     const viewabilityArray = [ 'Public', 'Private' ]
 
@@ -55,7 +74,7 @@ export default function Project({ genouser, dbnote }) {
           <div className='flex pt-3 pb-2 px-5 bg-white font-medium'>
             <span className='flex items-center'><Link href='/augmentive/dashboard'><a><FontAwesomeIcon icon={faArrowLeft} className='text-gray mr-2' /></a></Link> <span className={title === "Couldn't update title" && 'text-red-500'}><input className='p-0 border-0 m-0 hover:border-0 focus:border-0 focus:shadow-none' onChange={(e) => onTitleChange(e.target.value)} value={title}></input></span></span>
             <div className='ml-auto mr-1'>
-              <button className={`${star === false ? 'text-gray-dark hover:text-gray' : 'text-amber-500'} p-0 m-0 mx-1.5 bg-transparent hover:bg-transparent border-none`} onClick={() => star === false ? setStar(true) : setStar(false) }><FontAwesomeIcon icon={faStar} /></button>
+              <button className={`${star === false ? 'text-gray-dark hover:text-gray' : 'text-amber-500'} p-0 m-0 mx-1.5 bg-transparent hover:bg-transparent border-none`} onClick={() => onStar() }><FontAwesomeIcon icon={faStar} /></button>
               <button className='text-gray-dark hover:text-gray p-0 m-0 mx-1.5 bg-transparent hover:bg-transparent border-none' onClick={() => setShareModal(true)}><FontAwesomeIcon icon={faShare} /></button>
             </div>
           </div>
@@ -114,7 +133,15 @@ export async function getServerSideProps(context) {
 
   const db = client.db('Genopi');
   await db.collection('users').findOne({ email: session['user']['email'] }).then(function(user) {
-      genouser = user
+      if (!user || user === null) {
+        const newUser = collection.insertOne({
+          email: session['user']['email'],
+          xp: 0,
+          level: 0,
+          owned: [],
+        });
+        genouser = newUser[0]
+      } else genouser = user
   })
 
   if (ObjectId.isValid(routeid) === false && routeid !== 'new') {
@@ -137,10 +164,10 @@ export async function getServerSideProps(context) {
           invUsers: [],
           content: 'Write something!'
         });
-        await db.collection('users').updateOne({ email: session.user.email }, { $addToSet: { 'owned': { id: newNote._id } } }, function(err, res) {
+        await db.collection('users').updateOne({ email: session.user.email }, { $addToSet: { 'owned': { id: newNote[0]._id } } }, function(err, res) {
           if (err) throw err;
         })
-        dbnote = newNote;
+        dbnote = newNote[0];
       } else dbnote = note;
     });
   } else if (ObjectId.isValid(routeid) === true && routeid !== 'new') {
