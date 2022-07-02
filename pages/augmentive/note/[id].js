@@ -133,7 +133,7 @@ export async function getServerSideProps(context) {
 
   if (routeid === 'new') {
     fetchExistingNote = (query) => {
-      await db.collection('notes').findOne(query)
+      db.collection('notes').findOne(query)
       .then(note => note)
     }
     existingNote = fetchExistingNote({ title: 'Untitled', content: 'Write something!', owner: session.user.email })
