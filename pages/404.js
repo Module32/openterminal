@@ -10,7 +10,7 @@ export default function Custom404() {
     <>
       <Layout>
         <div className='flex h-[90vh]'>
-          <div className='mx-auto m-5 p-3 rounded-md bg-slate-800 w-9/12 h-48 my-auto text-white font-mono'>
+          <div className='mx-auto m-5 p-3 rounded-md bg-slate-800 w-auto h-auto pb-24 my-auto text-white font-mono'>
             <div className='flex'>
               <FontAwesomeIcon icon={faDotCircle} className='mr-2 text-red-400' />
               <FontAwesomeIcon icon={faCircle} className='mr-2 text-amber-400' />
@@ -18,7 +18,7 @@ export default function Custom404() {
             </div>
             <div className='font-medium mt-4'>
               <p><span className='text-sky-400'>module64</span>@<span className='text-green'>open-terminal</span> $ ping www.openterminal.vercel.app/404</p>
-              <p>ping: cannot resolve 404: Unknown host</p>
+              <p>ping: cannot resolve 404: Unknown page</p>
               <p><span className='text-sky-400'>module64</span>@<span className='text-green'>open-terminal</span> $ <Link href='/'><a className='text-blue underline hover:text-blue/60'>ping homepage</a></Link></p>
             </div>
           </div>
