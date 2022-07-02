@@ -121,9 +121,10 @@ export async function getServerSideProps(context) {
   let dbnote;
 
   if (!session) return {
-    props: {
-      dbnote: null
-    },
+    redirect: {
+        destination: '/login',
+        statusCode: 403
+    }
   };
 
   let routeid;
@@ -137,30 +138,31 @@ export async function getServerSideProps(context) {
       .then(note => note)
     }
     const existingNote = fetchExistingNote({ title: 'Untitled', content: 'Write something!', owner: session.user.email })
-    if (existingNote !== null) return dbnote = existingNote
-    const newNote = {
-      title: 'Untitled',
-      owner: session.user.email,
-      editability: 'view',
-      viewability: 'private',
-      bgcolor: 'bg-white',
-      starred: false,
-      invUsers: [],
-      content: 'Write something!'
+    if (existingNote !== null) { dbnote = existingNote } else {
+      const newNote = {
+        title: 'Untitled',
+        owner: session.user.email,
+        editability: 'view',
+        viewability: 'private',
+        bgcolor: 'bg-white',
+        starred: false,
+        invUsers: [],
+        content: 'Write something!'
+      }
+      await db.collection('notes').insertOne(newNote).catch(err => { throw err });
+      dbnote = newNote;
     }
-    await db.collection('notes').insertOne(newNote).catch(err => { throw err });
-    dbnote = newNote;
   } else {
-    if (ObjectId.isValid(routeid) === false) return dbnote = null;
-    await db.collection('notes').findOne({ _id: ObjectId(routeid) }).then(note => {
-      if (!note || note === null) { return dbnote = null } else { dbnote = note }
-    })
+    if (ObjectId.isValid(routeid) === false) { dbnote = null; } else {
+      await db.collection('notes').findOne({ _id: ObjectId(routeid) }).then(note => {
+        if (!note || note === null) { dbnote = null } else { dbnote = note }
+      })
+    }
   }
 
   return {
     props: {
       dbnote: JSON.parse(JSON.stringify(dbnote))
-    }
-  }
-
+    },
+  };
 }
