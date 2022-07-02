@@ -31,7 +31,7 @@ export default function Project({ dbnote }) {
       const res = await fetch('http://openterminal.vercel.app/api/augmentive/note', {
         method: 'PUT',
         body: JSON.stringify({
-          id: dbnote._id,
+          id: dbnote.insertedId,
           updateDoc: { title: value }
         }),
         headers: {
@@ -50,7 +50,7 @@ export default function Project({ dbnote }) {
       const res = await fetch('http://openterminal.vercel.app/api/augmentive/note', {
         method: 'PUT',
         body: JSON.stringify({
-          id: dbnote._id,
+          id: dbnote.insertedId,
           updateDoc: { starred: !star }
         }),
         headers: {
@@ -140,7 +140,7 @@ export async function getServerSideProps(context) {
   } else if (ObjectId.isValid(routeid) === false && routeid === 'new') {
     await db.collection('notes').findOne({ title: 'Untitled', content: 'Write something!', owner: session['user']['email'] }).then(async function(note) {
       if (!note || note === null) {
-        const newNote = {
+        const note = await db.collection('notes').insertOne({
           title: 'Untitled',
           owner: session['user']['email'],
           date: '',
@@ -150,12 +150,11 @@ export async function getServerSideProps(context) {
           starred: false,
           invUsers: [],
           content: 'Write something!'
-        }
-        await db.collection('notes').insertOne(newNote);
+        });
         await db.collection('users').updateOne({ email: session['user']['email'] }, { $addToSet: { 'owned': { id: note._id } } }, function(err, res) {
           if (err) return res.status(422).json({ message: 'Update failed', err: err });
         })
-        dbnote = newNote;
+        dbnote = note;
       } else dbnote = note;
     });
   } else if (ObjectId.isValid(routeid) === true && routeid !== 'new') {
