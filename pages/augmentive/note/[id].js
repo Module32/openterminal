@@ -10,14 +10,12 @@ import Custom404 from '../../404.js'
 import { ObjectId } from 'mongodb'
 import { useRouter } from 'next/router'
 
-export default function Project({ dbnote }) {
+export default function Project({ dbnote, id }) {
     const [ title, setTitle ] = useState(dbnote.title || 'Untitled');
     const [ star, setStar ] = useState(dbnote.starred || false);
     const [ shareModal, setShareModal ] = useState(false);
     const [ editability, setEditability ] = useState('edit');
     const [ viewability, setViewability ] = useState('public');
-
-    const { id } = useRouter();
 
     const { data: session } = useSession({
       required: true
@@ -34,7 +32,7 @@ export default function Project({ dbnote }) {
       const res = await fetch('http://openterminal.vercel.app/api/augmentive/note', {
         method: 'PUT',
         body: JSON.stringify({
-          id: ObjectId(id),
+          id: id,
           updateDoc: { title: value }
         }),
         headers: {
@@ -53,7 +51,7 @@ export default function Project({ dbnote }) {
       const res = await fetch('http://openterminal.vercel.app/api/augmentive/note', {
         method: 'PUT',
         body: JSON.stringify({
-          id: ObjectId(id),
+          id: id,
           updateDoc: { starred: !star }
         }),
         headers: {
@@ -137,7 +135,8 @@ export async function getServerSideProps(context) {
   if (ObjectId.isValid(routeid) === false && routeid !== 'new') {
     return {
       props: {
-        dbnote: 'Note does not exist'
+        dbnote: 'Note does not exist',
+        id: null
       }
     }
   } else if (ObjectId.isValid(routeid) === false && routeid === 'new') {
@@ -171,7 +170,8 @@ export async function getServerSideProps(context) {
   
   return {
       props: {
-        dbnote: JSON.parse(JSON.stringify(dbnote))
+        dbnote: JSON.parse(JSON.stringify(dbnote)),
+        id: JSON.parse(JSON.stringify(ObjectId(routeid)))
       },
   };
 }
