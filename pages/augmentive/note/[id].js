@@ -136,7 +136,7 @@ export async function getServerSideProps(context) {
       db.collection('notes').findOne(query)
       .then(note => note)
     }
-    existingNote = fetchExistingNote({ title: 'Untitled', content: 'Write something!', owner: session.user.email })
+    const existingNote = fetchExistingNote({ title: 'Untitled', content: 'Write something!', owner: session.user.email })
     if (existingNote !== null) return dbnote = existingNote
     const newNote = {
       title: 'Untitled',
