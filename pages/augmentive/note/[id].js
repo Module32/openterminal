@@ -127,39 +127,54 @@ export async function getServerSideProps(context) {
     }
   };
 
-  let routeid;
-  if (context.params.id === 'new') { routeid = 'new' } else { routeid = context.params.id }
+  let routeid = context.params.id;
   
   const db = client.db('Genopi');
+  await db.collection('users').findOne({ email: session['user']['email'] }).then(function(user) {
+      if (!user || user === null) {
+        db.collection('users').insertOne({
+          email: session['user']['email'],
+          xp: 0,
+          level: 0,
+          owned: [],
+        });
+        genouser = newUser
+      } else genouser = user
+  })
 
-  if (routeid === 'new') {
-    const fetchExistingNote = async (query) => {
-      await db.collection('notes').findOne(query)
-      .then(note => note)
-    }
-    const existingNote = fetchExistingNote({ title: 'Untitled', content: 'Write something!', owner: session.user.email })
-    if (existingNote !== null) { dbnote = existingNote } else {
-      const newNote = {
-        title: 'Untitled',
-        owner: session.user.email,
-        editability: 'view',
-        viewability: 'private',
-        bgcolor: 'bg-white',
-        starred: false,
-        invUsers: [],
-        content: 'Write something!'
+  if (ObjectId.isValid(routeid) === false && routeid !== 'new') {
+    return {
+      props: {
+        dbnote: 'Note does not exist'
       }
-      await db.collection('notes').insertOne(newNote).catch(err => { throw err });
-      dbnote = newNote;
     }
-  } else {
-    if (ObjectId.isValid(routeid) === false) { dbnote = null; } else {
-      await db.collection('notes').findOne({ _id: ObjectId(routeid) }).then(note => {
-        if (!note || note === null) { dbnote = null } else { dbnote = note }
-      })
-    }
-  }
-
+  } else if (ObjectId.isValid(routeid) === false && routeid === 'new') {
+    await db.collection('notes').findOne({ title: 'Untitled', content: 'Write something!', owner: session.user.email }).then(async function(note) {
+      if (!note || note === null) {
+        const newNote = {
+          title: 'Untitled',
+          owner: session.user.email,
+          editability: 'edit',
+          viewability: 'private',
+          bgcolor: 'bg-white',
+          starred: false,
+          invUsers: [],
+          content: 'Write something!'
+        }
+        await db.collection('notes').insertOne(newNote);
+        dbnote = newNote;
+        await db.collection('users').updateOne({ email: session.user.email }, { $addToSet: { 'owned': { id: dbnote._id } } }).catch(err => { throw err; })
+        dbnote = newNote;
+      } else dbnote = note;
+    });
+  } else if (ObjectId.isValid(routeid) === true && routeid !== 'new') {
+    await db.collection('notes').findOne({ _id: ObjectId(routeid) }).then(async function(note) {
+      if (!note || note === null) {
+        return dbnote = 'Note does not exist'
+      } else dbnote = note;
+    })
+  };
+  
   return {
     props: {
       dbnote: JSON.parse(JSON.stringify(dbnote))
