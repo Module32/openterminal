@@ -271,7 +271,7 @@ export default function Index() {
                 <div className={`${isMobile && 'basis-full mt-10'} h-0`} />
                 <div className='flex-1 flex flex-col'>
                   {actionCards.map(card => {
-                    return <div key={card.action}>
+                    return <div key={card.action} className='flex'>
                       <Link href={card.href}><a className='bg-slate-50 w-full shadow-md hover:shadow-xl transition hover:-translate-y-2 hover:scale-[1.03] mx-1 border h-fit pb-3 my-1 border-slate-300 rounded-lg p-2 px-4'>
                         <div className={`flex ${isMobile && 'flex-col text-center'} flex-wrap items-center`}>
                           <div className='flex-1 flex'>
