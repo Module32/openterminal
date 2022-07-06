@@ -189,7 +189,7 @@ export default function Index() {
                   <div className='bg-white lg:w-8/12 md:w-full ml-auto pb-3 rounded-md p-2 px-3 mt-3 -translate-y-32'>
                       <h1 className='flex items-center'><FontAwesomeIcon icon={faArrowLeft} className='text-gray mr-1' /> Lecture notes</h1>
                       <p>Living things <strong>must</strong> <mark className='px-1 rounded bg-orange'>grow and evolve</mark></p>
-                      <blockquote className='border-l-2 border-slate-400 px-2'>"They are <em>not</em> the same!" -mr.b</blockquote>
+                      <blockquote className='border-l-2 border-slate-400 px-2'>&quot;They are <em>not</em> the same!&quot; -mr.b</blockquote>
                       <p>Evolution is <span className='text-red-500'><strong>population</strong>-wise</span></p>
                       <ul>
                         <li className='list-disc list-inside marker:text-slate-400/50'>Living things also reproduce</li>
@@ -253,7 +253,7 @@ export default function Index() {
                     <Linker href='https://splinterhosting.com/' bgcolor='sky-500' content="Let's host an MC server!" hover='sky-600' />
                     <Linker href='https://discord.com/invite/PkAP35a6v7' bgcolor='slate-700' content='Discord server' />
                     <div className='bg-slate-700/50 mono mt-5 p-2 pl-3 border-l-8 border-slate-600 hover:border-sky-500 rounded shadow-xl font-normal'>
-                      <p>"Splinter.Host is indeed pog"</p>
+                      <p>&quot;Splinter.Host is indeed pog&quot;</p>
                       <p className='text-sm text-gray'>- Callum Knott</p>
                     </div>
                   </div>
@@ -271,18 +271,20 @@ export default function Index() {
                 <div className={`${isMobile && 'basis-full mt-10'} h-0`} />
                 <div className='flex-1 flex flex-col'>
                   {actionCards.map(card => {
-                    return <Link href={card.href}><a className='bg-slate-50 w-full shadow-md hover:shadow-xl transition hover:-translate-y-2 hover:scale-[1.03] mx-1 border h-fit pb-3 my-1 border-slate-300 rounded-lg p-2 px-4'>
-                    <div className={`flex ${isMobile && 'flex-col text-center'} flex-wrap items-center`}>
-                      <div className='flex-1 flex'>
-                        <img src={card.pic} width={35} height={35} className='bg-slate-100 p-1 mt-1 rounded-lg border border-slate-300' />
-                        <p className='text-lg ml-2 leading-none'>
-                          <span className='text-gray text-sm'>{card.product}</span><br />
-                          {card.action}
-                        </p>
-                      </div>
-                      <p className={`mt-0.5 flex-1 text-right ${!isMobile && 'ml-auto'} text-sm text-gray-dark leading-tight`}>{card.desc}</p>
+                    return <div key={card.action}>
+                      <Link href={card.href}><a className='bg-slate-50 w-full shadow-md hover:shadow-xl transition hover:-translate-y-2 hover:scale-[1.03] mx-1 border h-fit pb-3 my-1 border-slate-300 rounded-lg p-2 px-4'>
+                        <div className={`flex ${isMobile && 'flex-col text-center'} flex-wrap items-center`}>
+                          <div className='flex-1 flex'>
+                            <img src={card.pic} width={35} height={35} className='bg-slate-100 p-1 mt-1 rounded-lg border border-slate-300' />
+                            <p className='text-lg ml-2 leading-none'>
+                              <span className='text-gray text-sm'>{card.product}</span><br />
+                              {card.action}
+                            </p>
+                          </div>
+                          <p className={`mt-0.5 flex-1 text-right ${!isMobile && 'ml-auto'} text-sm text-gray-dark leading-tight`}>{card.desc}</p>
+                        </div>
+                      </a></Link>
                     </div>
-                  </a></Link>
                   })}
                 </div>
               </div>
