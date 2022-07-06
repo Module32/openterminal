@@ -1,3 +1,5 @@
+const defaultTheme = require('tailwindcss/defaultTheme')
+
 module.exports = {
     content: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
     theme: {
@@ -19,12 +21,15 @@ module.exports = {
           'grid-pattern': "url('/pics/grid.png')",
         }
       },
+      screens: {
+        'mobile': '0px',
+        ...defaultTheme.screens,
+      },
     },
     plugins: [
       require('@tailwindcss/typography')
     ],  
     fontFamily: {
       sans: ['Inter', 'sans-serif'],
-      mono: ['Space Mono', 'monospace']
     },
 }

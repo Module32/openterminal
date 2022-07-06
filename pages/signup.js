@@ -6,6 +6,7 @@ import { faGithub, faDiscord, faGoogle } from '@fortawesome/free-brands-svg-icon
 import Image from 'next/image'
 import { useSession } from 'next-auth/react'
 import {useState, useEffect} from 'react'
+import { faGrin } from "@fortawesome/free-regular-svg-icons"
 
 export default function Signup() {
   const { data: session } = useSession();
@@ -51,11 +52,11 @@ export default function Signup() {
             <Image
                   src="/pics/logo.png"
                   alt="logo"
-                  width={40}
-                  height={40}
+                  width={35}
+                  height={35}
                   className='inline-flex'
             /> <span className='ml-1'>open terminal</span></a></Link></div>
-            <h1 className="text-4xl font-bold">👋 Welcome to OT</h1>
+            <h1 className="text-4xl font-bold">Welcome to OT</h1>
             <p className='text-xl my-3 text-gray mb-8'>Sign up through the providers below.</p>
             <div className="flex flex-col m-0">
               <button onClick={() => signIn('google')} className="bg-slate-300/10 border text-black border-solid border-slate-300 hover:bg-slate-300/50 w-full"><FontAwesomeIcon icon={faGoogle} /> Google</button>
@@ -66,8 +67,10 @@ export default function Signup() {
             <p className='fixed bottom-4 left-4 text-gray text-sm'>©{new Date().getFullYear()} Open Terminal Co.</p>
           </div>
         </div>
-        {!isMobile && <div className='flex-1 bg-slate-200 flex p-4 flex-wrap font-mono text-[1vw] leading-none'>
-          {finalCodes}
+        {!isMobile && <div className='flex-1 flex bg-slate-200 p-4 mono'>
+          <div className='mx-auto my-auto text-center text-8xl'>
+            <FontAwesomeIcon icon={faGrin} className='text-primary animate-pulse' /> 
+          </div>
         </div>}
       </div>
       { session && <>

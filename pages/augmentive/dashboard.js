@@ -8,7 +8,7 @@ import { connectToDatabase } from "../../util/db";
 import Redirect from '../../components/Redirect'
 import { useState, useEffect } from 'react';
 
-export default function Project({ genouser }) {
+export default function AugmentiveDashboard({ genouser }) {
     const { data: session, status } = useSession({
         required: true
     })
@@ -39,7 +39,7 @@ export default function Project({ genouser }) {
     
     const WidgetCreator = ({ icon, color, content, href }) => {
         return <div className="flex flex-col mx-2 w-full my-1">
-            <Link href={href}><a className="p-2 bg-slate-300 rounded flex items-center">
+            <Link href={href}><a className="p-2 border border-slate-300 shadow-md rounded flex items-center transition hover:-translate-y-2 hover:shadow-xl">
                 <FontAwesomeIcon icon={icon} className={`text-${color}`} /> <span className='ml-2'>{content}</span>
                 <FontAwesomeIcon className="ml-auto my-auto text-gray" icon={faArrowRight} /></a>
             </Link>
@@ -53,9 +53,9 @@ export default function Project({ genouser }) {
       <>
         <Layout>
             <div>
-                <div className={`bg-slate-300 font-bold text-3xl flex ${isMobile && 'flex-col'} gap-4`}>
+                <div className={`bg-slate-300/60 font-bold text-3xl flex ${isMobile && 'flex-col'} gap-4`}>
                     <div className={`flex-1 ${isMobile ? 'px-3 pt-3' : 'p-6'}`}><p className="flex">Welcome back, {session.user.name.split(' ')[0]}</p></div>
-                    <div className={`flex-1 p-6 bg-emerald-500 text-white ${isMobile ? 'px-3 pt-3 pb-3' : 'p-6 rounded-l-2xl'} flex`}><p className="float-right my-auto">{loading === false ? <span>{xp} XP ∙ Level {level}</span> : <span className="animate-pulse flex"><div className="bg-emerald-600 rounded ml-2"><p className="text-transparent">0 XP ∙ Level 0</p></div></span>}</p></div>
+                    <div className={`flex-1 p-6 bg-emerald-500 text-white ${isMobile ? 'px-3 pt-3 pb-3' : 'p-6 rounded-l-2xl'} flex`}><p className={`${!isMobile && 'ml-auto'} my-auto`}>{loading === false ? <span>{xp} XP ∙ Level {level}</span> : <span className="animate-pulse flex"><div className="bg-emerald-600 rounded ml-2"><p className="text-transparent">0 XP ∙ Level 0</p></div></span>}</p></div>
                 </div>
                 <div className='p-5 text-xl'>
                     <div className={`flex ${isMobile && 'flex-col'} font-medium ${isMobile && 'w-[95%]'}`}>
@@ -101,11 +101,13 @@ export async function getServerSideProps(context) {
             const xp = 0;
             const level = 0;
             const owned = [];
+            const starred = [];
             collection.insertOne({
                 email: session['user']['email'],
                 xp: xp,
                 level: level,
                 owned: owned,
+                starred: starred
             });
             genouser = { 'xp': xp, 'level': level, 'owned': owned };
         } else {
@@ -119,3 +121,5 @@ export async function getServerSideProps(context) {
         },
     };
 }
+
+AugmentiveDashboard.auth = true

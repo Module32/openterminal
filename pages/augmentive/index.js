@@ -38,7 +38,7 @@ export default function Index() {
               steps={['study for tests', 2000, 'work with teams', 2000, 'prepare for interviews', 2000, 'tune in to lectures', 2000]}
               loop={Infinity}
             /></p>
-            <Linker href="/augmentive/dashboard" content="Start learning today" color='slate-50' bgcolor='emerald-500' />
+            <Linker href="/augmentive/dashboard" content="Start learning today" color='white' bgcolor='emerald-500' />
           </div>
           <div className={`flex-1 ${isMobile ? 'translate-y-5' : '-translate-y-10'}`}>
             <Fade bottom cascade>

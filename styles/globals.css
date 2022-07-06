@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -51,7 +53,7 @@ input, textarea {
 }
 
 input:hover, textarea:hover {
-  border: 1px solid rgb(0, 0, 0, 0.4);
+  border: 1px solid rgb(0, 0, 0, 0.3);
 }
 
 input:focus, textarea:focus {
@@ -60,9 +62,8 @@ input:focus, textarea:focus {
 }
 
 hr {
-  height: 2px;
+  height: 1px;
   border: none;
-  border-radius: 3px;
   background-color: rgb(0, 0, 0, 0.2);
 }
 
@@ -82,4 +83,8 @@ hr {
   50% {
     background-position: 100% 50%;
   }
+}
+
+.mono {
+  font-family: "IBM Plex Mono", monospace;
 }

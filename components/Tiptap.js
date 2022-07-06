@@ -79,7 +79,6 @@ const Tiptap = ({content, readonly, formattingClass, propsClass, user}) => {
       }),
       Typography,
       CharacterCount,
-      History,
       Text,
       TextStyle,
       Color.configure({
@@ -123,8 +122,8 @@ const Tiptap = ({content, readonly, formattingClass, propsClass, user}) => {
     }
   }
    
-  let activeFormat = 'p-1 px-2 mx-[3px] text-black bg-slate-200 hover:bg-slate-300 py-2 border-none';
-  let inactiveFormat = 'p-1 px-2 mx-[3px] bg-transparent text-black hover:bg-slate-200 py-2 border-none'
+  let activeFormat = 'p-1 px-2 border-none mx-[3px] text-black bg-slate-200 hover:bg-slate-300 py-2';
+  let inactiveFormat = 'p-1 px-2 border-none mx-[3px] bg-transparent text-black hover:bg-slate-200 py-2'
   chars = editor.storage.characterCount.characters()
   words = editor.storage.characterCount.words()
 
@@ -132,7 +131,7 @@ const Tiptap = ({content, readonly, formattingClass, propsClass, user}) => {
     <>
         {editor && readonly === false && <>
         <BubbleMenu editor={editor} tippyOptions={{ duration: 75 }}>
-          <div className='border border-slate-300 bg-white rounded-lg'>
+          <div className='border p-0 border-slate-300 bg-white rounded-lg'>
             <button
               onClick={() => editor.chain().focus().toggleBold().run()}
               className={`${editor.isActive('bold') ? activeFormat : inactiveFormat} ml-1`}>
@@ -182,7 +181,7 @@ const Tiptap = ({content, readonly, formattingClass, propsClass, user}) => {
             } className='bg-white px-2 border border-slate-400/50 rounded-lg' 
               placement='bottom'
               interactive='true'>
-              <button className='px-2 mx-[3px] bg-transparent text-black hover:bg-slate-200 py-2 border-solid border'>{sizeIcon === faParagraph ? <FontAwesomeIcon icon={faParagraph} /> : sizeIcon }</button>
+              <button className='px-2 mx-[3px] bg-transparent text-black hover:bg-slate-400/50 py-2 border-solid border-solid border border-slate-400/50'>{sizeIcon === faParagraph ? <FontAwesomeIcon icon={faParagraph} /> : sizeIcon }</button>
             </Tippy>
 
 
@@ -208,7 +207,7 @@ const Tiptap = ({content, readonly, formattingClass, propsClass, user}) => {
               </>
             } className='bg-white px-2 border border-slate-400/50 rounded-lg' placement='bottom'
               interactive='true'>
-              <button className='px-2 mx-[3px] bg-transparent text-black hover:bg-slate-200 py-2 border-solid border'><FontAwesomeIcon icon={alignIcon} /></button>
+              <button className='px-2 mx-[3px] bg-transparent text-black hover:bg-slate-200 py-2 border-solid border border-slate-400/50'><FontAwesomeIcon icon={alignIcon} /></button>
             </Tippy>
 
             <Tippy content={
@@ -263,14 +262,14 @@ const Tiptap = ({content, readonly, formattingClass, propsClass, user}) => {
 
                 <button
                 onClick={() => editor.chain().focus().unsetColor().run()}
-                className='p-1 px-2 mx-[3px] bg-transparent text-black hover:bg-slate-200 py-2 border-none'>
+                className={inactiveFormat}>
                     <div className='p-2 bg-black/90 rounded-full border border-black/50'></div>
                 </button>
 
               </>
             } className='bg-white p-[2px] border border-slate-400/50 rounded-lg' placement='bottom'
               interactive='true'>
-              <button className='px-2 mx-[3px] bg-transparent text-black hover:bg-slate-200 py-2 border-solid border'><span className='text-primary'>R</span></button>
+              <button className='px-2 mx-[3px] bg-transparent text-black hover:bg-slate-200 py-2 border-solid border border-slate-400/50'><span className='text-primary'>R</span></button>
             </Tippy>
 
             <Tippy content={
@@ -326,7 +325,7 @@ const Tiptap = ({content, readonly, formattingClass, propsClass, user}) => {
                 <button
                 onClick={() => editor.chain().focus().unsetHighlight().run()}
                 disabled={!editor.isActive('highlight')}
-                className='p-1 px-2 mx-[3px] bg-transparent text-black hover:bg-slate-200 py-2 border-none'>
+                className={inactiveFormat}>
                     <div className='p-2 bg-black/90 rounded-full border border-black/50'></div>
                 </button>
 
@@ -336,7 +335,7 @@ const Tiptap = ({content, readonly, formattingClass, propsClass, user}) => {
             } className='bg-white p-[2px] border border-slate-400/50 rounded-lg'
               interactive='true'
               placement='bottom-end'>
-              <button className='px-2 mx-[3px] bg-transparent text-black hover:bg-slate-200 py-2 border-solid border'><FontAwesomeIcon icon={faHighlighter} className='text-primary' /></button>
+              <button className='px-2 mx-[3px] bg-transparent text-black hover:bg-slate-200 py-2 border-solid border border-slate-400/50'><FontAwesomeIcon icon={faHighlighter} className='text-primary' /></button>
             </Tippy>
 
           </div>
