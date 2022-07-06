@@ -55,10 +55,6 @@ export default function Note({ dbuser, dbnote }) {
 
   const apitoken = process.env.API_TOKEN;
 
-  if (!session && status === "unauthenticated") {
-    return <Redirect text="OT login" link="/login"></Redirect>;
-  }
-
   useEffect(() => {
     if (session && note === null && id === "new") {
       fetch("http://openterminal.vercel.app/api/augmentive/note", {
@@ -75,8 +71,11 @@ export default function Note({ dbuser, dbnote }) {
         .catch((err) => console.log(`error: ${err}`));
     } else if (dbnote) setNote(dbnote);
   }, [session]);
-
+  
   if (dbnote === null && id !== "new") return <Custom404 />;
+  if (!session && status === "unauthenticated") {
+    return <Redirect text="OT login" link="/login"></Redirect>;
+  }
 
   const onTitleChange = async (value) => {
     if (session.user.email !== note.owner) return;
