@@ -222,7 +222,7 @@ export default function Index() {
                 </div>
                 <div className={`flex ${isMobile && 'mx-10'}`}>
                     {!isMobile && <div className='flex-1 text-left'>
-                      <div className="translate-x-5 transition bg-[url('../public/pics/callummc.png')] mx-auto h-full bg-cover m-7 rounded-xl flex flex-col">
+                      <div className="translate-x-5 transition bg-[url('../public/pics/homepage/callummc.png')] mx-auto h-full bg-cover m-7 rounded-xl flex flex-col">
                       <div className='bg-slate-800 border border-slate-700 shadow-xl lg:w-6/12 md:w-full py-2 px-3 rounded -translate-y-5 -translate-x-6 group-hover:-translate-y-7 group-hover:-translate-x-8 transition'>
                         <p className='text-slate-400 flex items-center'>Status <span className='text-sm ml-auto'>4:20 PM</span></p>
                         <h1 className='text-2xl'><FontAwesomeIcon icon={faCheck} className='text-green' /> Server online</h1>
