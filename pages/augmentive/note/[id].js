@@ -67,7 +67,7 @@ export default function Note({ dbuser, dbnote }) {
           'apitoken': apitoken,
         },
       })
-        .then((res) => res.json().then((data) => console.log(data)))
+        .then((res) => res.json().then((data) => setNote(data.note)))
         .catch((err) => console.log(`error: ${err}`));
     } else if (dbnote) setNote(dbnote);
   }, [session]);
