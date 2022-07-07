@@ -54,23 +54,22 @@ export default function Note({ dbuser, dbnote }) {
     };
   }, [isMobile]);
 
-  const apitoken = process.env.API_TOKEN;
-
   useEffect(() => {
     if (session && dbnote === null && id === "new") {
+      const body = {
+        owner: session.user.email,
+        apitoken: process.env.NEXT_PUBLIC_API_TOKEN
+      }
       fetch("https://openterminal.vercel.app/api/augmentive/note", {
         method: "POST",
-        body: JSON.stringify({
-          owner: session.user.email,
-          apiToken: apitoken
-        }),
+        body: JSON.stringify(body),
         headers: {
           "Content-Type": "application/json",
           'Access-Control-Allow-Origin':'*'
         },
       })
-        .then((res) => res.json().then((data) => setNote(data.note)))
-        .catch((err) => console.log(`error: ${err}`));
+        .then(res => res.json()).then(data => setNote(data.note))
+        .catch(err => console.log(`error: ${err}`));
     } else if (dbnote) setNote(dbnote);
   }, [session]);
   

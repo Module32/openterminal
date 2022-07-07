@@ -10,15 +10,15 @@ async function handler(req, res) {
         const token = req.headers['apitoken'];
 
         if (!token) return res.status(422).json({ message: 'No token provided' })
-        if (token !== process.env.API_TOKEN) return res.status(422).json({ message: `Invalid token: ${token}` })
+        if (token !== process.env.NEXT_PUBLIC_API_TOKEN) return res.status(422).json({ message: `Invalid token: ${token}` })
         
         await collection.updateOne({ _id: ObjectId(id) }, { $set: updateDoc })
         return res.status(201).json({ message: `Updated note` })
     } else if (req.method === 'POST') {
-        const { owner, apiToken } = req.body;
+        const { owner, apitoken } = req.body;
 
-        if (!apiToken) return res.status(422).json({ message: 'No token provided' })
-        if (apiToken !== process.env.API_TOKEN) return res.status(422).json({ message: `Invalid token` })
+        if (!apitoken) return res.status(422).json({ message: 'No token provided' })
+        if (apitoken !== process.env.NEXT_PUBLIC_API_TOKEN) return res.status(422).json({ message: `Invalid token` })
         if (!owner) return res.status(422).json({ message: 'No owner provided' })
 
         const note = await collection.findOne({ title: 'Untitled', content: 'Write something!', owner: owner });
