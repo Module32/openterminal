@@ -80,16 +80,18 @@ export default function Note({ dbuser, dbnote }) {
 
   const onTitleChange = async (value) => {
     if (session.user.email !== note.owner) return;
+    const body = {
+      id: note._id,
+      updateDoc: { title: value },
+      apitoken: process.env.NEXT_PUBLIC_API_TOKEN
+    }
     setTitle(value);
     fetch("https://openterminal.vercel.app/api/augmentive/note", {
       method: "PUT",
-      body: JSON.stringify({
-        id: note._id,
-        updateDoc: { title: value },
-      }),
+      body: JSON.stringify(body),
       headers: {
         "Content-type": "application/json",
-        'apitoken': apitoken,
+        'Access-Control-Allow-Origin':'*'
       },
     }).then((res) => {
       if (!res.ok) {
