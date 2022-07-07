@@ -17,6 +17,7 @@ import Custom404 from "../../404.js";
 import { ObjectId } from "mongodb";
 import { useRouter } from "next/router";
 import Tippy from "@tippyjs/react";
+import fetch from 'node-fetch';
 
 export default function Note({ dbuser, dbnote }) {
   const [title, setTitle] = useState(dbnote ? dbnote.title : "Untitled");
@@ -56,8 +57,9 @@ export default function Note({ dbuser, dbnote }) {
   const apitoken = process.env.API_TOKEN;
 
   useEffect(() => {
-    if (session && note === null && id === "new") {
-      fetch("http://openterminal.vercel.app/api/augmentive/note", {
+    if (session && dbnote === null && id === "new") {
+      console.log('hi')
+      fetch("https://openterminal.vercel.app/api/augmentive/note", {
         method: "POST",
         body: JSON.stringify({
           owner: session.user.email,
@@ -80,7 +82,7 @@ export default function Note({ dbuser, dbnote }) {
   const onTitleChange = async (value) => {
     if (session.user.email !== note.owner) return;
     setTitle(value);
-    fetch("http://openterminal.vercel.app/api/augmentive/note", {
+    fetch("https://openterminal.vercel.app/api/augmentive/note", {
       method: "PUT",
       body: JSON.stringify({
         id: note._id,
@@ -99,7 +101,7 @@ export default function Note({ dbuser, dbnote }) {
 
   const onStar = async () => {
     setStar(!star);
-    fetch("http://openterminal.vercel.app/api/augmentive/note", {
+    fetch("https://openterminal.vercel.app/api/augmentive/note", {
       method: "PUT",
       body: JSON.stringify({
         id: note._id,
