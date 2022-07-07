@@ -66,6 +66,7 @@ export default function Note({ dbuser, dbnote }) {
         }),
         headers: {
           "Content-Type": "application/json",
+          'Access-Control-Allow-Origin':'*',
           'apitoken': apitoken,
         },
       })
