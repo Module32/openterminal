@@ -62,7 +62,7 @@ export default function Note({ dbuser, dbnote }) {
         method: "POST",
         body: JSON.stringify({
           owner: session.user.email,
-          apitoken: apitoken
+          apiToken: apitoken
         }),
         headers: {
           "Content-Type": "application/json",
