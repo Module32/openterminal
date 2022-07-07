@@ -58,16 +58,15 @@ export default function Note({ dbuser, dbnote }) {
 
   useEffect(() => {
     if (session && dbnote === null && id === "new") {
-      console.log('hi')
       fetch("https://openterminal.vercel.app/api/augmentive/note", {
         method: "POST",
         body: JSON.stringify({
           owner: session.user.email,
+          apitoken: apitoken
         }),
         headers: {
           "Content-Type": "application/json",
-          'Access-Control-Allow-Origin':'*',
-          'apitoken': apitoken,
+          'Access-Control-Allow-Origin':'*'
         },
       })
         .then((res) => res.json().then((data) => setNote(data.note)))

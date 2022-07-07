@@ -6,11 +6,10 @@ async function handler(req, res) {
     const db = client.db("Genopi");
     const collection = db.collection('notes')
     if (req.method === 'PUT') {
-        const { id, updateDoc } = req.body;
-        const token = req.headers['apitoken'];
+        const { id, updateDoc, apitoken } = req.body;
 
-        if (!token) return res.status(422).json({ message: 'No token provided' })
-        if (token !== process.env.API_TOKEN) return res.status(422).json({ message: `Invalid token: ${token}` })
+        if (!apitoken) return res.status(422).json({ message: 'No token provided' })
+        if (apitoken !== process.env.API_TOKEN) return res.status(422).json({ message: `Invalid token: ${token}` })
         
         await collection.updateOne({ _id: ObjectId(id) }, { $set: updateDoc })
         return res.status(201).json({ message: `Updated note` })
