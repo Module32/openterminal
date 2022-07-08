@@ -114,9 +114,10 @@ export async function getServerSideProps(context) {
     let genouser;
     let notes = [];
     if (!session) return {
-        redirect: {
-          page: '/login'
-        },
+        props: {
+            genouser: null,
+            notes: null
+        }
     };
     const db = client.db('Genopi');
     await db.collection('users').findOne({ email: session['user']['email'] }).then(function(user) {
