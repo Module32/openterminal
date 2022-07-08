@@ -22,20 +22,20 @@ async function handler(req, res) {
         if (apitoken !== process.env.NEXT_PUBLIC_API_TOKEN) return res.status(422).json({ message: `Invalid token` })
         if (!owner) return res.status(422).json({ message: 'No owner provided' })
 
-        const note = await collection.findOne({ title: 'Untitled', content: 'Write something!', owner: owner });
-
-        if (note) return res.status(201).json({ message: 'Found existing untitled note', note: note });
-        
-        const newNote = collection.insertOne({
+        const filter = {
             title: 'Untitled',
-            owner: owner,
+            owner: owner,            
             editability: 'view',
             viewability: 'private',
             bgcolor: 'bg-white',
             starred: false,
             invUsers: [],
             content: 'Write something!'
-        })
+        }
+
+        const updateDoc = { $set: filter }
+
+        const newNote = collection.updateOne(filter, updateDoc, { upsert: true })
         return res.status(201).json({ message: 'Inserted note', note: newNote });
     } else {
         return res.status(500).json({ message: 'Route not valid' });

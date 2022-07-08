@@ -2,13 +2,14 @@ import Layout from '../../components/augmentive/layout'
 import Footer from '../../components/footer'
 import Link from 'next/link'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowRight, faStickyNote, faQuestion, faFileLines } from '@fortawesome/free-solid-svg-icons'
+import { faArrowRight, faStickyNote, faQuestion, faFileLines, faEye, faSpaghettiMonsterFlying } from '@fortawesome/free-solid-svg-icons'
 import { useSession, getSession } from "next-auth/react"
 import { connectToDatabase } from "../../util/db";
 import Redirect from '../../components/Redirect'
 import { useState, useEffect } from 'react';
+import { convert } from 'html-to-text'
 
-export default function AugmentiveDashboard({ genouser }) {
+export default function AugmentiveDashboard({ genouser, notes }) {
     const { data: session, status } = useSession({
         required: true
     })
@@ -47,7 +48,6 @@ export default function AugmentiveDashboard({ genouser }) {
     }
 
     let [xp, level] = [genouser['xp'], genouser['level']];
-    console.log(xp);
 
     return (
       <>
@@ -78,6 +78,26 @@ export default function AugmentiveDashboard({ genouser }) {
                             href="/augmentive/test/newreading"
                         />
                     </div>
+                    <div className='px-2 font-medium text-base'>
+                    <h1 className='mt-4 mb-2 text-3xl'>Your stuff</h1>
+                    <div className='flex flex-wrap w-[98.5%]'>
+                        {notes.map(note => {
+                            const content = convert(note.content, {
+                                wordwrap: 5
+                            })
+                            const limit = 100;
+                            return <Link href={`/augmentive/note/${note._id}`}>
+                                <a className={`border border-slate-300 px-2 ${isMobile ? 'w-full' : 'w-[350px]'} m-1 shadow-md rounded p-1 transition hover:-translate-y-2 hover:shadow-xl`}>
+                                    <h1 className='text-xl flex items-center'><FontAwesomeIcon icon={faStickyNote} className='mr-1.5 text-amber-500' /> {note.title} <span className='ml-auto text-gray font-medium text-base'><FontAwesomeIcon icon={faEye} /> {note.viewability.split('')[0].toUpperCase() + note.viewability.substring(1)}</span></h1>
+                                    <p className='text-gray'>{content.length > limit ? content.substring(0, limit) + '...' : content}</p>
+                                </a>
+                            </Link>
+                        })}
+                        {notes.length === 0 && <div className='w-full'>
+                            <p className='text-gray'>Our flying spaghetti database monster says you haven&apos;t made anything yet!</p>
+                        </div>}
+                    </div>
+                    </div>
                 </div>
             </div>
         </Layout>
@@ -90,13 +110,14 @@ export async function getServerSideProps(context) {
     const { client } = await connectToDatabase();
     const session = await getSession(context);
     let genouser;
+    let notes = [];
     if (!session) return {
-        props: {
-          genouser: null,
+        redirect: {
+          page: '/login'
         },
     };
-    const collection = client.db('Genopi').collection('users');
-    await collection.findOne({ email: session['user']['email'] }).then(function(user) {
+    const db = client.db('Genopi');
+    await db.collection('users').findOne({ email: session['user']['email'] }).then(function(user) {
         if (!user || user === null) {
             const xp = 0;
             const level = 0;
@@ -114,10 +135,18 @@ export async function getServerSideProps(context) {
             genouser = user
         }
     })
+
+    const options = {
+        projection: { _id: 1, title: 1, content: 1, viewability: 1 }
+    }
+    const userNotes = db.collection('notes').find({ owner: session.user.email }, options)
+
+    await userNotes.forEach(note => notes.push(note));
     
     return {
         props: {
           genouser: JSON.parse(JSON.stringify(genouser)),
+          notes: JSON.parse(JSON.stringify(notes)),
         },
     };
 }

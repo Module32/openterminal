@@ -40,7 +40,6 @@ export default function Project() {
     const MakeQuestion = (props) => {
       const onSubmit = data => {
         upsert(questions, data)
-        console.log(questions);
       }
 
       const onQuestionSave = event => {

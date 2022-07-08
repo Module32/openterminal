@@ -7,6 +7,12 @@ import {
   faClipboard,
   faArrowLeft,
   faLink,
+  faStickyNote,
+  faLock,
+  faQuestionCircle,
+  faPen,
+  faEye,
+  faComment,
 } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
 import { getSession, useSession } from "next-auth/react";
@@ -18,8 +24,9 @@ import { ObjectId } from "mongodb";
 import { useRouter } from "next/router";
 import Tippy from "@tippyjs/react";
 import fetch from 'node-fetch';
+import Layout from '../../../components/augmentive/layout'
 
-export default function Note({ dbuser, dbnote }) {
+export default function Note({ dbnote }) {
   const [title, setTitle] = useState(dbnote ? dbnote.title : "Untitled");
   const [star, setStar] = useState(dbnote ? dbnote.starred : false);
   const [shareModal, setShareModal] = useState(false);
@@ -32,7 +39,6 @@ export default function Note({ dbuser, dbnote }) {
   const router = useRouter();
   const { id } = router.query;
   const { data: session, status } = useSession({ required: true });
-  const [note, setNote] = useState(null);
 
   const [isMobile, setIsMobile] = useState(false);
 
@@ -53,35 +59,53 @@ export default function Note({ dbuser, dbnote }) {
       window.removeEventListener("resize", handleResize);
     };
   }, [isMobile]);
-
-  useEffect(() => {
-    if (session && dbnote === null && id === "new") {
-      const body = {
-        owner: session.user.email,
-        apitoken: process.env.NEXT_PUBLIC_API_TOKEN
-      }
-      fetch("https://openterminal.vercel.app/api/augmentive/note", {
-        method: "POST",
-        body: JSON.stringify(body),
-        headers: {
-          "Content-Type": "application/json",
-          'Access-Control-Allow-Origin':'*'
-        },
-      })
-        .then(res => res.json()).then(data => setNote(data.note))
-        .catch(err => console.log(`error: ${err}`));
-    } else if (dbnote) setNote(dbnote);
-  }, [session]);
   
-  if (dbnote === null && id !== "new") return <Custom404 />;
+  if (dbnote === null && id !== "new") return (
+    <Layout>
+      <div className='flex absolute top-0 w-full -z-10 h-screen text-center font-medium'>
+        <div className='mx-auto my-auto text-gray'>
+          <div className='text-9xl text-gray/50 mb-2'>
+            <FontAwesomeIcon icon={faStickyNote} />
+            <FontAwesomeIcon icon={faQuestionCircle} className='text-4xl absolute -translate-y-3 -translate-x-4 text-emerald-500' />
+          </div>
+          <p>This note doesn&apos;t exist. It may have been deleted by the owner.</p>
+          <p className='mono font-normal'><span className='py-0.5 px-1 bg-slate-300 rounded'>Code 404</span></p>
+          <br />
+          <Link href='/augmentive'><a className='text-sky-500 underline'>Homepage</a></Link> ∙ <Link href='/augmentive/dashboard'><a className='text-sky-500 underline'>Dashboard</a></Link>
+        </div>
+      </div>
+    </Layout>
+  );
   if (!session && status === "unauthenticated") {
     return <Redirect text="OT login" link="/login"></Redirect>;
   }
 
+  if (dbnote && session) {
+    const containsUser = !!dbnote.invUsers.find(user => {  
+      return user['email'] === session.user.email
+    })
+    if (dbnote.viewability === 'private' && dbnote.owner !== session.user.email && containsUser === false) return (
+      <Layout>
+        <div className='flex absolute top-0 w-full -z-10 h-screen text-center font-medium'>
+          <div className='mx-auto my-auto text-gray'>
+            <div className='text-9xl text-gray/50 mb-2'>
+              <FontAwesomeIcon icon={faStickyNote} />
+              <FontAwesomeIcon icon={faLock} className='text-4xl absolute -translate-y-4 -translate-x-3 text-amber-500' />
+            </div>
+            <p>You don&apos;t have permission to view this note.</p>
+            <p className='mono font-normal'><span className='py-0.5 px-1 bg-slate-300 rounded'>Code 403</span></p>
+            <br />
+            <Link href='/augmentive'><a className='text-sky-500 underline'>Homepage</a></Link> ∙ <Link href='/augmentive/dashboard'><a className='text-sky-500 underline'>Dashboard</a></Link>
+          </div>
+        </div>
+      </Layout>
+    )
+  }
+
   const onTitleChange = async (value) => {
-    if (session.user.email !== note.owner) return;
+    if (session.user.email !== dbnote.owner) return;
     const body = {
-      id: note._id,
+      id: dbnote._id,
       updateDoc: { title: value },
       apitoken: process.env.NEXT_PUBLIC_API_TOKEN
     }
@@ -105,7 +129,7 @@ export default function Note({ dbuser, dbnote }) {
     fetch("https://openterminal.vercel.app/api/augmentive/note", {
       method: "PUT",
       body: JSON.stringify({
-        id: note._id,
+        id: dbnote._id,
         updateDoc: { starred: !star },
       }),
       headers: {
@@ -133,12 +157,57 @@ export default function Note({ dbuser, dbnote }) {
         </button>
       </Tippy>
     );
-    if (session && note) {
-      if (session.user === note.owner) return button;
-      if (session.user.email === note.owner) return button;
+    if (session && dbnote) {
+      if (session.user.email === dbnote.owner) return button;
+      if (dbnote.viewability === 'public') return button;
       return null;
     }
   };
+
+  /*
+  const checkUserPerms = () => {
+    let icon;
+    let mode;
+    if (session && note) {
+      const containsUser = !!note.invUsers.find(user => {  
+        return user.email === session.user.email
+      })
+      if (containsUser === true) {
+        const viewability = note.invUsers.find(user => user.email === session.user.email).editability
+        switch (viewability) {
+          case 'edit':
+            icon = faPen
+            mode = 'You can edit'
+            break;
+          case 'view':
+            icon = faEye
+            mode = 'You can view'
+            break;
+          case 'comment':
+            icon = faComment
+            mode = 'You can comment'
+            break;
+          default:
+            icon = faQuestionCircle
+            mode = "Unknown permissions"
+        }
+      } else {
+        // TO DO
+      }
+      return <Tippy
+      content={<p>{mode}</p>}
+      className="backdrop-blur-md bg-slate-200/80 p-1 px-2 font-medium shadow-xl border border-slate-400/75 rounded"
+    >
+      <button
+        className="text-gray-dark hover:text-gray p-0 m-0 mx-1.5 bg-transparent hover:bg-transparent border-none"
+        onClick={() => setShareModal(true)}
+      >
+        <FontAwesomeIcon icon={icon} />
+      </button>
+    </Tippy>
+    }
+  };
+  */
 
   const editabilityArray = ["Edit", "View", "Comment"];
   const viewabilityArray = ["Public", "Private"];
@@ -184,9 +253,10 @@ export default function Note({ dbuser, dbnote }) {
 
       <div className="bg-white">
         <Tiptap
-          content={`Write something!`}
+          content={dbnote ? dbnote.content : 'Write something!'}
           formattingClass="mx-2"
           propsClass="min-h-screen"
+          mongoid={dbnote && dbnote._id}
           user={session && session.user.name}
         />
       </div>
@@ -260,7 +330,7 @@ export default function Note({ dbuser, dbnote }) {
                 className="m-0 mt-2 bg-sky-500/10 hover:bg-sky-500/20 text-sky-500 border border-solid border-sky-400 active:bg-sky-500/40 rounded w-[99%]"
                 onClick={() =>
                   navigator.clipboard.writeText(
-                    `openterminal.vercel.app/augmentive/note/${note._id}`
+                    `openterminal.vercel.app/augmentive/note/${dbnote._id}`
                   )
                 }
               >
@@ -276,8 +346,9 @@ export default function Note({ dbuser, dbnote }) {
 
 export async function getServerSideProps(context) {
   const { client } = await connectToDatabase();
+  const session = await getSession(context);
+
   let dbnote;
-  let dbuser;
 
   const routeid = context.params.id;
 
@@ -288,7 +359,24 @@ export async function getServerSideProps(context) {
     if (!note || note === null) {
       dbnote = null;
     } else dbnote = note;
-  } else dbnote = null;
+  } else {
+    if (routeid === 'new') {
+      const body = {
+        owner: session.user.email,
+        apitoken: process.env.NEXT_PUBLIC_API_TOKEN
+      }
+      const res = await fetch("https://openterminal.vercel.app/api/augmentive/note", {
+        method: "POST",
+        body: JSON.stringify(body),
+        headers: {
+          "Content-Type": "application/json",
+          'Access-Control-Allow-Origin':'*'
+        },
+      })
+      const data = await res.json()
+      dbnote = data.note
+    } else dbnote = null
+  }
 
   return {
     props: {

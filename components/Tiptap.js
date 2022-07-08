@@ -33,10 +33,11 @@ export let chars = null;
 export let words = null;
 export let userSession = null;
 
-const Tiptap = ({content, readonly, formattingClass, propsClass, user}) => {
+const Tiptap = ({content, readonly, formattingClass, propsClass, user, mongoid}) => {
   const [ alignIcon, setAlignIcon ] = useState(faAlignLeft);
   const [ sizeIcon, setSizeIcon ] = useState(faParagraph);
   const [ bgColor, setBgColor ] = useState('bg-white');
+  const [ savedToDbStatus, setSavedToDbStatus ] = useState(<span>Waiting for changes</span>)
 
   if (!readonly) readonly = false;
   const editor = useEditor({
@@ -97,8 +98,31 @@ const Tiptap = ({content, readonly, formattingClass, propsClass, user}) => {
       },
     },
     content: content,
-    onUpdate: ({ editor }) => {
+    onUpdate({ editor }) {
       html = editor.getHTML()
+      if (mongoid) {
+        const body = {
+          id: mongoid,
+          updateDoc: { content: html },
+          apitoken: process.env.NEXT_PUBLIC_API_TOKEN
+        }
+        fetch("https://openterminal.vercel.app/api/augmentive/note", {
+          method: "PUT",
+          body: JSON.stringify(body),
+          headers: {
+            "Content-type": "application/json",
+            'Access-Control-Allow-Origin':'*'
+          },
+        }).then(res => {
+          if (res.status === 422) {
+            setSavedToDbStatus(<span className='text-red-500'>Couldn&apos;t save</span>)
+          } else if (res.status === 201) {
+            setSavedToDbStatus(<span>Saved to database</span>)
+          } else {
+            setSavedToDbStatus(<span className='text-amber-500'>Couldn&apos;t save ∙ <span className='mono font-normal'><span className='py-0.5 px-1 bg-slate-300/75 rounded'>Code {res.status}</span></span></span>)
+          }
+        })
+      }
     },
   })
 
@@ -123,15 +147,13 @@ const Tiptap = ({content, readonly, formattingClass, propsClass, user}) => {
   }
    
   let activeFormat = 'p-1 px-2 border-none mx-[3px] text-black bg-slate-200 hover:bg-slate-300 py-2';
-  let inactiveFormat = 'p-1 px-2 border-none mx-[3px] bg-transparent text-black hover:bg-slate-200 py-2'
-  chars = editor.storage.characterCount.characters()
-  words = editor.storage.characterCount.words()
+  let inactiveFormat = 'py-1.5 px-2 border-none mx-[3px] bg-transparent text-black hover:bg-slate-200'
 
   return (
     <>
         {editor && readonly === false && <>
         <BubbleMenu editor={editor} tippyOptions={{ duration: 75 }}>
-          <div className='border p-0 border-slate-300 bg-white rounded-lg'>
+          <div className='border p-0 border-slate-300 bg-white rounded'>
             <button
               onClick={() => editor.chain().focus().toggleBold().run()}
               className={`${editor.isActive('bold') ? activeFormat : inactiveFormat} ml-1`}>
@@ -178,10 +200,10 @@ const Tiptap = ({content, readonly, formattingClass, propsClass, user}) => {
                       H₃
                 </button>
               </>
-            } className='bg-white px-2 border border-slate-400/50 rounded-lg' 
+            } className='bg-white px-2 border border-slate-300 rounded-lg' 
               placement='bottom'
               interactive='true'>
-              <button className='px-2 mx-[3px] bg-transparent text-black hover:bg-slate-400/50 py-2 border-solid border-solid border border-slate-400/50'>{sizeIcon === faParagraph ? <FontAwesomeIcon icon={faParagraph} /> : sizeIcon }</button>
+              <button className='px-2 bg-transparent text-black hover:bg-slate-300/50 py-1 border-solid border border-slate-300'>{sizeIcon === faParagraph ? <FontAwesomeIcon icon={faParagraph} /> : sizeIcon }</button>
             </Tippy>
 
 
@@ -205,9 +227,9 @@ const Tiptap = ({content, readonly, formattingClass, propsClass, user}) => {
                       <FontAwesomeIcon icon={faAlignRight}></FontAwesomeIcon>
                 </button>
               </>
-            } className='bg-white px-2 border border-slate-400/50 rounded-lg' placement='bottom'
+            } className='bg-white px-2 border border-slate-300 rounded-lg' placement='bottom'
               interactive='true'>
-              <button className='px-2 mx-[3px] bg-transparent text-black hover:bg-slate-200 py-2 border-solid border border-slate-400/50'><FontAwesomeIcon icon={alignIcon} /></button>
+              <button className='px-2 bg-transparent text-black hover:bg-slate-300/50 py-1 border-solid border border-slate-300'><FontAwesomeIcon icon={alignIcon} /></button>
             </Tippy>
 
             <Tippy content={
@@ -267,9 +289,9 @@ const Tiptap = ({content, readonly, formattingClass, propsClass, user}) => {
                 </button>
 
               </>
-            } className='bg-white p-[2px] border border-slate-400/50 rounded-lg' placement='bottom'
+            } className='bg-white p-[2px] border border-slate-300 rounded-lg' placement='bottom'
               interactive='true'>
-              <button className='px-2 mx-[3px] bg-transparent text-black hover:bg-slate-200 py-2 border-solid border border-slate-400/50'><span className='text-primary'>R</span></button>
+              <button className='px-2 bg-transparent text-black hover:bg-slate-300/50 py-1 border-solid border border-slate-300'><span className='text-primary'>R</span></button>
             </Tippy>
 
             <Tippy content={
@@ -328,14 +350,11 @@ const Tiptap = ({content, readonly, formattingClass, propsClass, user}) => {
                 className={inactiveFormat}>
                     <div className='p-2 bg-black/90 rounded-full border border-black/50'></div>
                 </button>
-
-                <p className='text-gray text-xs px-3 pb-2'><FontAwesomeIcon icon={faBoltLightning} /> <span className='font-bold'>==<span className='text-slate-400/75'>text</span>==</span> to highlight</p>
-
               </>
-            } className='bg-white p-[2px] border border-slate-400/50 rounded-lg'
+            } className='bg-white p-[2px] border border-slate-300 rounded-lg'
               interactive='true'
               placement='bottom-end'>
-              <button className='px-2 mx-[3px] bg-transparent text-black hover:bg-slate-200 py-2 border-solid border border-slate-400/50'><FontAwesomeIcon icon={faHighlighter} className='text-primary' /></button>
+              <button className='px-2 bg-transparent text-black hover:bg-slate-300/50 py-1 border-solid border border-slate-300'><FontAwesomeIcon icon={faHighlighter} className='text-primary' /></button>
             </Tippy>
 
           </div>
@@ -422,7 +441,7 @@ const Tiptap = ({content, readonly, formattingClass, propsClass, user}) => {
             <button onClick={() => editor.chain().focus().redo().run()} className='p-0 border-none bg-transparent hover:bg-transparent text-gray hover:text-slate-400' disabled={!editor.can().redo()}>
               <FontAwesomeIcon icon={faRotateRight} />
             </button>
-            <span className='ml-2 mt-[2px]'>{editor.storage.characterCount.characters()} chars <span className='text-slate-400/50 font-semibold'>|</span> {editor.storage.characterCount.words()} words</span>
+            <span className='ml-2 mt-[2px]'>{savedToDbStatus}</span>
           </div>
         </div>
     </>

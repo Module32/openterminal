@@ -80,7 +80,6 @@ export default function Play() {
                 setButtonStyle("bg-red-500 hover:bg-red-500 text-left w-full")
                 setDisabled(true);
                 incorrectQuestions.push(index)
-                console.log(incorrectQuestions)
                 setExplanation(<>
                     <p><span style={{color: '#1ac74e'}}><FontAwesomeIcon icon={faCheck} /></span> <span className="grey">Answer:</span> {question[`answer${index+1}`]}</p>
                     {question[`explanation${index+1}`] !== "" ? <p><span className="grey">Explanation:</span> {question[`explanation${index+1}`]}</p> : null}
@@ -129,7 +128,6 @@ export default function Play() {
     }
 
     const MakePlayer = (name, bkgmode) => {
-        console.log(name, bkgmode)
         return (<>
             <span className={name['bkgmode'] === "neutral" ? 'bg-neutral-700 py-1 px-2 m-2 rounded-lg font-semibold' : "bg-primary py-1 px-2 m-2 rounded-lg font-bold"}>{name['name']}</span>
         </>)
