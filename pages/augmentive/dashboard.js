@@ -86,7 +86,7 @@ export default function AugmentiveDashboard({ genouser, notes }) {
                                 wordwrap: 5
                             })
                             const limit = 100;
-                            return <div className='flex'>
+                            return <div className='flex' key={note._id}>
                                 <Link href={`/augmentive/note/${note._id}`}>
                                     <a className={`border border-slate-300 px-2 ${isMobile ? 'w-full' : 'w-[350px]'} m-1 shadow-md rounded p-1 transition hover:-translate-y-2 hover:shadow-xl`}>
                                         <h1 className='text-xl flex items-center'><FontAwesomeIcon icon={faStickyNote} className='mr-1.5 text-amber-500' /> {note.title} <span className='ml-auto text-gray font-medium text-base'><FontAwesomeIcon icon={faEye} /> {note.viewability.split('')[0].toUpperCase() + note.viewability.substring(1)}</span></h1>
