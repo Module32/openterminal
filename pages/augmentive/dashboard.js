@@ -86,12 +86,14 @@ export default function AugmentiveDashboard({ genouser, notes }) {
                                 wordwrap: 5
                             })
                             const limit = 100;
-                            return <Link href={`/augmentive/note/${note._id}`}>
-                                <a className={`border border-slate-300 px-2 ${isMobile ? 'w-full' : 'w-[350px]'} m-1 shadow-md rounded p-1 transition hover:-translate-y-2 hover:shadow-xl`}>
-                                    <h1 className='text-xl flex items-center'><FontAwesomeIcon icon={faStickyNote} className='mr-1.5 text-amber-500' /> {note.title} <span className='ml-auto text-gray font-medium text-base'><FontAwesomeIcon icon={faEye} /> {note.viewability.split('')[0].toUpperCase() + note.viewability.substring(1)}</span></h1>
-                                    <p className='text-gray'>{content.length > limit ? content.substring(0, limit) + '...' : content}</p>
-                                </a>
-                            </Link>
+                            return <div className='flex'>
+                                <Link href={`/augmentive/note/${note._id}`}>
+                                    <a className={`border border-slate-300 px-2 ${isMobile ? 'w-full' : 'w-[350px]'} m-1 shadow-md rounded p-1 transition hover:-translate-y-2 hover:shadow-xl`}>
+                                        <h1 className='text-xl flex items-center'><FontAwesomeIcon icon={faStickyNote} className='mr-1.5 text-amber-500' /> {note.title} <span className='ml-auto text-gray font-medium text-base'><FontAwesomeIcon icon={faEye} /> {note.viewability.split('')[0].toUpperCase() + note.viewability.substring(1)}</span></h1>
+                                        <p className='text-gray'>{content.length > limit ? content.substring(0, limit) + '...' : content}</p>
+                                    </a>
+                                </Link>
+                            </div>
                         })}
                         {notes.length === 0 && <div className='w-full'>
                             <p className='text-gray'>Our flying spaghetti database monster says you haven&apos;t made anything yet!</p>
@@ -123,7 +125,7 @@ export async function getServerSideProps(context) {
             const level = 0;
             const owned = [];
             const starred = [];
-            collection.insertOne({
+            db.collection('users').insertOne({
                 email: session['user']['email'],
                 xp: xp,
                 level: level,

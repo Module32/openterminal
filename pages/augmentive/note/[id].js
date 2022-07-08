@@ -4,15 +4,11 @@ import {
   faStar,
   faShare,
   faXmark,
-  faClipboard,
   faArrowLeft,
   faLink,
   faStickyNote,
   faLock,
   faQuestionCircle,
-  faPen,
-  faEye,
-  faComment,
 } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
 import { getSession, useSession } from "next-auth/react";
@@ -253,7 +249,7 @@ export default function Note({ dbnote }) {
 
       <div className="bg-white">
         <Tiptap
-          content={dbnote ? dbnote.content : 'Write something!'}
+          content={dbnote && Object.keys(dbnote).length > 0 ? dbnote.content : 'Write something!'}
           formattingClass="mx-2"
           propsClass="min-h-screen"
           mongoid={dbnote && dbnote._id}
@@ -375,6 +371,7 @@ export async function getServerSideProps(context) {
       })
       const data = await res.json()
       dbnote = data.note
+      console.log(dbnote)
     } else dbnote = null
   }
 

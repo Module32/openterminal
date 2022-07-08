@@ -25,8 +25,8 @@ async function handler(req, res) {
         const filter = {
             title: 'Untitled',
             owner: owner,            
-            editability: 'view',
-            viewability: 'private',
+            editability: 'view',           
+            viewability: 'private',            
             bgcolor: 'bg-white',
             starred: false,
             invUsers: [],
@@ -35,7 +35,8 @@ async function handler(req, res) {
 
         const updateDoc = { $set: filter }
 
-        const newNote = collection.updateOne(filter, updateDoc, { upsert: true })
+        await collection.updateOne(filter, updateDoc, { upsert: true })
+        const newNote = await collection.findOne(filter)
         return res.status(201).json({ message: 'Inserted note', note: newNote });
     } else {
         return res.status(500).json({ message: 'Route not valid' });
