@@ -143,7 +143,7 @@ export default function Note({ dbnote }) {
     const button = (
       <Tippy
         content={<p>Share with others</p>}
-        className="backdrop-blur-md bg-slate-200/80 p-1 px-2 font-medium shadow-xl border border-slate-400/75 rounded"
+        className="backdrop-blur-md bg-slate-200/30 p-1 px-2 font-medium shadow-xl border border-slate-400/75 rounded"
       >
         <button
           className="text-gray-dark hover:text-gray p-0 m-0 mx-1.5 bg-transparent hover:bg-transparent border-none"
@@ -210,7 +210,7 @@ export default function Note({ dbnote }) {
 
   return (
     <>
-      <div className="flex pt-3 pb-2 px-5 bg-white font-medium">
+      <div className="flex items-center pt-3 pb-2 px-5 bg-white font-medium">
         <span className="flex items-center">
           <Link href="/augmentive/dashboard">
             <a>
@@ -219,7 +219,7 @@ export default function Note({ dbnote }) {
           </Link>{" "}
           <span className={title === "Couldn't update title" && "text-red-500"}>
             <input
-              className="p-0 border-0 m-0 hover:border-0 focus:border-0 focus:shadow-none"
+              className="py-0.5 px-1.5 border-transparent m-0 hover:border-gray/50 focus:border-gray/80 focus:shadow-none w-fit"
               onChange={(e) => onTitleChange(e.target.value)}
               value={title}
             ></input>
@@ -230,7 +230,7 @@ export default function Note({ dbnote }) {
             content={
               <p>{star === true ? "Unstar this note" : "Star this note"}</p>
             }
-            className="backdrop-blur-md bg-slate-200/80 p-1 px-2 font-medium shadow-xl border border-slate-400/75 rounded"
+            className="backdrop-blur-md bg-slate-200/30 p-1 px-2 font-medium shadow-xl border border-slate-400/75 rounded"
           >
             <button
               className={`${
@@ -254,6 +254,7 @@ export default function Note({ dbnote }) {
           propsClass="min-h-screen"
           mongoid={dbnote && dbnote._id}
           user={session && session.user.name}
+          defaultBgColor={dbnote && dbnote.bgcolor}
         />
       </div>
 

@@ -24,6 +24,7 @@ import { Color } from '@tiptap/extension-color'
 import TaskItem from '@tiptap/extension-task-item'
 import TaskList from '@tiptap/extension-task-list'
 import { useState } from 'react'
+import fetch from 'node-fetch';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBold, faItalic, faUnderline, faHighlighter, faStrikethrough, faCode, faQuoteLeft, faFileCode, faGripLines, faTable, faSquare, faBorderAll, faHeader, faAlignLeft, faAlignCenter, faAlignRight, faGripLinesVertical, faAngleUp, faAngleDown, faCheck, faEye, faEllipsisVertical, faBoltLightning, faRotateLeft, faRotateRight, faCaretDown, faParagraph, faCheckSquare } from '@fortawesome/free-solid-svg-icons'
@@ -33,10 +34,10 @@ export let chars = null;
 export let words = null;
 export let userSession = null;
 
-const Tiptap = ({content, readonly, formattingClass, propsClass, user, mongoid}) => {
+const Tiptap = ({content, readonly, formattingClass, propsClass, user, mongoid, defaultBgColor}) => {
   const [ alignIcon, setAlignIcon ] = useState(faAlignLeft);
   const [ sizeIcon, setSizeIcon ] = useState(faParagraph);
-  const [ bgColor, setBgColor ] = useState('bg-white');
+  const [ bgColor, setBgColor ] = useState(defaultBgColor || 'bg-white');
   const [ savedToDbStatus, setSavedToDbStatus ] = useState(<span>Waiting for changes</span>)
 
   if (!readonly) readonly = false;
@@ -106,7 +107,7 @@ const Tiptap = ({content, readonly, formattingClass, propsClass, user, mongoid})
           updateDoc: { content: html },
           apitoken: process.env.NEXT_PUBLIC_API_TOKEN
         }
-        fetch("https://openterminal.vercel.app/api/augmentive/note", {
+        fetch("http://localhost:3000/api/augmentive/note", {
           method: "PUT",
           body: JSON.stringify(body),
           headers: {
@@ -145,6 +146,28 @@ const Tiptap = ({content, readonly, formattingClass, propsClass, user, mongoid})
       setSizeIcon('H₃')
     }
   }
+
+  const handleBgChange = (bg) => {
+    setBgColor(bg);
+    const body = {
+      id: mongoid,
+      updateDoc: { bgcolor: bg },
+      apitoken: process.env.NEXT_PUBLIC_API_TOKEN
+    }
+    fetch("https://openterminal.vercel.app/api/augmentive/note", {
+      method: "PUT",
+      body: JSON.stringify(body),
+      headers: {
+        "Content-type": "application/json",
+        'Access-Control-Allow-Origin':'*'
+      },
+    }).then((res) => {
+      if (!res.ok) {
+        setBgColor('bg-white');
+        console.log(res)
+      }
+    });
+  };
    
   let activeFormat = 'p-1 px-2 border-none mx-[3px] text-black bg-slate-200 hover:bg-slate-300 py-2';
   let inactiveFormat = 'py-1.5 px-2 border-none mx-[3px] bg-transparent text-black hover:bg-slate-200'
@@ -412,15 +435,15 @@ const Tiptap = ({content, readonly, formattingClass, propsClass, user, mongoid})
         <EditorContent editor={editor} className={`rounded-t-xl py-2 px-3 border-b-2 border-transparent ${formattingClass} ${bgColor}`} />
         <Tippy content={<>
             <div className='flex flex-col'>
-              <button className='bg-white border border-slate-200 p-2.5 hover:bg-transparent rounded-full m-1 border-solid' onClick={() => setBgColor('bg-white')}></button>
-              <button className='bg-red-500 border border-slate-200 p-2.5 hover:bg-red-500 rounded-full m-1 border-solid' onClick={() => setBgColor('bg-red-500')}></button>
-              <button className='bg-orange border border-slate-200 p-2.5 hover:bg-orange rounded-full m-1 border-solid' onClick={() => setBgColor('bg-orange')}></button>
-              <button className='bg-yellow border border-slate-200 p-2.5 hover:bg-yellow rounded-full m-1 border-solid' onClick={() => setBgColor('bg-yellow')}></button>
-              <button className='bg-green border border-slate-200 p-2.5 hover:bg-green rounded-full m-1 border-solid' onClick={() => setBgColor('bg-green')}></button>
-              <button className='bg-blue border border-slate-200 p-2.5 hover:bg-blue rounded-full m-1 border-solid' onClick={() => setBgColor('bg-blue')}></button>
-              <button className='bg-indigo-500 border border-slate-200 p-2.5 hover:bg-indigo-500 rounded-full m-1 border-solid' onClick={() => setBgColor('bg-indigo-500')}></button>
-              <button className='bg-purple border border-slate-200 p-2.5 hover:bg-purple rounded-full m-1 border-solid' onClick={() => setBgColor('bg-purple')}></button>
-              <button className='bg-black border border-slate-200 p-2.5 hover:bg-black rounded-full m-1 border-solid' onClick={() => setBgColor('bg-black')}></button>
+              <button className='bg-white border border-slate-200 p-2.5 hover:bg-transparent rounded-full m-1 border-solid' onClick={() => handleBgChange('bg-white')}></button>
+              <button className='bg-red-500 border border-slate-200 p-2.5 hover:bg-red-500 rounded-full m-1 border-solid' onClick={() => handleBgChange('bg-red-500')}></button>
+              <button className='bg-orange border border-slate-200 p-2.5 hover:bg-orange rounded-full m-1 border-solid' onClick={() => handleBgChange('bg-orange')}></button>
+              <button className='bg-yellow border border-slate-200 p-2.5 hover:bg-yellow rounded-full m-1 border-solid' onClick={() => handleBgChange('bg-yellow')}></button>
+              <button className='bg-green border border-slate-200 p-2.5 hover:bg-green rounded-full m-1 border-solid' onClick={() => handleBgChange('bg-green')}></button>
+              <button className='bg-blue border border-slate-200 p-2.5 hover:bg-blue rounded-full m-1 border-solid' onClick={() => handleBgChange('bg-blue')}></button>
+              <button className='bg-indigo-500 border border-slate-200 p-2.5 hover:bg-indigo-500 rounded-full m-1 border-solid' onClick={() => handleBgChange('bg-indigo-500')}></button>
+              <button className='bg-purple border border-slate-200 p-2.5 hover:bg-purple rounded-full m-1 border-solid' onClick={() => handleBgChange('bg-purple')}></button>
+              <button className='bg-black border border-slate-200 p-2.5 hover:bg-black rounded-full m-1 border-solid' onClick={() => handleBgChange('bg-black')}></button>
             </div>
           </>}
             className='bg-white p-[0.5px] shadow-md border border-slate-300 rounded-full'

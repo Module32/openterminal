@@ -102,7 +102,7 @@ export default function Index() {
                       <span className="text-primary">Design</span>
                     </TextLoop>{" "}
                       faster<br />than ever.</h1>
-                    <p className='font-medium text-gray-dark text-xl py-7'>Open Terminal builds tools that let creators do what they do best.<br />
+                    <p className={`font-medium text-gray-dark py-7 ${!isMobile && 'text-xl'}`}>Open Terminal builds tools that let creators do what they do best.<br />
                     Learning, developing, monitoring, prototyping — it’s all at OT.</p>
                     <h1 className="text-xl">
                       <Linker content='Get started for free' bgcolor='primary' hover='primary/75' color='white' href='/signup' classes='px-4' />
@@ -159,7 +159,7 @@ export default function Index() {
                       <div className='mr-1 text-right w-[85%] px-2 py-[2px] rounded-md bg-green text-white'>85%</div>
                       <div className='mr-1 text-left w-[15%] px-2 py-[2px] rounded-md bg-red-500 text-white'>15%</div>
                     </div>
-                    <p className='text-gray mt-2 flex lg:flex-row sm:flex-col items-center'>Ping logs <span className='lg:ml-auto'>Filter by <span className='p-[2px] px-1 rounded bg-slate-300 mono'>errors <FontAwesomeIcon icon={faCaretDown} /></span></span></p>
+                    <p className='text-gray mt-2 flex lg:flex-row sm:flex-col items-center'>Ping logs <span className='lg:ml-auto'>Filter by <span className='p-[2px] px-1 rounded bg-slate-200/50 border border-slate-300 mono'>errors <FontAwesomeIcon icon={faCaretDown} /></span></span></p>
                     <div className='border-b border-slate-300 p-2'><span className='text-gray mono mr-2 text-sm'>6.14.22</span> Response <span className='mono text-red-500'>500</span></div>
                   </div>
                 </div>}
@@ -273,7 +273,7 @@ export default function Index() {
                   {actionCards.map(card => {
                     return <div key={card.action} className='flex'>
                       <Link href={card.href}><a className='bg-slate-50 w-full shadow-md hover:shadow-xl transition hover:-translate-y-2 hover:scale-[1.03] mx-1 border h-fit pb-3 my-1 border-slate-300 rounded-lg p-2 px-4'>
-                        <div className={`flex ${isMobile && 'flex-col text-center'} flex-wrap items-center`}>
+                        <div className={`flex ${isMobile && 'flex-col'} flex-wrap items-center`}>
                           <div className='flex-1 flex'>
                             <img src={card.pic} width={35} height={35} className='bg-slate-100 p-1 mt-1 rounded-lg border border-slate-300' />
                             <p className='text-lg ml-2 leading-none'>

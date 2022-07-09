@@ -9,7 +9,7 @@ import Redirect from '../../components/Redirect'
 import { useState, useEffect } from 'react';
 import { convert } from 'html-to-text'
 
-export default function AugmentiveDashboard({ genouser, notes }) {
+export default function AugmentiveDashboard({ genouser, notes, usermsg }) {
     const { data: session, status } = useSession({
         required: true
     })
@@ -111,12 +111,13 @@ export default function AugmentiveDashboard({ genouser, notes }) {
 export async function getServerSideProps(context) {
     const { client } = await connectToDatabase();
     const session = await getSession(context);
-    let genouser;
+    let genouser, usermsg = null;
     let notes = [];
     if (!session) return {
         props: {
             genouser: null,
-            notes: null
+            notes: null,
+            usermsg: null
         }
     };
     const db = client.db('Genopi');
@@ -134,6 +135,7 @@ export async function getServerSideProps(context) {
                 starred: starred
             });
             genouser = { 'xp': xp, 'level': level, 'owned': owned };
+            usermsg = 'newUser'
         } else {
             genouser = user
         }
@@ -150,6 +152,7 @@ export async function getServerSideProps(context) {
         props: {
           genouser: JSON.parse(JSON.stringify(genouser)),
           notes: JSON.parse(JSON.stringify(notes)),
+          usermsg: JSON.parse(JSON.stringify(usermsg))
         },
     };
 }
