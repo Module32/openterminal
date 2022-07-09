@@ -63,7 +63,7 @@ export default function Footer() {
         </div>
         <div className='border-t border-slate-300 flex items-center py-3 mt-10 font-medium text-gray'>
           {Object.keys(quickLinks).map(function(key, index) {
-            return <Link href={quickLinks[key]}><a className='px-1 py-0.5 border border-slate-300 hover:bg-slate-200/75 rounded mr-1'>{key}</a></Link>
+            return <Link href={quickLinks[key]} key={index}><a className='px-1 py-0.5 border border-slate-300 hover:bg-slate-200/75 rounded mr-1'>{key}</a></Link>
           })}
           <div className='ml-auto'>
             <img src='/pics/logo.png' width={25} height={25} className='-translate-y-1 grayscale brightness-200 opacity-40' /> 
