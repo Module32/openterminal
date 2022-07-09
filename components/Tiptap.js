@@ -107,7 +107,7 @@ const Tiptap = ({content, readonly, formattingClass, propsClass, user, mongoid, 
           updateDoc: { content: html },
           apitoken: process.env.NEXT_PUBLIC_API_TOKEN
         }
-        fetch("http://localhost:3000/api/augmentive/note", {
+        fetch("https://openterminal.vercel.app/api/augmentive/note", {
           method: "PUT",
           body: JSON.stringify(body),
           headers: {
